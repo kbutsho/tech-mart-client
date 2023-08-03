@@ -22,6 +22,7 @@
 .form_area {
     padding: 20px;
     min-height: 75vh;
+    background-color: #ffffff;
 }
 
 @media screen and (max-width: 992px) {
