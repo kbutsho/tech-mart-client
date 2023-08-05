@@ -11,22 +11,22 @@ import favorite from '@/assets/navbar/favourite.png'
 const Home = ({ data }) => {
   return (
     <div className='container' >
-      <div className="search_area py-2">
-        <div className="container">
-          <div className="row">
-            <div className="col-md-11 col-9">
-              <form className={`d-flex align-items-center`}>
-                <input type="text" placeholder='search products' className={`form-control w-100 ${styles.search_input}`} />
-                <BsSearch size="26px" style={{ marginLeft: "-50px" }} type='submit' />
-              </form>
-            </div>
-            <div className="col-md-1 col-3">
-              <div className={`${styles.cart_area} d-flex justify-content-between pt-1`}>
-                <Image className="nav-link" src={favorite} height={36} width={36} alt="img" />
-                <Image className="nav-link" src={cart} height={36} width={36} alt="img" />
-              </div>
+      <div className={`${styles.search_area} container py-2`}>
+
+        <div className="row">
+          <div className="col-md-11 col-9">
+            <form className={`d-flex align-items-center`}>
+              <input type="text" placeholder='search products' className={`form-control w-100 ${styles.search_input}`} />
+              <BsSearch size="26px" style={{ marginLeft: "-50px" }} type='submit' />
+            </form>
+          </div>
+          <div className="col-md-1 col-3">
+            <div className={`${styles.cart_area} d-flex justify-content-end pt-1`}>
+              <Image className="nav-link me-2" src={favorite} height={36} width={36} alt="img" />
+              <Image className="nav-link" src={cart} height={36} width={36} alt="img" />
             </div>
           </div>
+
         </div>
       </div>
       <div className="banner-area py-4">

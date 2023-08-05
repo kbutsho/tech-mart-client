@@ -11,15 +11,14 @@ function Navbar() {
                     <Link className="navbar-brand fw-bold text-white" href="/">
                         <Image src={logo} height={40} width={120} alt="img" />
                     </Link>
-                    <button className="navbar-toggler"
-                        type="button"
+                    <span className="navbar-toggler"
                         aria-expanded="false"
                         data-bs-toggle="collapse"
                         data-bs-target="#navbarNavAltMarkup"
                         aria-controls="navbarNavAltMarkup"
                         aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
-                    </button>
+                    </span>
                     <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
                         <div className={`navbar-nav ms-auto text-uppercase fw-bold align-items-center ${styles.nav_items}`}>
                             <Link className={`nav-link`} href="/">Phone</Link>
