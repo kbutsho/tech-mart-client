@@ -29,10 +29,10 @@ const Home = ({ data }) => {
 
         </div>
       </div>
-      <div className="banner-area py-4">
+      <div className="banner_area py-4">
         <Banner />
       </div>
-      <div className="category-area py-4">
+      <div className={`${styles.category_area}`}>
         <h5 className='fw-bold text-uppercase'>Featured categories</h5>
         <hr />
         <div className="row">
