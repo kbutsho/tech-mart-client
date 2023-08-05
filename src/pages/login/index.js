@@ -13,20 +13,23 @@ const Login = () => {
                         <Image src={login} width={720} height={520} alt="img" className={styles.image} />
                     </div>
                     <div className={`${styles.form_area}`}>
-                        <h4 className='text-primary mb-4 text-uppercase fw-bold'>Login here</h4>
-                        <div>
+                        <div className='w-100'>
+                            <h4 className='text-primary mb-4 text-uppercase fw-bold'>Login here</h4>
                             <form>
                                 <div className="form-group mb-3">
                                     <label className='mb-1'>Email</label>
                                     <input type="text" placeholder='Enter email' className='form-control' />
+                                    <small className='fw-bold text-danger'>email is required!</small>
                                 </div>
 
                                 <div className="form-group mb-4">
                                     <label className='mb-1'>Password</label>
                                     <input type="text" placeholder='Type password' className='form-control mb-1' />
-                                    <small><a href='/'>forget password?</a></small>
+                                    <small className='fw-bold text-danger'>password is required!</small>
+                                    <div>
+                                        <small><a href='/'>forget password?</a></small>
+                                    </div>
                                 </div>
-
                                 <input type="submit" className='btn btn-primary w-100 mb-2' value="LOGIN" />
                             </form>
                             <div className='d-flex justify-content-center align-items-center mb-2'>
