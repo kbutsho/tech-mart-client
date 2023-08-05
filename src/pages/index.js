@@ -6,7 +6,6 @@ import Image from 'next/image';
 import React from 'react';
 import { BsSearch } from 'react-icons/bs'
 const Home = ({ data }) => {
-  console.log(data)
   return (
 
     <div className='container' >
@@ -22,7 +21,7 @@ const Home = ({ data }) => {
         <Banner />
       </div>
       <div className="category-area py-4">
-        <h5 className='fw-bold text-uppercase'>Featured category</h5>
+        <h5 className='fw-bold text-uppercase'>Featured categories</h5>
         <hr />
         <div className="row">
           {
