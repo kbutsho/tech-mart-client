@@ -3,3 +3,19 @@
     border: 1px solid rgb(255, 115, 0);
     border-radius: 50px;
 }
+
+.category_card {
+    height: 120px;
+    margin: 10px 0;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.category_card:hover {
+    box-shadow: rgba(0, 0, 0, 0.5) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 1px 3px 3px 3px;
+}
