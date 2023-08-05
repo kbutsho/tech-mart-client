@@ -14,15 +14,17 @@ const Home = ({ data }) => {
       <div className="search_area py-2">
 
         <div className="row">
-          <div className="col-10">
+          <div className="col-9">
             <form className={`d-flex align-items-center`}>
               <input type="text" placeholder='search for products' className={`form-control w-100 ${styles.search_input}`} />
               <BsSearch size="30px" style={{ marginLeft: "-50px" }} type='submit' />
             </form>
           </div>
-          <div className="col-2 d-flex justify-content-around">
-            <Image className="nav-link" src={favorite} height={40} width={40} alt="img" />
-            <Image className="nav-link" src={cart} height={40} width={40} alt="img" />
+          <div className="col-3">
+            <div className={`${styles.cart_area} d-flex justify-content-around`}>
+              <Image className="nav-link" src={favorite} height={40} width={40} alt="img" />
+              <Image className="nav-link" src={cart} height={40} width={40} alt="img" />
+            </div>
           </div>
         </div>
 
