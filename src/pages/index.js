@@ -5,15 +5,26 @@ import styles from '@/styles/Home.module.css'
 import Image from 'next/image';
 import React from 'react';
 import { BsSearch } from 'react-icons/bs'
+import cart from '@/assets/navbar/cart.png'
+import favorite from '@/assets/navbar/favourite.png'
+
 const Home = ({ data }) => {
   return (
-
     <div className='container' >
-      <div className="search_area py-4">
-        <form className={`d-flex align-items-center`}>
-          <input type="text" placeholder='search for products' className={`form-control w-100 ${styles.search_input}`} />
-          <BsSearch size="30px" style={{ marginLeft: "-50px" }} type='submit' />
-        </form>
+      <div className="search_area py-2">
+
+        <div className="row">
+          <div className="col-10">
+            <form className={`d-flex align-items-center`}>
+              <input type="text" placeholder='search for products' className={`form-control w-100 ${styles.search_input}`} />
+              <BsSearch size="30px" style={{ marginLeft: "-50px" }} type='submit' />
+            </form>
+          </div>
+          <div className="col-2 d-flex justify-content-around">
+            <Image className="nav-link" src={favorite} height={40} width={40} alt="img" />
+            <Image className="nav-link" src={cart} height={40} width={40} alt="img" />
+          </div>
+        </div>
 
 
       </div>

@@ -2,8 +2,6 @@ import Link from "next/link";
 import styles from '@/styles/Navbar.module.css'
 import Image from "next/image";
 import logo from '@/assets/navbar/logo.png'
-import cart from '@/assets/navbar/cart.png'
-import favorite from '@/assets/navbar/favourite.png'
 
 function Navbar() {
     return (
@@ -36,8 +34,6 @@ function Navbar() {
                             <Link className="nav-link" href="/">Gadgets</Link>
                             <Link className="nav-link" href="/login">Login</Link>
                             <Link className="nav-link" href="/">Retailer Request</Link>
-                            <Image className="nav-link" src={favorite} height={40} width={40} alt="img" />
-                            <Image className="nav-link" src={cart} height={40} width={40} alt="img" />
                         </div>
                     </div>
                 </div>
