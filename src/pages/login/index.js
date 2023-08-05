@@ -19,13 +19,13 @@ const Login = () => {
                                 <div className="form-group mb-3">
                                     <label className='mb-1'>Email</label>
                                     <input type="text" placeholder='Enter email' className='form-control' />
-                                    <small className='fw-bold text-danger'>email is required!</small>
+                                    {/* <small className='fw-bold text-danger'>email is required!</small> */}
                                 </div>
 
                                 <div className="form-group mb-4">
                                     <label className='mb-1'>Password</label>
                                     <input type="text" placeholder='Type password' className='form-control mb-1' />
-                                    <small className='fw-bold text-danger'>password is required!</small>
+                                    {/* <small className='fw-bold text-danger'>password is required!</small> */}
                                     <div>
                                         <small><a href='/'>forget password?</a></small>
                                     </div>
@@ -39,7 +39,7 @@ const Login = () => {
                                 <span>continue with google</span>
                                 <Image src={google} width={20} height={20} alt="img" />
                             </button>
-                            <small>don't have an account? <a href="/">signup here</a></small>
+                            <small>don't have an account? <a href="/signup">signup here</a></small>
                         </div>
                     </div>
                 </div>
