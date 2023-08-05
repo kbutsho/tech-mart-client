@@ -5,7 +5,7 @@ import styles from '@/styles/Home.module.css'
 const Category = (props) => {
     const { name, coverPhoto } = props.category
     return (
-        <div className="col-md-2 col-sm-6">
+        <div className="col-md-2 col-sm-6 col-6">
             <div className={`${styles.category_card}`}>
                 <div className="text-center">
                     <Image className="mt-2" src={coverPhoto} height={50} width={50} alt="image"></Image>
