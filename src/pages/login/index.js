@@ -2,6 +2,8 @@ import styles from '@/styles/Login.module.css'
 import Image from 'next/image';
 import React from 'react';
 import login from '@/assets/login/login-main.png'
+import google from '@/assets/login/google.png'
+
 const Login = () => {
     return (
         <div className={styles.login_area}>
@@ -11,6 +13,31 @@ const Login = () => {
                         <Image src={login} width={720} height={520} alt="img" className={styles.image} />
                     </div>
                     <div className={`${styles.form_area}`}>
+                        <h4 className='text-primary mb-4 text-uppercase fw-bold'>Login here</h4>
+                        <div>
+                            <form>
+                                <div className="form-group mb-3">
+                                    <label className='mb-1'>Email</label>
+                                    <input type="text" placeholder='Enter email' className='form-control' />
+                                </div>
+
+                                <div className="form-group mb-4">
+                                    <label className='mb-1'>Password</label>
+                                    <input type="text" placeholder='Type password' className='form-control mb-1' />
+                                    <small><a href='/'>forget password?</a></small>
+                                </div>
+
+                                <input type="submit" className='btn btn-primary w-100 mb-2' value="LOGIN" />
+                            </form>
+                            <div className='d-flex justify-content-center align-items-center mb-2'>
+                                <hr /> <span className='mx-2'>or</span> <hr />
+                            </div>
+                            <button className='btn btn-outline-success w-100 mb-3 d-flex justify-content-around align-items-center'>
+                                <span>continue with google</span>
+                                <Image src={google} width={20} height={20} alt="img" />
+                            </button>
+                            <small>don't have an account? <a href="/">signup here</a></small>
+                        </div>
                     </div>
                 </div>
             </div>

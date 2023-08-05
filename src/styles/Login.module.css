@@ -18,9 +18,16 @@
 
 .form_area {
     border-radius: 10px;
-    padding: 20px;
+    padding: 50px 20px;
     width: 100%;
     background-color: #ffffff;
+}
+.form_area a {
+    text-decoration: none;
+}
+.form_area hr {
+    border: 1px solid black;
+    width: 100%
 }
 
 @media screen and (max-width: 992px) {
