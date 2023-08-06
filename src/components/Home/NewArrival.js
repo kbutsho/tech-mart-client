@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from '@/styles/home/product.module.css'
 import Image from 'next/image';
-import { BsStarFill, BsStarHalf } from 'react-icons/bs';
+import { BsStar, BsStarFill, BsStarHalf } from 'react-icons/bs';
 import { AiOutlineHeart, AiOutlineShoppingCart } from 'react-icons/ai'
 
 const NewArrival = (props) => {
@@ -11,10 +11,10 @@ const NewArrival = (props) => {
         const hasHalfStar = rating % 1 > 0;
         const stars = [];
         for (let i = 0; i < fullStars; i++) {
-            stars.push(<BsStarFill key={`full-star-${i}`} className={`${styles.star_icon} ms-1 mb-1`} color='#FAC508' />);
+            stars.push(<BsStarFill key={`full-star-${i}`} className={`${styles.star_icon}`} color='#FAC508' />);
         }
         if (hasHalfStar) {
-            stars.push(<BsStarHalf key='half-star' className={`${styles.star_icon} ms-1 mb-1`} color='#FAC508' />);
+            stars.push(<BsStarHalf key='half-star' className={`${styles.star_icon}`} color='#FAC508' />);
         }
         return stars;
     };
@@ -35,13 +35,13 @@ const NewArrival = (props) => {
                 <div className='mt-3 d-flex justify-content-between'>
                     <div className="rating col-">
                         {
-                            rating === 0 ? null : <small className='fw-bold'>{renderRatingStars()}</small>
+                            rating === 0 ? <small><span className={styles.rating}>0</span> <BsStar className={`${styles.star_icon}`} /></small> : <small><span className={styles.rating}>{rating}</span>{renderRatingStars()}</small>
                         }
                     </div>
 
                     <div>
-                        <AiOutlineHeart className={`${styles.icon} me-1`} color="#FAC508" style={{ cursor: "pointer" }} />
-                        <AiOutlineShoppingCart className={`${styles.icon}`} color="#FAC508" style={{ cursor: "pointer" }} />
+                        <AiOutlineHeart className={`${styles.icon} me-1`} />
+                        <AiOutlineShoppingCart className={`${styles.icon}`} />
                     </div>
                 </div>
             </div>
