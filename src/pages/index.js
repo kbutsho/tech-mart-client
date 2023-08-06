@@ -101,9 +101,11 @@ const Home = ({ data }) => {
       <div className={`${styles.new_arrival_area} my-5`}>
         <h5 className='fw-bold text-uppercase'>New arrival</h5>
         <hr />
-        {
-          data.productData.data.map((newArrival) => <NewArrival key={newArrival._id} newArrival={newArrival} />)
-        }
+        <div className="row">
+          {
+            data.productData.data.map((newArrival) => <NewArrival key={newArrival._id} newArrival={newArrival} />)
+          }
+        </div>
       </div>
 
     </div>
