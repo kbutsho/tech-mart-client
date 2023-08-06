@@ -26,11 +26,14 @@ function Navbar() {
                             <Link className="nav-link" href="/">Watch</Link>
                             <Link className="nav-link" href="/">Earphone</Link>
                             <Link className="nav-link" href="/">Charger</Link>
-                            <Link className="nav-link" href="/">power Bank</Link>
+                            {/* <Link className="nav-link" href="/">power Bank</Link> */}
                             <Link className="nav-link" href="/">Camera</Link>
                             <Link className="nav-link" href="/">Television</Link>
                             <Link className="nav-link" href="/">Monitor</Link>
-                            <Link className="nav-link" href="/">Gadgets</Link>
+                            {/* <Link className="nav-link" href="/">Gadgets</Link> */}
+                            <Link className="nav-link" href="/">All Products</Link>
+                            <Link className="nav-link" href="/">Brands</Link>
+                            <Link className="nav-link" href="/">Dashboard</Link>
                             <Link className="nav-link" href="/login">Login</Link>
                             <Link className="nav-link" href="/">Retailer Request</Link>
                         </div>
