@@ -14,7 +14,9 @@ import NewArrival from '@/components/Home/NewArrival';
 import TopSelling from '@/components/Home/TopSelling';
 import topSellingBanner from '@/assets/home/topSelling.png'
 import newArrivalBanner from '@/assets/home/newArrival.png'
+import phoneCategoryBanner from '@/assets/home/phone.jpeg'
 import Link from 'next/link';
+import PhoneCategory from '@/components/Home/PhoneCategory';
 
 const Home = ({ data }) => {
 
@@ -79,12 +81,12 @@ const Home = ({ data }) => {
       </div>
 
       {/* banner area */}
-      <div className={`${styles.banner_area} mb-5 mt-4`}>
+      <div className={`${styles.banner_area} my-4`}>
         <Banner />
       </div>
 
       {/* category area */}
-      <div className={`${styles.category_area} my-5`}>
+      <div className={`${styles.category_area} my-4`}>
         <h5 className='fw-bold text-uppercase'>Featured categories</h5>
         <hr />
         <div className="row">
@@ -95,7 +97,7 @@ const Home = ({ data }) => {
       </div>
 
       {/* brand area */}
-      <div className={`${styles.brand_area} my-5`}>
+      <div className={`${styles.brand_area} my-4`}>
         <h5 className='fw-bold text-uppercase'>popular brand</h5>
         <hr />
         <Slide scale={0.4}
@@ -115,8 +117,8 @@ const Home = ({ data }) => {
       </div>
 
       {/* new arrival */}
-      <Link href="/"><Image src={newArrivalBanner} layout='responsive' height={100} width={100} alt="img" /></Link>
-      <div className={`${styles.new_arrival_area} my-5`}>
+      <Link href="/"><Image src={newArrivalBanner} layout='responsive' height={100} width={100} alt="img" className={styles.bannerImage} /></Link>
+      <div className={`${styles.new_arrival_area} my-4`}>
         <h5 className='fw-bold text-uppercase'>New arrival</h5>
         <hr />
         <div className="row">
@@ -127,13 +129,25 @@ const Home = ({ data }) => {
       </div>
 
       {/* top selling */}
-      <Link href="/"><Image src={topSellingBanner} layout='responsive' height={100} width={100} alt="img" /></Link>
-      <div className={`${styles.top_selling_area} my-5`}>
+      <Link href="/"><Image src={topSellingBanner} layout='responsive' height={100} width={100} alt="img" className={styles.bannerImage} /></Link>
+      <div className={`${styles.top_selling_area} my-4`}>
         <h5 className='fw-bold text-uppercase'>top selling</h5>
         <hr />
         <div className="row">
           {
             data.topSelling.data.slice(0, 12).map((topSelling) => <TopSelling key={topSelling._id} topSelling={topSelling} />)
+          }
+        </div>
+      </div>
+
+      {/* phone category*/}
+      <Link href="/"><Image src={phoneCategoryBanner} layout='responsive' height={100} width={100} alt="img" className={styles.bannerImage} /></Link>
+      <div className={`${styles.top_selling_area} my-4`}>
+        <h5 className='fw-bold text-uppercase'>Smart Phones</h5>
+        <hr />
+        <div className="row">
+          {
+            data.phoneCategory.data.slice(0, 12).map((phone) => <PhoneCategory key={phone._id} phone={phone} />)
           }
         </div>
       </div>
@@ -152,15 +166,17 @@ export const getServerSideProps = async () => {
   const brandResponse = await fetch("https://tech-mart-server.vercel.app/api/brands");
   const newArrivalResponse = await fetch("https://tech-mart-server.vercel.app/api/products?sortBy=createdAt&sortOrder=desc");
   const topSellingResponse = await fetch("https://tech-mart-server.vercel.app/api/products?sortBy=sellCount");
+  const phoneCategoryResponse = await fetch("https://tech-mart-server.vercel.app/api/products?category=phone");
 
   const categories = await categoryResponse.json();
   const brands = await brandResponse.json();
   const newArrival = await newArrivalResponse.json();
   const topSelling = await topSellingResponse.json();
+  const phoneCategory = await phoneCategoryResponse.json();
   return {
     props: {
       data: {
-        categories, brands, newArrival, topSelling
+        categories, brands, newArrival, topSelling, phoneCategory
       }
     }
   };

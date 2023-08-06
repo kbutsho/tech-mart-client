@@ -13,6 +13,7 @@ import banner10 from '@/assets/home/banner/banner10.jpeg'
 import banner11 from '@/assets/home/banner/banner11.jpeg'
 import banner12 from '@/assets/home/banner/banner12.jpeg'
 import banner13 from '@/assets/home/banner/banner13.jpeg'
+import styles from '@/styles/home/index.module.css'
 
 const Banner = () => {
     return (
@@ -20,55 +21,55 @@ const Banner = () => {
             <Carousel controls={false} indicators interval={2500} pause={false}>
                 <Carousel.Item>
                     <Image src={banner1} width={988}
-                        height={344} priority={true} className="d-block w-100" alt="img" style={{ borderRadius: "10px", height: "auto" }} />
+                        height={344} priority={true} className={`${styles.bannerImage} d-block w-100`} alt="img" />
                 </Carousel.Item>
                 <Carousel.Item>
                     <Image src={banner2} width={988}
-                        height={344} priority={true} className="d-block w-100" alt="img" style={{ borderRadius: "10px", height: "auto" }} />
+                        height={344} priority={true} className={`${styles.bannerImage} d-block w-100`} alt="img" />
                 </Carousel.Item>
                 <Carousel.Item>
                     <Image src={banner3} width={988}
-                        height={344} priority={true} className="d-block w-100" alt="img" style={{ borderRadius: "10px", height: "auto" }} />
+                        height={344} priority={true} className={`${styles.bannerImage} d-block w-100`} alt="img" />
                 </Carousel.Item>
                 <Carousel.Item>
                     <Image src={banner4} width={988}
-                        height={344} priority={true} className="d-block w-100" alt="img" style={{ borderRadius: "10px", height: "auto" }} />
+                        height={344} priority={true} className={`${styles.bannerImage} d-block w-100`} alt="img" />
                 </Carousel.Item>
                 <Carousel.Item>
                     <Image src={banner5} width={988}
-                        height={344} priority={true} className="d-block w-100" alt="img" style={{ borderRadius: "10px", height: "auto" }} />
+                        height={344} priority={true} className={`${styles.bannerImage} d-block w-100`} alt="img" />
                 </Carousel.Item>
                 <Carousel.Item>
                     <Image src={banner6} width={988}
-                        height={344} priority={true} className="d-block w-100" alt="img" style={{ borderRadius: "10px", height: "auto" }} />
+                        height={344} priority={true} className={`${styles.bannerImage} d-block w-100`} alt="img" />
                 </Carousel.Item>
                 <Carousel.Item>
                     <Image src={banner7} width={988}
-                        height={344} priority={true} className="d-block w-100" alt="img" style={{ borderRadius: "10px", height: "auto" }} />
+                        height={344} priority={true} className={`${styles.bannerImage} d-block w-100`} alt="img" />
                 </Carousel.Item>
                 <Carousel.Item>
                     <Image src={banner8} width={988}
-                        height={344} priority={true} className="d-block w-100" alt="img" style={{ borderRadius: "10px", height: "auto" }} />
+                        height={344} priority={true} className={`${styles.bannerImage} d-block w-100`} alt="img" />
                 </Carousel.Item>
                 <Carousel.Item>
                     <Image src={banner9} width={988}
-                        height={344} priority={true} className="d-block w-100" alt="img" style={{ borderRadius: "10px", height: "auto" }} />
+                        height={344} priority={true} className={`${styles.bannerImage} d-block w-100`} alt="img" />
                 </Carousel.Item>
                 <Carousel.Item>
                     <Image src={banner10} width={988}
-                        height={344} priority={true} className="d-block w-100" alt="img" style={{ borderRadius: "10px", height: "auto" }} />
+                        height={344} priority={true} className={`${styles.bannerImage} d-block w-100`} alt="img" />
                 </Carousel.Item>
                 <Carousel.Item>
                     <Image src={banner11} width={988}
-                        height={344} priority={true} className="d-block w-100" alt="img" style={{ borderRadius: "10px", height: "auto" }} />
+                        height={344} priority={true} className={`${styles.bannerImage} d-block w-100`} alt="img" />
                 </Carousel.Item>
                 <Carousel.Item>
                     <Image src={banner12} width={988}
-                        height={344} priority={true} className="d-block w-100" alt="img" style={{ borderRadius: "10px", height: "auto" }} />
+                        height={344} priority={true} className={`${styles.bannerImage} d-block w-100`} alt="img" />
                 </Carousel.Item>
                 <Carousel.Item>
                     <Image src={banner13} width={988}
-                        height={344} priority={true} className="d-block w-100" alt="img" style={{ borderRadius: "10px", height: "auto" }} />
+                        height={344} priority={true} className={`${styles.bannerImage} d-block w-100`} alt="img" />
                 </Carousel.Item>
             </Carousel>
         </div>

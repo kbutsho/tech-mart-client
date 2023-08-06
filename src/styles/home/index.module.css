@@ -8,13 +8,20 @@
     border-radius: 5px;
 }
 
-/* .category_area {
-    background-color: #F3F3F3;
-    padding: 16px 16px 10px 16px;
-    border-radius: 5px;
-} */
 .brand_area {
     background-color: #F3F3F3;
     padding: 16px;
     border-radius: 5px;
+}
+
+.bannerImage {
+    border-radius: 10px;
+    height: auto;
+}
+
+@media screen and (max-width: 468px) {
+    .bannerImage {
+        border-radius: 5px;
+    }
+
 }
