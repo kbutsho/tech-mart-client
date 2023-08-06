@@ -1,5 +1,6 @@
 .category_card {
     height: 120px;
+    width: auto;
     margin: 12px 0;
     border-radius: 10px;
     background-color: #ffffff;

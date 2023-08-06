@@ -47,7 +47,7 @@ const Home = ({ data }) => {
     {
       breakpoint: 300,
       settings: {
-        slidesToShow: 2,
+        slidesToShow: 4,
         slidesToScroll: 1
       }
     }
@@ -117,7 +117,7 @@ const Home = ({ data }) => {
         <hr />
         <div className="row">
           {
-            data.productData.data.map((newArrival) => <NewArrival key={newArrival._id} newArrival={newArrival} />)
+            data.productData.data.slice(0, 12).map((newArrival) => <NewArrival key={newArrival._id} newArrival={newArrival} />)
           }
         </div>
       </div>
