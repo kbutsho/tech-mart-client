@@ -27,7 +27,7 @@
     font-weight: bold;
     padding: 3px 8px;
     color: white;
-    border-radius: 5px;
+    border-radius: 3px;
     position: absolute;
     top: 0px;
     left: 0px;
@@ -48,7 +48,7 @@
 }
 
 .product_card .discount_price {
-    color: red;
+    color: #F29120;
     font-weight: bold;
 }
 
@@ -89,7 +89,7 @@
 .product_card .not_in_stock {
     font-size: 13px;
     font-weight: bold;
-    color: red;
+    color: #F29120;
     background-color: #f3f3f3;
     padding: 4px;
     border-radius: 3px;
