@@ -9,6 +9,7 @@
     align-items: center;
     transition: 0.3s;
     cursor: pointer;
+    padding: 36px;
 }
 
 .brand_card:hover {
@@ -19,7 +20,7 @@
     .brand_card {
         height: 80px;
         margin: 3px 5px;
-        padding: 0px;
+        padding: 2px;
         box-shadow: none;
         border-radius: 5px;
     }

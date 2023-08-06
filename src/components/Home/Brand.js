@@ -5,7 +5,7 @@ const Brand = (props) => {
     return (
         <div className={`${styles.brand_card}`}>
             <div className="text-center">
-                <Image className={`mt-2 ${styles.brand_image}`} src={coverPhoto} height={55} width={105}  alt="image" />
+                <Image className={`mt-2 ${styles.brand_image}`} src={coverPhoto} height={55} width={105} layout='responsive' alt="image" />
             </div>
         </div>
     );
