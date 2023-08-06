@@ -10,8 +10,10 @@ import favorite from '@/assets/navbar/favourite.png'
 import Brand from '@/components/Home/Brand';
 import { Slide } from 'react-slideshow-image';
 import 'react-slideshow-image/dist/styles.css';
+import NewArrival from '@/components/Home/NewArrival';
 
 const Home = ({ data }) => {
+
   const slideRef = useRef()
   const responsiveSettings = [
     {
@@ -38,7 +40,9 @@ const Home = ({ data }) => {
   ];
 
   return (
-    <div className='container' >
+    <div className='container'>
+
+      {/* product search */}
       <div className={`${styles.search_area} container py-2`}>
         <div className="row">
           <div className="col-md-11 col-9">
@@ -57,10 +61,12 @@ const Home = ({ data }) => {
         </div>
       </div>
 
-      <div className={`banner_area mb-5 mt-4`}>
+      {/* banner area */}
+      <div className={`${styles.banner_area} mb-5 mt-4`}>
         <Banner />
       </div>
 
+      {/* category area */}
       <div className={`${styles.category_area} my-5`}>
         <h5 className='fw-bold text-uppercase'>Featured categories</h5>
         <hr />
@@ -71,6 +77,7 @@ const Home = ({ data }) => {
         </div>
       </div>
 
+      {/* brand area */}
       <div className={`${styles.brand_area} my-5`}>
         <h5 className='fw-bold text-uppercase'>popular brand</h5>
         <hr />
@@ -90,6 +97,15 @@ const Home = ({ data }) => {
         </Slide>
       </div>
 
+      {/* new arrival */}
+      <div className={`${styles.new_arrival_area} my-5`}>
+        <h5 className='fw-bold text-uppercase'>New arrival</h5>
+        <hr />
+        {
+          data.productData.data.map((newArrival) => <NewArrival key={newArrival._id} newArrival={newArrival} />)
+        }
+      </div>
+
     </div>
   );
 };
@@ -102,12 +118,14 @@ Home.getLayout = function getLayout(page) {
 export const getServerSideProps = async () => {
   const categories = await fetch("https://tech-mart-server.vercel.app/api/categories");
   const brands = await fetch("https://tech-mart-server.vercel.app/api/brands");
+  const products = await fetch("https://tech-mart-server.vercel.app/api/products");
   const categoryData = await categories.json();
   const brandData = await brands.json();
+  const productData = await products.json();
   return {
     props: {
       data: {
-        categoryData, brandData
+        categoryData, brandData, productData
       }
     }
   };

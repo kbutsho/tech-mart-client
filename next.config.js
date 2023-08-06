@@ -2,7 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ["cdn-icons-png.flaticon.com", "www.mobiledokan.com"]
+    domains: ["cdn-icons-png.flaticon.com", "www.mobiledokan.com", "gadgetandgear.com", "static.gadgetandgear.com"]
   }
 }
 
