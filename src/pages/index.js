@@ -15,8 +15,10 @@ import TopSelling from '@/components/Home/TopSelling';
 import topSellingBanner from '@/assets/home/topSelling.png'
 import newArrivalBanner from '@/assets/home/newArrival.png'
 import phoneCategoryBanner from '@/assets/home/phone.jpeg'
+import watchCategoryBanner from '@/assets/home/watch.jpeg'
 import Link from 'next/link';
 import PhoneCategory from '@/components/Home/PhoneCategory';
+import WatchCategory from '@/components/Home/WatchCategory';
 
 const Home = ({ data }) => {
 
@@ -81,12 +83,12 @@ const Home = ({ data }) => {
       </div>
 
       {/* banner area */}
-      <div className={`${styles.banner_area} my-4`}>
+      <div className={`${styles.banner_area} mt-4 mb-5`}>
         <Banner />
       </div>
 
       {/* category area */}
-      <div className={`${styles.category_area} my-4`}>
+      <div className={`${styles.category_area} my-5`}>
         <h5 className='fw-bold text-uppercase'>Featured categories</h5>
         <hr />
         <div className="row">
@@ -97,7 +99,7 @@ const Home = ({ data }) => {
       </div>
 
       {/* brand area */}
-      <div className={`${styles.brand_area} my-4`}>
+      <div className={`${styles.brand_area} my-5`}>
         <h5 className='fw-bold text-uppercase'>popular brand</h5>
         <hr />
         <Slide scale={0.4}
@@ -118,7 +120,7 @@ const Home = ({ data }) => {
 
       {/* new arrival */}
       <Link href="/"><Image src={newArrivalBanner} layout='responsive' height={100} width={100} alt="img" className={styles.bannerImage} /></Link>
-      <div className={`${styles.new_arrival_area} my-4`}>
+      <div className={`${styles.new_arrival_area} my-5`}>
         <h5 className='fw-bold text-uppercase'>New arrival</h5>
         <hr />
         <div className="row">
@@ -130,7 +132,7 @@ const Home = ({ data }) => {
 
       {/* top selling */}
       <Link href="/"><Image src={topSellingBanner} layout='responsive' height={100} width={100} alt="img" className={styles.bannerImage} /></Link>
-      <div className={`${styles.top_selling_area} my-4`}>
+      <div className={`${styles.top_selling_area} my-5`}>
         <h5 className='fw-bold text-uppercase'>top selling</h5>
         <hr />
         <div className="row">
@@ -142,12 +144,30 @@ const Home = ({ data }) => {
 
       {/* phone category*/}
       <Link href="/"><Image src={phoneCategoryBanner} layout='responsive' height={100} width={100} alt="img" className={styles.bannerImage} /></Link>
-      <div className={`${styles.top_selling_area} my-4`}>
-        <h5 className='fw-bold text-uppercase'>Smart Phones</h5>
+      <div className={`${styles.phone_category_area} my-5`}>
+        <div className='d-flex justify-content-between align-items-center'>
+          <h5 className='fw-bold text-uppercase mt-2'>Smart Phones</h5>
+          <button className='btn btn-primary btn-sm px-3 fw-bold'>view all</button>
+        </div>
         <hr />
         <div className="row">
           {
             data.phoneCategory.data.slice(0, 12).map((phone) => <PhoneCategory key={phone._id} phone={phone} />)
+          }
+        </div>
+      </div>
+
+      {/* watch category */}
+      <Link href="/"><Image src={watchCategoryBanner} layout='responsive' height={100} width={100} alt="img" className={styles.bannerImage} /></Link>
+      <div className={`${styles.watch_category_area} my-5`}>
+        <div className='d-flex justify-content-between align-items-center'>
+          <h5 className='fw-bold text-uppercase mt-2'>Smart watch</h5>
+          <button className='btn btn-primary btn-sm px-3 fw-bold'>view all</button>
+        </div>
+        <hr />
+        <div className="row">
+          {
+            data.watchCategory.data.slice(0, 12).map((watch) => <WatchCategory key={watch._id} watch={watch} />)
           }
         </div>
       </div>
@@ -167,16 +187,18 @@ export const getServerSideProps = async () => {
   const newArrivalResponse = await fetch("https://tech-mart-server.vercel.app/api/products?sortBy=createdAt&sortOrder=desc");
   const topSellingResponse = await fetch("https://tech-mart-server.vercel.app/api/products?sortBy=sellCount");
   const phoneCategoryResponse = await fetch("https://tech-mart-server.vercel.app/api/products?category=phone");
+  const watchCategoryResponse = await fetch("https://tech-mart-server.vercel.app/api/products?category=watch");
 
   const categories = await categoryResponse.json();
   const brands = await brandResponse.json();
   const newArrival = await newArrivalResponse.json();
   const topSelling = await topSellingResponse.json();
   const phoneCategory = await phoneCategoryResponse.json();
+  const watchCategory = await watchCategoryResponse.json();
   return {
     props: {
       data: {
-        categories, brands, newArrival, topSelling, phoneCategory
+        categories, brands, newArrival, topSelling, phoneCategory, watchCategory
       }
     }
   };
