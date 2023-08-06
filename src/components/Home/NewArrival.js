@@ -39,9 +39,9 @@ const NewArrival = (props) => {
                         }
                     </div>
 
-                    <div className={`${styles.favourite_cart}`}>
-                        <AiOutlineHeart className={`${styles.icon} me-2`} color="#FAC508" style={{ cursor: "pointer" }} />
-                        <AiOutlineShoppingCart className={`${styles.icon} me-2`} color="#FAC508" style={{ cursor: "pointer" }} />
+                    <div>
+                        <AiOutlineHeart className={`${styles.icon} me-1`} color="#FAC508" style={{ cursor: "pointer" }} />
+                        <AiOutlineShoppingCart className={`${styles.icon}`} color="#FAC508" style={{ cursor: "pointer" }} />
                     </div>
                 </div>
             </div>
