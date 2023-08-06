@@ -20,9 +20,10 @@
         height: 60px;
         margin: 5px;
         padding: 0 6px;
+        box-shadow: none;
         /* border-radius: 10px;
         background-color: #ffffff;
-        box-shadow: rgba(0, 0, 0, 0.2) 1px 1px 4px 1px;
+
         display: flex;
         justify-content: center;
         align-items: center;
