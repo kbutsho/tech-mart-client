@@ -20,8 +20,28 @@
     text-overflow: ellipsis;
 }
 
+.product_card .icon {
+    font-size: 24px;
+}
+
+.product_card .star_icon {
+    font-size: 13px;
+}
+
+
 @media screen and (max-width: 468px) {
-    .product_card .product_name {
+    .product_card {
+        min-height: 250px;
+       
+    }
+    .product_card h6 {
         font-size: 14px;
+    }
+
+    .product_card .icon {
+        font-size: 16px;
+    }
+    .product_card .star_icon {
+        font-size: 12px;
     }
 }

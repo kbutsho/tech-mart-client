@@ -11,15 +11,15 @@ const NewArrival = (props) => {
         const hasHalfStar = rating % 1 > 0;
         const stars = [];
         for (let i = 0; i < fullStars; i++) {
-            stars.push(<BsStarFill key={`full-star-${i}`} className='ms-1 mb-1' size='13' color='#FAC508' />);
+            stars.push(<BsStarFill key={`full-star-${i}`} className={`${styles.star_icon} ms-1 mb-1`} color='#FAC508' />);
         }
         if (hasHalfStar) {
-            stars.push(<BsStarHalf key='half-star' className='ms-1 mb-1' size='13' color='#FAC508' />);
+            stars.push(<BsStarHalf key='half-star' className={`${styles.star_icon} ms-1 mb-1`} color='#FAC508' />);
         }
         return stars;
     };
     return (
-        <div className='col-md-2 col-sm-6 col-6'>
+        <div className='col-md-4 col-lg-3 col-xl-2 col-xxl-2 col-sm-6 col-6'>
             <div className={`${styles.product_card}`}>
                 <div className="text-center">
                     <Image className='bg-info'
@@ -32,16 +32,16 @@ const NewArrival = (props) => {
                 </div>
                 <h6 className={`${styles.product_name} mt-2`}>{name}</h6>
                 <h6 className='fw-bold'>৳ {price}</h6>
-                <div className='mt-4 d-flex justify-content-between'>
-                    <div className="rating">
+                <div className='mt-3 d-flex justify-content-between'>
+                    <div className="rating col-">
                         {
-                            rating === 0 ? null :
-                                <small className={`${styles.rating} fw-bold`}>{rating}{renderRatingStars()}</small>
+                            rating === 0 ? null : <small className='fw-bold'>{renderRatingStars()}</small>
                         }
                     </div>
-                    <div className="favourite-cart">
-                        <AiOutlineHeart className='me-2' size="22" color="#FAC508" style={{ cursor: "pointer" }} />
-                        <AiOutlineShoppingCart size="22" color="#FAC508" style={{ cursor: "pointer" }} />
+
+                    <div className={`${styles.favourite_cart}`}>
+                        <AiOutlineHeart className={`${styles.icon} me-2`} color="#FAC508" style={{ cursor: "pointer" }} />
+                        <AiOutlineShoppingCart className={`${styles.icon} me-2`} color="#FAC508" style={{ cursor: "pointer" }} />
                     </div>
                 </div>
             </div>

@@ -17,16 +17,30 @@ const Home = ({ data }) => {
   const slideRef = useRef()
   const responsiveSettings = [
     {
-      breakpoint: 800,
+      breakpoint: 1140,
       settings: {
         slidesToShow: 6,
         slidesToScroll: 1
       }
     },
     {
-      breakpoint: 500,
+      breakpoint: 960,
       settings: {
-        slidesToShow: 2,
+        slidesToShow: 4,
+        slidesToScroll: 1
+      }
+    },
+    {
+      breakpoint: 720,
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 1
+      }
+    },
+    {
+      breakpoint: 540,
+      settings: {
+        slidesToShow: 3,
         slidesToScroll: 1
       }
     },
