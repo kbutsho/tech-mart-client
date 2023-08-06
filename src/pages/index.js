@@ -16,9 +16,19 @@ import topSellingBanner from '@/assets/home/topSelling.png'
 import newArrivalBanner from '@/assets/home/newArrival.png'
 import phoneCategoryBanner from '@/assets/home/phone.jpeg'
 import watchCategoryBanner from '@/assets/home/watch.jpeg'
+import earphoneCategoryBanner from '@/assets/home/earphone.jpeg'
+import tvCategoryBanner from '@/assets/home/tv.jpeg'
+import chargerCategoryBanner from '@/assets/home/charger.jpeg'
+import monitorCategoryBanner from '@/assets/home/monitor.jpeg'
 import Link from 'next/link';
 import PhoneCategory from '@/components/Home/PhoneCategory';
 import WatchCategory from '@/components/Home/WatchCategory';
+import EarphoneCategory from '@/components/Home/EarphoneCategory';
+import LaptopCategory from '@/components/Home/LaptopCategory';
+import CameraCategory from '@/components/Home/CameraCategory';
+import TvCategory from '@/components/Home/TvCategory';
+import ChargerCategory from '@/components/Home/ChargerCategory';
+import MonitorCategory from '@/components/Home/MonitorCategory';
 
 const Home = ({ data }) => {
 
@@ -172,6 +182,95 @@ const Home = ({ data }) => {
         </div>
       </div>
 
+      {/* earphone category */}
+      <Link href="/"><Image src={earphoneCategoryBanner} layout='responsive' height={100} width={100} alt="img" className={styles.bannerImage} /></Link>
+      <div className={`${styles.earphone_category_area} my-5`}>
+        <div className='d-flex justify-content-between align-items-center'>
+          <h5 className='fw-bold text-uppercase mt-2'>earphone</h5>
+          <button className='btn btn-primary btn-sm px-3 fw-bold'>view all</button>
+        </div>
+        <hr />
+        <div className="row">
+          {
+            data.earphoneCategory.data.slice(0, 12).map((earphone) => <EarphoneCategory key={earphone._id} earphone={earphone} />)
+          }
+        </div>
+      </div>
+
+      {/* camera category */}
+      <Link href="/"><Image src={phoneCategoryBanner} layout='responsive' height={100} width={100} alt="img" className={styles.bannerImage} /></Link>
+      <div className={`${styles.camera_category_area} my-5`}>
+        <div className='d-flex justify-content-between align-items-center'>
+          <h5 className='fw-bold text-uppercase mt-2'>camera</h5>
+          <button className='btn btn-primary btn-sm px-3 fw-bold'>view all</button>
+        </div>
+        <hr />
+        <div className="row">
+          {
+            data.cameraCategory.data.slice(0, 12).map((camera) => <CameraCategory key={camera._id} camera={camera} />)
+          }
+        </div>
+      </div>
+
+      {/* laptop category */}
+      <Link href="/"><Image src={topSellingBanner} layout='responsive' height={100} width={100} alt="img" className={styles.bannerImage} /></Link>
+      <div className={`${styles.laptop_category_area} my-5`}>
+        <div className='d-flex justify-content-between align-items-center'>
+          <h5 className='fw-bold text-uppercase mt-2'>laptop</h5>
+          <button className='btn btn-primary btn-sm px-3 fw-bold'>view all</button>
+        </div>
+        <hr />
+        <div className="row">
+          {
+            data.laptopCategory.data.slice(0, 12).map((laptop) => <LaptopCategory key={laptop._id} laptop={laptop} />)
+          }
+        </div>
+      </div>
+
+      {/* monitor category */}
+      <Link href="/"><Image src={monitorCategoryBanner} layout='responsive' height={100} width={100} alt="img" className={styles.bannerImage} /></Link>
+      <div className={`${styles.monitor_category_area} my-5`}>
+        <div className='d-flex justify-content-between align-items-center'>
+          <h5 className='fw-bold text-uppercase mt-2'>monitor</h5>
+          <button className='btn btn-primary btn-sm px-3 fw-bold'>view all</button>
+        </div>
+        <hr />
+        <div className="row">
+          {
+            data.monitorCategory.data.slice(0, 12).map((monitor) => <MonitorCategory key={monitor._id} laptop={monitor} />)
+          }
+        </div>
+      </div>
+
+      {/* television category */}
+      <Link href="/"><Image src={tvCategoryBanner} layout='responsive' height={100} width={100} alt="img" className={styles.bannerImage} /></Link>
+      <div className={`${styles.television_category_area} my-5`}>
+        <div className='d-flex justify-content-between align-items-center'>
+          <h5 className='fw-bold text-uppercase mt-2'>television</h5>
+          <button className='btn btn-primary btn-sm px-3 fw-bold'>view all</button>
+        </div>
+        <hr />
+        <div className="row">
+          {
+            data.tvCategory.data.slice(0, 12).map((tv) => <TvCategory key={tv._id} tv={tv} />)
+          }
+        </div>
+      </div>
+
+      {/* charger category */}
+      <Link href="/"><Image src={chargerCategoryBanner} layout='responsive' height={100} width={100} alt="img" className={styles.bannerImage} /></Link>
+      <div className={`${styles.charger_category_area} my-5`}>
+        <div className='d-flex justify-content-between align-items-center'>
+          <h5 className='fw-bold text-uppercase mt-2'>charger</h5>
+          <button className='btn btn-primary btn-sm px-3 fw-bold'>view all</button>
+        </div>
+        <hr />
+        <div className="row">
+          {
+            data.chargerCategory.data.slice(0, 12).map((charger) => <ChargerCategory key={charger._id} charger={charger} />)
+          }
+        </div>
+      </div>
     </div>
   );
 };
@@ -182,12 +281,19 @@ Home.getLayout = function getLayout(page) {
 };
 
 export const getServerSideProps = async () => {
+
   const categoryResponse = await fetch("https://tech-mart-server.vercel.app/api/categories");
   const brandResponse = await fetch("https://tech-mart-server.vercel.app/api/brands");
   const newArrivalResponse = await fetch("https://tech-mart-server.vercel.app/api/products?sortBy=createdAt&sortOrder=desc");
   const topSellingResponse = await fetch("https://tech-mart-server.vercel.app/api/products?sortBy=sellCount");
   const phoneCategoryResponse = await fetch("https://tech-mart-server.vercel.app/api/products?category=phone");
   const watchCategoryResponse = await fetch("https://tech-mart-server.vercel.app/api/products?category=watch");
+  const earphoneCategoryResponse = await fetch("https://tech-mart-server.vercel.app/api/products?category=earphone");
+  const laptopCategoryResponse = await fetch("https://tech-mart-server.vercel.app/api/products?category=laptop");
+  const cameraCategoryResponse = await fetch("https://tech-mart-server.vercel.app/api/products?category=camera");
+  const tvCategoryResponse = await fetch("https://tech-mart-server.vercel.app/api/products?category=television");
+  const chargerCategoryResponse = await fetch("https://tech-mart-server.vercel.app/api/products?category=charger");
+  const monitorCategoryResponse = await fetch("https://tech-mart-server.vercel.app/api/products?category=monitor");
 
   const categories = await categoryResponse.json();
   const brands = await brandResponse.json();
@@ -195,10 +301,16 @@ export const getServerSideProps = async () => {
   const topSelling = await topSellingResponse.json();
   const phoneCategory = await phoneCategoryResponse.json();
   const watchCategory = await watchCategoryResponse.json();
+  const earphoneCategory = await earphoneCategoryResponse.json();
+  const laptopCategory = await laptopCategoryResponse.json();
+  const cameraCategory = await cameraCategoryResponse.json();
+  const tvCategory = await tvCategoryResponse.json();
+  const chargerCategory = await chargerCategoryResponse.json();
+  const monitorCategory = await monitorCategoryResponse.json();
   return {
     props: {
       data: {
-        categories, brands, newArrival, topSelling, phoneCategory, watchCategory
+        categories, brands, cameraCategory, monitorCategory, tvCategory, chargerCategory, newArrival, topSelling, phoneCategory, watchCategory, earphoneCategory, laptopCategory
       }
     }
   };
