@@ -1,13 +1,11 @@
-import { useRef } from 'react';
-import styles from '@/styles/Home.module.css'
+import styles from '@/styles/home/brand.module.css'
 import Image from 'next/image';
 const Brand = (props) => {
-    const { coverPhoto, name } = props.brand
+    const { coverPhoto } = props.brand
     return (
         <div className={`${styles.brand_card}`}>
             <div className="text-center">
-                <Image className="mt-2" src={coverPhoto} height={50} width={50} alt="image" />
-                <h6 className="fw-bold text-center mt-3">{name}</h6>
+                <Image className={`mt-2 ${styles.brand_image}`} src={coverPhoto} height={100} width={100} alt="image" />
             </div>
         </div>
     );

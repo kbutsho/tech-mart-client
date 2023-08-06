@@ -1,7 +1,7 @@
 import Banner from '@/components/Home/Banner';
 import Category from '@/components/Home/Category';
 import MainLayout from '@/layouts/MainLayout';
-import styles from '@/styles/Home.module.css'
+import styles from '@/styles/home/index.module.css'
 import Image from 'next/image';
 import React, { useRef } from 'react';
 import { BsSearch } from 'react-icons/bs'
@@ -66,13 +66,13 @@ const Home = ({ data }) => {
         <hr />
         <div className="row">
           {
-            data.data.map((category) => <Category key={category._id} category={category} />)
+            data.categoryData.data.map((category) => <Category key={category._id} category={category} />)
           }
         </div>
       </div>
 
       <div className={`${styles.brand_area} my-5`}>
-        <h5 className='fw-bold text-uppercase'>Featured brand</h5>
+        <h5 className='fw-bold text-uppercase'>popular brand</h5>
         <hr />
         <Slide scale={0.4}
           responsive={responsiveSettings}
@@ -85,7 +85,7 @@ const Home = ({ data }) => {
           prevArrow={<button style={{ display: "none" }}></button>}
         >
           {
-            data.data.map((brand) => <Brand key={brand._id} brand={brand} />)
+            data.brandData.data.map((brand) => <Brand key={brand._id} brand={brand} />)
           }
         </Slide>
       </div>
@@ -101,10 +101,14 @@ Home.getLayout = function getLayout(page) {
 
 export const getServerSideProps = async () => {
   const categories = await fetch("https://tech-mart-server.vercel.app/api/categories");
-  const data = await categories.json();
+  const brands = await fetch("https://tech-mart-server.vercel.app/api/brands");
+  const categoryData = await categories.json();
+  const brandData = await brands.json();
   return {
     props: {
-      data: data
+      data: {
+        categoryData, brandData
+      }
     }
   };
 };

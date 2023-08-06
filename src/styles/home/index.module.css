@@ -1,0 +1,20 @@
+.search_input {
+    height: 45px;
+    border-radius: 50px;
+}
+
+.search_area {
+    background-color: #F3F3F3;
+    border-radius: 5px;
+}
+
+.category_area {
+    background-color: #F3F3F3;
+    padding: 16px 16px 10px 16px;
+    border-radius: 5px;
+}
+.brand_area {
+    background-color: #F3F3F3;
+    padding: 16px 16px 10px 16px;
+    border-radius: 5px;
+}

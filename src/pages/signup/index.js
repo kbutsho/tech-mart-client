@@ -1,4 +1,4 @@
-import styles from '@/styles/Signup.module.css'
+import styles from '@/styles/auth/signup.module.css'
 import Image from 'next/image';
 import React from 'react';
 import login from '@/assets/login/login-main.png'
