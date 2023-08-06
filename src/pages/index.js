@@ -74,9 +74,9 @@ const Home = ({ data }) => {
       <div className={`${styles.brand_area} my-5`}>
         <h5 className='fw-bold text-uppercase'>Featured brand</h5>
         <hr />
-        <Slide
+        <Slide scale={0.4}
           responsive={responsiveSettings}
-          easing={"cubic-in"}
+          easing={"ease"}
           autoplay={true}
           duration={1500}
           ref={slideRef}
