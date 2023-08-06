@@ -32,12 +32,13 @@
 @media screen and (max-width: 468px) {
     .product_card {
         min-height: 250px;
-
+        margin: 8px -4px
     }
 
     .product_card h6 {
         font-size: 14px;
     }
+
     .product_card .star_icon {
         font-size: 10px;
     }
