@@ -5,8 +5,8 @@ import { BsStar, BsStarFill, BsStarHalf } from 'react-icons/bs';
 import { AiOutlineHeart, AiOutlineShoppingCart } from 'react-icons/ai'
 import { PRODUCT_STATUS } from '@/constant/product.constant';
 
-const NewArrival = (props) => {
-    const { status, price, discountPrice, name, coverPhoto, rating } = props.newArrival;
+const TopSelling = (props) => {
+    const { status, price, discountPrice, name, coverPhoto, rating } = props.topSelling;
     const offer = (((price - discountPrice) / price) * 100).toFixed(1);
     const renderRatingStars = () => {
         const fullStars = Math.floor(rating);
@@ -78,4 +78,4 @@ const NewArrival = (props) => {
     );
 };
 
-export default NewArrival;
+export default TopSelling;

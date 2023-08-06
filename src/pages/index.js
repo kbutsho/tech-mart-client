@@ -11,6 +11,10 @@ import Brand from '@/components/Home/Brand';
 import { Slide } from 'react-slideshow-image';
 import 'react-slideshow-image/dist/styles.css';
 import NewArrival from '@/components/Home/NewArrival';
+import TopSelling from '@/components/Home/TopSelling';
+import topSellingBanner from '@/assets/home/topSelling.png'
+import newArrivalBanner from '@/assets/home/newArrival.png'
+import Link from 'next/link';
 
 const Home = ({ data }) => {
 
@@ -52,7 +56,6 @@ const Home = ({ data }) => {
       }
     }
   ];
-
   return (
     <div className='container'>
 
@@ -86,7 +89,7 @@ const Home = ({ data }) => {
         <hr />
         <div className="row">
           {
-            data.categoryData.data.map((category) => <Category key={category._id} category={category} />)
+            data.categories.data.map((category) => <Category key={category._id} category={category} />)
           }
         </div>
       </div>
@@ -106,18 +109,31 @@ const Home = ({ data }) => {
           prevArrow={<button style={{ display: "none" }}></button>}
         >
           {
-            data.brandData.data.map((brand) => <Brand key={brand._id} brand={brand} />)
+            data.brands.data.map((brand) => <Brand key={brand._id} brand={brand} />)
           }
         </Slide>
       </div>
 
       {/* new arrival */}
+      <Link href="/"><Image src={newArrivalBanner} layout='responsive' height={100} width={100} alt="img" /></Link>
       <div className={`${styles.new_arrival_area} my-5`}>
         <h5 className='fw-bold text-uppercase'>New arrival</h5>
         <hr />
         <div className="row">
           {
-            data.productData.data.slice(0, 12).map((newArrival) => <NewArrival key={newArrival._id} newArrival={newArrival} />)
+            data.newArrival.data.slice(0, 12).map((newArrival) => <NewArrival key={newArrival._id} newArrival={newArrival} />)
+          }
+        </div>
+      </div>
+
+      {/* top selling */}
+      <Link href="/"><Image src={topSellingBanner} layout='responsive' height={100} width={100} alt="img" /></Link>
+      <div className={`${styles.top_selling_area} my-5`}>
+        <h5 className='fw-bold text-uppercase'>top selling</h5>
+        <hr />
+        <div className="row">
+          {
+            data.topSelling.data.slice(0, 12).map((topSelling) => <TopSelling key={topSelling._id} topSelling={topSelling} />)
           }
         </div>
       </div>
@@ -132,16 +148,19 @@ Home.getLayout = function getLayout(page) {
 };
 
 export const getServerSideProps = async () => {
-  const categories = await fetch("https://tech-mart-server.vercel.app/api/categories");
-  const brands = await fetch("https://tech-mart-server.vercel.app/api/brands");
-  const products = await fetch("https://tech-mart-server.vercel.app/api/products");
-  const categoryData = await categories.json();
-  const brandData = await brands.json();
-  const productData = await products.json();
+  const categoryResponse = await fetch("https://tech-mart-server.vercel.app/api/categories");
+  const brandResponse = await fetch("https://tech-mart-server.vercel.app/api/brands");
+  const newArrivalResponse = await fetch("https://tech-mart-server.vercel.app/api/products?sortBy=createdAt&sortOrder=desc");
+  const topSellingResponse = await fetch("https://tech-mart-server.vercel.app/api/products?sortBy=sellCount");
+
+  const categories = await categoryResponse.json();
+  const brands = await brandResponse.json();
+  const newArrival = await newArrivalResponse.json();
+  const topSelling = await topSellingResponse.json();
   return {
     props: {
       data: {
-        categoryData, brandData, productData
+        categories, brands, newArrival, topSelling
       }
     }
   };
