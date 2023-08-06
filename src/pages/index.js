@@ -3,16 +3,43 @@ import Category from '@/components/Home/Category';
 import MainLayout from '@/layouts/MainLayout';
 import styles from '@/styles/Home.module.css'
 import Image from 'next/image';
-import React from 'react';
+import React, { useRef } from 'react';
 import { BsSearch } from 'react-icons/bs'
 import cart from '@/assets/navbar/cart.png'
 import favorite from '@/assets/navbar/favourite.png'
+import Brand from '@/components/Home/Brand';
+import { Slide } from 'react-slideshow-image';
+import 'react-slideshow-image/dist/styles.css';
 
 const Home = ({ data }) => {
+  const slideRef = useRef()
+  const responsiveSettings = [
+    {
+      breakpoint: 800,
+      settings: {
+        slidesToShow: 6,
+        slidesToScroll: 1
+      }
+    },
+    {
+      breakpoint: 500,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 1
+      }
+    },
+    {
+      breakpoint: 300,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 1
+      }
+    }
+  ];
+
   return (
     <div className='container' >
       <div className={`${styles.search_area} container py-2`}>
-
         <div className="row">
           <div className="col-md-11 col-9">
             <form className={`d-flex align-items-center`}>
@@ -29,10 +56,12 @@ const Home = ({ data }) => {
 
         </div>
       </div>
-      <div className="banner_area py-4">
+
+      <div className={`banner_area mb-5 mt-4`}>
         <Banner />
       </div>
-      <div className={`${styles.category_area}`}>
+
+      <div className={`${styles.category_area} my-5`}>
         <h5 className='fw-bold text-uppercase'>Featured categories</h5>
         <hr />
         <div className="row">
@@ -41,7 +70,27 @@ const Home = ({ data }) => {
           }
         </div>
       </div>
-    </div >
+
+      <div className={`${styles.brand_area} my-5`}>
+        <h5 className='fw-bold text-uppercase'>Featured brand</h5>
+        <hr />
+        <Slide
+          responsive={responsiveSettings}
+          easing={"cubic-in"}
+          autoplay={true}
+          duration={1500}
+          ref={slideRef}
+          transitionDuration={500}
+          nextArrow={<button style={{ display: "none" }}></button>}
+          prevArrow={<button style={{ display: "none" }}></button>}
+        >
+          {
+            data.data.map((brand) => <Brand key={brand._id} brand={brand} />)
+          }
+        </Slide>
+      </div>
+
+    </div>
   );
 };
 
