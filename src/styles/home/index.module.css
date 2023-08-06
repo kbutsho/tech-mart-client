@@ -12,7 +12,20 @@
     background-color: #F3F3F3;
     border-radius: 5px;
 }
-
+.cart_count{
+    height: 20px;
+    width: 20px;
+    background-color: #F29120;
+    color: white;
+    font-size: 14px;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    margin-left:-10px ;
+    margin-top: -10px;
+}
 .brand_area {
     background-color: #F3F3F3;
     padding: 16px;
