@@ -15,3 +15,17 @@
 .category_card:hover {
     box-shadow: rgba(0, 0, 0, 0.5) 1px 1px 4px 1px;
 }
+
+@media screen and (max-width: 468px) {
+    .category_card {
+        min-height: 100px;
+        width: auto;
+        margin:  6px -6px;
+        border-radius: 5px;
+        background-color: #ffffff;
+        padding: 12px;
+    }
+    .category_card h6{
+        font-size: 12px;
+    }
+}
