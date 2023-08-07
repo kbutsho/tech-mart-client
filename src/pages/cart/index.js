@@ -85,7 +85,7 @@ const CartPage = () => {
                         </div>
                         <div className='row'>
                             <div className='col-md-9'>
-                                <button className='btn btn-secondary my-2 px-3' onClick={() => handleClearCart()}>
+                                <button className='btn btn-outline-secondary my-2 px-3' onClick={() => handleClearCart()}>
                                     clear cart
                                 </button>
                             </div>
