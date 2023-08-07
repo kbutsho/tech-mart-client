@@ -7,11 +7,25 @@ const Breadcrumb = () => {
     const { asPath } = router;
     const segments = asPath.split('/').filter(Boolean);
 
+    const style = {
+        width: "100%",
+        height: "12vh",
+        "borderRadius": "8px",
+        background: "#F3F3F3",
+        display: "flex",
+        "justifyContent": "center",
+        "alignItems": "center",
+        "textDecoration": "none",
+        "fontSize": "1.1rem",
+        "fontWeight": "bold",
+        "boxShadow": "rgba(0, 0, 0, 0.24) 0px 3px 8px"
+    }
+
     return (
-        <div className="breadcrumbs">
-            <div className="alert alert-secondary">
+        <div className="breadcrumbs" style={style}>
+            <div>
                 <Link href="/">
-                    <FcHome size="20" />
+                    <FcHome size="24" style={{ marginBottom: "5px" }} />
                 </Link>
                 {segments.map((segment, index) => {
                     const isLastSegment = index === segments.length - 1;
@@ -20,7 +34,8 @@ const Breadcrumb = () => {
                             {!isLastSegment ? (
                                 <span>
                                     {' / '}
-                                    <Link href={`/${segments.slice(0, index + 1).join('/')}`}>
+                                    <Link className='text-decoration-none'
+                                        href={`/${segments.slice(0, index + 1).join('/')}`}>
                                         {segment}
                                     </Link>
                                 </span>
