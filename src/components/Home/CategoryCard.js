@@ -2,7 +2,7 @@ import Image from 'next/image';
 import React from 'react';
 import styles from '@/styles/home/category.module.css'
 
-const Category = (props) => {
+const CategoryCard = (props) => {
     const { name, coverPhoto } = props.category
     return (
         <div className="col-xxl-2 col-lg-2 col-md-3 col-sm-4 col-xs-4 col-4">
@@ -16,4 +16,4 @@ const Category = (props) => {
     );
 };
 
-export default Category;
+export default CategoryCard;

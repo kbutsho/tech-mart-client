@@ -33,7 +33,7 @@ function Navbar() {
                         <span className="navbar-toggler-icon"></span>
                     </span>
                     <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-                        <div className={`navbar-nav ms-auto text-uppercase fw-bold align-items-center ${styles.nav_items}`}>
+                        <div className={`navbar-nav ms-auto align-items-center ${styles.nav_items}`}>
                             <Link className={`nav-link`} href="/">Phone</Link>
                             <Link className="nav-link" href="/">Laptop</Link>
                             <Link className="nav-link" href="/">Watch</Link>
@@ -42,30 +42,45 @@ function Navbar() {
                             <Link className="nav-link" href="/">Camera</Link>
                             <Link className="nav-link" href="/">Television</Link>
                             <Link className="nav-link" href="/">Monitor</Link>
-                            <Link className="nav-link" href="/">All Products</Link>
+                            <Link className="nav-link" href="/">gadgets</Link>
                             <Link className="nav-link" href="/">Brands</Link>
-                            <Link className="nav-link" href="/">Dashboard</Link>
-                            <Link className="nav-link" href="/login">Login</Link>
-                            <Link className="nav-link" href="/">Retailer Request</Link>
+                            <Link className="nav-link" href="/">Categories</Link>
+                            <div className="dropdown">
+                                <button className={`${styles.dropdown_btn} btn btn-secondary dropdown-toggle`}
+                                    data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                    Account
+                                </button>
+                                <ul className="dropdown-menu">
+                                    <li><Link className={`dropdown-item ${styles.dropdown_item}`} href="/">Login</Link></li>
+                                    <li><Link className={`dropdown-item ${styles.dropdown_item}`} href="/">Account</Link></li>
+                                    <li><Link className={`dropdown-item ${styles.dropdown_item}`} href="/">Dashboard</Link></li>
+                                    <li><Link className={`dropdown-item ${styles.dropdown_item}`} href="/">Retailer Request</Link></li>
+                                    <li><Link className={`dropdown-item ${styles.dropdown_item}`} href="/">Manager Request</Link></li>
+                                </ul>
+                            </div>
+                            {/* <Link className="nav-link" href="/">Account</Link>
+                            <Link className="nav-link" href="/login">Login</Link> */}
+                            {/* <Link className="nav-link" href="/">Retailer Request</Link> */}
                         </div>
                     </div>
                 </div>
-            </nav>
+            </nav >
             <div className={`${styles.search_area} py-2`}>
                 <div className="container">
                     <div className="row">
-                        <div className="col-md-11 col-8">
+                        <div className="col-md-11 col-10">
                             <form className={`d-flex align-items-center`}>
                                 <input type="text" placeholder='search products' className={`form-control w-100 ${styles.search_input}`} />
                                 <BsSearch size="26px" style={{ marginLeft: "-50px" }} type='submit' />
                             </form>
                         </div>
-                        <div className="col-md-1 col-4">
+                        <div className="col-md-1 col-2">
                             <div className={`${styles.cart_area} d-flex justify-content-end`} style={{ paddingTop: "11px" }}>
-                                <div className='d-flex me-2'>
+                                {/* <div className='d-flex me-2'>
                                     <Link href="/"><Image className={` ${styles.cart_favourite_icon} nav-link me-2`} src={favoriteImg} height={30} width={30} alt="img" /></Link>
                                     <span className={styles.cart_count}>{favouriteProducts.length}</span>
-                                </div>
+                                </div> */}
                                 <div className='d-flex'>
                                     <Link href="/cart"><Image className={`${styles.cart_favourite_icon} nav-link me-2`} src={cartImg} height={30} width={30} alt="img" /></Link>
                                     <span className={styles.cart_count}>{cart.cartTotalQuantity}</span>
@@ -75,7 +90,7 @@ function Navbar() {
                     </div>
                 </div>
             </div>
-        </div>
+        </div >
     );
 }
 
