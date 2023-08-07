@@ -251,7 +251,7 @@ Home.getLayout = function getLayout(page) {
   return <MainLayout>{page}</MainLayout>;
 };
 
-export const getServerSideProps = async () => {
+export const getStaticProps = async () => {
 
   const categoryResponse = await fetch("https://tech-mart-server.vercel.app/api/categories");
   const brandResponse = await fetch("https://tech-mart-server.vercel.app/api/brands");
@@ -282,7 +282,8 @@ export const getServerSideProps = async () => {
     props: {
       data: {
         categories, brands, cameraCategory, monitorCategory, tvCategory, chargerCategory, newArrival, topSelling, phoneCategory, watchCategory, earphoneCategory, laptopCategory
-      }
+      },
+      validate: 30
     }
   };
 };
