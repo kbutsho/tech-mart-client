@@ -29,3 +29,11 @@
     margin-left: -10px;
     margin-top: -10px;
 }
+
+@media screen and (max-width: 468px) {
+    .cart_count {
+        height: 18px;
+        width: 18px;
+        font-size: 12px;
+    }
+}

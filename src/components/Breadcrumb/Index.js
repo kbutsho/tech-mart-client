@@ -10,7 +10,7 @@ const Breadcrumb = () => {
     return (
         <div className="breadcrumbs">
             <div className="alert alert-secondary">
-                <Link href="/home">
+                <Link href="/">
                     <FcHome size="20" />
                 </Link>
                 {segments.map((segment, index) => {
