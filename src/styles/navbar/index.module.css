@@ -1,5 +1,4 @@
 .header {
-    /* background-color: rgba(0, 0, 0, 0.7); */
     background-color: #F3F3F3;
 }
 
@@ -10,6 +9,10 @@
 .search_input {
     height: 45px;
     border-radius: 50px;
+}
+
+.cart_favourite_icon {
+    cursor: pointer;
 }
 
 .cart_count {

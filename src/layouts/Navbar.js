@@ -32,11 +32,9 @@ function Navbar() {
                             <Link className="nav-link" href="/">Watch</Link>
                             <Link className="nav-link" href="/">Earphone</Link>
                             <Link className="nav-link" href="/">Charger</Link>
-                            {/* <Link className="nav-link" href="/">power Bank</Link> */}
                             <Link className="nav-link" href="/">Camera</Link>
                             <Link className="nav-link" href="/">Television</Link>
                             <Link className="nav-link" href="/">Monitor</Link>
-                            {/* <Link className="nav-link" href="/">Gadgets</Link> */}
                             <Link className="nav-link" href="/">All Products</Link>
                             <Link className="nav-link" href="/">Brands</Link>
                             <Link className="nav-link" href="/">Dashboard</Link>
@@ -58,11 +56,11 @@ function Navbar() {
                         <div className="col-md-1 col-4">
                             <div className={`${styles.cart_area} d-flex justify-content-end`} style={{ paddingTop: "11px" }}>
                                 <div className='d-flex me-2'>
-                                    <Image className="nav-link me-2" src={favorite} height={30} width={30} alt="img" />
+                                    <Link href="/"><Image className={` ${styles.cart_favourite_icon} nav-link me-2`} src={favorite} height={30} width={30} alt="img" /></Link>
                                     <span className={styles.cart_count}>{favouriteProducts.length}</span>
                                 </div>
                                 <div className='d-flex'>
-                                    <Image className="nav-link me-2" src={cart} height={30} width={30} alt="img" />
+                                    <Link href="/cart"><Image className={`${styles.cart_favourite_icon} nav-link me-2`} src={cart} height={30} width={30} alt="img" /></Link>
                                     <span className={styles.cart_count}>{cartProducts.length}</span>
                                 </div>
                             </div>

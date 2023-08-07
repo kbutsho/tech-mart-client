@@ -19,7 +19,7 @@ import Link from 'next/link';
 import ProductCard from '@/components/Home/ProductCard';
 
 const Home = ({ data }) => {
-  
+
   const slideRef = useRef()
   const responsiveSettings = [
     {
@@ -60,7 +60,7 @@ const Home = ({ data }) => {
   ];
 
   return (
-    <div className='container'>
+    <div className={`${styles.main_area} container`}>
 
       {/* banner area */}
       <div className={`${styles.banner_area} mb-5`}>
@@ -255,16 +255,16 @@ export const getServerSideProps = async () => {
 
   const categoryResponse = await fetch("https://tech-mart-server.vercel.app/api/categories");
   const brandResponse = await fetch("https://tech-mart-server.vercel.app/api/brands");
-  const newArrivalResponse = await fetch("https://tech-mart-server.vercel.app/api/products?sortBy=createdAt&sortOrder=desc");
-  const topSellingResponse = await fetch("https://tech-mart-server.vercel.app/api/products?sortBy=sellCount");
-  const phoneCategoryResponse = await fetch("https://tech-mart-server.vercel.app/api/products?category=phone");
-  const watchCategoryResponse = await fetch("https://tech-mart-server.vercel.app/api/products?category=watch");
-  const earphoneCategoryResponse = await fetch("https://tech-mart-server.vercel.app/api/products?category=earphone");
-  const laptopCategoryResponse = await fetch("https://tech-mart-server.vercel.app/api/products?category=laptop");
-  const cameraCategoryResponse = await fetch("https://tech-mart-server.vercel.app/api/products?category=camera");
-  const tvCategoryResponse = await fetch("https://tech-mart-server.vercel.app/api/products?category=television");
-  const chargerCategoryResponse = await fetch("https://tech-mart-server.vercel.app/api/products?category=charger");
-  const monitorCategoryResponse = await fetch("https://tech-mart-server.vercel.app/api/products?category=monitor");
+  const newArrivalResponse = await fetch("https://tech-mart-server.vercel.app/api/products?sortBy=createdAt&sortOrder=desc&limit=12");
+  const topSellingResponse = await fetch("https://tech-mart-server.vercel.app/api/products?sortBy=sellCount&limit=12");
+  const phoneCategoryResponse = await fetch("https://tech-mart-server.vercel.app/api/products?category=phone&limit=12");
+  const watchCategoryResponse = await fetch("https://tech-mart-server.vercel.app/api/products?category=watch&limit=12");
+  const earphoneCategoryResponse = await fetch("https://tech-mart-server.vercel.app/api/products?category=earphone&limit=12");
+  const laptopCategoryResponse = await fetch("https://tech-mart-server.vercel.app/api/products?category=laptop&limit=12");
+  const cameraCategoryResponse = await fetch("https://tech-mart-server.vercel.app/api/products?category=camera&limit=12");
+  const tvCategoryResponse = await fetch("https://tech-mart-server.vercel.app/api/products?category=television&limit=12");
+  const chargerCategoryResponse = await fetch("https://tech-mart-server.vercel.app/api/products?category=charger&limit=12");
+  const monitorCategoryResponse = await fetch("https://tech-mart-server.vercel.app/api/products?category=monitor&limit=12");
 
   const categories = await categoryResponse.json();
   const brands = await brandResponse.json();
