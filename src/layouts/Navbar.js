@@ -3,12 +3,19 @@ import styles from '@/styles/navbar/index.module.css'
 import Image from "next/image";
 import logo from '@/assets/navbar/logo.png'
 import { BsSearch } from 'react-icons/bs'
-import cart from '@/assets/navbar/cart.png'
-import favorite from '@/assets/navbar/favourite.png'
-import { useSelector } from "react-redux";
+import cartImg from '@/assets/navbar/cart.png'
+import favoriteImg from '@/assets/navbar/favourite.png'
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { getCartTotal } from "@/redux/features/cartSlice";
 
 function Navbar() {
-    let cartProducts = useSelector((state) => state.cart.products);
+    let cart = useSelector((state) => state.cart);
+    const dispatch = useDispatch();
+    useEffect(() => {
+        dispatch(getCartTotal());
+    }, [cart, dispatch])
+
     let favouriteProducts = useSelector((state) => state.favourite.products);
     return (
         <div className={`${styles.header} fixed-top`}>
@@ -56,12 +63,12 @@ function Navbar() {
                         <div className="col-md-1 col-4">
                             <div className={`${styles.cart_area} d-flex justify-content-end`} style={{ paddingTop: "11px" }}>
                                 <div className='d-flex me-2'>
-                                    <Link href="/"><Image className={` ${styles.cart_favourite_icon} nav-link me-2`} src={favorite} height={30} width={30} alt="img" /></Link>
+                                    <Link href="/"><Image className={` ${styles.cart_favourite_icon} nav-link me-2`} src={favoriteImg} height={30} width={30} alt="img" /></Link>
                                     <span className={styles.cart_count}>{favouriteProducts.length}</span>
                                 </div>
                                 <div className='d-flex'>
-                                    <Link href="/cart"><Image className={`${styles.cart_favourite_icon} nav-link me-2`} src={cart} height={30} width={30} alt="img" /></Link>
-                                    <span className={styles.cart_count}>{cartProducts.length}</span>
+                                    <Link href="/cart"><Image className={`${styles.cart_favourite_icon} nav-link me-2`} src={cartImg} height={30} width={30} alt="img" /></Link>
+                                    <span className={styles.cart_count}>{cart.cartTotalQuantity}</span>
                                 </div>
                             </div>
                         </div>

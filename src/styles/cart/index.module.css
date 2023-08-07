@@ -1,0 +1,169 @@
+/* Cart */
+.cart_container {
+    margin: 20px 0 0;
+    padding: 20px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    border-radius: 10px;
+    min-height: 60vh;
+}
+
+.cart_container .titles {
+    margin: 2rem 0 1rem 0;
+}
+
+.cart_item,
+.cart_container .titles {
+    display: grid;
+    align-items: center;
+    grid-template-columns: 3fr 1fr 1fr 1fr;
+    column-gap: 0.5rem;
+}
+
+.cart_item {
+    border-top: 1px solid rgb(187, 187, 187);
+    padding: 1rem 0;
+}
+
+.cart_container .titles .total {
+    padding-right: 0.5rem;
+    justify-self: right;
+}
+
+.cart_item .cart_product {
+    display: flex;
+}
+
+.cart_item .cart_product_quantity {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    width: 130px;
+    max-width: 100%;
+    border: 0.5px solid rgb(177, 177, 177);
+    border-radius: 5px;
+}
+
+.cart_item .cart_product_quantity button {
+    border: none;
+    outline: none;
+    background: none;
+    padding: 0.7rem 1.5rem;
+    cursor: pointer;
+}
+
+.cart_item .cart_product_quantity .count {
+    padding: 0.7rem 0;
+}
+
+.cart_item .cart_product_total_price {
+    padding-right: 0.5rem;
+    justify-self: right;
+    font-weight: 700;
+}
+
+/* cart summary */
+.cart_summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-top: 1px solid rgb(187, 187, 187);
+    padding-top: 2rem;
+}
+
+.cart_summary .clear_btn {
+    width: 130px;
+    height: 40px;
+    border-radius: 5px;
+    font-weight: 400;
+    letter-spacing: 1.15px;
+    border: 0.5px solid rgb(177, 177, 177);
+    color: gray;
+    background: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.cart_checkout {
+    width: 270px;
+    max-width: 100%;
+}
+
+.cart_checkout .subtotal {
+    display: flex;
+    justify-content: space-between;
+    font-size: 20px;
+}
+
+.cart_checkout .amount {
+    font-weight: 700;
+}
+
+.cart_checkout p {
+    font-size: 14px;
+    font-weight: 200;
+    margin: 0.5rem 0;
+}
+
+.cart_checkout button {
+    width: 100%;
+    height: 40px;
+    border-radius: 5px;
+    font-weight: 400;
+    letter-spacing: 1.15px;
+    background-color: #4b70e2;
+    color: #f9f9f9;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.continue_shopping,
+.start_shopping {
+    margin-top: 1rem;
+}
+
+.continue_shopping,
+.start_shopping {
+    text-decoration: none;
+    color: black;
+}
+
+.cart_empty {
+    font-size: 20px;
+    margin-top: 2rem;
+    color: rgb(84, 84, 84);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@media (max-width: 665px) {
+
+
+    /* Cart */
+    .cart_container {
+        border-radius: 5px;
+    }
+
+    .cart_container .titles {
+        display: none;
+    }
+
+    .cart_item,
+    .cart_container .titles {
+        grid-template-columns: 1fr;
+        row-gap: 1rem;
+    }
+
+    .cart_item .cart_product_total_price {
+        justify-self: left;
+    }
+
+    .cart_summary {
+        flex-direction: column;
+    }
+
+    .cart_summary .clear_btn {
+        margin-bottom: 2rem;
+    }
+}
