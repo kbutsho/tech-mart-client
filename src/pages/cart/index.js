@@ -95,7 +95,7 @@ const CartPage = () => {
                                     <span className='fw-bold'> ${cart.cartTotalAmount}</span>
                                 </div>
                                 <div className='text-end'>
-                                    <span ><small className='text-end' style={{ fontSize: "13px" }}>(taxes and shipping calculated at checkout.)</small></span>
+                                    <span ><small className='text-end' style={{ fontSize: "13px" }}>(taxes and shipping calculated at checkout)</small></span>
                                 </div>
                                 <button className=' btn btn-primary w-100 mt-2' onClick={() => checkOut()}>check out</button>
                                 <div className='d-flex justify-content-end'>
