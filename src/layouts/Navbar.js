@@ -8,6 +8,7 @@ import favoriteImg from '@/assets/navbar/favourite.png'
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { getCartTotal } from "@/redux/features/cartSlice";
+import { BiUserCircle } from 'react-icons/bi'
 
 function Navbar() {
     let cart = useSelector((state) => state.cart);
@@ -46,10 +47,10 @@ function Navbar() {
                             <Link className="nav-link" href="/">Brands</Link>
                             <Link className="nav-link me-2" href="/categories">Categories</Link>
                             <div className="dropdown">
-                                <button className={`${styles.dropdown_btn} btn btn-secondary dropdown-toggle`}
+                                <button className={`${styles.dropdown_btn} btn btn-outline-secondary dropdown-toggle pt-2`}
                                     data-bs-toggle="dropdown"
                                     aria-expanded="false">
-                                    Account
+                                    <BiUserCircle size="20" className="mb-1" /> Account
                                 </button>
                                 <ul className="dropdown-menu">
                                     <li><Link className={`dropdown-item ${styles.dropdown_item}`} href="/">Login</Link></li>
