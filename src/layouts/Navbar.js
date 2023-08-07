@@ -2,11 +2,17 @@ import Link from "next/link";
 import styles from '@/styles/navbar/index.module.css'
 import Image from "next/image";
 import logo from '@/assets/navbar/logo.png'
+import { BsSearch } from 'react-icons/bs'
+import cart from '@/assets/navbar/cart.png'
+import favorite from '@/assets/navbar/favourite.png'
+import { useSelector } from "react-redux";
 
 function Navbar() {
+    let cartProducts = useSelector((state) => state.cart.products);
+    let favouriteProducts = useSelector((state) => state.favourite.products);
     return (
-        <div className={styles.header}>
-            <nav className={`navbar navbar-expand-lg bg-light fixed-top ${styles.navbar_area}`}>
+        <div className={`${styles.header} fixed-top`}>
+            <nav className={`navbar navbar-expand-lg ${styles.navbar_area}`}>
                 <div className="container">
                     <Link className="navbar-brand fw-bold text-white" href="/">
                         <Image src={logo} height={40} width={120} alt="img" />
@@ -40,6 +46,30 @@ function Navbar() {
                     </div>
                 </div>
             </nav>
+            <div className={`${styles.search_area} py-2`}>
+                <div className="container">
+                    <div className="row">
+                        <div className="col-md-11 col-8">
+                            <form className={`d-flex align-items-center`}>
+                                <input type="text" placeholder='search products' className={`form-control w-100 ${styles.search_input}`} />
+                                <BsSearch size="26px" style={{ marginLeft: "-50px" }} type='submit' />
+                            </form>
+                        </div>
+                        <div className="col-md-1 col-4">
+                            <div className={`${styles.cart_area} d-flex justify-content-end`} style={{ paddingTop: "11px" }}>
+                                <div className='d-flex me-2'>
+                                    <Image className="nav-link me-2" src={favorite} height={30} width={30} alt="img" />
+                                    <span className={styles.cart_count}>{favouriteProducts.length}</span>
+                                </div>
+                                <div className='d-flex'>
+                                    <Image className="nav-link me-2" src={cart} height={30} width={30} alt="img" />
+                                    <span className={styles.cart_count}>{cartProducts.length}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     );
 }
