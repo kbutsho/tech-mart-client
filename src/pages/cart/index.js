@@ -83,17 +83,21 @@ const CartPage = () => {
                                     </div>
                                 ))}
                         </div>
-                        <div className={styles.cart_summary}>
-                            <button className={styles.clear_btn} onClick={() => handleClearCart()}>
-                                clear Cart
-                            </button>
-                            <div className={styles.cart_checkout}>
-                                <div className={styles.subtotal}>
+                        <div className='row'>
+                            <div className='col-md-9'>
+                                <button className='btn btn-secondary my-2 px-3' onClick={() => handleClearCart()}>
+                                    clear cart
+                                </button>
+                            </div>
+                            <div className="col-md-3">
+                                <div className='text-end mb-4'>
                                     <span>subtotal</span>
-                                    <span className={styles.amount}>${cart.cartTotalAmount}</span>
+                                    <span className='fw-bold'> ${cart.cartTotalAmount}</span>
                                 </div>
-                                <p>taxes and shipping calculated at checkout</p>
-                                <button className=' btn btn-primary w-100' onClick={() => checkOut()}>check out</button>
+                                <div className='text-end'>
+                                    <span ><small className='text-end' style={{ fontSize: "13px" }}>(taxes and shipping calculated at checkout.)</small></span>
+                                </div>
+                                <button className=' btn btn-primary w-100 mt-2' onClick={() => checkOut()}>check out</button>
                                 <div className='d-flex justify-content-end'>
                                     <Link className={styles.continue_shopping} href="/">
                                         <svg
