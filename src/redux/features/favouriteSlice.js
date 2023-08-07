@@ -5,26 +5,30 @@ const initialState = {
     products: [],
 };
 
-const cartSlice = createSlice({
-    name: 'cart',
+const favouriteSlice = createSlice({
+    name: 'favourite',
     initialState,
     reducers: {
-        addToCart: (state, action) => {
+        addToFavourite: (state, action) => {
             const productToAdd = { ...action.payload };
             const isAlreadyAdded = state.products.some((product) => product._id === productToAdd._id);
             if (isAlreadyAdded) {
-                toast.error(`${productToAdd.name} already added to cart!`);
+                toast.error(`${productToAdd.name} already added to favourite!`, {
+                    toastClassName: 'custom-toast-message'
+                });
             } else {
                 state.products.push(productToAdd);
-                toast.success(`${productToAdd.name} added to cart!`);
+                toast.success(`${productToAdd.name} added to favourite!`);
             }
         },
         removeFromCart: (state, action) => {
-            state.cart = state.products.filter(
+            state.favourite = state.products.filter(
                 (product) => product._id !== action.payload._id
             );
             if (state.products.length > 0) {
-                toast.success(`${action.payload.name} removed from cart!`);
+                toast.success(`${action.payload.name} removed from favourite!`, {
+                    toastClassName: 'custom-toast-message'
+                });
             } else {
                 toast.success(`cart clear!`);
             }
@@ -36,5 +40,5 @@ const cartSlice = createSlice({
     }
 })
 
-export const { addToCart, removeFromCart, removeAll } = cartSlice.actions;
-export default cartSlice.reducer;
+export const { addToFavourite, removeFromFavourite, removeAll } = favouriteSlice.actions;
+export default favouriteSlice.reducer;

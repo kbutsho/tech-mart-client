@@ -4,6 +4,9 @@ import Image from 'next/image';
 import { BsStar, BsStarFill, BsStarHalf } from 'react-icons/bs';
 import { AiOutlineHeart, AiOutlineShoppingCart } from 'react-icons/ai'
 import { PRODUCT_STATUS } from '@/constant/product.constant';
+import { useDispatch } from 'react-redux';
+import { addToCart } from '@/redux/features/cartSlice';
+import { addToFavourite } from '@/redux/features/favouriteSlice';
 
 const TvCategory = (props) => {
     const { status, price, discountPrice, name, coverPhoto, rating } = props.tv;
@@ -20,6 +23,13 @@ const TvCategory = (props) => {
         }
         return stars;
     };
+    const dispatch = useDispatch();
+    const handelAddToCart = (product) => {
+        dispatch(addToCart(product));
+    }
+    const handelAddToFavourite = (product) => {
+        dispatch(addToFavourite(product));
+    }
     return (
         <div className='col-md-4 col-lg-3 col-xl-3 col-xxl-2 col-sm-6 col-6'>
             <div className={`${styles.product_card}`}>
@@ -60,9 +70,12 @@ const TvCategory = (props) => {
                         }
                     </div>
                     <div>
-                        <AiOutlineHeart className={`${styles.icon} ms-1`} />
+                        <AiOutlineHeart onClick={() => handelAddToFavourite(props.tv)}
+                            className={`${styles.icon} ms-1`} />
                         {
-                            status === PRODUCT_STATUS.IN_STOCK ? <AiOutlineShoppingCart className={`${styles.icon}`} /> :
+                            status === PRODUCT_STATUS.IN_STOCK ?
+                                <AiOutlineShoppingCart onClick={() => handelAddToCart(props.tv)}
+                                    className={`${styles.icon}`} /> :
                                 null
                         }
                     </div>

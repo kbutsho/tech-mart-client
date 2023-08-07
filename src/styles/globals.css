@@ -1,0 +1,11 @@
+.custom-toast-message {
+    font-size: 10px;
+}
+
+.Toastify__toast--error {
+    font-size: 13px;
+}
+
+.Toastify__toast--success {
+    font-size: 13px;
+}

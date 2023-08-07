@@ -6,6 +6,7 @@ import { AiOutlineHeart, AiOutlineShoppingCart } from 'react-icons/ai'
 import { PRODUCT_STATUS } from '@/constant/product.constant';
 import { useDispatch } from 'react-redux';
 import { addToCart } from '@/redux/features/cartSlice';
+import { addToFavourite } from '@/redux/features/favouriteSlice';
 
 const NewArrival = (props) => {
     const { status, price, discountPrice, name, coverPhoto, rating } = props.newArrival;
@@ -26,6 +27,9 @@ const NewArrival = (props) => {
     const dispatch = useDispatch();
     const handelAddToCart = (product) => {
         dispatch(addToCart(product));
+    }
+    const handelAddToFavourite = (product) => {
+        dispatch(addToFavourite(product));
     }
     return (
         <div className='col-md-4 col-lg-3 col-xl-3 col-xxl-2 col-sm-6 col-6'>
@@ -67,7 +71,8 @@ const NewArrival = (props) => {
                         }
                     </div>
                     <div>
-                        <AiOutlineHeart className={`${styles.icon} ms-1`} />
+                        <AiOutlineHeart onClick={() => handelAddToFavourite(props.newArrival)}
+                            className={`${styles.icon} ms-1`} />
                         {
                             status === PRODUCT_STATUS.IN_STOCK ?
                                 <AiOutlineShoppingCart onClick={() => handelAddToCart(props.newArrival)}

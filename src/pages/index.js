@@ -73,6 +73,7 @@ const Home = ({ data }) => {
   ];
 
   let cartProducts = useSelector((state) => state.cart.products);
+  let favouriteProducts = useSelector((state) => state.favourite.products);
   return (
     <div className='container'>
 
@@ -89,7 +90,7 @@ const Home = ({ data }) => {
             <div className={`${styles.cart_area} d-flex justify-content-end`} style={{ paddingTop: "11px" }}>
               <div className='d-flex me-2'>
                 <Image className="nav-link me-2" src={favorite} height={30} width={30} alt="img" />
-                <span className={styles.cart_count}>2</span>
+                <span className={styles.cart_count}>{favouriteProducts.length}</span>
               </div>
               <div className='d-flex'>
                 <Image className="nav-link me-2" src={cart} height={30} width={30} alt="img" />
