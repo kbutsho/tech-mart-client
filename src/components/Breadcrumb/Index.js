@@ -6,26 +6,11 @@ const Breadcrumb = () => {
     const router = useRouter();
     const { asPath } = router;
     const segments = asPath.split('/').filter(Boolean);
-
-    const style = {
-        width: "100%",
-        height: "12vh",
-        "borderRadius": "8px",
-        background: "#F3F3F3",
-        display: "flex",
-        "justifyContent": "center",
-        "alignItems": "center",
-        "textDecoration": "none",
-        "fontSize": "1.1rem",
-        "fontWeight": "bold",
-        "boxShadow": "rgba(0, 0, 0, 0.24) 0px 3px 8px"
-    }
-
     return (
-        <div className="breadcrumbs" style={style}>
+        <div className="breadcrumbs">
             <div>
                 <Link href="/">
-                    <FcHome size="24" style={{ marginBottom: "5px" }} />
+                    <FcHome size="24" className='mb-1' />
                 </Link>
                 {segments.map((segment, index) => {
                     const isLastSegment = index === segments.length - 1;
