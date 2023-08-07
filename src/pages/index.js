@@ -17,22 +17,9 @@ import chargerCategoryBanner from '@/assets/home/charger.jpeg'
 import monitorCategoryBanner from '@/assets/home/monitor.jpeg'
 import Link from 'next/link';
 import ProductCard from '@/components/Home/ProductCard';
-import dynamic from 'next/dynamic';
-
-
-const Loader = () => {
-  return (
-    <div>
-      <h1>Loading...</h1>
-      <div style={{ width: '100px', height: '100px', border: '1px solid gray' }} />
-    </div>
-  );
-};
 
 const Home = ({ data }) => {
-  if (data === null) {
-    return <dynamic loader={Loader} />;
-  }
+  
   const slideRef = useRef()
   const responsiveSettings = [
     {

@@ -16,6 +16,12 @@
     box-shadow: rgba(0, 0, 0, 0.5) 1px 1px 4px 1px;
 }
 
+@media screen and (max-width: 678px) {
+    .brand_image {
+        height: 50px !important;
+        width: 95px !important;
+    }
+}
 @media screen and (max-width: 468px) {
     .brand_card {
         height: 80px;
@@ -23,5 +29,9 @@
         padding: 2px;
         box-shadow: none;
         border-radius: 5px;
+    }
+    .brand_image {
+        height: 40px !important;
+        width: 75px !important;
     }
 }
