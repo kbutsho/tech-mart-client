@@ -4,6 +4,8 @@ import Image from 'next/image';
 import { BsStar, BsStarFill, BsStarHalf } from 'react-icons/bs';
 import { AiOutlineHeart, AiOutlineShoppingCart } from 'react-icons/ai'
 import { PRODUCT_STATUS } from '@/constant/product.constant';
+import { useDispatch } from 'react-redux';
+import { addToCart } from '@/redux/features/cartSlice';
 
 const NewArrival = (props) => {
     const { status, price, discountPrice, name, coverPhoto, rating } = props.newArrival;
@@ -20,6 +22,11 @@ const NewArrival = (props) => {
         }
         return stars;
     };
+
+    const dispatch = useDispatch();
+    const handelAddToCart = (product) => {
+        dispatch(addToCart(product));
+    }
     return (
         <div className='col-md-4 col-lg-3 col-xl-3 col-xxl-2 col-sm-6 col-6'>
             <div className={`${styles.product_card}`}>
@@ -62,7 +69,9 @@ const NewArrival = (props) => {
                     <div>
                         <AiOutlineHeart className={`${styles.icon} ms-1`} />
                         {
-                            status === PRODUCT_STATUS.IN_STOCK ? <AiOutlineShoppingCart className={`${styles.icon}`} /> :
+                            status === PRODUCT_STATUS.IN_STOCK ?
+                                <AiOutlineShoppingCart onClick={() => handelAddToCart(props.newArrival)}
+                                    className={`${styles.icon}`} /> :
                                 null
                         }
                     </div>

@@ -29,6 +29,7 @@ import CameraCategory from '@/components/Home/CameraCategory';
 import TvCategory from '@/components/Home/TvCategory';
 import ChargerCategory from '@/components/Home/ChargerCategory';
 import MonitorCategory from '@/components/Home/MonitorCategory';
+import { useDispatch, useSelector } from 'react-redux';
 
 const Home = ({ data }) => {
 
@@ -70,6 +71,8 @@ const Home = ({ data }) => {
       }
     }
   ];
+
+  let cartProducts = useSelector((state) => state.cart.products);
   return (
     <div className='container'>
 
@@ -90,7 +93,7 @@ const Home = ({ data }) => {
               </div>
               <div className='d-flex'>
                 <Image className="nav-link me-2" src={cart} height={30} width={30} alt="img" />
-                <span className={styles.cart_count}>2</span>
+                <span className={styles.cart_count}>{cartProducts.length}</span>
               </div>
             </div>
           </div>
