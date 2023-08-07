@@ -1,5 +1,5 @@
 import styles from '@/styles/home/brand.module.css'
-import Image from 'next/image';
+import Image from 'next/legacy/image'
 const Brand = (props) => {
     const { coverPhoto } = props.brand
     return (

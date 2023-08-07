@@ -1,6 +1,6 @@
 import React from 'react';
+import Image from 'next/legacy/image'
 import styles from '@/styles/home/product.module.css'
-import Image from 'next/image';
 import { BsStar, BsStarFill, BsStarHalf } from 'react-icons/bs';
 import { AiOutlineHeart, AiOutlineShoppingCart } from 'react-icons/ai'
 import { PRODUCT_STATUS } from '@/constant/product.constant';
@@ -8,8 +8,8 @@ import { useDispatch } from 'react-redux';
 import { addToCart } from '@/redux/features/cartSlice';
 import { addToFavourite } from '@/redux/features/favouriteSlice';
 
-const WatchCategory = (props) => {
-    const { status, price, discountPrice, name, coverPhoto, rating } = props.watch;
+const ProductCard = (props) => {
+    const { status, price, discountPrice, name, coverPhoto, rating } = props.product;
     const offer = (((price - discountPrice) / price) * 100).toFixed(1);
     const renderRatingStars = () => {
         const fullStars = Math.floor(rating);
@@ -40,9 +40,9 @@ const WatchCategory = (props) => {
                     <div className={styles.product_image}>
                         <Image className='bg-info'
                             src={coverPhoto}
-                            width={170} height={170}
+                            width={170}
+                            height={170}
                             layout='responsive'
-                            priority={true}
                             alt="img"
                         />
                     </div>
@@ -70,11 +70,11 @@ const WatchCategory = (props) => {
                         }
                     </div>
                     <div>
-                        <AiOutlineHeart onClick={() => handelAddToFavourite(props.watch)}
+                        <AiOutlineHeart onClick={() => handelAddToFavourite(props.product)}
                             className={`${styles.icon} ms-1`} />
                         {
                             status === PRODUCT_STATUS.IN_STOCK ?
-                                <AiOutlineShoppingCart onClick={() => handelAddToCart(props.watch)}
+                                <AiOutlineShoppingCart onClick={() => handelAddToCart(props.product)}
                                     className={`${styles.icon}`} /> :
                                 null
                         }
@@ -91,4 +91,4 @@ const WatchCategory = (props) => {
     );
 };
 
-export default WatchCategory;
+export default ProductCard;

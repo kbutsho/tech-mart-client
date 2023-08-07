@@ -1,17 +1,12 @@
 import Banner from '@/components/Home/Banner';
-import Category from '@/components/Home/Category';
+import CategoryCard from '@/components/Home/CategoryCard';
 import MainLayout from '@/layouts/MainLayout';
 import styles from '@/styles/home/index.module.css'
-import Image from 'next/image';
+import Image from 'next/legacy/image'
 import React, { useRef } from 'react';
-import { BsSearch } from 'react-icons/bs'
-import cart from '@/assets/navbar/cart.png'
-import favorite from '@/assets/navbar/favourite.png'
-import Brand from '@/components/Home/Brand';
+import BrandCard from '@/components/Home/BrandCard';
 import { Slide } from 'react-slideshow-image';
-import 'react-slideshow-image/dist/styles.css';
-import NewArrival from '@/components/Home/NewArrival';
-import TopSelling from '@/components/Home/TopSelling';
+import 'react-slideshow-image/dist/styles.css';;
 import topSellingBanner from '@/assets/home/topSelling.png'
 import newArrivalBanner from '@/assets/home/newArrival.png'
 import phoneCategoryBanner from '@/assets/home/phone.jpeg'
@@ -21,18 +16,23 @@ import tvCategoryBanner from '@/assets/home/tv.jpeg'
 import chargerCategoryBanner from '@/assets/home/charger.jpeg'
 import monitorCategoryBanner from '@/assets/home/monitor.jpeg'
 import Link from 'next/link';
-import PhoneCategory from '@/components/Home/PhoneCategory';
-import WatchCategory from '@/components/Home/WatchCategory';
-import EarphoneCategory from '@/components/Home/EarphoneCategory';
-import LaptopCategory from '@/components/Home/LaptopCategory';
-import CameraCategory from '@/components/Home/CameraCategory';
-import TvCategory from '@/components/Home/TvCategory';
-import ChargerCategory from '@/components/Home/ChargerCategory';
-import MonitorCategory from '@/components/Home/MonitorCategory';
-import { useSelector } from 'react-redux';
+import ProductCard from '@/components/Home/ProductCard';
+import dynamic from 'next/dynamic';
+
+
+const Loader = () => {
+  return (
+    <div>
+      <h1>Loading...</h1>
+      <div style={{ width: '100px', height: '100px', border: '1px solid gray' }} />
+    </div>
+  );
+};
 
 const Home = ({ data }) => {
-
+  if (data === null) {
+    return <dynamic loader={Loader} />;
+  }
   const slideRef = useRef()
   const responsiveSettings = [
     {
@@ -72,13 +72,8 @@ const Home = ({ data }) => {
     }
   ];
 
-  let cartProducts = useSelector((state) => state.cart.products);
-  let favouriteProducts = useSelector((state) => state.favourite.products);
   return (
     <div className='container'>
-
-      {/* product search */}
-     
 
       {/* banner area */}
       <div className={`${styles.banner_area} mb-5`}>
@@ -91,7 +86,7 @@ const Home = ({ data }) => {
         <hr />
         <div className="row">
           {
-            data.categories.data.map((category) => <Category key={category._id} category={category} />)
+            data?.categories?.data?.map((category) => <CategoryCard key={category._id} category={category} />)
           }
         </div>
       </div>
@@ -111,37 +106,37 @@ const Home = ({ data }) => {
           prevArrow={<button style={{ display: "none" }}></button>}
         >
           {
-            data.brands.data.map((brand) => <Brand key={brand._id} brand={brand} />)
+            data?.brands?.data?.map((brand) => <BrandCard key={brand._id} brand={brand} />)
           }
         </Slide>
       </div>
 
       {/* new arrival */}
-      <Link href="/"><Image src={newArrivalBanner} layout='responsive' height={100} width={100} alt="img" className={styles.bannerImage} /></Link>
+      <Link href="/"><Image src={newArrivalBanner} height={467} width={3840} layout='responsive' alt="img" className={styles.bannerImage} /></Link>
       <div className={`${styles.new_arrival_area} my-5`}>
         <h5 className='fw-bold text-uppercase'>New arrival</h5>
         <hr />
         <div className="row">
           {
-            data.newArrival.data.slice(0, 12).map((newArrival) => <NewArrival key={newArrival._id} newArrival={newArrival} />)
+            data?.newArrival?.data?.slice(0, 12)?.map((product) => <ProductCard key={product._id} product={product} />)
           }
         </div>
       </div>
 
       {/* top selling */}
-      <Link href="/"><Image src={topSellingBanner} layout='responsive' height={100} width={100} alt="img" className={styles.bannerImage} /></Link>
+      <Link href="/"><Image src={topSellingBanner} height={467} width={3840} layout='responsive' alt="img" className={styles.bannerImage} /></Link>
       <div className={`${styles.top_selling_area} my-5`}>
         <h5 className='fw-bold text-uppercase'>top selling</h5>
         <hr />
         <div className="row">
           {
-            data.topSelling.data.slice(0, 12).map((topSelling) => <TopSelling key={topSelling._id} topSelling={topSelling} />)
+            data?.topSelling?.data?.slice(0, 12)?.map((product) => <ProductCard key={product._id} product={product} />)
           }
         </div>
       </div>
 
       {/* phone category*/}
-      <Link href="/"><Image src={phoneCategoryBanner} layout='responsive' height={100} width={100} alt="img" className={styles.bannerImage} /></Link>
+      <Link href="/"><Image src={phoneCategoryBanner} height={467} width={3840} layout='responsive' alt="img" className={styles.bannerImage} /></Link>
       <div className={`${styles.phone_category_area} my-5`}>
         <div className='d-flex justify-content-between align-items-center'>
           <h5 className='fw-bold text-uppercase mt-2'>Smart Phones</h5>
@@ -150,13 +145,13 @@ const Home = ({ data }) => {
         <hr />
         <div className="row">
           {
-            data.phoneCategory.data.slice(0, 12).map((phone) => <PhoneCategory key={phone._id} phone={phone} />)
+            data?.phoneCategory?.data?.slice(0, 12)?.map((product) => <ProductCard key={product._id} product={product} />)
           }
         </div>
       </div>
 
       {/* watch category */}
-      <Link href="/"><Image src={watchCategoryBanner} layout='responsive' height={100} width={100} alt="img" className={styles.bannerImage} /></Link>
+      <Link href="/"><Image src={watchCategoryBanner} height={467} width={3840} layout='responsive' alt="img" className={styles.bannerImage} /></Link>
       <div className={`${styles.watch_category_area} my-5`}>
         <div className='d-flex justify-content-between align-items-center'>
           <h5 className='fw-bold text-uppercase mt-2'>Smart watch</h5>
@@ -165,13 +160,13 @@ const Home = ({ data }) => {
         <hr />
         <div className="row">
           {
-            data.watchCategory.data.slice(0, 12).map((watch) => <WatchCategory key={watch._id} watch={watch} />)
+            data?.watchCategory?.data?.slice(0, 12)?.map((product) => <ProductCard key={product._id} product={product} />)
           }
         </div>
       </div>
 
       {/* earphone category */}
-      <Link href="/"><Image src={earphoneCategoryBanner} layout='responsive' height={100} width={100} alt="img" className={styles.bannerImage} /></Link>
+      <Link href="/"><Image src={earphoneCategoryBanner} height={467} width={3840} layout='responsive' alt="img" className={styles.bannerImage} /></Link>
       <div className={`${styles.earphone_category_area} my-5`}>
         <div className='d-flex justify-content-between align-items-center'>
           <h5 className='fw-bold text-uppercase mt-2'>earphone</h5>
@@ -180,13 +175,13 @@ const Home = ({ data }) => {
         <hr />
         <div className="row">
           {
-            data.earphoneCategory.data.slice(0, 12).map((earphone) => <EarphoneCategory key={earphone._id} earphone={earphone} />)
+            data?.earphoneCategory?.data?.slice(0, 12)?.map((product) => <ProductCard key={product._id} product={product} />)
           }
         </div>
       </div>
 
       {/* camera category */}
-      <Link href="/"><Image src={phoneCategoryBanner} layout='responsive' height={100} width={100} alt="img" className={styles.bannerImage} /></Link>
+      <Link href="/"><Image src={phoneCategoryBanner} height={467} width={3840} layout='responsive' alt="img" className={styles.bannerImage} /></Link>
       <div className={`${styles.camera_category_area} my-5`}>
         <div className='d-flex justify-content-between align-items-center'>
           <h5 className='fw-bold text-uppercase mt-2'>camera</h5>
@@ -195,13 +190,13 @@ const Home = ({ data }) => {
         <hr />
         <div className="row">
           {
-            data.cameraCategory.data.slice(0, 12).map((camera) => <CameraCategory key={camera._id} camera={camera} />)
+            data?.cameraCategory?.data?.slice(0, 12)?.map((product) => <ProductCard key={product._id} product={product} />)
           }
         </div>
       </div>
 
       {/* laptop category */}
-      <Link href="/"><Image src={topSellingBanner} layout='responsive' height={100} width={100} alt="img" className={styles.bannerImage} /></Link>
+      <Link href="/"><Image src={topSellingBanner} height={467} width={3840} layout='responsive' alt="img" className={styles.bannerImage} /></Link>
       <div className={`${styles.laptop_category_area} my-5`}>
         <div className='d-flex justify-content-between align-items-center'>
           <h5 className='fw-bold text-uppercase mt-2'>laptop</h5>
@@ -210,13 +205,13 @@ const Home = ({ data }) => {
         <hr />
         <div className="row">
           {
-            data.laptopCategory.data.slice(0, 12).map((laptop) => <LaptopCategory key={laptop._id} laptop={laptop} />)
+            data?.laptopCategory?.data?.slice(0, 12)?.map((product) => <ProductCard key={product._id} product={product} />)
           }
         </div>
       </div>
 
       {/* monitor category */}
-      <Link href="/"><Image src={monitorCategoryBanner} layout='responsive' height={100} width={100} alt="img" className={styles.bannerImage} /></Link>
+      <Link href="/"><Image src={monitorCategoryBanner} height={467} width={3840} layout='responsive' alt="img" className={styles.bannerImage} /></Link>
       <div className={`${styles.monitor_category_area} my-5`}>
         <div className='d-flex justify-content-between align-items-center'>
           <h5 className='fw-bold text-uppercase mt-2'>monitor</h5>
@@ -225,13 +220,13 @@ const Home = ({ data }) => {
         <hr />
         <div className="row">
           {
-            data.monitorCategory.data.slice(0, 12).map((monitor) => <MonitorCategory key={monitor._id} laptop={monitor} />)
+            data?.monitorCategory?.data?.slice(0, 12)?.map((product) => <ProductCard key={product._id} product={product} />)
           }
         </div>
       </div>
 
       {/* television category */}
-      <Link href="/"><Image src={tvCategoryBanner} layout='responsive' height={100} width={100} alt="img" className={styles.bannerImage} /></Link>
+      <Link href="/"><Image src={tvCategoryBanner} height={467} width={3840} layout='responsive' alt="img" className={styles.bannerImage} /></Link>
       <div className={`${styles.television_category_area} my-5`}>
         <div className='d-flex justify-content-between align-items-center'>
           <h5 className='fw-bold text-uppercase mt-2'>television</h5>
@@ -240,13 +235,13 @@ const Home = ({ data }) => {
         <hr />
         <div className="row">
           {
-            data.tvCategory.data.slice(0, 12).map((tv) => <TvCategory key={tv._id} tv={tv} />)
+            data?.tvCategory?.data?.slice(0, 12)?.map((product) => <ProductCard key={product._id} product={product} />)
           }
         </div>
       </div>
 
       {/* charger category */}
-      <Link href="/"><Image src={chargerCategoryBanner} layout='responsive' height={100} width={100} alt="img" className={styles.bannerImage} /></Link>
+      <Link href="/"><Image src={chargerCategoryBanner} height={467} width={3840} layout='responsive' alt="img" className={styles.bannerImage} /></Link>
       <div className={`${styles.charger_category_area} my-5`}>
         <div className='d-flex justify-content-between align-items-center'>
           <h5 className='fw-bold text-uppercase mt-2'>charger</h5>
@@ -255,10 +250,11 @@ const Home = ({ data }) => {
         <hr />
         <div className="row">
           {
-            data.chargerCategory.data.slice(0, 12).map((charger) => <ChargerCategory key={charger._id} charger={charger} />)
+            data?.chargerCategory?.data?.slice(0, 12)?.map((product) => <ProductCard key={product._id} product={product} />)
           }
         </div>
       </div>
+
     </div>
   );
 };
