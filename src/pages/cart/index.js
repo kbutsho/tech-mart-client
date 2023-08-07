@@ -64,8 +64,8 @@ const CartPage = () => {
                                             <div>
                                                 <h5 className='fw-bold'>{cartItem.name}</h5>
                                                 <p>{cartItem.category}</p>
-                                                <button className='btn btn-danger' onClick={() => handleRemoveFromCart(cartItem)}>
-                                                    Remove
+                                                <button className='btn btn-danger btn-sm' onClick={() => handleRemoveFromCart(cartItem)}>
+                                                    remove
                                                 </button>
                                             </div>
                                         </div>
@@ -85,15 +85,15 @@ const CartPage = () => {
                         </div>
                         <div className={styles.cart_summary}>
                             <button className={styles.clear_btn} onClick={() => handleClearCart()}>
-                                Clear Cart
+                                clear Cart
                             </button>
                             <div className={styles.cart_checkout}>
                                 <div className={styles.subtotal}>
-                                    <span>Subtotal</span>
+                                    <span>subtotal</span>
                                     <span className={styles.amount}>${cart.cartTotalAmount}</span>
                                 </div>
-                                <p>Taxes and shipping calculated at checkout</p>
-                                <button onClick={() => checkOut()}>Check out</button>
+                                <p>taxes and shipping calculated at checkout</p>
+                                <button className=' btn btn-primary w-100' onClick={() => checkOut()}>check out</button>
                                 <div className='d-flex justify-content-end'>
                                     <Link className={styles.continue_shopping} href="/">
                                         <svg
