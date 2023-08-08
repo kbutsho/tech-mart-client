@@ -208,7 +208,7 @@ const PhoneCategory = ({ data }) => {
                                 type="text"
                                 value={searchTerm}
                                 onChange={handelSearch}
-                                placeholder='search for products'
+                                placeholder='search for phone'
                                 className={`form-control ${styles.search_box}`} />
 
                             <div className="row">
