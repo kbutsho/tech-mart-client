@@ -76,11 +76,11 @@ function Navbar() {
                         <div className="col-md-1 col-4">
                             <div className={`${styles.cart_area} d-flex justify-content-end`} style={{ paddingTop: "11px" }}>
                                 <div className='d-flex me-2'>
-                                    <Link href="/"><Image className={` ${styles.cart_favourite_icon} nav-link me-2`} src={favoriteImg} height={28} width={28} alt="img" /></Link>
+                                    <Link href="/"><Image className={` ${styles.cart_favourite_icon} nav-link me-2`} src={favoriteImg} height={30} width={30} alt="img" /></Link>
                                     <span className={styles.cart_count}>{favouriteProducts.length}</span>
                                 </div>
                                 <div className='d-flex'>
-                                    <Link href="/cart"><Image className={`${styles.cart_favourite_icon} nav-link me-2`} src={cartImg} height={28} width={28} alt="img" /></Link>
+                                    <Link href="/cart"><Image className={`${styles.cart_favourite_icon} nav-link me-2`} src={cartImg} height={30} width={30} alt="img" /></Link>
                                     <span className={styles.cart_count}>{cart.cartTotalQuantity}</span>
                                 </div>
                             </div>

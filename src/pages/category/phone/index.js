@@ -47,7 +47,10 @@ const PhoneCategory = ({ data }) => {
                         <div className="col-md-9">
                             <div className="row">
                                 {
-                                    filteredData ? filteredData.map((product) => <ProductCard key={product._id} product={product} />) : <h1>loading......</h1>
+                                    filteredData.length > 0 ? filteredData.map((product) => <ProductCard key={product._id} product={product} />) :
+                                        <div className='d-flex justify-content-center align-items-center' style={{ height: "40vh" }}>
+                                            <h5>no data found!</h5>
+                                        </div>
                                 }
                             </div>
                         </div>
