@@ -35,7 +35,7 @@ function Navbar() {
                     </span>
                     <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
                         <div className={`navbar-nav ms-auto  ${styles.nav_items}`}>
-                            <Link className={`nav-link`} href="/">Phone</Link>
+                            <Link className={`nav-link`} href="/category/phone">Phone</Link>
                             <Link className="nav-link" href="/">Laptop</Link>
                             <Link className="nav-link" href="/">Watch</Link>
                             <Link className="nav-link" href="/">Earphone</Link>
