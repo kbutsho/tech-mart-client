@@ -80,7 +80,7 @@ function Navbar() {
                     <div className="row">
                         <div className="col-12">
                             <form className={`d-flex align-items-center`}>
-                                <input type="text" placeholder='search products' className={`form-control w-100 ${styles.search_input}`} />
+                                <input type="text" placeholder='search for products' className={`form-control w-100 ${styles.search_input}`} />
                                 <BsSearch size="24px" style={{ marginLeft: "-50px" }} type='submit' />
                             </form>
                         </div>
