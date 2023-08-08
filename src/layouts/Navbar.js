@@ -45,7 +45,7 @@ function Navbar() {
                             <Link className="nav-link" href="/">Monitor</Link>
                             <Link className="nav-link" href="/">gadgets</Link>
                             <Link className="nav-link" href="/">Brands</Link>
-                            <Link className="nav-link me-2" href="/categories">Categories</Link>
+                            <Link className="nav-link me-2" href="/category">Categories</Link>
                             <div className="dropdown">
                                 <button className={`${styles.dropdown_btn} btn btn-outline-secondary dropdown-toggle pt-2`}
                                     data-bs-toggle="dropdown"

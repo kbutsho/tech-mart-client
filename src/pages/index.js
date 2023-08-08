@@ -283,7 +283,7 @@ export const getStaticProps = async () => {
       data: {
         categories, brands, cameraCategory, monitorCategory, tvCategory, chargerCategory, newArrival, topSelling, phoneCategory, watchCategory, earphoneCategory, laptopCategory
       },
-      validate: 30
+      revalidate: 30
     }
   };
 };

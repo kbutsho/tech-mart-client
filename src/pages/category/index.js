@@ -1,0 +1,36 @@
+import Breadcrumb from '@/components/Breadcrumb/Index';
+import CategoryCard from '@/components/Home/CategoryCard';
+import MainLayout from '@/layouts/MainLayout';
+
+const CategoryPage = ({ data }) => {
+    return (
+        <div className='container'>
+            <Breadcrumb />
+            <div className='py-5'>
+                <div className="row">
+                    {
+                        data?.categories?.data?.map((category) => <CategoryCard key={category._id} category={category} />)
+                    }
+                </div>
+            </div>
+        </div>
+    );
+};
+
+export default CategoryPage;
+CategoryPage.getLayout = function getLayout(page) {
+    return <MainLayout>{page}</MainLayout>;
+};
+
+export const getStaticProps = async () => {
+    const categoryResponse = await fetch("https://tech-mart-server.vercel.app/api/categories");
+    const categories = await categoryResponse.json();
+    return {
+        props: {
+            data: {
+                categories
+            },
+            revalidate: 30
+        }
+    };
+};
