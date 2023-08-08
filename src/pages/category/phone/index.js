@@ -30,7 +30,7 @@ const PhoneCategory = ({ data }) => {
                 <div className="phone-area py-4">
                     <div className="row">
                         <div className="col-md-3">
-                            <div className='alert alert-secondary w-100 fw-bold text-center' style={{ marginTop: "12px" }}>
+                            <div className='alert alert-secondary w-100 fw-bold text-center py-2' style={{ marginTop: "12px" }}>
                                 Filter
                             </div>
                             <div className={styles.priceRange_area}>

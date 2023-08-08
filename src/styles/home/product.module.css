@@ -112,6 +112,10 @@
         /* background-color: #FAFAFA; */
     }
 
+    .priceRange_area {
+        box-shadow: none;
+    }
+
     .product_card h6 {
         font-size: 14px;
     }

@@ -63,7 +63,7 @@ const Home = ({ data }) => {
     <div className={`${styles.main_area} container`}>
 
       {/* banner area */}
-      <div className={`${styles.banner_area} mb-5 pt-4`}>
+      <div className={`${styles.banner_area} mb-5 pt-3`}>
         <Banner />
       </div>
 
