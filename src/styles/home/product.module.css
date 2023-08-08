@@ -98,7 +98,7 @@
 }
 
 .filter_header {
-    padding: 20px 24px;
+    padding: 8px 24px;
     background-color: #ffffff;
     box-shadow: rgba(0, 0, 0, 0.2) 1px 1px 4px 1px;
     border-radius: 6px;
@@ -110,31 +110,52 @@
     width: 100%;
     padding: 10px;
     border-radius: 6px;
-    background-color: #F0F0F0;
+    background-color: #ffffff;
 }
 
-.priceRange_area {
+.filter_area {
     margin: 10px 0;
-    padding: 20px 24px;
+    padding: 8px 24px;
     background-color: #ffffff;
     box-shadow: rgba(0, 0, 0, 0.2) 1px 1px 4px 1px;
     border-radius: 6px;
 }
 
-.priceRange_area button {
+.filter_area button {
     border: none;
     width: 100%;
     padding: 10px;
     border-radius: 6px;
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    background-color: #ffffff;
+}
+
+.filter_area .radio_area {
+    display: flex;
+    transition: 0.3s;
+    padding: 6px;
+    margin: 2px 0;
 
 }
 
-.priceRange_area .show_slider {
+.filter_area label {
+    font-size: 14px;
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+.filter_area .radio_area:hover {
+    background-color: #F0F0F0;
+}
+
+.filter_area .show {
     display: none;
     transition: 0.3s;
 }
 
-.priceRange_area .hide_slide {
+.filter_area .hide {
     transition: 0.3s;
 }
 
@@ -144,7 +165,7 @@
         box-shadow: none;
     }
 
-    .priceRange_area, .filter_header {
+    .filter_area, .filter_header {
         box-shadow: rgba(0, 0, 0, 0.1) 1px 1px 2px 1px;
     }
 
