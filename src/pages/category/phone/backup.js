@@ -23,6 +23,26 @@ const PhoneCategory = ({ data }) => {
         setPriceToggle(!priceToggle)
     }
 
+    // sort by price
+    const sortOrderList = [
+        PRICE_SORT_ORDER.DEFAULT,
+        PRICE_SORT_ORDER.MIN_TO_MAX,
+        PRICE_SORT_ORDER.MAX_TO_MIN
+    ];
+    const [sortOrder, setSortOrder] = useState(PRICE_SORT_ORDER.DEFAULT)
+    const handelSortOrder = (event) => {
+        setSortOrder(event.target.value);
+    }
+    const [sortOrderToggle, setSortOrderToggle] = useState(true)
+    const handelSortOrderToggle = () => {
+        setSortOrderToggle(!sortOrderToggle)
+    }
+
+
+
+
+
+
     // filter by status
     const productStatus = [
         PRODUCT_STATUS.IN_STOCK,
@@ -30,10 +50,9 @@ const PhoneCategory = ({ data }) => {
         PRODUCT_STATUS.UPCOMING,
         PRODUCT_STATUS.DISCONTINUE,
         PRODUCT_STATUS.LIMITED_STOCK,
-        PRODUCT_BRAND.SHOW_ALL
-
+        PRODUCT_STATUS.DEFAULT
     ]
-    const [filterByStatus, setFilterByStatus] = useState('');
+    const [filterByStatus, setFilterByStatus] = useState(PRODUCT_STATUS.DEFAULT);
     const handelFilterByStatus = (event) => {
         setFilterByStatus(event.target.value);
     }
@@ -42,22 +61,6 @@ const PhoneCategory = ({ data }) => {
         setStatusToggle(!statusToggle)
     }
 
-
-    // price sort order
-    const sortOrderList = [
-        PRICE_SORT_ORDER.MIN_TO_MAX,
-        PRICE_SORT_ORDER.MAX_TO_MIN,
-        PRICE_SORT_ORDER.DEFAULT
-    ];
-    const [sortOrder, setSortOrder] = useState('')
-    const handelSortOrder = (event) => {
-        setSortOrder(event.target.value);
-    }
-
-    const [sortOrderToggle, setSortOrderToggle] = useState(true)
-    const handelSortOrderToggle = () => {
-        setSortOrderToggle(!sortOrderToggle)
-    }
 
     // filter by brand
     const productBrand = [
@@ -69,9 +72,9 @@ const PhoneCategory = ({ data }) => {
         PRODUCT_BRAND.VIVO,
         PRODUCT_BRAND.REALME,
         PRODUCT_BRAND.PIXEL,
-        PRODUCT_BRAND.SHOW_ALL
+        PRODUCT_BRAND.DEFAULT
     ];
-    const [filterByBrand, setFilterByBrand] = useState('');
+    const [filterByBrand, setFilterByBrand] = useState(PRODUCT_BRAND.DEFAULT);
     const handelFilterByBrand = (event) => {
         setFilterByBrand(event.target.value);
     }
@@ -110,16 +113,9 @@ const PhoneCategory = ({ data }) => {
             item.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
             item.category.toLowerCase().includes(searchTerm.toLowerCase()) ||
             item.brand.toLowerCase().includes(searchTerm.toLowerCase());
+
         return priceRangeMatch && statusMatch && brandMatch && ratingRangeMatch && searchMatch;
-    })
-        .sort((itemA, itemB) => {
-            if (sortOrder === PRICE_SORT_ORDER.MIN_TO_MAX) {
-                return itemA.discountPrice - itemB.discountPrice;
-            } else if (sortOrder === PRICE_SORT_ORDER.MAX_TO_MIN) {
-                return itemB.discountPrice - itemA.discountPrice;
-            }
-            return 0;
-        });
+    });
 
     return (
         <div className='container'>
@@ -152,12 +148,12 @@ const PhoneCategory = ({ data }) => {
                                 </div>
                             </div>
 
-                            {/* price sort order */}
+                            {/* // sort order */}
                             <div className={styles.filter_area}>
                                 <button onClick={handelSortOrderToggle}>Sort Order
                                     <div>
-                                        <span className={`${sortOrderToggle ? styles.show : styles.hide}`}><IoIosArrowUp size="20px" /></span>
-                                        <span className={`${sortOrderToggle ? styles.hide : styles.show}`}><IoIosArrowDown size="20px" /></span>
+                                        <span className={` ${sortOrderToggle ? styles.show : styles.hide}`}><IoIosArrowUp size="20px" /></span>
+                                        <span className={` ${sortOrderToggle ? styles.hide : styles.show}`}><IoIosArrowDown size="20px" /></span>
                                     </div>
                                 </button>
 
@@ -165,25 +161,25 @@ const PhoneCategory = ({ data }) => {
                                     <hr />
                                     {
                                         sortOrderList.map((sort, index) => (
-                                            <div key={index}>
-                                                <label htmlFor={`sort_${index}`} className={styles.radio_area}>
-                                                    <input
-                                                        className={`${styles.radio_input}`}
-                                                        type="radio"
-                                                        name="sort_order"
-                                                        id={`sort_${index}`}
-                                                        value={sort === PRICE_SORT_ORDER.DEFAULT ? '' : sort}
-                                                        onChange={handelSortOrder}
-                                                    />
-                                                    {sort}</label>
+                                            <div className={styles.radio_area} key={index}>
+                                                <input
+                                                    type="radio"
+                                                    name="status"
+                                                    id={`sort_${index}`}
+                                                    value={sort}
+                                                    checked={sort === sortOrder}
+                                                    onChange={handelSortOrder}
+                                                />
+                                                <label htmlFor={`sort_${index}`}>{sort}</label>
                                             </div>
                                         ))
                                     }
                                 </div>
                             </div>
 
+
                             {/* // filter by status */}
-                            <div className={styles.filter_area}>
+                            {/* <div className={styles.filter_area}>
                                 <button onClick={handelStatusToggle}>Status
                                     <div>
                                         <span className={` ${statusToggle ? styles.show : styles.hide}`}><IoIosArrowUp size="20px" /></span>
@@ -195,17 +191,44 @@ const PhoneCategory = ({ data }) => {
                                     <hr />
                                     {
                                         productStatus.map((status, index) => (
-                                            <div key={index}>
-                                                <label htmlFor={`status_${index}`} className={styles.radio_area}>
-                                                    <input
-                                                        className={`${styles.radio_input}`}
-                                                        type="radio"
-                                                        name="status"
-                                                        id={`status_${index}`}
-                                                        value={status === PRODUCT_STATUS.SHOW_ALL ? '' : status}
-                                                        onChange={handelFilterByStatus}
-                                                    />
-                                                    {status.split('-').join(' ')}</label>
+                                            <div className={styles.radio_area} key={index}>
+                                                <input
+                                                    type="radio"
+                                                    name="status"
+                                                    id={`status_${index}`}
+                                                    value={status === 'default' ? '' : status}
+                                                    checked={status === filterByStatus}
+                                                    onChange={handelFilterByStatus}
+                                                />
+                                                <label htmlFor={`status_${index}`}>{status.split('-').join(' ')}</label>
+                                            </div>
+                                        ))
+                                    }
+                                </div>
+                            </div> */}
+
+                            <div className={styles.filter_area}>
+                                <button onClick={handelStatusToggle}>Status
+                                    <div>
+                                        <span className={`${statusToggle ? styles.show : styles.hide}`}><IoIosArrowUp size="20px" /></span>
+                                        <span className={`${statusToggle ? styles.hide : styles.show}`}><IoIosArrowDown size="20px" /></span>
+                                    </div>
+                                </button>
+
+                                <div className={`${statusToggle ? styles.show : styles.hide}`}>
+                                    <hr />
+                                    {
+                                        productStatus.map((status, index) => (
+                                            <div className={styles.radio_area} key={index}>
+                                                <input
+                                                    type="radio"
+                                                    name="status"
+                                                    id={`status_${index}`}
+                                                    value={status === 'default' ? '' : status}
+                                                    checked={status === filterByStatus}
+                                                    onChange={handelFilterByStatus}
+                                                />
+                                                <label htmlFor={`status_${index}`}>{status.split('-').join(' ')}</label>
                                             </div>
                                         ))
                                     }
@@ -225,17 +248,16 @@ const PhoneCategory = ({ data }) => {
                                     <hr />
                                     {
                                         productBrand.map((brand, index) => (
-                                            <div key={index}>
-                                                <label htmlFor={`brand_${index}`} className={styles.radio_area}>
-                                                    <input
-                                                        className={`${styles.radio_input}`}
-                                                        type="radio"
-                                                        name="brand"
-                                                        id={`brand_${index}`}
-                                                        value={brand === PRODUCT_BRAND.SHOW_ALL ? '' : brand}
-                                                        onChange={handelFilterByBrand}
-                                                    />
-                                                    {brand.split('-').join(' ')}</label>
+                                            <div className={styles.radio_area} key={index}>
+                                                <input
+                                                    type="radio"
+                                                    name="brand"
+                                                    id={`brand_${index}`}
+                                                    value={brand === 'default' ? '' : brand}
+                                                    checked={brand === filterByBrand}
+                                                    onChange={handelFilterByBrand}
+                                                />
+                                                <label htmlFor={`brand_${index}`}>{brand.split('-').join(' ')}</label>
                                             </div>
                                         ))
                                     }
@@ -260,7 +282,6 @@ const PhoneCategory = ({ data }) => {
                                     </div>
                                 </div>
                             </div>
-
                         </div>
                         <div className="col-md-8 col-xxl-9">
                             <div className={styles.search_area}>

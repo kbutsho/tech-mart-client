@@ -3,7 +3,8 @@ export const PRODUCT_STATUS = {
     STOCK_OUT: 'stock-out',
     LIMITED_STOCK: 'limited-stock',
     UPCOMING: 'upcoming',
-    DISCONTINUE: 'discontinue'
+    DISCONTINUE: 'discontinue',
+    SHOW_ALL: 'show all'
 }
 
 export const PRODUCT_BRAND = {
@@ -14,5 +15,12 @@ export const PRODUCT_BRAND = {
     VIVO: 'vivo',
     REALME: 'realme',
     ONEPLUS: 'oneplus',
-    PIXEL: 'google-pixel'
+    PIXEL: 'google-pixel',
+    SHOW_ALL: 'show all'
+}
+
+export const PRICE_SORT_ORDER = {
+    DEFAULT: 'default order',
+    MIN_TO_MAX: 'price (min to max)',
+    MAX_TO_MIN: 'price (max to min)'
 }
