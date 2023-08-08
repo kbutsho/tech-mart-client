@@ -31,7 +31,7 @@ const ProductCard = (props) => {
         dispatch(addToFavourite(product));
     }
     return (
-        <div className='col-md-4 col-lg-3 col-xl-3 col-xxl-3 col-sm-6 col-6'>
+        <div className='col-md-6 col-lg-4 col-xl-3 col-xxl-3 col-sm-6 col-6'>
             <div className={`${styles.product_card}`}>
                 <div className={styles.product_header}>
                     {

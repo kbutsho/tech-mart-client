@@ -104,7 +104,7 @@ const PhoneCategory = ({ data }) => {
                 <Image src={banner} layout='responsive' height={360} width={1920} alt="img" />
                 <div className="phone-area py-4">
                     <div className="row">
-                        <div className="col-md-3 fixed">
+                        <div className="col-md-4 col-xxl-3">
                             <div className={styles.filter_header} style={{ marginTop: "12px" }}>
                                 <span>Filter</span>
                             </div>
@@ -203,13 +203,15 @@ const PhoneCategory = ({ data }) => {
                                 </div>
                             </div>
                         </div>
-                        <div className="col-md-9">
-                            <input
-                                type="text"
-                                value={searchTerm}
-                                onChange={handelSearch}
-                                placeholder='search for phone'
-                                className={`form-control ${styles.search_box}`} />
+                        <div className="col-md-8 col-xxl-9">
+                            <div className={styles.search_area}>
+                                <input
+                                    type="text"
+                                    value={searchTerm}
+                                    onChange={handelSearch}
+                                    placeholder='search for phone'
+                                    className={`form-control ${styles.search_box}`} />
+                            </div>
 
                             <div className="row">
                                 {
