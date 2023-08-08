@@ -109,7 +109,7 @@
     .product_card {
         min-height: 250px;
         box-shadow: none;
-        background-color: #FAFAFA;
+        /* background-color: #FAFAFA; */
     }
 
     .product_card h6 {
