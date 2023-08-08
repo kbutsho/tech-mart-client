@@ -104,12 +104,25 @@
     box-shadow: rgba(0, 0, 0, 0.2) 1px 1px 4px 1px;
     border-radius: 6px;
 }
+.priceRange_area button {
+  border: none;
+  width: 100%;
+  padding: 10px;
+
+}
+
+.priceRange_area .show_slider {
+    display: none;
+    transition: 0.3s;
+}
+.priceRange_area .hide_slide {
+    transition: 0.3s;
+}
 
 @media screen and (max-width: 468px) {
     .product_card {
         min-height: 250px;
         box-shadow: none;
-        /* background-color: #FAFAFA; */
     }
 
     .priceRange_area {

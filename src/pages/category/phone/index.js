@@ -6,6 +6,7 @@ import ProductCard from '@/components/Category/ProductCard';
 import Slider from '@mui/material/Slider';
 import { useState } from 'react';
 import styles from '@/styles/home/product.module.css'
+import { IoIosArrowDropup, IoIosArrowDropdown } from 'react-icons/io'
 
 const PhoneCategory = ({ data }) => {
     const [product, setProduct] = useState(data.productResponse);
@@ -18,10 +19,10 @@ const PhoneCategory = ({ data }) => {
         return range;
     });
 
-    // const [priceToggle, setPriceToggle] = useState(false)
-    // const handelPriceToggle = () => {
-    //     setPriceToggle(!priceToggle)
-    // }
+    const [priceToggle, setPriceToggle] = useState(false)
+    const handelPriceToggle = () => {
+        setPriceToggle(!priceToggle)
+    }
     return (
         <div className='container'>
             <Breadcrumb />
@@ -34,12 +35,20 @@ const PhoneCategory = ({ data }) => {
                                 Filter
                             </div>
                             <div className={styles.priceRange_area}>
-                                <h6 className='fw-bold'>Price Range</h6>
-                                <hr />
-                                <Slider value={priceRange} onChange={handlePriceRangeChange} valueLabelDisplay="auto" min={data.priceRangeResponse.data[0]} max={data.priceRangeResponse.data[1]} />
-                                <div className='d-flex justify-content-between'>
-                                    <h6>{priceRange[0]}</h6>
-                                    <h6>{priceRange[1]}</h6>
+                                <button className='fw-bold d-flex justify-content-between' onClick={handelPriceToggle}>Price Range
+                                    <div>
+                                        <span className={` ${priceToggle ? styles.show_slider : styles.hide_slider}`}><IoIosArrowDropup size="20px" /></span>
+                                        <span className={` ${priceToggle ? styles.hide_slider : styles.show_slider}`}><IoIosArrowDropdown size="20px" /></span>
+                                    </div>
+                                </button>
+                                {/* <hr /> */}
+
+                                <div className={`mt-3 px-2 ${priceToggle ? styles.show_slider : styles.hide_slider}`}>
+                                    <Slider value={priceRange} onChange={handlePriceRangeChange} valueLabelDisplay="auto" min={data.priceRangeResponse.data[0]} max={data.priceRangeResponse.data[1]} />
+                                    <div className='d-flex justify-content-between'>
+                                        <small>{priceRange[0]}</small>
+                                        <small>{priceRange[1]}</small>
+                                    </div>
                                 </div>
                             </div>
 
