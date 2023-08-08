@@ -7,10 +7,11 @@ import Slider from '@mui/material/Slider';
 import { useState } from 'react';
 import styles from '@/styles/home/product.module.css'
 import { IoIosArrowUp, IoIosArrowDown } from 'react-icons/io'
-import { PRODUCT_STATUS } from '@/constant/product.constant';
+import { PRODUCT_BRAND, PRODUCT_STATUS } from '@/constant/product.constant';
 
 const PhoneCategory = ({ data }) => {
     const [product, setProduct] = useState(data.productResponse);
+
 
     // filter by price range
     const [priceRange, setPriceRange] = useState(data.priceRangeResponse.data);
@@ -23,23 +24,77 @@ const PhoneCategory = ({ data }) => {
     }
 
     // filter by status
-    const productStatus = [PRODUCT_STATUS.IN_STOCK, PRODUCT_STATUS.LIMITED_STOCK, PRODUCT_STATUS.UPCOMING, PRODUCT_STATUS.STOCK_OUT, PRODUCT_STATUS.DISCONTINUE]
+    const productStatus = [
+        PRODUCT_STATUS.IN_STOCK,
+        PRODUCT_STATUS.STOCK_OUT,
+        PRODUCT_STATUS.UPCOMING,
+        PRODUCT_STATUS.DISCONTINUE,
+        PRODUCT_STATUS.LIMITED_STOCK,
+        "all status"
+    ]
     const [filterByStatus, setFilterByStatus] = useState('');
     const handelFilterByStatus = (event) => {
         setFilterByStatus(event.target.value);
     }
-
-    const [statusToggle, seStatusToggle] = useState(true)
+    const [statusToggle, setStatusToggle] = useState(true)
     const handelStatusToggle = () => {
-        seStatusToggle(!statusToggle)
+        setStatusToggle(!statusToggle)
     }
 
 
+    // filter by brand
+    const productBrand = [
+        PRODUCT_BRAND.SAMSUNG,
+        PRODUCT_BRAND.APPLE,
+        PRODUCT_BRAND.XIAOMI,
+        PRODUCT_BRAND.ONEPLUS,
+        PRODUCT_BRAND.OPPO,
+        PRODUCT_BRAND.VIVO,
+        PRODUCT_BRAND.REALME,
+        PRODUCT_BRAND.PIXEL,
+        "all brand"
+    ];
+    const [filterByBrand, setFilterByBrand] = useState('');
+    const handelFilterByBrand = (event) => {
+        setFilterByBrand(event.target.value);
+    }
+    const [brandToggle, setBrandToggle] = useState(true)
+    const handelBrandToggle = () => {
+        setBrandToggle(!brandToggle)
+    }
 
-    // filter 
-    const filteredData = product.data.filter((p) => {
-        const range = p.price >= priceRange[0] && p.price <= priceRange[1];
-        return range;
+
+    // filter by rating
+    const [ratingRange, setRatingRange] = useState([0, 5]);
+    const handleRatingRangeChange = (event, newValue) => {
+        setRatingRange(newValue);
+    }
+    const [ratingToggle, setRatingToggle] = useState(true)
+    const handelRatingToggle = () => {
+        setRatingToggle(!ratingToggle)
+    }
+
+    // search input field
+    const [searchTerm, setSearchTerm] = useState('');
+    const handelSearch = (event) => {
+        setSearchTerm(event.target.value);
+    };
+
+
+    // filter and search
+    const filteredData = product.data.filter((item) => {
+        // filter
+        const statusMatch = filterByStatus ? item.status.includes(filterByStatus) : true;
+        const brandMatch = filterByBrand ? item.brand.includes(filterByBrand) : true;
+        const priceRangeMatch = item.price >= priceRange[0] && item.price <= priceRange[1];
+        const ratingRangeMatch = item.rating >= ratingRange[0] && item.rating <= ratingRange[1];
+        // search 
+        const searchMatch = searchTerm === '' ||
+            item.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+            item.category.toLowerCase().includes(searchTerm.toLowerCase()) ||
+            item.brand.toLowerCase().includes(searchTerm.toLowerCase());
+
+        return priceRangeMatch && statusMatch && brandMatch && ratingRangeMatch && searchMatch;
     });
 
     return (
@@ -63,7 +118,7 @@ const PhoneCategory = ({ data }) => {
                                     </div>
                                 </button>
 
-                                <div className={`mt-3 px-2 ${priceToggle ? styles.show : styles.hide}`}>
+                                <div className={`${priceToggle ? styles.show : styles.hide}`}>
                                     <hr />
                                     <Slider value={priceRange} onChange={handlePriceRangeChange} valueLabelDisplay="auto" min={data.priceRangeResponse.data[0]} max={data.priceRangeResponse.data[1]} />
                                     <div className='d-flex justify-content-between pb-2'>
@@ -82,7 +137,7 @@ const PhoneCategory = ({ data }) => {
                                     </div>
                                 </button>
 
-                                <div className={`mt-3 px-2 ${statusToggle ? styles.show : styles.hide}`}>
+                                <div className={`${statusToggle ? styles.show : styles.hide}`}>
                                     <hr />
                                     {
                                         productStatus.map((status, index) => (
@@ -91,7 +146,7 @@ const PhoneCategory = ({ data }) => {
                                                     type="radio"
                                                     name="status"
                                                     id={`status_${index}`}
-                                                    value={status}
+                                                    value={status === 'all status' ? '' : status}
                                                     onChange={handelFilterByStatus}
                                                 />
                                                 <label htmlFor={`status_${index}`}>{status.split('-').join(' ')}</label>
@@ -100,8 +155,62 @@ const PhoneCategory = ({ data }) => {
                                     }
                                 </div>
                             </div>
+
+                            {/* filter by brand */}
+                            <div className={styles.filter_area}>
+                                <button onClick={handelBrandToggle}>Brand
+                                    <div>
+                                        <span className={` ${brandToggle ? styles.show : styles.hide}`}><IoIosArrowUp size="20px" /></span>
+                                        <span className={` ${brandToggle ? styles.hide : styles.show}`}><IoIosArrowDown size="20px" /></span>
+                                    </div>
+                                </button>
+
+                                <div className={`${brandToggle ? styles.show : styles.hide}`}>
+                                    <hr />
+                                    {
+                                        productBrand.map((brand, index) => (
+                                            <div className={styles.radio_area} key={index}>
+                                                <input
+                                                    type="radio"
+                                                    name="brand"
+                                                    id={`brand_${index}`}
+                                                    value={brand === 'all brand' ? '' : brand}
+                                                    onChange={handelFilterByBrand}
+                                                />
+                                                <label htmlFor={`brand_${index}`}>{brand.split('-').join(' ')}</label>
+                                            </div>
+                                        ))
+                                    }
+                                </div>
+                            </div>
+
+                            {/* filter by rating */}
+                            <div className={styles.filter_area}>
+                                <button onClick={handelRatingToggle}>Rating
+                                    <div>
+                                        <span className={` ${ratingToggle ? styles.show : styles.hide}`}><IoIosArrowUp size="20px" /></span>
+                                        <span className={` ${ratingToggle ? styles.hide : styles.show}`}><IoIosArrowDown size="20px" /></span>
+                                    </div>
+                                </button>
+
+                                <div className={`${ratingToggle ? styles.show : styles.hide}`}>
+                                    <hr />
+                                    <Slider value={ratingRange} onChange={handleRatingRangeChange} valueLabelDisplay="auto" min={0} max={5} />
+                                    <div className='d-flex justify-content-between pb-2'>
+                                        <small>{ratingRange[0]}</small>
+                                        <small>{ratingRange[1]}</small>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div className="col-md-9">
+                            <input
+                                type="text"
+                                value={searchTerm}
+                                onChange={handelSearch}
+                                placeholder='search for products'
+                                className={`form-control ${styles.search_box}`} />
+
                             <div className="row">
                                 {
                                     filteredData.length > 0 ? filteredData.map((product) => <ProductCard key={product._id} product={product} />) :

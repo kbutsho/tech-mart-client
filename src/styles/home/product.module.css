@@ -159,13 +159,19 @@
     transition: 0.3s;
 }
 
+.search_box {
+    padding: 16px;
+    margin: 10px 0;
+    box-shadow: rgba(0, 0, 0, 0.2) 1px 1px 4px 1px;
+}
+
 @media screen and (max-width: 468px) {
     .product_card {
         min-height: 250px;
         box-shadow: none;
     }
 
-    .filter_area, .filter_header {
+    .filter_area, .filter_header, .search_box {
         box-shadow: rgba(0, 0, 0, 0.1) 1px 1px 2px 1px;
     }
 
