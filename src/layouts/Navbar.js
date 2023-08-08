@@ -75,7 +75,7 @@ function Navbar() {
                     </div>
                 </div>
             </nav>
-            <div className={`${styles.search_area} py-3`}>
+            <div className={`${styles.search_area} `}>
                 <div className="container">
                     <div className="row">
                         <div className="col-12">
