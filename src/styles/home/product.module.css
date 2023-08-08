@@ -134,15 +134,16 @@
 .filter_area .radio_area {
     display: flex;
     transition: 0.3s;
-    padding: 6px;
+    padding: 7px;
     margin: 2px 0;
     cursor: pointer;
     align-items: center;
+    border-radius: 4px;
 
 }
 .radio_input{
     margin-top: 2px;
-    margin-right: 5px;;
+    margin-right: 5px;
 }
 .filter_area label {
     font-size: 14px;
