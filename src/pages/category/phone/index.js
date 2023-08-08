@@ -31,8 +31,8 @@ const PhoneCategory = ({ data }) => {
                 <div className="phone-area py-4">
                     <div className="row">
                         <div className="col-md-3">
-                            <div className='alert alert-secondary w-100 fw-bold text-center py-2' style={{ marginTop: "12px" }}>
-                                Filter
+                            <div className={styles.filter_header} style={{ marginTop: "12px" }}>
+                                <span>Filter</span>
                             </div>
                             <div className={styles.priceRange_area}>
                                 <button className='fw-bold d-flex justify-content-between' onClick={handelPriceToggle}>Price Range
@@ -41,7 +41,6 @@ const PhoneCategory = ({ data }) => {
                                         <span className={` ${priceToggle ? styles.hide_slider : styles.show_slider}`}><IoIosArrowDropdown size="20px" /></span>
                                     </div>
                                 </button>
-                                {/* <hr /> */}
 
                                 <div className={`mt-3 px-2 ${priceToggle ? styles.show_slider : styles.hide_slider}`}>
                                     <Slider value={priceRange} onChange={handlePriceRangeChange} valueLabelDisplay="auto" min={data.priceRangeResponse.data[0]} max={data.priceRangeResponse.data[1]} />

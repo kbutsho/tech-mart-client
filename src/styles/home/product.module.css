@@ -97,6 +97,22 @@
     text-align: center;
 }
 
+.filter_header {
+    padding: 20px 24px;
+    background-color: #ffffff;
+    box-shadow: rgba(0, 0, 0, 0.2) 1px 1px 4px 1px;
+    border-radius: 6px;
+}
+
+.filter_header span {
+    display: block;
+    font-weight: bold;
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    background-color: #F0F0F0;
+}
+
 .priceRange_area {
     margin: 10px 0;
     padding: 20px 24px;
@@ -104,10 +120,12 @@
     box-shadow: rgba(0, 0, 0, 0.2) 1px 1px 4px 1px;
     border-radius: 6px;
 }
+
 .priceRange_area button {
-  border: none;
-  width: 100%;
-  padding: 10px;
+    border: none;
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
 
 }
 
@@ -115,6 +133,7 @@
     display: none;
     transition: 0.3s;
 }
+
 .priceRange_area .hide_slide {
     transition: 0.3s;
 }
@@ -125,8 +144,8 @@
         box-shadow: none;
     }
 
-    .priceRange_area {
-        box-shadow: none;
+    .priceRange_area, .filter_header {
+        box-shadow: rgba(0, 0, 0, 0.1) 1px 1px 2px 1px;
     }
 
     .product_card h6 {
