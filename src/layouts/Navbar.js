@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { getCartTotal } from "@/redux/features/cartSlice";
 import { BiUserCircle } from 'react-icons/bi'
+import { AiOutlineHeart, AiOutlineShoppingCart } from "react-icons/ai";
 
 function Navbar() {
     let cart = useSelector((state) => state.cart);
@@ -45,8 +46,18 @@ function Navbar() {
                             <Link className="nav-link" href="/">Monitor</Link>
                             <Link className="nav-link" href="/">gadgets</Link>
                             <Link className="nav-link" href="/">Brands</Link>
-                            <Link className="nav-link me-2" href="/category">Categories</Link>
-                            <div className="dropdown">
+                            <Link className="nav-link" href="/category">Categories</Link>
+
+                            <Link className="nav-link d-flex" href="/">
+                                <AiOutlineHeart size="24" />
+                                <span className={styles.cart_navbar_count}>{favouriteProducts.length}</span>
+                            </Link>
+                            <Link className="nav-link d-flex" href="/cart">
+                                <AiOutlineShoppingCart size="24" />
+                                <span className={styles.cart_navbar_count}>{cart.cartTotalQuantity}</span>
+                            </Link>
+
+                            <div className="dropdown ms-2">
                                 <button className={`${styles.dropdown_btn} btn btn-outline-secondary dropdown-toggle pt-2`}
                                     data-bs-toggle="dropdown"
                                     aria-expanded="false">
@@ -54,7 +65,7 @@ function Navbar() {
                                 </button>
                                 <ul className="dropdown-menu">
                                     <li><Link className={`dropdown-item ${styles.dropdown_item}`} href="/">Login</Link></li>
-                                    <li><Link className={`dropdown-item ${styles.dropdown_item}`} href="/">Account</Link></li>
+                                    <li><Link className={`dropdown-item ${styles.dropdown_item}`} href="/">Profile</Link></li>
                                     <li><Link className={`dropdown-item ${styles.dropdown_item}`} href="/">Dashboard</Link></li>
                                     <li><Link className={`dropdown-item ${styles.dropdown_item}`} href="/">Retailer Request</Link></li>
                                     <li><Link className={`dropdown-item ${styles.dropdown_item}`} href="/">Manager Request</Link></li>
@@ -63,17 +74,17 @@ function Navbar() {
                         </div>
                     </div>
                 </div>
-            </nav >
+            </nav>
             <div className={`${styles.search_area} py-3`}>
                 <div className="container">
                     <div className="row">
-                        <div className="col-md-11 col-8">
+                        <div className="col-12">
                             <form className={`d-flex align-items-center`}>
                                 <input type="text" placeholder='search products' className={`form-control w-100 ${styles.search_input}`} />
-                                <BsSearch size="26px" style={{ marginLeft: "-50px" }} type='submit' />
+                                <BsSearch size="24px" style={{ marginLeft: "-50px" }} type='submit' />
                             </form>
                         </div>
-                        <div className="col-md-1 col-4">
+                        {/* <div className="col-md-1 col-4">
                             <div className={`${styles.cart_area} d-flex justify-content-end`} style={{ paddingTop: "11px" }}>
                                 <div className='d-flex me-2'>
                                     <Link href="/"><Image className={` ${styles.cart_favourite_icon} nav-link me-2`} src={favoriteImg} height={30} width={30} alt="img" /></Link>
@@ -84,7 +95,7 @@ function Navbar() {
                                     <span className={styles.cart_count}>{cart.cartTotalQuantity}</span>
                                 </div>
                             </div>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </div>

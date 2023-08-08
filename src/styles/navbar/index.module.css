@@ -1,6 +1,5 @@
 .header {
     background-color: rgb(156, 231, 231);
-    /* box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; */
 }
 
 .nav_items, .dropdown_btn, .dropdown_item {
@@ -33,6 +32,22 @@
     font-weight: bold;
     margin-left: -10px;
     margin-top: -10px;
+}
+
+.cart_navbar_count {
+    height: 18px;
+    width: 18px;
+    background-color: #F29120;
+    color: white;
+    font-size: 12px;
+    padding-top: 1px;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    margin-left: -2px;
+    margin-top: -12px;
 }
 
 @media screen and (max-width: 468px) {
