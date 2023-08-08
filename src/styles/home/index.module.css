@@ -2,6 +2,7 @@
     border-radius: 10px;
     height: auto;
 }
+
 .cart_count {
     height: 20px;
     width: 20px;
@@ -16,11 +17,13 @@
     margin-left: -10px;
     margin-top: -10px;
 }
+
 .brand_area {
     background-color: #F3F3F3;
     padding: 16px;
     border-radius: 10px;
 }
+
 @media screen and (max-width: 468px) {
     .brand_area {
         border-radius: 5px;

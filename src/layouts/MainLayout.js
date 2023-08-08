@@ -11,7 +11,7 @@ const MainLayout = ({ children }) => {
         <div>
             <Navbar />
             <div>
-                <div style={{ marginTop: "150px" }}
+                <div style={{ marginTop: "142px", background: "#FAFAFA" }}
                     className='main_area'
                     onContextMenu={handleContextMenu}>
                     {children}

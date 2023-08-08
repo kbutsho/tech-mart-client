@@ -1,5 +1,6 @@
 .header {
-    background-color: #F3F3F3;
+    background-color: rgb(156, 231, 231);
+    /* box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; */
 }
 
 .nav_items, .dropdown_btn, .dropdown_item {

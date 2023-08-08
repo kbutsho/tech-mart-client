@@ -20,7 +20,7 @@ function Navbar() {
     let favouriteProducts = useSelector((state) => state.favourite.products);
     return (
         <div className={`${styles.header} fixed-top`}>
-            <nav className={`navbar navbar-expand-lg ${styles.navbar_area}`}>
+            <nav className={`navbar navbar-expand-lg bg-light ${styles.navbar_area}`}>
                 <div className="container">
                     <Link className="navbar-brand fw-bold text-white" href="/">
                         <Image src={logo} height={40} width={120} alt="img" />
@@ -64,7 +64,7 @@ function Navbar() {
                     </div>
                 </div>
             </nav >
-            <div className={`${styles.search_area} py-2`}>
+            <div className={`${styles.search_area} py-3`}>
                 <div className="container">
                     <div className="row">
                         <div className="col-md-11 col-8">

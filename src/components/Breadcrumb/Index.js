@@ -10,7 +10,7 @@ const Breadcrumb = () => {
         <div className="breadcrumbs">
             <div>
                 <Link href="/">
-                    <FcHome size="36" className='mb-2' />
+                    <FcHome size="26" className='mb-2' />
                 </Link>
                 {segments.map((segment, index) => {
                     const isLastSegment = index === segments.length - 1;

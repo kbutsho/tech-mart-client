@@ -5,6 +5,7 @@ import Image from 'next/image';
 import ProductCard from '@/components/Category/ProductCard';
 import Slider from '@mui/material/Slider';
 import { useState } from 'react';
+import styles from '@/styles/home/product.module.css'
 
 const PhoneCategory = ({ data }) => {
     const [product, setProduct] = useState(data.productResponse);
@@ -12,11 +13,15 @@ const PhoneCategory = ({ data }) => {
     const handlePriceRangeChange = (event, newValue) => {
         setPriceRange(newValue);
     }
-
     const filteredData = product.data.filter((p) => {
         const range = p.price >= priceRange[0] && p.price <= priceRange[1];
         return range;
     });
+
+    // const [priceToggle, setPriceToggle] = useState(false)
+    // const handelPriceToggle = () => {
+    //     setPriceToggle(!priceToggle)
+    // }
     return (
         <div className='container'>
             <Breadcrumb />
@@ -25,12 +30,19 @@ const PhoneCategory = ({ data }) => {
                 <div className="phone-area py-4">
                     <div className="row">
                         <div className="col-md-3">
-                            <h6 className='btn btn-primary w-100 fw-bold' style={{ marginTop: "12px" }}>Filter</h6>
-                            {/* dropdown */}
-                            <div className='me-2'>
-                                <Slider value={priceRange} onChange={handlePriceRangeChange} valueLabelDisplay="auto" min={data.priceRangeResponse.data[0]} max={data.priceRangeResponse.data[1]} />
-                                <p>Range is {priceRange[0]} -{priceRange[1]}</p>
+                            <div className='alert alert-secondary w-100 fw-bold text-center' style={{ marginTop: "12px" }}>
+                                Filter
                             </div>
+                            <div className={styles.priceRange_area}>
+                                <h6 className='fw-bold'>Price Range</h6>
+                                <hr />
+                                <Slider value={priceRange} onChange={handlePriceRangeChange} valueLabelDisplay="auto" min={data.priceRangeResponse.data[0]} max={data.priceRangeResponse.data[1]} />
+                                <div className='d-flex justify-content-between'>
+                                    <h6>{priceRange[0]}</h6>
+                                    <h6>{priceRange[1]}</h6>
+                                </div>
+                            </div>
+
                         </div>
                         <div className="col-md-9">
                             <div className="row">
