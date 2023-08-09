@@ -1,6 +1,6 @@
 import Breadcrumb from '@/components/Breadcrumb/Index';
 import MainLayout from '@/layouts/MainLayout';
-import banner from '@/assets/category/phone-banner.png'
+import banner from '@/assets/category/earphone-banner.jpeg'
 import Image from 'next/image';
 import ProductCard from '@/components/Category/ProductCard';
 import Slider from '@mui/material/Slider';
@@ -11,7 +11,7 @@ import { PRICE_SORT_ORDER, PRODUCT_BRAND, PRODUCT_STATUS } from '@/constant/prod
 import Pagination from '@/components/Pagination/Pagination';
 import { AiFillStar } from 'react-icons/ai';
 
-const PhoneCategory = ({ data }) => {
+const EarphoneCategory = ({ data }) => {
     const [product, setProduct] = useState(data.productResponse);
 
     // filter by price range
@@ -64,10 +64,10 @@ const PhoneCategory = ({ data }) => {
         PRODUCT_BRAND.APPLE,
         PRODUCT_BRAND.XIAOMI,
         PRODUCT_BRAND.ONEPLUS,
-        PRODUCT_BRAND.OPPO,
-        PRODUCT_BRAND.VIVO,
         PRODUCT_BRAND.REALME,
-        PRODUCT_BRAND.PIXEL,
+        PRODUCT_BRAND.LENOVO,
+        PRODUCT_BRAND.HAYLOU,
+        PRODUCT_BRAND.IMILAB,
         PRODUCT_BRAND.SHOW_ALL
     ];
     const [filterByBrand, setFilterByBrand] = useState('');
@@ -322,7 +322,7 @@ const PhoneCategory = ({ data }) => {
                                     type="text"
                                     value={searchTerm}
                                     onChange={handelSearch}
-                                    placeholder='search for phone'
+                                    placeholder='search for earphone'
                                     className={`form-control ${styles.search_box}`} />
                             </div>
                             {/* product list area */}
@@ -352,40 +352,41 @@ const PhoneCategory = ({ data }) => {
                         </div>
 
                         {/* description */}
-                        <div className="category-description mt-4">
+                        <div className="category-description">
                             <h4 className='fw-bold mb-3'>Why choose us?</h4>
                             <hr />
                             <p>
-                                You'll discover here a captivating collection of cutting-edge smartphones that seamlessly blend style, functionality, and innovation. Whether you're a tech enthusiast, a professional seeking productivity tools, or someone who simply appreciates the latest in communication technology, our Phone Category Page is your gateway to a world of possibilities.
+                                Immerse yourself in a world of superior sound quality and immersive music experiences with our exceptional collection of cutting-edge earphones. Whether you're a music aficionado, a fitness enthusiast seeking motivation, or someone who values premium audio for calls and entertainment, our Earphone Category Page is your gateway to an auditory adventure.
                             </p>
                             <p>
-                                <span className='fw-bold'>Browse and Choose: </span>
-                                Dive into a diverse array of smartphones from leading brands that cater to every preference and budget. Our carefully curated selection ensures that you'll find the perfect device that aligns with your unique needs. From sleek flagship models boasting unparalleled performance to budget-friendly options that don't compromise on quality, our Phone Category Page is your one-stop destination for exploring and selecting your new companion.
+                                <span className='fw-bold'>Explore and Select: </span>
+                                Discover an extensive range of earphones from top brands, thoughtfully tailored to cater to diverse preferences and budgets. Our meticulously curated selection guarantees that you'll find the perfect audio companion that harmonizes with your individual requirements. From wireless earbuds that redefine mobility to over-ear headphones that envelop you in rich soundscapes, our Earphone Category Page is your ultimate destination for exploration and choice.
                             </p>
                             <p>
-                                <span className='fw-bold'>Innovative Features: </span>
-                                Stay ahead of the curve with smartphones that offer the latest technological advancements. Discover devices equipped with groundbreaking features such as AI-enhanced cameras that capture stunning photos in any lighting, immersive displays that bring your content to life, and robust processors that handle multitasking with ease. Our Phone Category Page showcases phones at the forefront of innovation, allowing you to experience the future today.
+                                <span className='fw-bold'>Innovative Audio: </span>
+                                Elevate your auditory experience with earphones that feature cutting-edge audio technology. Explore devices equipped with noise cancellation, immersive spatial audio, and enhanced bass response. Our Earphone Category Page showcases audio marvels that deliver the future of sound quality and performance, allowing you to immerse yourself in music, podcasts, and calls like never before.
                             </p>
                             <p>
-                                <span className='fw-bold'>Sleek Designs: </span>
-                                Beauty meets functionality with the aesthetically pleasing designs of the smartphones in our collection. Whether you prefer a minimalist and elegant look or a bold and vibrant aesthetic, our Phone Category Page has something to match your style. Impeccable craftsmanship, premium materials, and ergonomic designs ensure that these devices are not only technologically advanced but also a pleasure to hold and behold.
+                                <span className='fw-bold'>Sleek and Comfortable Designs: </span>
+                                Aesthetics meet functionality with the visually appealing and ergonomic designs of the earphones in our collection. Whether you prefer discreet and minimalist styles or bold and expressive aesthetics, our Earphone Category Page offers a spectrum of options to match your personal flair. Crafted with meticulous attention to detail, premium materials, and comfort-enhancing features, our earphones are designed for both sonic excellence and all-day wearability.
                             </p>
                             <p>
                                 <span className='fw-bold'>Comprehensive Specifications: </span>
-                                Make informed decisions with detailed specifications accompanying each phone. From screen size and resolution to battery life and storage capacity, our comprehensive product information equips you with the knowledge needed to choose the phone that perfectly aligns with your requirements. Our Phone Category Page ensures that you're not only captivated by the aesthetics but also empowered by the details.
+                                Make informed decisions with comprehensive product specifications accompanying each pair of earphones. From battery life and audio frequency range to connectivity options and compatibility, our detailed information empowers you to select earphones that align seamlessly with your preferences. Our Earphone Category Page ensures that you're not only captivated by the sound but also equipped with essential details to make a confident choice.
                             </p>
                             <p>
-                                <span className='fw-bold'>Customer Reviews: </span>
-                                Gain insights from fellow shoppers through genuine customer reviews and ratings. Hear firsthand experiences from individuals who have already embraced these devices into their lives. This valuable feedback empowers you to make a confident choice that aligns with your expectations.
+                                <span className='fw-bold'>Real User Experiences: </span>
+                                Benefit from authentic user insights through genuine customer reviews and ratings. Gain firsthand knowledge from individuals who have embraced these earphones into their daily lives. This invaluable feedback empowers you to make an informed choice that resonates with your auditory aspirations and lifestyle needs.
                             </p>
                             <p>
-                                <span className='fw-bold'>Seamless Shopping Experience: </span>
-                                Navigating our Phone Category Page is a breeze. With user-friendly filters, you can narrow down your search based on brand, price range, features, and more. Once you've found your ideal phone, our streamlined checkout process ensures a hassle-free shopping experience, so you can get your hands on your new gadget quickly.
+                                <span className='fw-bold'>Effortless Shopping Journey: </span>
+                                Navigate our Earphone Category Page seamlessly. With intuitive filters, you can refine your search based on brand, price range, features, and more. Once you've discovered your perfect pair of earphones, our streamlined checkout process ensures a seamless shopping experience, allowing you to swiftly acquire your new auditory companions.
                             </p>
                             <p>
-                                Embark on a journey of technological discovery by exploring our Phone Category Page. From flagship powerhouses to innovative budget options, we're committed to offering you a comprehensive range of smartphones that redefine communication, productivity, and entertainment. Your dream phone is just a click away. Start browsing now!
+                                Embark on an auditory journey of discovery by exploring our Earphone Category Page. From immersive soundscapes to crystal-clear call quality, we're dedicated to offering you a comprehensive range of earphones that redefine your audio experience. Your ideal earphones are just a click away. Start browsing now!
                             </p>
                         </div>
+
                     </div>
                 </div>
             </div>
@@ -393,14 +394,14 @@ const PhoneCategory = ({ data }) => {
     );
 };
 
-export default PhoneCategory;
-PhoneCategory.getLayout = function getLayout(page) {
+export default EarphoneCategory;
+EarphoneCategory.getLayout = function getLayout(page) {
     return <MainLayout>{page}</MainLayout>;
 };
 export const getStaticProps = async () => {
-    const phoneCategoryResponse = await fetch(`https://tech-mart-server.vercel.app/api/products?category=phone`);
+    const productCategoryResponse = await fetch(`https://tech-mart-server.vercel.app/api/products?category=earphone`);
     const priceRange = await fetch(`https://tech-mart-server.vercel.app/api/products/price-range`);
-    const productResponse = await phoneCategoryResponse.json();
+    const productResponse = await productCategoryResponse.json();
     const priceRangeResponse = await priceRange.json();
     return {
         props: {

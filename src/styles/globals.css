@@ -56,5 +56,8 @@
     .category-description h4 {
         padding: 0 20px
     }
+    .category-description hr {
+        margin:  20px
+    }
 
 }

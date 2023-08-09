@@ -52,8 +52,8 @@ function Navbar() {
                         <div className={`navbar-nav ms-auto  ${styles.nav_items}`}>
                             <Link className={`nav-link`} href="/category/phone">Phone</Link>
                             <Link className="nav-link" href="/">Laptop</Link>
-                            <Link className="nav-link" href="/">Watch</Link>
-                            <Link className="nav-link" href="/">Earphone</Link>
+                            <Link className="nav-link" href="/category/watch">Watch</Link>
+                            <Link className="nav-link" href="/category/earphone">Earphone</Link>
                             <Link className="nav-link" href="/">Charger</Link>
                             <Link className="nav-link" href="/">Camera</Link>
                             <Link className="nav-link" href="/">Television</Link>

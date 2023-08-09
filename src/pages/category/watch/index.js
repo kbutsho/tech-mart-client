@@ -1,6 +1,6 @@
 import Breadcrumb from '@/components/Breadcrumb/Index';
 import MainLayout from '@/layouts/MainLayout';
-import banner from '@/assets/category/phone-banner.png'
+import banner from '@/assets/category/watch-banner.jpeg'
 import Image from 'next/image';
 import ProductCard from '@/components/Category/ProductCard';
 import Slider from '@mui/material/Slider';
@@ -11,7 +11,7 @@ import { PRICE_SORT_ORDER, PRODUCT_BRAND, PRODUCT_STATUS } from '@/constant/prod
 import Pagination from '@/components/Pagination/Pagination';
 import { AiFillStar } from 'react-icons/ai';
 
-const PhoneCategory = ({ data }) => {
+const WatchCategory = ({ data }) => {
     const [product, setProduct] = useState(data.productResponse);
 
     // filter by price range
@@ -64,10 +64,10 @@ const PhoneCategory = ({ data }) => {
         PRODUCT_BRAND.APPLE,
         PRODUCT_BRAND.XIAOMI,
         PRODUCT_BRAND.ONEPLUS,
-        PRODUCT_BRAND.OPPO,
-        PRODUCT_BRAND.VIVO,
         PRODUCT_BRAND.REALME,
-        PRODUCT_BRAND.PIXEL,
+        PRODUCT_BRAND.AMAZFIT,
+        PRODUCT_BRAND.HAYLOU,
+        PRODUCT_BRAND.IMILAB,
         PRODUCT_BRAND.SHOW_ALL
     ];
     const [filterByBrand, setFilterByBrand] = useState('');
@@ -132,7 +132,7 @@ const PhoneCategory = ({ data }) => {
             <Breadcrumb />
             <div className='py-4'>
                 <Image src={banner} layout='responsive' height={360} width={1920} alt="img" />
-                <div className="phone-area py-4">
+                <div className="watch-area py-4">
                     <div className="row">
                         <div className="col-md-4 col-xxl-3">
 
@@ -322,7 +322,7 @@ const PhoneCategory = ({ data }) => {
                                     type="text"
                                     value={searchTerm}
                                     onChange={handelSearch}
-                                    placeholder='search for phone'
+                                    placeholder='search for watch'
                                     className={`form-control ${styles.search_box}`} />
                             </div>
                             {/* product list area */}
@@ -352,40 +352,41 @@ const PhoneCategory = ({ data }) => {
                         </div>
 
                         {/* description */}
-                        <div className="category-description mt-4">
+                        <div className="category-description">
                             <h4 className='fw-bold mb-3'>Why choose us?</h4>
                             <hr />
                             <p>
-                                You'll discover here a captivating collection of cutting-edge smartphones that seamlessly blend style, functionality, and innovation. Whether you're a tech enthusiast, a professional seeking productivity tools, or someone who simply appreciates the latest in communication technology, our Phone Category Page is your gateway to a world of possibilities.
+                                Explore our captivating collection of cutting-edge smartwatches that seamlessly integrate style, functionality, and innovation into your daily life. Whether you're a tech enthusiast, a fitness fanatic, or someone who values staying connected on the go, our Smartwatch Category Page is your gateway to a world of possibilities.
                             </p>
                             <p>
                                 <span className='fw-bold'>Browse and Choose: </span>
-                                Dive into a diverse array of smartphones from leading brands that cater to every preference and budget. Our carefully curated selection ensures that you'll find the perfect device that aligns with your unique needs. From sleek flagship models boasting unparalleled performance to budget-friendly options that don't compromise on quality, our Phone Category Page is your one-stop destination for exploring and selecting your new companion.
+                                Immerse yourself in a diverse array of smartwatches from top brands, catering to a range of preferences and budgets. Our thoughtfully curated selection ensures that you'll discover the perfect wearable companion that aligns with your individual needs. From sophisticated models with advanced health tracking features to sleek designs that seamlessly match your style, our Smartwatch Category Page is your ultimate destination for exploration and selection.
                             </p>
                             <p>
-                                <span className='fw-bold'>Innovative Features: </span>
-                                Stay ahead of the curve with smartphones that offer the latest technological advancements. Discover devices equipped with groundbreaking features such as AI-enhanced cameras that capture stunning photos in any lighting, immersive displays that bring your content to life, and robust processors that handle multitasking with ease. Our Phone Category Page showcases phones at the forefront of innovation, allowing you to experience the future today.
+                                <span className='fw-bold'>Innovative Functions: </span>
+                                Stay at the forefront of wearable technology with smartwatches that offer the latest innovations. Explore devices equipped with features like real-time health monitoring, customizable watch faces, and seamless integration with your smartphone. Our Smartwatch Category Page showcases wearable marvels that allow you to experience the future of connectivity and convenience today.
                             </p>
                             <p>
-                                <span className='fw-bold'>Sleek Designs: </span>
-                                Beauty meets functionality with the aesthetically pleasing designs of the smartphones in our collection. Whether you prefer a minimalist and elegant look or a bold and vibrant aesthetic, our Phone Category Page has something to match your style. Impeccable craftsmanship, premium materials, and ergonomic designs ensure that these devices are not only technologically advanced but also a pleasure to hold and behold.
+                                <span className='fw-bold'>Elegant Designs: </span>
+                                Functionality meets fashion with the aesthetically pleasing designs of the smartwatches in our collection. Whether you prefer a sleek and understated look or a bold and expressive statement piece, our Smartwatch Category Page offers a variety of options to complement your personal style. Each watch is crafted with attention to detail, premium materials, and ergonomic considerations, ensuring a delightful blend of form and function.
                             </p>
                             <p>
-                                <span className='fw-bold'>Comprehensive Specifications: </span>
-                                Make informed decisions with detailed specifications accompanying each phone. From screen size and resolution to battery life and storage capacity, our comprehensive product information equips you with the knowledge needed to choose the phone that perfectly aligns with your requirements. Our Phone Category Page ensures that you're not only captivated by the aesthetics but also empowered by the details.
+                                <span className='fw-bold'>Comprehensive Features: </span>
+                                Make informed choices with detailed specifications provided for each smartwatch. From battery life and screen size to fitness tracking capabilities and connectivity options, our comprehensive product information empowers you to select the ideal smartwatch that seamlessly aligns with your needs. Our Smartwatch Category Page ensures that you're not only captivated by the aesthetics but also equipped with the knowledge you need to make a confident decision.
                             </p>
                             <p>
-                                <span className='fw-bold'>Customer Reviews: </span>
-                                Gain insights from fellow shoppers through genuine customer reviews and ratings. Hear firsthand experiences from individuals who have already embraced these devices into their lives. This valuable feedback empowers you to make a confident choice that aligns with your expectations.
+                                <span className='fw-bold'>User Reviews: </span>
+                                Gain insights from fellow users through authentic customer reviews and ratings. Learn from firsthand experiences shared by individuals who have embraced these smartwatches into their routines. This valuable feedback empowers you to make an informed choice that resonates with your expectations and aspirations.
                             </p>
                             <p>
-                                <span className='fw-bold'>Seamless Shopping Experience: </span>
-                                Navigating our Phone Category Page is a breeze. With user-friendly filters, you can narrow down your search based on brand, price range, features, and more. Once you've found your ideal phone, our streamlined checkout process ensures a hassle-free shopping experience, so you can get your hands on your new gadget quickly.
+                                <span className='fw-bold'>Effortless Shopping Experience: </span>
+                                Navigate our Smartwatch Category Page seamlessly. With intuitive filters, you can narrow down your search based on brand, price range, features, and more. Once you've found your perfect smartwatch, our streamlined checkout process guarantees a hassle-free shopping journey, allowing you to swiftly acquire your new wearable companion.
                             </p>
                             <p>
-                                Embark on a journey of technological discovery by exploring our Phone Category Page. From flagship powerhouses to innovative budget options, we're committed to offering you a comprehensive range of smartphones that redefine communication, productivity, and entertainment. Your dream phone is just a click away. Start browsing now!
+                                Embark on a journey of technological discovery by exploring our Smartwatch Category Page. From advanced fitness tracking to convenient notifications on your wrist, we're dedicated to providing you with a comprehensive range of smartwatches that redefine connectivity, style, and convenience. Your ideal smartwatch is just a click away. Start browsing now!
                             </p>
                         </div>
+
                     </div>
                 </div>
             </div>
@@ -393,14 +394,14 @@ const PhoneCategory = ({ data }) => {
     );
 };
 
-export default PhoneCategory;
-PhoneCategory.getLayout = function getLayout(page) {
+export default WatchCategory;
+WatchCategory.getLayout = function getLayout(page) {
     return <MainLayout>{page}</MainLayout>;
 };
 export const getStaticProps = async () => {
-    const phoneCategoryResponse = await fetch(`https://tech-mart-server.vercel.app/api/products?category=phone`);
+    const watchCategoryResponse = await fetch(`https://tech-mart-server.vercel.app/api/products?category=watch`);
     const priceRange = await fetch(`https://tech-mart-server.vercel.app/api/products/price-range`);
-    const productResponse = await phoneCategoryResponse.json();
+    const productResponse = await watchCategoryResponse.json();
     const priceRangeResponse = await priceRange.json();
     return {
         props: {

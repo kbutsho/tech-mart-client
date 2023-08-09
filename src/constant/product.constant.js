@@ -16,7 +16,13 @@ export const PRODUCT_BRAND = {
     REALME: 'realme',
     ONEPLUS: 'oneplus',
     PIXEL: 'google-pixel',
-    SHOW_ALL: 'show all'
+    SHOW_ALL: 'show all',
+    AMAZFIT: 'amazfit',
+    HAYLOU: 'haylou',
+    IMILAB: 'imilab',
+    LENOVO: 'lenovo',
+    BASEUS: 'baseus',
+    JBL: 'jbl'
 }
 
 export const PRICE_SORT_ORDER = {
