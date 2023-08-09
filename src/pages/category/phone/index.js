@@ -96,7 +96,7 @@ const PhoneCategory = ({ data }) => {
     };
 
     // combine filter search and sort
-    const filterAndSearchData = product.data.filter((item) => {
+    const filterAndSearchData = product?.data?.filter((item) => {
         // filter
         const statusMatch = filterByStatus ? item.status.includes(filterByStatus) : true;
         const brandMatch = filterByBrand ? item.brand.includes(filterByBrand) : true;
@@ -327,8 +327,8 @@ const PhoneCategory = ({ data }) => {
                             </div>
                             {/* product list area */}
                             <div className="row">
-                                {currentProduct.length > 0 ? (
-                                    currentProduct.map((product) => (
+                                {currentProduct?.length > 0 ? (
+                                    currentProduct?.map((product) => (
                                         <ProductCard key={product._id} product={product} />
                                     ))
                                 ) : (

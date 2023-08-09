@@ -2,7 +2,7 @@ import styles from '@/styles/home/product.module.css'
 
 const Pagination = ({ data, currentPage, productPerPage, handelPaginate }) => {
     const totalPages = Math.ceil(data.length / productPerPage);
-    const maxVisiblePages = 3;
+    const maxVisiblePages = 5;
 
     if (totalPages <= 1) {
         return null;
