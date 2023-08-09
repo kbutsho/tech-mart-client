@@ -26,25 +26,28 @@ function Navbar() {
                     <Link className="navbar-brand fw-bold text-white" href="/">
                         <Image src={logo} height={40} width={120} alt="img" />
                     </Link>
-                    <span className={`${styles.nav_toggler_area} navbar-toggler`}
-                        aria-expanded="false"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#navbarNavAltMarkup"
-                        aria-controls="navbarNavAltMarkup"
-                        aria-label="Toggle navigation">
-                        <span className="d-flex pt-2">
+                    <span className={styles.navbar_brand_cart_favourite}>
+                        <span className={styles.cart_and_favourite}>
                             <Link className="nav-link d-flex" href="/">
                                 <AiOutlineHeart size="30" />
                                 <span className={styles.cart_navbar_count}>{favouriteProducts.length}</span>
                             </Link>
-
-                            <Link className="nav-link d-flex mx-2" href="/cart">
+                            <Link className="nav-link d-flex ms-2" href="/cart">
                                 <AiOutlineShoppingCart size="30" />
                                 <span className={styles.cart_navbar_count}>{cart.cartTotalQuantity}</span>
                             </Link>
+                        </span>
+                        <span className={`${styles.nav_toggler_area} navbar-toggler`}
+                            aria-expanded="false"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#navbarNavAltMarkup"
+                            aria-controls="navbarNavAltMarkup"
+                            aria-label="Toggle navigation">
                             <AiOutlineMenuFold size="30" />
                         </span>
                     </span>
+
+
                     <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
                         <div className={`navbar-nav ms-auto  ${styles.nav_items}`}>
                             <Link className={`nav-link`} href="/category/phone">Phone</Link>

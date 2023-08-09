@@ -6,6 +6,12 @@
     border: none;
 }
 
+.navbar_brand_cart_favourite {
+    display: flex;
+    align-items: center;
+    padding-top: 8px;
+}
+
 .nav_items, .dropdown_btn, .dropdown_item {
     font-weight: bold;
     text-transform: uppercase;
@@ -62,8 +68,12 @@
     margin-top: -12px;
 }
 
-.nav_cart_favourite{
+.nav_cart_favourite {
     display: flex;
+}
+
+.cart_and_favourite {
+    display: none;
 }
 
 @media screen and (max-width: 468px) {
@@ -85,4 +95,11 @@
         display: none;
     }
 
+
+}
+
+@media screen and (max-width: 1200px) {
+    .cart_and_favourite {
+        display: flex;
+    }
 }
