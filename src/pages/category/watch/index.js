@@ -334,7 +334,7 @@ const WatchCategory = ({ data }) => {
                                 ) : (
                                     <div className='d-flex justify-content-center align-items-center'
                                         style={{ minHeight: "45vh" }}>
-                                        <h5>no data found!</h5>
+                                        <h5>no watch found!</h5>
                                     </div>
                                 )}
                             </div>

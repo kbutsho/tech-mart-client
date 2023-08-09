@@ -25,7 +25,8 @@ export const PRODUCT_BRAND = {
     JBL: 'jbl',
     ASUS: 'asus',
     HP: 'hp',
-    DELL: 'dell'
+    DELL: 'dell',
+    ANKER: 'anker'
 
 }
 

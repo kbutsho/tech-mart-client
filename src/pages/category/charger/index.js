@@ -1,6 +1,6 @@
 import Breadcrumb from '@/components/Breadcrumb/Index';
 import MainLayout from '@/layouts/MainLayout';
-import banner from '@/assets/category/phone-banner.png'
+import banner from '@/assets/category/charger-banner.jpeg'
 import Image from 'next/image';
 import ProductCard from '@/components/Category/ProductCard';
 import Slider from '@mui/material/Slider';
@@ -11,7 +11,7 @@ import { PRICE_SORT_ORDER, PRODUCT_BRAND, PRODUCT_STATUS } from '@/constant/prod
 import Pagination from '@/components/Pagination/Pagination';
 import { AiFillStar } from 'react-icons/ai';
 
-const PhoneCategory = ({ data }) => {
+const ChargerCategory = ({ data }) => {
     const [product, setProduct] = useState(data.productResponse);
 
     // filter by price range
@@ -62,12 +62,10 @@ const PhoneCategory = ({ data }) => {
     const productBrand = [
         PRODUCT_BRAND.SAMSUNG,
         PRODUCT_BRAND.APPLE,
+        PRODUCT_BRAND.ANKER,
         PRODUCT_BRAND.XIAOMI,
         PRODUCT_BRAND.ONEPLUS,
-        PRODUCT_BRAND.OPPO,
-        PRODUCT_BRAND.VIVO,
         PRODUCT_BRAND.REALME,
-        PRODUCT_BRAND.PIXEL,
         PRODUCT_BRAND.SHOW_ALL
     ];
     const [filterByBrand, setFilterByBrand] = useState('');
@@ -322,7 +320,7 @@ const PhoneCategory = ({ data }) => {
                                     type="text"
                                     value={searchTerm}
                                     onChange={handelSearch}
-                                    placeholder='search for phone'
+                                    placeholder='search for charger'
                                     className={`form-control ${styles.search_box}`} />
                             </div>
                             {/* product list area */}
@@ -334,7 +332,7 @@ const PhoneCategory = ({ data }) => {
                                 ) : (
                                     <div className='d-flex justify-content-center align-items-center'
                                         style={{ minHeight: "45vh" }}>
-                                        <h5>no phone found!</h5>
+                                        <h5>no charger found!</h5>
                                     </div>
                                 )}
                             </div>
@@ -352,40 +350,41 @@ const PhoneCategory = ({ data }) => {
                         </div>
 
                         {/* description */}
-                        <div className="category-description mt-4">
+                        <div className="category-description">
                             <h4 className='fw-bold my-3'>Why choose us?</h4>
                             <hr />
                             <p>
-                                You'll discover here a captivating collection of cutting-edge smartphones that seamlessly blend style, functionality, and innovation. Whether you're a tech enthusiast, a professional seeking productivity tools, or someone who simply appreciates the latest in communication technology, our Phone Category Page is your gateway to a world of possibilities.
+                                Power up your devices with confidence using our exceptional collection of cutting-edge chargers. Whether you're a tech-savvy traveler, a busy professional, or someone who values uninterrupted connectivity, our Charger Category Page is your gateway to a world of reliable and efficient charging solutions.
                             </p>
                             <p>
-                                <span className='fw-bold'>Browse and Choose: </span>
-                                Dive into a diverse array of smartphones from leading brands that cater to every preference and budget. Our carefully curated selection ensures that you'll find the perfect device that aligns with your unique needs. From sleek flagship models boasting unparalleled performance to budget-friendly options that don't compromise on quality, our Phone Category Page is your one-stop destination for exploring and selecting your new companion.
+                                <span className='fw-bold'>Explore and Select: </span>
+                                Discover an extensive range of chargers thoughtfully designed to cater to diverse preferences and device types. Our curated selection ensures that you'll find the perfect charging companion that seamlessly fits into your daily routine. From compact travel chargers to multi-device hubs, our Charger Category Page is your ultimate destination for exploration and choice.
                             </p>
                             <p>
-                                <span className='fw-bold'>Innovative Features: </span>
-                                Stay ahead of the curve with smartphones that offer the latest technological advancements. Discover devices equipped with groundbreaking features such as AI-enhanced cameras that capture stunning photos in any lighting, immersive displays that bring your content to life, and robust processors that handle multitasking with ease. Our Phone Category Page showcases phones at the forefront of innovation, allowing you to experience the future today.
+                                <span className='fw-bold'>Innovative Charging Technology: </span>
+                                Elevate your charging experience with chargers equipped with cutting-edge technology. Explore devices featuring fast charging, wireless charging, and advanced safety features. Our Charger Category Page showcases charging marvels that deliver the future of efficient power delivery, ensuring your devices are ready to perform whenever you are.
                             </p>
                             <p>
-                                <span className='fw-bold'>Sleek Designs: </span>
-                                Beauty meets functionality with the aesthetically pleasing designs of the smartphones in our collection. Whether you prefer a minimalist and elegant look or a bold and vibrant aesthetic, our Phone Category Page has something to match your style. Impeccable craftsmanship, premium materials, and ergonomic designs ensure that these devices are not only technologically advanced but also a pleasure to hold and behold.
+                                <span className='fw-bold'>Sleek and Functional Designs: </span>
+                                Aesthetics meet functionality with the visually appealing and ergonomic designs of the chargers in our collection. Whether you prefer minimalist aesthetics or space-saving solutions, our Charger Category Page offers a variety of options to match your lifestyle. Crafted with attention to detail and durability in mind, our chargers seamlessly integrate into your environment.
                             </p>
                             <p>
-                                <span className='fw-bold'>Comprehensive Specifications: </span>
-                                Make informed decisions with detailed specifications accompanying each phone. From screen size and resolution to battery life and storage capacity, our comprehensive product information equips you with the knowledge needed to choose the phone that perfectly aligns with your requirements. Our Phone Category Page ensures that you're not only captivated by the aesthetics but also empowered by the details.
+                                <span className='fw-bold'>Comprehensive Compatibility: </span>
+                                Make informed choices with comprehensive compatibility details provided for each charger. From device compatibility and charging speeds to connector types and input/output specifications, our detailed information empowers you to select chargers that align perfectly with your devices. Our Charger Category Page ensures you're not only captivated by the design but also equipped with essential details for confident charging.
                             </p>
                             <p>
-                                <span className='fw-bold'>Customer Reviews: </span>
-                                Gain insights from fellow shoppers through genuine customer reviews and ratings. Hear firsthand experiences from individuals who have already embraced these devices into their lives. This valuable feedback empowers you to make a confident choice that aligns with your expectations.
+                                <span className='fw-bold'>Real User Feedback: </span>
+                                Benefit from genuine user insights through authentic customer reviews and ratings. Learn from firsthand experiences shared by individuals who have embraced these chargers into their daily routines. This valuable feedback empowers you to make an informed choice that resonates with your charging needs and expectations.
                             </p>
                             <p>
-                                <span className='fw-bold'>Seamless Shopping Experience: </span>
-                                Navigating our Phone Category Page is a breeze. With user-friendly filters, you can narrow down your search based on brand, price range, features, and more. Once you've found your ideal phone, our streamlined checkout process ensures a hassle-free shopping experience, so you can get your hands on your new gadget quickly.
+                                <span className='fw-bold'>Effortless Shopping Experience: </span>
+                                Navigate our Charger Category Page seamlessly. With intuitive filters, you can narrow down your search based on features, device compatibility, and more. Once you've found your ideal charger, our streamlined checkout process ensures a hassle-free shopping journey, allowing you to quickly acquire your new charging solution.
                             </p>
                             <p>
-                                Embark on a journey of technological discovery by exploring our Phone Category Page. From flagship powerhouses to innovative budget options, we're committed to offering you a comprehensive range of smartphones that redefine communication, productivity, and entertainment. Your dream phone is just a click away. Start browsing now!
+                                Embark on a journey of charging convenience by exploring our Charger Category Page. From speedy power-ups to reliable charging, we're dedicated to offering you a comprehensive range of chargers that redefine your device's energy source. Your ideal charger is just a click away. Start browsing now!
                             </p>
                         </div>
+
                     </div>
                 </div>
             </div>
@@ -393,14 +392,14 @@ const PhoneCategory = ({ data }) => {
     );
 };
 
-export default PhoneCategory;
-PhoneCategory.getLayout = function getLayout(page) {
+export default ChargerCategory;
+ChargerCategory.getLayout = function getLayout(page) {
     return <MainLayout>{page}</MainLayout>;
 };
 export const getStaticProps = async () => {
-    const phoneCategoryResponse = await fetch(`https://tech-mart-server.vercel.app/api/products?category=phone`);
+    const productCategoryResponse = await fetch(`https://tech-mart-server.vercel.app/api/products?category=charger`);
     const priceRange = await fetch(`https://tech-mart-server.vercel.app/api/products/price-range`);
-    const productResponse = await phoneCategoryResponse.json();
+    const productResponse = await productCategoryResponse.json();
     const priceRangeResponse = await priceRange.json();
     return {
         props: {

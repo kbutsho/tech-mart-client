@@ -53,11 +53,11 @@ function Navbar() {
                             <Link className={`nav-link`} href="/category/phone">Phone</Link>
                             <Link className="nav-link" href="/category/laptop">Laptop</Link>
                             <Link className="nav-link" href="/category/watch">Watch</Link>
-                            <Link className="nav-link" href="/category/earphone">Earphone</Link>
-                            <Link className="nav-link" href="/">Charger</Link>
                             <Link className="nav-link" href="/">Camera</Link>
                             <Link className="nav-link" href="/">Television</Link>
                             <Link className="nav-link" href="/">Monitor</Link>
+                            <Link className="nav-link" href="/category/earphone">Earphone</Link>
+                            <Link className="nav-link" href="/category/charger">Charger</Link>
                             <Link className="nav-link" href="/">gadgets</Link>
                             <Link className="nav-link" href="/">Brands</Link>
                             <Link className="nav-link" href="/category">Categories</Link>
