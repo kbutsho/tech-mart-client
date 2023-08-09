@@ -23,13 +23,13 @@ const CartPage = () => {
         dispatch(clearCart());
     };
     return (
-        <div className='container'>
+        <div className='container pb-5'>
             <Breadcrumb />
             <div className={styles.cart_container}>
                 {cart.products.length === 0 ? (
                     <div className={styles.cart_empty}>
                         <p>your cart is currently empty</p>
-                        <div >
+                        <div>
                             <Link href="/" className={styles.start_shopping}>
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
