@@ -36,9 +36,17 @@
     background-color: #FAFAFA;
 }
 
+.category-description p {
+    text-align: justify;
+}
+
 @media screen and (max-width: 468px) {
     .main_area {
         margin-top: 130px;
+    }
+
+    .category-description p {
+        font-size: 14px;
     }
 
 }
