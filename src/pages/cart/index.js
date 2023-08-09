@@ -61,7 +61,7 @@ const CartPage = () => {
                                     <div className={styles.cart_item} key={cartItem._id}>
                                         <div className={styles.cart_product}>
                                             <Image src={cartItem.coverPhoto} alt={cartItem.name} height={120} width={120} />
-                                            <div>
+                                            <div className='ms-2'>
                                                 <h5 className='fw-bold'>{cartItem.name}</h5>
                                                 <p>{cartItem.category}</p>
                                                 <button className='btn btn-danger btn-sm' onClick={() => handleRemoveFromCart(cartItem)}>
