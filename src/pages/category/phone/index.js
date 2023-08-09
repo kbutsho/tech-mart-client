@@ -13,7 +13,6 @@ import Pagination from '@/components/Pagination/Pagination';
 const PhoneCategory = ({ data }) => {
     const [product, setProduct] = useState(data.productResponse);
 
-
     // filter by price range
     const [priceRange, setPriceRange] = useState(data.priceRangeResponse.data);
     const handlePriceRangeChange = (event, newValue) => {
@@ -43,7 +42,6 @@ const PhoneCategory = ({ data }) => {
         setStatusToggle(!statusToggle)
     }
 
-
     // price sort order
     const sortOrderList = [
         PRICE_SORT_ORDER.MIN_TO_MAX,
@@ -54,7 +52,6 @@ const PhoneCategory = ({ data }) => {
     const handelSortOrder = (event) => {
         setSortOrder(event.target.value);
     }
-
     const [sortOrderToggle, setSortOrderToggle] = useState(true)
     const handelSortOrderToggle = () => {
         setSortOrderToggle(!sortOrderToggle)
@@ -81,7 +78,6 @@ const PhoneCategory = ({ data }) => {
         setBrandToggle(!brandToggle)
     }
 
-
     // filter by rating
     const [ratingRange, setRatingRange] = useState([0, 5]);
     const handleRatingRangeChange = (event, newValue) => {
@@ -98,8 +94,7 @@ const PhoneCategory = ({ data }) => {
         setSearchTerm(event.target.value);
     };
 
-
-    // filter and search
+    // combine filter search and sort
     const filterAndSearchData = product.data.filter((item) => {
         // filter
         const statusMatch = filterByStatus ? item.status.includes(filterByStatus) : true;
@@ -112,7 +107,7 @@ const PhoneCategory = ({ data }) => {
             item.category.toLowerCase().includes(searchTerm.toLowerCase()) ||
             item.brand.toLowerCase().includes(searchTerm.toLowerCase());
         return priceRangeMatch && statusMatch && brandMatch && ratingRangeMatch && searchMatch;
-    })
+    })    // sort
         .sort((itemA, itemB) => {
             if (sortOrder === PRICE_SORT_ORDER.MIN_TO_MAX) {
                 return itemA.discountPrice - itemB.discountPrice;
@@ -123,18 +118,14 @@ const PhoneCategory = ({ data }) => {
         });
 
     //pagination
-
     const [currentPage, setCurrentPage] = useState(1);
-    const [productPerPage, setProductPerPage] = useState(12);
-
+    const [productPerPage, setProductPerPage] = useState(8);
     const indexOfLastProduct = currentPage * productPerPage;
     const indexOfFirstProduct = indexOfLastProduct - productPerPage;
     const currentProduct = filterAndSearchData.slice(indexOfFirstProduct, indexOfLastProduct)
-
     const handelPaginate = (pageNumber) => {
         setCurrentPage(pageNumber)
     }
-
     return (
         <div className='container'>
             <Breadcrumb />
@@ -143,33 +134,44 @@ const PhoneCategory = ({ data }) => {
                 <div className="phone-area py-4">
                     <div className="row">
                         <div className="col-md-4 col-xxl-3">
+
+                            {/* show per page */}
                             <div className={styles.filter_header}>
                                 <span >Show</span>
                                 <select
                                     value={productPerPage}
                                     className={`${styles.custom_select} form-select w-25`}
-                                    onChange={(e) => setProductPerPage(parseInt(e.target.value))}>
+                                    onChange={(e) =>
+                                        setProductPerPage(parseInt(e.target.value))
+                                    }>
+                                    <option value="8" selected={productPerPage === 8}>08</option>
                                     <option value="12" selected={productPerPage === 12}>12</option>
                                     <option value="24" selected={productPerPage === 24}>24</option>
                                     <option value="36" selected={productPerPage === 36}>36</option>
                                     <option value="48" selected={productPerPage === 48}>48</option>
                                     <option value="96" selected={productPerPage === 96}>96</option>
                                 </select>
-
                             </div>
 
                             {/* filter by price range */}
                             <div className={styles.filter_area}>
                                 <button onClick={handelPriceToggle}>Price Range
                                     <div>
-                                        <span className={` ${priceToggle ? styles.show : styles.hide}`}><IoIosArrowUp size="20px" /></span>
-                                        <span className={` ${priceToggle ? styles.hide : styles.show}`}><IoIosArrowDown size="20px" /></span>
+                                        <span className={` ${priceToggle ? styles.show : styles.hide}`}>
+                                            <IoIosArrowUp size="20px" />
+                                        </span>
+                                        <span className={` ${priceToggle ? styles.hide : styles.show}`}>
+                                            <IoIosArrowDown size="20px" />
+                                        </span>
                                     </div>
                                 </button>
-
                                 <div className={`${priceToggle ? styles.show : styles.hide}`}>
                                     <hr />
-                                    <Slider value={priceRange} onChange={handlePriceRangeChange} valueLabelDisplay="auto" min={data.priceRangeResponse.data[0]} max={data.priceRangeResponse.data[1]} />
+                                    <Slider value={priceRange}
+                                        onChange={handlePriceRangeChange}
+                                        valueLabelDisplay="auto"
+                                        min={data.priceRangeResponse.data[0]}
+                                        max={data.priceRangeResponse.data[1]} />
                                     <div className='d-flex justify-content-between pb-2'>
                                         <small>{priceRange[0]}</small>
                                         <small>{priceRange[1]}</small>
@@ -181,11 +183,14 @@ const PhoneCategory = ({ data }) => {
                             <div className={styles.filter_area}>
                                 <button onClick={handelSortOrderToggle}>Sort Order
                                     <div>
-                                        <span className={`${sortOrderToggle ? styles.show : styles.hide}`}><IoIosArrowUp size="20px" /></span>
-                                        <span className={`${sortOrderToggle ? styles.hide : styles.show}`}><IoIosArrowDown size="20px" /></span>
+                                        <span className={`${sortOrderToggle ? styles.show : styles.hide}`}>
+                                            <IoIosArrowUp size="20px" />
+                                        </span>
+                                        <span className={`${sortOrderToggle ? styles.hide : styles.show}`}>
+                                            <IoIosArrowDown size="20px" />
+                                        </span>
                                     </div>
                                 </button>
-
                                 <div className={`${sortOrderToggle ? styles.show : styles.hide}`}>
                                     <hr />
                                     {
@@ -200,7 +205,8 @@ const PhoneCategory = ({ data }) => {
                                                         value={sort === PRICE_SORT_ORDER.DEFAULT ? '' : sort}
                                                         onChange={handelSortOrder}
                                                     />
-                                                    {sort}</label>
+                                                    {sort}
+                                                </label>
                                             </div>
                                         ))
                                     }
@@ -211,11 +217,14 @@ const PhoneCategory = ({ data }) => {
                             <div className={styles.filter_area}>
                                 <button onClick={handelStatusToggle}>Status
                                     <div>
-                                        <span className={` ${statusToggle ? styles.show : styles.hide}`}><IoIosArrowUp size="20px" /></span>
-                                        <span className={` ${statusToggle ? styles.hide : styles.show}`}><IoIosArrowDown size="20px" /></span>
+                                        <span className={` ${statusToggle ? styles.show : styles.hide}`}>
+                                            <IoIosArrowUp size="20px" />
+                                        </span>
+                                        <span className={` ${statusToggle ? styles.hide : styles.show}`}>
+                                            <IoIosArrowDown size="20px" />
+                                        </span>
                                     </div>
                                 </button>
-
                                 <div className={`${statusToggle ? styles.show : styles.hide}`}>
                                     <hr />
                                     {
@@ -230,7 +239,8 @@ const PhoneCategory = ({ data }) => {
                                                         value={status === PRODUCT_STATUS.SHOW_ALL ? '' : status}
                                                         onChange={handelFilterByStatus}
                                                     />
-                                                    {status.split('-').join(' ')}</label>
+                                                    {status.split('-').join(' ')}
+                                                </label>
                                             </div>
                                         ))
                                     }
@@ -241,11 +251,14 @@ const PhoneCategory = ({ data }) => {
                             <div className={styles.filter_area}>
                                 <button onClick={handelBrandToggle}>Brand
                                     <div>
-                                        <span className={` ${brandToggle ? styles.show : styles.hide}`}><IoIosArrowUp size="20px" /></span>
-                                        <span className={` ${brandToggle ? styles.hide : styles.show}`}><IoIosArrowDown size="20px" /></span>
+                                        <span className={` ${brandToggle ? styles.show : styles.hide}`}>
+                                            <IoIosArrowUp size="20px" />
+                                        </span>
+                                        <span className={` ${brandToggle ? styles.hide : styles.show}`}>
+                                            <IoIosArrowDown size="20px" />
+                                        </span>
                                     </div>
                                 </button>
-
                                 <div className={`${brandToggle ? styles.show : styles.hide}`}>
                                     <hr />
                                     {
@@ -260,7 +273,8 @@ const PhoneCategory = ({ data }) => {
                                                         value={brand === PRODUCT_BRAND.SHOW_ALL ? '' : brand}
                                                         onChange={handelFilterByBrand}
                                                     />
-                                                    {brand.split('-').join(' ')}</label>
+                                                    {brand.split('-').join(' ')}
+                                                </label>
                                             </div>
                                         ))
                                     }
@@ -271,14 +285,21 @@ const PhoneCategory = ({ data }) => {
                             <div className={styles.filter_area}>
                                 <button onClick={handelRatingToggle}>Rating
                                     <div>
-                                        <span className={` ${ratingToggle ? styles.show : styles.hide}`}><IoIosArrowUp size="20px" /></span>
-                                        <span className={` ${ratingToggle ? styles.hide : styles.show}`}><IoIosArrowDown size="20px" /></span>
+                                        <span className={` ${ratingToggle ? styles.show : styles.hide}`}>
+                                            <IoIosArrowUp size="20px" />
+                                        </span>
+                                        <span className={` ${ratingToggle ? styles.hide : styles.show}`}>
+                                            <IoIosArrowDown size="20px" />
+                                        </span>
                                     </div>
                                 </button>
 
                                 <div className={`${ratingToggle ? styles.show : styles.hide}`}>
                                     <hr />
-                                    <Slider value={ratingRange} onChange={handleRatingRangeChange} valueLabelDisplay="auto" min={0} max={5} />
+                                    <Slider value={ratingRange}
+                                        onChange={handleRatingRangeChange}
+                                        valueLabelDisplay="auto"
+                                        min={0} max={5} />
                                     <div className='d-flex justify-content-between pb-2'>
                                         <small>{ratingRange[0]}</small>
                                         <small>{ratingRange[1]}</small>
@@ -286,8 +307,10 @@ const PhoneCategory = ({ data }) => {
                                 </div>
                             </div>
 
+                            {/* product area */}
                         </div>
                         <div className="col-md-8 col-xxl-9">
+                            {/* search area */}
                             <div className={styles.search_area}>
                                 <input
                                     type="text"
@@ -296,7 +319,7 @@ const PhoneCategory = ({ data }) => {
                                     placeholder='search for phone'
                                     className={`form-control ${styles.search_box}`} />
                             </div>
-
+                            {/* product list area */}
                             <div className="row">
                                 {currentProduct.length > 0 ? (
                                     currentProduct.map((product) => (
@@ -309,6 +332,7 @@ const PhoneCategory = ({ data }) => {
                                     </div>
                                 )}
                             </div>
+                            {/* pagination */}
                             <div className={styles.pagination}>
                                 {
                                     currentProduct.length > 0 ?

@@ -239,7 +239,7 @@
     }
 
     .filter_area, .filter_header, .search_box {
-        box-shadow: rgba(0, 0, 0, 0.1) 1px 1px 2px 1px;
+        box-shadow: none;
     }
 
     .product_card h6 {
