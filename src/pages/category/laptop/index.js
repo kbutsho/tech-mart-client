@@ -1,6 +1,6 @@
 import Breadcrumb from '@/components/Breadcrumb/Index';
 import MainLayout from '@/layouts/MainLayout';
-import banner from '@/assets/category/earphone-banner.jpeg'
+import banner from '@/assets/category/laptop-banner.jpeg'
 import Image from 'next/image';
 import ProductCard from '@/components/Category/ProductCard';
 import Slider from '@mui/material/Slider';
@@ -11,7 +11,7 @@ import { PRICE_SORT_ORDER, PRODUCT_BRAND, PRODUCT_STATUS } from '@/constant/prod
 import Pagination from '@/components/Pagination/Pagination';
 import { AiFillStar } from 'react-icons/ai';
 
-const EarphoneCategory = ({ data }) => {
+const LaptopCategory = ({ data }) => {
     const [product, setProduct] = useState(data.productResponse);
 
     // filter by price range
@@ -60,14 +60,12 @@ const EarphoneCategory = ({ data }) => {
 
     // filter by brand
     const productBrand = [
-        PRODUCT_BRAND.SAMSUNG,
         PRODUCT_BRAND.APPLE,
-        PRODUCT_BRAND.XIAOMI,
-        PRODUCT_BRAND.ONEPLUS,
-        PRODUCT_BRAND.REALME,
+        PRODUCT_BRAND.ASUS,
         PRODUCT_BRAND.LENOVO,
-        PRODUCT_BRAND.HAYLOU,
-        PRODUCT_BRAND.IMILAB,
+        PRODUCT_BRAND.DELL,
+        PRODUCT_BRAND.HP,
+        PRODUCT_BRAND.XIAOMI,
         PRODUCT_BRAND.SHOW_ALL
     ];
     const [filterByBrand, setFilterByBrand] = useState('');
@@ -322,7 +320,7 @@ const EarphoneCategory = ({ data }) => {
                                     type="text"
                                     value={searchTerm}
                                     onChange={handelSearch}
-                                    placeholder='search for earphone'
+                                    placeholder='search for laptop'
                                     className={`form-control ${styles.search_box}`} />
                             </div>
                             {/* product list area */}
@@ -356,34 +354,34 @@ const EarphoneCategory = ({ data }) => {
                             <h4 className='fw-bold my-3'>Why choose us?</h4>
                             <hr />
                             <p>
-                                Immerse yourself in a world of superior sound quality and immersive music experiences with our exceptional collection of cutting-edge earphones. Whether you're a music aficionado, a fitness enthusiast seeking motivation, or someone who values premium audio for calls and entertainment, our Earphone Category Page is your gateway to an auditory adventure.
+                                Immerse yourself in the realm of computing excellence with our extraordinary collection of cutting-edge laptops. Whether you're a creative professional, a student striving for academic success, or a technology enthusiast seeking powerful performance, our Laptop Category Page is your gateway to a world of possibilities.
                             </p>
                             <p>
                                 <span className='fw-bold'>Explore and Select: </span>
-                                Discover an extensive range of earphones from top brands, thoughtfully tailored to cater to diverse preferences and budgets. Our meticulously curated selection guarantees that you'll find the perfect audio companion that harmonizes with your individual requirements. From wireless earbuds that redefine mobility to over-ear headphones that envelop you in rich soundscapes, our Earphone Category Page is your ultimate destination for exploration and choice.
+                                Dive into an expansive range of laptops from renowned brands, meticulously tailored to accommodate diverse preferences and budgets. Our thoughtfully curated selection ensures that you'll discover the perfect computing companion that aligns seamlessly with your individual needs. From sleek ultrabooks that redefine portability to high-performance workstations that empower your creative endeavors, our Laptop Category Page is your ultimate destination for exploration and choice.
                             </p>
                             <p>
-                                <span className='fw-bold'>Innovative Audio: </span>
-                                Elevate your auditory experience with earphones that feature cutting-edge audio technology. Explore devices equipped with noise cancellation, immersive spatial audio, and enhanced bass response. Our Earphone Category Page showcases audio marvels that deliver the future of sound quality and performance, allowing you to immerse yourself in music, podcasts, and calls like never before.
+                                <span className='fw-bold'>Innovative Performance: </span>
+                                Elevate your computing experience with laptops equipped with cutting-edge technology. Explore devices featuring powerful processors, stunning displays, and exceptional graphics capabilities. Our Laptop Category Page showcases computing marvels that deliver the future of performance and productivity, allowing you to tackle tasks, create content, and explore your passions with unparalleled efficiency.
                             </p>
                             <p>
-                                <span className='fw-bold'>Sleek and Comfortable Designs: </span>
-                                Aesthetics meet functionality with the visually appealing and ergonomic designs of the earphones in our collection. Whether you prefer discreet and minimalist styles or bold and expressive aesthetics, our Earphone Category Page offers a spectrum of options to match your personal flair. Crafted with meticulous attention to detail, premium materials, and comfort-enhancing features, our earphones are designed for both sonic excellence and all-day wearability.
+                                <span className='fw-bold'>Sleek Designs and Durability: </span>
+                                Aesthetics meet functionality with the visually striking designs of the laptops in our collection. Whether you appreciate sleek minimalism or bold expressions of style, our Laptop Category Page offers a spectrum of options to match your personal taste. Crafted with attention to detail, premium materials, and durability in mind, our laptops blend form and function seamlessly.
                             </p>
                             <p>
                                 <span className='fw-bold'>Comprehensive Specifications: </span>
-                                Make informed decisions with comprehensive product specifications accompanying each pair of earphones. From battery life and audio frequency range to connectivity options and compatibility, our detailed information empowers you to select earphones that align seamlessly with your preferences. Our Earphone Category Page ensures that you're not only captivated by the sound but also equipped with essential details to make a confident choice.
+                                Make informed decisions with comprehensive product specifications accompanying each laptop. From processing power and RAM to storage capacity and connectivity options, our detailed information empowers you to select a laptop that aligns with your requirements. Our Laptop Category Page ensures that you're not only captivated by the aesthetics but also equipped with essential details for confident decision-making.
                             </p>
                             <p>
-                                <span className='fw-bold'>Real User Experiences: </span>
-                                Benefit from authentic user insights through genuine customer reviews and ratings. Gain firsthand knowledge from individuals who have embraced these earphones into their daily lives. This invaluable feedback empowers you to make an informed choice that resonates with your auditory aspirations and lifestyle needs.
+                                <span className='fw-bold'>Real User Reviews: </span>
+                                Benefit from authentic user insights through genuine customer reviews and ratings. Learn from firsthand experiences shared by individuals who have embraced these laptops into their daily routines. This valuable feedback empowers you to make an informed choice that resonates with your computing aspirations and professional needs.
                             </p>
                             <p>
-                                <span className='fw-bold'>Effortless Shopping Journey: </span>
-                                Navigate our Earphone Category Page seamlessly. With intuitive filters, you can refine your search based on brand, price range, features, and more. Once you've discovered your perfect pair of earphones, our streamlined checkout process ensures a seamless shopping experience, allowing you to swiftly acquire your new auditory companions.
+                                <span className='fw-bold'>Effortless Shopping Experience: </span>
+                                Navigate our Laptop Category Page seamlessly. With intuitive filters, you can refine your search based on brand, performance, features, and more. Once you've discovered your perfect laptop, our streamlined checkout process ensures a hassle-free shopping journey, allowing you to swiftly acquire your new computing companion.
                             </p>
                             <p>
-                                Embark on an auditory journey of discovery by exploring our Earphone Category Page. From immersive soundscapes to crystal-clear call quality, we're dedicated to offering you a comprehensive range of earphones that redefine your audio experience. Your ideal earphones are just a click away. Start browsing now!
+                                Embark on a technological journey of discovery by exploring our Laptop Category Page. From seamless multitasking to immersive entertainment, we're dedicated to providing you with a comprehensive range of laptops that redefine computing excellence. Your ideal laptop is just a click away. Start browsing now!
                             </p>
                         </div>
 
@@ -394,14 +392,14 @@ const EarphoneCategory = ({ data }) => {
     );
 };
 
-export default EarphoneCategory;
-EarphoneCategory.getLayout = function getLayout(page) {
+export default LaptopCategory;
+LaptopCategory.getLayout = function getLayout(page) {
     return <MainLayout>{page}</MainLayout>;
 };
 export const getStaticProps = async () => {
-    const productCategoryResponse = await fetch(`https://tech-mart-server.vercel.app/api/products?category=earphone`);
+    const phoneCategoryResponse = await fetch(`https://tech-mart-server.vercel.app/api/products?category=laptop`);
     const priceRange = await fetch(`https://tech-mart-server.vercel.app/api/products/price-range`);
-    const productResponse = await productCategoryResponse.json();
+    const productResponse = await phoneCategoryResponse.json();
     const priceRangeResponse = await priceRange.json();
     return {
         props: {

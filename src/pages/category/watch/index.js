@@ -333,7 +333,7 @@ const WatchCategory = ({ data }) => {
                                     ))
                                 ) : (
                                     <div className='d-flex justify-content-center align-items-center'
-                                        style={{ minHeight: "40vh" }}>
+                                        style={{ minHeight: "45vh" }}>
                                         <h5>no data found!</h5>
                                     </div>
                                 )}
@@ -353,7 +353,7 @@ const WatchCategory = ({ data }) => {
 
                         {/* description */}
                         <div className="category-description">
-                            <h4 className='fw-bold mb-3'>Why choose us?</h4>
+                            <h4 className='fw-bold my-3'>Why choose us?</h4>
                             <hr />
                             <p>
                                 Explore our captivating collection of cutting-edge smartwatches that seamlessly integrate style, functionality, and innovation into your daily life. Whether you're a tech enthusiast, a fitness fanatic, or someone who values staying connected on the go, our Smartwatch Category Page is your gateway to a world of possibilities.

@@ -22,7 +22,11 @@ export const PRODUCT_BRAND = {
     IMILAB: 'imilab',
     LENOVO: 'lenovo',
     BASEUS: 'baseus',
-    JBL: 'jbl'
+    JBL: 'jbl',
+    ASUS: 'asus',
+    HP: 'hp',
+    DELL: 'dell'
+
 }
 
 export const PRICE_SORT_ORDER = {
