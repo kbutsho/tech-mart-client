@@ -120,7 +120,7 @@ const PhoneCategory = ({ data }) => {
 
     //pagination
     const [currentPage, setCurrentPage] = useState(1);
-    const [productPerPage, setProductPerPage] = useState(1);
+    const [productPerPage, setProductPerPage] = useState(8);
     const indexOfLastProduct = currentPage * productPerPage;
     const indexOfFirstProduct = indexOfLastProduct - productPerPage;
     const currentProduct = filterAndSearchData.slice(indexOfFirstProduct, indexOfLastProduct)
