@@ -9,6 +9,7 @@ import styles from '@/styles/home/product.module.css'
 import { IoIosArrowUp, IoIosArrowDown } from 'react-icons/io'
 import { PRICE_SORT_ORDER, PRODUCT_BRAND, PRODUCT_STATUS } from '@/constant/product.constant';
 import Pagination from '@/components/Pagination/Pagination';
+import { AiFillStar } from 'react-icons/ai';
 
 const PhoneCategory = ({ data }) => {
     const [product, setProduct] = useState(data.productResponse);
@@ -213,7 +214,7 @@ const PhoneCategory = ({ data }) => {
                                 </div>
                             </div>
 
-                            {/* // filter by status */}
+                            {/* filter by status */}
                             <div className={styles.filter_area}>
                                 <button onClick={handelStatusToggle}>Status
                                     <div>
@@ -301,8 +302,13 @@ const PhoneCategory = ({ data }) => {
                                         valueLabelDisplay="auto"
                                         min={0} max={5} />
                                     <div className='d-flex justify-content-between pb-2'>
-                                        <small>{ratingRange[0]}</small>
-                                        <small>{ratingRange[1]}</small>
+                                        <small
+                                            className='d-flex justify-content-between align-items-center'>
+                                            {ratingRange[0]} <AiFillStar className='ms-1' color='#F29120' />
+                                        </small>
+                                        <small className='d-flex justify-content-between align-items-center'>
+                                            {ratingRange[1]} <AiFillStar className='ms-1' color='#F29120'/>
+                                        </small>
                                     </div>
                                 </div>
                             </div>
