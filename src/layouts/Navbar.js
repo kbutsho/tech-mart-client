@@ -43,7 +43,7 @@ function Navbar() {
                             data-bs-target="#navbarNavAltMarkup"
                             aria-controls="navbarNavAltMarkup"
                             aria-label="Toggle navigation">
-                            <AiOutlineMenuFold size="30" />
+                            <AiOutlineMenuFold size="30" color="#000000" />
                         </span>
                     </span>
 
