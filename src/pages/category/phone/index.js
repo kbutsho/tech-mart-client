@@ -8,6 +8,7 @@ import { useState } from 'react';
 import styles from '@/styles/home/product.module.css'
 import { IoIosArrowUp, IoIosArrowDown } from 'react-icons/io'
 import { PRICE_SORT_ORDER, PRODUCT_BRAND, PRODUCT_STATUS } from '@/constant/product.constant';
+import Pagination from '@/components/Pagination/Pagination';
 
 const PhoneCategory = ({ data }) => {
     const [product, setProduct] = useState(data.productResponse);
@@ -99,7 +100,7 @@ const PhoneCategory = ({ data }) => {
 
 
     // filter and search
-    const filteredData = product.data.filter((item) => {
+    const filterAndSearchData = product.data.filter((item) => {
         // filter
         const statusMatch = filterByStatus ? item.status.includes(filterByStatus) : true;
         const brandMatch = filterByBrand ? item.brand.includes(filterByBrand) : true;
@@ -121,6 +122,19 @@ const PhoneCategory = ({ data }) => {
             return 0;
         });
 
+    //pagination
+
+    const [currentPage, setCurrentPage] = useState(1);
+    const [productPerPage, setProductPerPage] = useState(12);
+
+    const indexOfLastProduct = currentPage * productPerPage;
+    const indexOfFirstProduct = indexOfLastProduct - productPerPage;
+    const currentProduct = filterAndSearchData.slice(indexOfFirstProduct, indexOfLastProduct)
+
+    const handelPaginate = (pageNumber) => {
+        setCurrentPage(pageNumber)
+    }
+
     return (
         <div className='container'>
             <Breadcrumb />
@@ -129,8 +143,19 @@ const PhoneCategory = ({ data }) => {
                 <div className="phone-area py-4">
                     <div className="row">
                         <div className="col-md-4 col-xxl-3">
-                            <div className={styles.filter_header} style={{ marginTop: "12px" }}>
-                                <span>Filter</span>
+                            <div className={styles.filter_header}>
+                                <span >Show</span>
+                                <select
+                                    value={productPerPage}
+                                    className={`${styles.custom_select} form-select w-25`}
+                                    onChange={(e) => setProductPerPage(parseInt(e.target.value))}>
+                                    <option value="12" selected={productPerPage === 12}>12</option>
+                                    <option value="24" selected={productPerPage === 24}>24</option>
+                                    <option value="36" selected={productPerPage === 36}>36</option>
+                                    <option value="48" selected={productPerPage === 48}>48</option>
+                                    <option value="96" selected={productPerPage === 96}>96</option>
+                                </select>
+
                             </div>
 
                             {/* filter by price range */}
@@ -273,11 +298,25 @@ const PhoneCategory = ({ data }) => {
                             </div>
 
                             <div className="row">
+                                {currentProduct.length > 0 ? (
+                                    currentProduct.map((product) => (
+                                        <ProductCard key={product._id} product={product} />
+                                    ))
+                                ) : (
+                                    <div className='d-flex justify-content-center align-items-center'
+                                        style={{ minHeight: "40vh" }}>
+                                        <h5>no data found!</h5>
+                                    </div>
+                                )}
+                            </div>
+                            <div className={styles.pagination}>
                                 {
-                                    filteredData.length > 0 ? filteredData.map((product) => <ProductCard key={product._id} product={product} />) :
-                                        <div className='d-flex justify-content-center align-items-center' style={{ height: "40vh" }}>
-                                            <h5>no data found!</h5>
-                                        </div>
+                                    currentProduct.length > 0 ?
+                                        <Pagination data={filterAndSearchData}
+                                            productPerPage={productPerPage}
+                                            currentPage={currentPage}
+                                            handelPaginate={handelPaginate} />
+                                        : null
                                 }
                             </div>
                         </div>
