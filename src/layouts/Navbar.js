@@ -9,7 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { getCartTotal } from "@/redux/features/cartSlice";
 import { BiUserCircle } from 'react-icons/bi'
-import { AiOutlineHeart, AiOutlineShoppingCart } from "react-icons/ai";
+import { AiOutlineHeart, AiOutlineMenuFold, AiOutlineShoppingCart } from "react-icons/ai";
 
 function Navbar() {
     let cart = useSelector((state) => state.cart);
@@ -26,13 +26,24 @@ function Navbar() {
                     <Link className="navbar-brand fw-bold text-white" href="/">
                         <Image src={logo} height={40} width={120} alt="img" />
                     </Link>
-                    <span className="navbar-toggler"
+                    <span className={`${styles.nav_toggler_area} navbar-toggler`}
                         aria-expanded="false"
                         data-bs-toggle="collapse"
                         data-bs-target="#navbarNavAltMarkup"
                         aria-controls="navbarNavAltMarkup"
                         aria-label="Toggle navigation">
-                        <span className="navbar-toggler-icon"></span>
+                        <span className="d-flex">
+                            <Link className="nav-link d-flex" href="/">
+                                <AiOutlineHeart size="30" />
+                                <span className={styles.cart_navbar_count}>{favouriteProducts.length}</span>
+                            </Link>
+
+                            <Link className="nav-link d-flex mx-2" href="/cart">
+                                <AiOutlineShoppingCart size="30" />
+                                <span className={styles.cart_navbar_count}>{cart.cartTotalQuantity}</span>
+                            </Link>
+                            <AiOutlineMenuFold size="30" />
+                        </span>
                     </span>
                     <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
                         <div className={`navbar-nav ms-auto  ${styles.nav_items}`}>
@@ -48,16 +59,16 @@ function Navbar() {
                             <Link className="nav-link" href="/">Brands</Link>
                             <Link className="nav-link" href="/category">Categories</Link>
 
-                            <Link className="nav-link d-flex" href="/">
+                            <Link className={`${styles.nav_cart_favourite} nav-link`} href="/">
                                 <AiOutlineHeart size="24" />
                                 <span className={styles.cart_navbar_count}>{favouriteProducts.length}</span>
                             </Link>
-                            <Link className="nav-link d-flex" href="/cart">
+                            <Link className={`${styles.nav_cart_favourite} nav-link me-2`} href="/cart">
                                 <AiOutlineShoppingCart size="24" />
                                 <span className={styles.cart_navbar_count}>{cart.cartTotalQuantity}</span>
                             </Link>
 
-                            <div className="dropdown ms-2">
+                            <div className="dropdown">
                                 <button className={`${styles.dropdown_btn} btn btn-outline-secondary dropdown-toggle pt-2`}
                                     data-bs-toggle="dropdown"
                                     aria-expanded="false">
