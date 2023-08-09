@@ -353,6 +353,7 @@ const PhoneCategory = ({ data }) => {
 
                         {/* description */}
                         <div className="category-description mt-4">
+                            <h4 className='fw-bold mb-3'>Why choose us?</h4>
                             <p>
                                 You'll discover here a captivating collection of cutting-edge smartphones that seamlessly blend style, functionality, and innovation. Whether you're a tech enthusiast, a professional seeking productivity tools, or someone who simply appreciates the latest in communication technology, our Phone Category Page is your gateway to a world of possibilities.
                             </p>
