@@ -386,7 +386,6 @@ const WatchCategory = ({ data }) => {
                                 Embark on a journey of technological discovery by exploring our Smartwatch Category Page. From advanced fitness tracking to convenient notifications on your wrist, we're dedicated to providing you with a comprehensive range of smartwatches that redefine connectivity, style, and convenience. Your ideal smartwatch is just a click away. Start browsing now!
                             </p>
                         </div>
-
                     </div>
                 </div>
             </div>

@@ -26,7 +26,12 @@ export const PRODUCT_BRAND = {
     ASUS: 'asus',
     HP: 'hp',
     DELL: 'dell',
-    ANKER: 'anker'
+    ANKER: 'anker',
+    SONY: 'sony',
+    CANON: 'canon',
+    NIKON: 'nikon',
+    GO_PRO: 'go pro',
+    LEICA: 'leica'
 
 }
 

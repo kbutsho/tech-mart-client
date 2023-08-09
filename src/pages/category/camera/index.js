@@ -1,6 +1,6 @@
 import Breadcrumb from '@/components/Breadcrumb/Index';
 import MainLayout from '@/layouts/MainLayout';
-import banner from '@/assets/category/earphone-banner.jpeg'
+import banner from '@/assets/category/camera-banner.jpeg'
 import Image from 'next/image';
 import ProductCard from '@/components/Category/ProductCard';
 import Slider from '@mui/material/Slider';
@@ -11,7 +11,7 @@ import { PRICE_SORT_ORDER, PRODUCT_BRAND, PRODUCT_STATUS } from '@/constant/prod
 import Pagination from '@/components/Pagination/Pagination';
 import { AiFillStar } from 'react-icons/ai';
 
-const EarphoneCategory = ({ data }) => {
+const CameraCategory = ({ data }) => {
     const [product, setProduct] = useState(data.productResponse);
 
     // filter by price range
@@ -60,14 +60,11 @@ const EarphoneCategory = ({ data }) => {
 
     // filter by brand
     const productBrand = [
-        PRODUCT_BRAND.SAMSUNG,
-        PRODUCT_BRAND.APPLE,
-        PRODUCT_BRAND.XIAOMI,
-        PRODUCT_BRAND.ONEPLUS,
-        PRODUCT_BRAND.REALME,
-        PRODUCT_BRAND.LENOVO,
-        PRODUCT_BRAND.HAYLOU,
-        PRODUCT_BRAND.IMILAB,
+        PRODUCT_BRAND.SONY,
+        PRODUCT_BRAND.CANON,
+        PRODUCT_BRAND.NIKON,
+        PRODUCT_BRAND.GO_PRO,
+        PRODUCT_BRAND.LEICA,
         PRODUCT_BRAND.SHOW_ALL
     ];
     const [filterByBrand, setFilterByBrand] = useState('');
@@ -322,7 +319,7 @@ const EarphoneCategory = ({ data }) => {
                                     type="text"
                                     value={searchTerm}
                                     onChange={handelSearch}
-                                    placeholder='search for earphone'
+                                    placeholder='search for camera'
                                     className={`form-control ${styles.search_box}`} />
                             </div>
                             {/* product list area */}
@@ -334,7 +331,7 @@ const EarphoneCategory = ({ data }) => {
                                 ) : (
                                     <div className='d-flex justify-content-center align-items-center'
                                         style={{ minHeight: "45vh" }}>
-                                        <h5>no earphone found!</h5>
+                                        <h5>no camera found!</h5>
                                     </div>
                                 )}
                             </div>
@@ -356,34 +353,34 @@ const EarphoneCategory = ({ data }) => {
                             <h4 className='fw-bold my-3'>Why choose us?</h4>
                             <hr />
                             <p>
-                                Immerse yourself in a world of superior sound quality and immersive music experiences with our exceptional collection of cutting-edge earphones. Whether you're a music aficionado, a fitness enthusiast seeking motivation, or someone who values premium audio for calls and entertainment, our Earphone Category Page is your gateway to an auditory adventure.
+                                Capture the world around you in stunning detail with our exceptional collection of cutting-edge cameras. Whether you're a photography enthusiast, a content creator, or someone who values preserving memories in high quality, our Camera Category Page is your gateway to a world of visual storytelling.
                             </p>
                             <p>
                                 <span className='fw-bold'>Explore and Select: </span>
-                                Discover an extensive range of earphones from top brands, thoughtfully tailored to cater to diverse preferences and budgets. Our meticulously curated selection guarantees that you'll find the perfect audio companion that harmonizes with your individual requirements. From wireless earbuds that redefine mobility to over-ear headphones that envelop you in rich soundscapes, our Earphone Category Page is your ultimate destination for exploration and choice.
+                                Discover a diverse range of cameras meticulously designed to cater to a variety of skill levels and creative aspirations. Our carefully curated selection ensures that you'll find the perfect visual companion that aligns with your unique perspective. From compact point-and-shoot cameras to advanced mirrorless systems, our Camera Category Page is your ultimate destination for exploration and choice.
                             </p>
                             <p>
-                                <span className='fw-bold'>Innovative Audio: </span>
-                                Elevate your auditory experience with earphones that feature cutting-edge audio technology. Explore devices equipped with noise cancellation, immersive spatial audio, and enhanced bass response. Our Earphone Category Page showcases audio marvels that deliver the future of sound quality and performance, allowing you to immerse yourself in music, podcasts, and calls like never before.
+                                <span className='fw-bold'>Innovative Imaging Technology: </span>
+                                Elevate your photography with cameras equipped with cutting-edge imaging technology. Explore devices featuring high-resolution sensors, advanced autofocus systems, and impressive low-light capabilities. Our Camera Category Page showcases visual marvels that deliver the future of image quality and creativity, allowing you to capture moments in breathtaking detail.
                             </p>
                             <p>
-                                <span className='fw-bold'>Sleek and Comfortable Designs: </span>
-                                Aesthetics meet functionality with the visually appealing and ergonomic designs of the earphones in our collection. Whether you prefer discreet and minimalist styles or bold and expressive aesthetics, our Earphone Category Page offers a spectrum of options to match your personal flair. Crafted with meticulous attention to detail, premium materials, and comfort-enhancing features, our earphones are designed for both sonic excellence and all-day wearability.
+                                <span className='fw-bold'>Versatile Designs: </span>
+                                Functionality meets style with the aesthetically pleasing and ergonomic designs of the cameras in our collection. Whether you prefer sleek minimalism or robust professional aesthetics, our Camera Category Page offers a variety of options to match your photographic vision. Crafted with attention to detail, usability, and durability, our cameras empower you to capture with ease and precision.
                             </p>
                             <p>
-                                <span className='fw-bold'>Comprehensive Specifications: </span>
-                                Make informed decisions with comprehensive product specifications accompanying each pair of earphones. From battery life and audio frequency range to connectivity options and compatibility, our detailed information empowers you to select earphones that align seamlessly with your preferences. Our Earphone Category Page ensures that you're not only captivated by the sound but also equipped with essential details to make a confident choice.
+                                <span className='fw-bold'>Comprehensive Features: </span>
+                                Make informed decisions with comprehensive specifications provided for each camera. From sensor size and megapixels to video recording capabilities and connectivity options, our detailed information empowers you to select a camera that aligns seamlessly with your photographic goals. Our Camera Category Page ensures you're not only captivated by the design but also equipped with essential details for confident shooting.
                             </p>
                             <p>
                                 <span className='fw-bold'>Real User Experiences: </span>
-                                Benefit from authentic user insights through genuine customer reviews and ratings. Gain firsthand knowledge from individuals who have embraced these earphones into their daily lives. This invaluable feedback empowers you to make an informed choice that resonates with your auditory aspirations and lifestyle needs.
+                                Benefit from authentic user insights through genuine customer reviews and ratings. Gain firsthand knowledge from individuals who have embraced these cameras into their creative journeys. This invaluable feedback empowers you to make an informed choice that resonates with your artistic aspirations and photography style.
                             </p>
                             <p>
-                                <span className='fw-bold'>Effortless Shopping Journey: </span>
-                                Navigate our Earphone Category Page seamlessly. With intuitive filters, you can refine your search based on brand, price range, features, and more. Once you've discovered your perfect pair of earphones, our streamlined checkout process ensures a seamless shopping experience, allowing you to swiftly acquire your new auditory companions.
+                                <span className='fw-bold'>Effortless Shopping Experience: </span>
+                                Navigate our Camera Category Page seamlessly. With intuitive filters, you can refine your search based on camera type, features, and more. Once you've discovered your perfect camera, our streamlined checkout process ensures a hassle-free shopping journey, allowing you to swiftly acquire your new visual storyteller.
                             </p>
                             <p>
-                                Embark on an auditory journey of discovery by exploring our Earphone Category Page. From immersive soundscapes to crystal-clear call quality, we're dedicated to offering you a comprehensive range of earphones that redefine your audio experience. Your ideal earphones are just a click away. Start browsing now!
+                                Embark on a photographic journey of discovery by exploring our Camera Category Page. From capturing candid moments to creating masterpieces, we're dedicated to providing you with a comprehensive range of cameras that redefine visual expression. Your ideal camera is just a click away. Start browsing now!
                             </p>
                         </div>
                     </div>
@@ -393,12 +390,12 @@ const EarphoneCategory = ({ data }) => {
     );
 };
 
-export default EarphoneCategory;
-EarphoneCategory.getLayout = function getLayout(page) {
+export default CameraCategory;
+CameraCategory.getLayout = function getLayout(page) {
     return <MainLayout>{page}</MainLayout>;
 };
 export const getStaticProps = async () => {
-    const productCategoryResponse = await fetch(`https://tech-mart-server.vercel.app/api/products?category=earphone`);
+    const productCategoryResponse = await fetch(`https://tech-mart-server.vercel.app/api/products?category=camera`);
     const priceRange = await fetch(`https://tech-mart-server.vercel.app/api/products/price-range`);
     const productResponse = await productCategoryResponse.json();
     const priceRangeResponse = await priceRange.json();

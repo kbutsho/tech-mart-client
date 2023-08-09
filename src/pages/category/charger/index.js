@@ -384,7 +384,6 @@ const ChargerCategory = ({ data }) => {
                                 Embark on a journey of charging convenience by exploring our Charger Category Page. From speedy power-ups to reliable charging, we're dedicated to offering you a comprehensive range of chargers that redefine your device's energy source. Your ideal charger is just a click away. Start browsing now!
                             </p>
                         </div>
-
                     </div>
                 </div>
             </div>

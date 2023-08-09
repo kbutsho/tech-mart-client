@@ -384,7 +384,6 @@ const LaptopCategory = ({ data }) => {
                                 Embark on a technological journey of discovery by exploring our Laptop Category Page. From seamless multitasking to immersive entertainment, we're dedicated to providing you with a comprehensive range of laptops that redefine computing excellence. Your ideal laptop is just a click away. Start browsing now!
                             </p>
                         </div>
-
                     </div>
                 </div>
             </div>
