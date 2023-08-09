@@ -242,6 +242,40 @@ const Home = ({ data }) => {
         </div>
       </div>
 
+      <div className="details-description py-4">
+        <h4 className='fw-bold my-3'>Elevate Your World with NexusTech</h4>
+        <hr />
+        <p>
+          Welcome to the innovative realm of NexusTech, where technology meets imagination to redefine possibilities. With a legacy spanning two decades, we've been a driving force in reshaping the digital landscape, offering you cutting-edge solutions that empower your journey.
+        </p>
+        <p>
+          <span className='fw-bold'>Our Journey: </span>
+          From our inception, NexusTech has grown into a global tech leader. Our passion for innovation has led to a diverse range of products that not only fulfill your needs but elevate your experiences.
+        </p>
+        <p>
+          <span className='fw-bold'>Unleashing Innovation: </span>
+          NexusTech isn't just a brand; it's a catalyst for change. Our commitment to pushing boundaries is evident in each product we create. From smartphones to smart home ecosystems, every innovation reflects our dedication to enhancing lives through technology.
+        </p>
+        <p>
+          <span className='fw-bold'>Crafted with Excellence: </span>
+          Every NexusTech product is a masterpiece of precision and quality. Designed meticulously and rigorously tested, our devices are built to withstand the test of time, promising reliability and enriching your moments.
+        </p>
+        <p>
+          <span className='fw-bold'>Our Vision: </span>
+          Our vision goes beyond gadgets; it's about transforming your world. Whether you're a creative seeking inspiration or an adventurer seeking new horizons, NexusTech is here to empower your journey.
+        </p>
+        <p>
+          <span className='fw-bold'>Become Part of NexusTech: </span>
+          By choosing NexusTech, you're joining a community that values innovation, quality, and progress. Explore our product range, immerse yourself in our philosophy, and experience technology that opens doors to new realms.
+        </p>
+        <p>
+          <span className='fw-bold'>A Future Unveiled: </span>
+          The NexusTech journey is a perpetual one. As we continue to evolve, you can anticipate even more revolutionary products, features, and experiences that redefine your possibilities.
+        </p>
+        <p>
+          Welcome to NexusTech, where innovation isn't just a word; it's the core of who we are. Embark on a journey of discovery, and witness a world where imagination meets technology.
+        </p>
+      </div>
     </div>
   );
 };

@@ -59,7 +59,7 @@ function Navbar() {
                             <Link className="nav-link" href="/category/earphone">Earphone</Link>
                             <Link className="nav-link" href="/category/charger">Charger</Link>
                             <Link className="nav-link" href="/category/smart-gadget">gadgets</Link>
-                            <Link className="nav-link" href="/">Brands</Link>
+                            <Link className="nav-link" href="/brand">Brands</Link>
                             <Link className="nav-link" href="/category">Categories</Link>
 
                             <Link className={`${styles.nav_cart_favourite} nav-link`} href="/">

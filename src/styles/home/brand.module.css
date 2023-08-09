@@ -16,6 +16,27 @@
     box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 2px 1px;
 }
 
+
+.brand_page_card {
+    padding: 36px;
+    height: 120px;
+    width: auto;
+    margin: 12px 0;
+    border-radius: 10px;
+    background-color: #ffffff;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 2px 1px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.brand_page_card:hover {
+    box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 2px 1px;
+}
+
 @media screen and (max-width: 678px) {
     .brand_image {
         height: 50px !important;
@@ -36,5 +57,19 @@
     .brand_image {
         height: 40px !important;
         width: 75px !important;
+    }
+
+    .brand_page_card {
+        min-height: 40px;
+        width: auto;
+        margin:  0;
+        border-radius: 5px;
+        background-color: transparent;
+        padding: 0px;
+        box-shadow: none;
+    }
+
+    .brand_page_card:hover {
+        box-shadow: none
     }
 }

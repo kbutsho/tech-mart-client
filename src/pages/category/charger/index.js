@@ -350,7 +350,7 @@ const ChargerCategory = ({ data }) => {
                         </div>
 
                         {/* description */}
-                        <div className="category-description">
+                        <div className="details-description">
                             <h4 className='fw-bold my-3'>Why choose us?</h4>
                             <hr />
                             <p>

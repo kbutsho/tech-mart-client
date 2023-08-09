@@ -352,7 +352,7 @@ const PhoneCategory = ({ data }) => {
                         </div>
 
                         {/* description */}
-                        <div className="category-description mt-4">
+                        <div className="details-description mt-4">
                             <h4 className='fw-bold my-3'>Why choose us?</h4>
                             <hr />
                             <p>

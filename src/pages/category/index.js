@@ -13,7 +13,7 @@ const CategoryPage = ({ data }) => {
                     }
                 </div>
             </div>
-            <div className="category-description pb-4">
+            <div className="details-description pb-4">
                 <h4 className='fw-bold my-3'>Discover Innovative Tech Solutions</h4>
                 <hr />
                 <p>

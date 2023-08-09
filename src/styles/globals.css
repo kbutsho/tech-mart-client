@@ -36,11 +36,11 @@
     background-color: #FAFAFA;
 }
 
-.category-description p {
+.details-description p {
     text-align: justify;
 }
 
-.footer .category-description {
+.footer .details-description {
     padding: 0;
 }
 
@@ -49,15 +49,17 @@
         margin-top: 130px;
     }
 
-    .category-description p {
+    .details-description p {
         font-size: 12px;
         padding: 0 20px
     }
-    .category-description h4 {
+
+    .details-description h4 {
         padding: 0 20px
     }
-    .category-description hr {
-        margin:  20px
+
+    .details-description hr {
+        margin: 20px
     }
 
 }
