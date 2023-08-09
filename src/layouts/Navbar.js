@@ -10,6 +10,7 @@ import { useEffect } from "react";
 import { getCartTotal } from "@/redux/features/cartSlice";
 import { BiUserCircle } from 'react-icons/bi'
 import { AiOutlineHeart, AiOutlineMenuFold, AiOutlineShoppingCart } from "react-icons/ai";
+import { useRouter } from "next/router";
 
 function Navbar() {
     let cart = useSelector((state) => state.cart);
@@ -17,6 +18,11 @@ function Navbar() {
     useEffect(() => {
         dispatch(getCartTotal());
     }, [cart, dispatch])
+
+    const router = useRouter();
+    const handelSearchCLick = () => {
+        router.push('/products')
+    }
 
     let favouriteProducts = useSelector((state) => state.favourite.products);
     return (
@@ -46,7 +52,6 @@ function Navbar() {
                             <AiOutlineMenuFold size="30" color="#000000" />
                         </span>
                     </span>
-
 
                     <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
                         <div className={`navbar-nav ms-auto  ${styles.nav_items}`}>
@@ -94,7 +99,7 @@ function Navbar() {
                     <div className="row">
                         <div className="col-12">
                             <form className={`d-flex align-items-center`}>
-                                <input type="text" placeholder='search for products' className={`form-control w-100 ${styles.search_input}`} />
+                                <input onClick={handelSearchCLick} type="text" placeholder='search for products' className={`form-control w-100 ${styles.search_input}`} />
                                 <BsSearch size="24px" style={{ marginLeft: "-50px" }} type='submit' />
                             </form>
                         </div>

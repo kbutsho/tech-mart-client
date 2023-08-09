@@ -6,6 +6,9 @@ const ProductPage = () => {
     return (
         <div className='container'>
             <Breadcrumb />
+            <div className='d-flex justify-content-center align-items-center' style={{ height: "70vh" }}>
+                <h6>welcome to product page</h6>
+            </div>
         </div>
     );
 };
