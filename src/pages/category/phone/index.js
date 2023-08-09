@@ -141,7 +141,7 @@ const PhoneCategory = ({ data }) => {
                                 <span >Show</span>
                                 <select
                                     value={productPerPage}
-                                    className={`${styles.custom_select} form-select w-25`}
+                                    className={`${styles.custom_select} form-select`}
                                     onChange={(e) =>
                                         setProductPerPage(parseInt(e.target.value))
                                     }>
