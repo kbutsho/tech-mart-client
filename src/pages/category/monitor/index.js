@@ -1,6 +1,6 @@
 import Breadcrumb from '@/components/Breadcrumb/Index';
 import MainLayout from '@/layouts/MainLayout';
-import banner from '@/assets/category/laptop-banner.jpeg'
+import banner from '@/assets/category/monitor-banner.jpeg'
 import Image from 'next/image';
 import ProductCard from '@/components/Category/ProductCard';
 import Slider from '@mui/material/Slider';
@@ -11,7 +11,7 @@ import { PRICE_SORT_ORDER, PRODUCT_BRAND, PRODUCT_STATUS } from '@/constant/prod
 import Pagination from '@/components/Pagination/Pagination';
 import { AiFillStar } from 'react-icons/ai';
 
-const LaptopCategory = ({ data }) => {
+const MonitorCategory = ({ data }) => {
     const [product, setProduct] = useState(data.productResponse);
 
     // filter by price range
@@ -60,13 +60,12 @@ const LaptopCategory = ({ data }) => {
 
     // filter by brand
     const productBrand = [
-        PRODUCT_BRAND.APPLE,
+        PRODUCT_BRAND.SAMSUNG,
         PRODUCT_BRAND.ASUS,
-        PRODUCT_BRAND.LENOVO,
         PRODUCT_BRAND.DELL,
         PRODUCT_BRAND.HP,
-        PRODUCT_BRAND.ACER,
-        PRODUCT_BRAND.MSI,
+        PRODUCT_BRAND.VIEWSONIC,
+        PRODUCT_BRAND.BENQ,
         PRODUCT_BRAND.GIGABYTE,
         PRODUCT_BRAND.XIAOMI,
         PRODUCT_BRAND.SHOW_ALL
@@ -323,7 +322,7 @@ const LaptopCategory = ({ data }) => {
                                     type="text"
                                     value={searchTerm}
                                     onChange={handelSearch}
-                                    placeholder='search for laptop'
+                                    placeholder='search for monitor'
                                     className={`form-control ${styles.search_box}`} />
                             </div>
                             {/* product list area */}
@@ -335,7 +334,7 @@ const LaptopCategory = ({ data }) => {
                                 ) : (
                                     <div className='d-flex justify-content-center align-items-center'
                                         style={{ minHeight: "45vh" }}>
-                                        <h5>no laptop found!</h5>
+                                        <h5>no monitor found!</h5>
                                     </div>
                                 )}
                             </div>
@@ -357,34 +356,34 @@ const LaptopCategory = ({ data }) => {
                             <h4 className='fw-bold my-3'>Why choose us?</h4>
                             <hr />
                             <p>
-                                Immerse yourself in the realm of computing excellence with our extraordinary collection of cutting-edge laptops. Whether you're a creative professional, a student striving for academic success, or a technology enthusiast seeking powerful performance, our Laptop Category Page is your gateway to a world of possibilities.
+                                Immerse yourself in a world of visual clarity and productivity with our exceptional collection of cutting-edge monitors. Whether you're a creative professional, a dedicated gamer, or someone who values efficient multitasking, our Monitor Category Page is your gateway to enhanced visual experiences.
                             </p>
                             <p>
-                                <span className='fw-bold'>Explore and Select: </span>
-                                Dive into an expansive range of laptops from renowned brands, meticulously tailored to accommodate diverse preferences and budgets. Our thoughtfully curated selection ensures that you'll discover the perfect computing companion that aligns seamlessly with your individual needs. From sleek ultrabooks that redefine portability to high-performance workstations that empower your creative endeavors, our Laptop Category Page is your ultimate destination for exploration and choice.
+                                <span className='fw-bold'>Explore and Choose: </span>
+                                Discover a diverse range of monitors tailored to cater to a variety of needs and preferences. Our carefully curated selection ensures that you'll find the perfect display that seamlessly integrates into your workflow. From high-resolution monitors that bring your visuals to life to ultra-fast gaming monitors that deliver smooth performance, our Monitor Category Page is your ultimate destination for exploration and choice.
                             </p>
                             <p>
-                                <span className='fw-bold'>Innovative Performance: </span>
-                                Elevate your computing experience with laptops equipped with cutting-edge technology. Explore devices featuring powerful processors, stunning displays, and exceptional graphics capabilities. Our Laptop Category Page showcases computing marvels that deliver the future of performance and productivity, allowing you to tackle tasks, create content, and explore your passions with unparalleled efficiency.
+                                <span className='fw-bold'>Exceptional Visuals: </span>
+                                Elevate your viewing experience with monitors equipped with state-of-the-art display technology. Explore devices featuring vibrant color accuracy, high refresh rates, and crisp resolutions. Our Monitor Category Page showcases visual marvels that deliver the future of visual clarity, allowing you to work, create, or play with unmatched precision.
                             </p>
                             <p>
-                                <span className='fw-bold'>Sleek Designs and Durability: </span>
-                                Aesthetics meet functionality with the visually striking designs of the laptops in our collection. Whether you appreciate sleek minimalism or bold expressions of style, our Laptop Category Page offers a spectrum of options to match your personal taste. Crafted with attention to detail, premium materials, and durability in mind, our laptops blend form and function seamlessly.
+                                <span className='fw-bold'>Sleek and Functional Designs: </span>
+                                Aesthetics meet functionality with the visually appealing and ergonomic designs of the monitors in our collection. Whether you prefer ultra-slim bezels or adjustable stands for ergonomic comfort, our Monitor Category Page offers a variety of options to match your workspace setup. Crafted with attention to detail, our monitors enhance both form and function.
                             </p>
                             <p>
-                                <span className='fw-bold'>Comprehensive Specifications: </span>
-                                Make informed decisions with comprehensive product specifications accompanying each laptop. From processing power and RAM to storage capacity and connectivity options, our detailed information empowers you to select a laptop that aligns with your requirements. Our Laptop Category Page ensures that you're not only captivated by the aesthetics but also equipped with essential details for confident decision-making.
+                                <span className='fw-bold'>Comprehensive Features: </span>
+                                Make informed decisions with comprehensive specifications provided for each monitor. From screen size and aspect ratio to color gamut and connectivity options, our detailed information empowers you to select a monitor that seamlessly aligns with your workflow. Our Monitor Category Page ensures you're not only captivated by the visuals but also equipped with essential details for confident computing.
                             </p>
                             <p>
-                                <span className='fw-bold'>Real User Reviews: </span>
-                                Benefit from authentic user insights through genuine customer reviews and ratings. Learn from firsthand experiences shared by individuals who have embraced these laptops into their daily routines. This valuable feedback empowers you to make an informed choice that resonates with your computing aspirations and professional needs.
+                                <span className='fw-bold'>Real User Experiences: </span>
+                                Benefit from authentic user insights through genuine customer reviews and ratings. Gain firsthand knowledge from individuals who have embraced these monitors into their workstations or gaming setups. This valuable feedback empowers you to make an informed choice that resonates with your professional or gaming aspirations.
                             </p>
                             <p>
                                 <span className='fw-bold'>Effortless Shopping Experience: </span>
-                                Navigate our Laptop Category Page seamlessly. With intuitive filters, you can refine your search based on brand, performance, features, and more. Once you've discovered your perfect laptop, our streamlined checkout process ensures a hassle-free shopping journey, allowing you to swiftly acquire your new computing companion.
+                                Navigate our Monitor Category Page seamlessly. With intuitive filters, you can refine your search based on screen size, resolution, and more. Once you've found your perfect monitor, our streamlined checkout process ensures a hassle-free shopping journey, allowing you to quickly enhance your visual setup.
                             </p>
                             <p>
-                                Embark on a technological journey of discovery by exploring our Laptop Category Page. From seamless multitasking to immersive entertainment, we're dedicated to providing you with a comprehensive range of laptops that redefine computing excellence. Your ideal laptop is just a click away. Start browsing now!
+                                Embark on a journey of visual enhancement by exploring our Monitor Category Page. From precise color representation to seamless gameplay, we're dedicated to providing you with a comprehensive range of monitors that redefine visual excellence. Your ideal monitor is just a click away. Start browsing now!
                             </p>
                         </div>
                     </div>
@@ -394,12 +393,12 @@ const LaptopCategory = ({ data }) => {
     );
 };
 
-export default LaptopCategory;
-LaptopCategory.getLayout = function getLayout(page) {
+export default MonitorCategory;
+MonitorCategory.getLayout = function getLayout(page) {
     return <MainLayout>{page}</MainLayout>;
 };
 export const getStaticProps = async () => {
-    const productCategoryResponse = await fetch(`https://tech-mart-server.vercel.app/api/products?category=laptop`);
+    const productCategoryResponse = await fetch(`https://tech-mart-server.vercel.app/api/products?category=monitor`);
     const priceRange = await fetch(`https://tech-mart-server.vercel.app/api/products/price-range`);
     const productResponse = await productCategoryResponse.json();
     const priceRangeResponse = await priceRange.json();

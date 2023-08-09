@@ -398,9 +398,9 @@ PhoneCategory.getLayout = function getLayout(page) {
     return <MainLayout>{page}</MainLayout>;
 };
 export const getStaticProps = async () => {
-    const phoneCategoryResponse = await fetch(`https://tech-mart-server.vercel.app/api/products?category=phone`);
+    const productCategoryResponse = await fetch(`https://tech-mart-server.vercel.app/api/products?category=phone`);
     const priceRange = await fetch(`https://tech-mart-server.vercel.app/api/products/price-range`);
-    const productResponse = await phoneCategoryResponse.json();
+    const productResponse = await productCategoryResponse.json();
     const priceRangeResponse = await priceRange.json();
     return {
         props: {

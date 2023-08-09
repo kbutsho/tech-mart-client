@@ -1,6 +1,6 @@
 import Breadcrumb from '@/components/Breadcrumb/Index';
 import MainLayout from '@/layouts/MainLayout';
-import banner from '@/assets/category/laptop-banner.jpeg'
+import banner from '@/assets/category/soundBox-banner.png'
 import Image from 'next/image';
 import ProductCard from '@/components/Category/ProductCard';
 import Slider from '@mui/material/Slider';
@@ -11,7 +11,7 @@ import { PRICE_SORT_ORDER, PRODUCT_BRAND, PRODUCT_STATUS } from '@/constant/prod
 import Pagination from '@/components/Pagination/Pagination';
 import { AiFillStar } from 'react-icons/ai';
 
-const LaptopCategory = ({ data }) => {
+const SoundBoxCategory = ({ data }) => {
     const [product, setProduct] = useState(data.productResponse);
 
     // filter by price range
@@ -60,15 +60,10 @@ const LaptopCategory = ({ data }) => {
 
     // filter by brand
     const productBrand = [
+        PRODUCT_BRAND.JBL,
         PRODUCT_BRAND.APPLE,
-        PRODUCT_BRAND.ASUS,
-        PRODUCT_BRAND.LENOVO,
-        PRODUCT_BRAND.DELL,
-        PRODUCT_BRAND.HP,
-        PRODUCT_BRAND.ACER,
-        PRODUCT_BRAND.MSI,
-        PRODUCT_BRAND.GIGABYTE,
-        PRODUCT_BRAND.XIAOMI,
+        PRODUCT_BRAND.SONY,
+        PRODUCT_BRAND.ANKER,
         PRODUCT_BRAND.SHOW_ALL
     ];
     const [filterByBrand, setFilterByBrand] = useState('');
@@ -323,7 +318,7 @@ const LaptopCategory = ({ data }) => {
                                     type="text"
                                     value={searchTerm}
                                     onChange={handelSearch}
-                                    placeholder='search for laptop'
+                                    placeholder='search for sound box'
                                     className={`form-control ${styles.search_box}`} />
                             </div>
                             {/* product list area */}
@@ -335,7 +330,7 @@ const LaptopCategory = ({ data }) => {
                                 ) : (
                                     <div className='d-flex justify-content-center align-items-center'
                                         style={{ minHeight: "45vh" }}>
-                                        <h5>no laptop found!</h5>
+                                        <h5>no sound box found!</h5>
                                     </div>
                                 )}
                             </div>
@@ -357,34 +352,34 @@ const LaptopCategory = ({ data }) => {
                             <h4 className='fw-bold my-3'>Why choose us?</h4>
                             <hr />
                             <p>
-                                Immerse yourself in the realm of computing excellence with our extraordinary collection of cutting-edge laptops. Whether you're a creative professional, a student striving for academic success, or a technology enthusiast seeking powerful performance, our Laptop Category Page is your gateway to a world of possibilities.
+                                Elevate your auditory experience with our exceptional collection of cutting-edge sound boxes. Whether you're a music enthusiast, a party host, or someone who appreciates high-quality audio, our Sound Box Category Page is your gateway to immersive soundscapes.
                             </p>
                             <p>
-                                <span className='fw-bold'>Explore and Select: </span>
-                                Dive into an expansive range of laptops from renowned brands, meticulously tailored to accommodate diverse preferences and budgets. Our thoughtfully curated selection ensures that you'll discover the perfect computing companion that aligns seamlessly with your individual needs. From sleek ultrabooks that redefine portability to high-performance workstations that empower your creative endeavors, our Laptop Category Page is your ultimate destination for exploration and choice.
+                                <span className='fw-bold'>Explore and Choose: </span>
+                                Discover a diverse range of sound boxes thoughtfully designed to cater to various preferences and occasions. Our curated selection ensures that you'll find the perfect speaker that harmonizes with your musical taste. From compact Bluetooth speakers for on-the-go listening to powerful party speakers that fill the room with sound, our Sound Box Category Page is your ultimate destination for exploration and choice.
                             </p>
                             <p>
-                                <span className='fw-bold'>Innovative Performance: </span>
-                                Elevate your computing experience with laptops equipped with cutting-edge technology. Explore devices featuring powerful processors, stunning displays, and exceptional graphics capabilities. Our Laptop Category Page showcases computing marvels that deliver the future of performance and productivity, allowing you to tackle tasks, create content, and explore your passions with unparalleled efficiency.
+                                <span className='fw-bold'>Superior Sound Quality: </span>
+                                Elevate your music with sound boxes equipped with advanced audio technology. Explore devices featuring clear highs, deep lows, and rich audio detail. Our Sound Box Category Page showcases sound solutions that deliver the future of audio excellence, allowing you to enjoy your favorite tunes with exceptional clarity.
                             </p>
                             <p>
-                                <span className='fw-bold'>Sleek Designs and Durability: </span>
-                                Aesthetics meet functionality with the visually striking designs of the laptops in our collection. Whether you appreciate sleek minimalism or bold expressions of style, our Laptop Category Page offers a spectrum of options to match your personal taste. Crafted with attention to detail, premium materials, and durability in mind, our laptops blend form and function seamlessly.
+                                <span className='fw-bold'>Sleek Designs: </span>
+                                Aesthetics meet functionality with the visually appealing and ergonomic designs of the sound boxes in our collection. Whether you prefer minimalist aesthetics or bold designs that make a statement, our Sound Box Category Page offers a variety of options to match your style. Crafted with attention to detail, our sound boxes blend seamlessly into any environment.
                             </p>
                             <p>
-                                <span className='fw-bold'>Comprehensive Specifications: </span>
-                                Make informed decisions with comprehensive product specifications accompanying each laptop. From processing power and RAM to storage capacity and connectivity options, our detailed information empowers you to select a laptop that aligns with your requirements. Our Laptop Category Page ensures that you're not only captivated by the aesthetics but also equipped with essential details for confident decision-making.
+                                <span className='fw-bold'>Versatile Connectivity: </span>
+                                Make informed decisions with comprehensive specifications provided for each sound box. From connectivity options like Bluetooth and Wi-Fi to battery life and compatibility, our detailed information empowers you to select a speaker that perfectly suits your needs. Our Sound Box Category Page ensures you're not only captivated by the sound but also equipped with essential details for confident listening.
                             </p>
                             <p>
-                                <span className='fw-bold'>Real User Reviews: </span>
-                                Benefit from authentic user insights through genuine customer reviews and ratings. Learn from firsthand experiences shared by individuals who have embraced these laptops into their daily routines. This valuable feedback empowers you to make an informed choice that resonates with your computing aspirations and professional needs.
+                                <span className='fw-bold'>Real User Experiences: </span>
+                                Benefit from authentic user insights through genuine customer reviews and ratings. Learn from firsthand experiences shared by individuals who have embraced these sound boxes into their music routines. This valuable feedback empowers you to make an informed choice that resonates with your audio preferences.
                             </p>
                             <p>
                                 <span className='fw-bold'>Effortless Shopping Experience: </span>
-                                Navigate our Laptop Category Page seamlessly. With intuitive filters, you can refine your search based on brand, performance, features, and more. Once you've discovered your perfect laptop, our streamlined checkout process ensures a hassle-free shopping journey, allowing you to swiftly acquire your new computing companion.
+                                Navigate our Sound Box Category Page seamlessly. With intuitive filters, you can refine your search based on features, size, and more. Once you've found your perfect sound box, our streamlined checkout process ensures a hassle-free shopping journey, allowing you to quickly bring your music to life.
                             </p>
                             <p>
-                                Embark on a technological journey of discovery by exploring our Laptop Category Page. From seamless multitasking to immersive entertainment, we're dedicated to providing you with a comprehensive range of laptops that redefine computing excellence. Your ideal laptop is just a click away. Start browsing now!
+                                Embark on an auditory journey of discovery by exploring our Sound Box Category Page. From intimate listening sessions to lively gatherings, we're dedicated to providing you with a comprehensive range of sound boxes that redefine your audio enjoyment. Your ideal sound box is just a click away. Start browsing now!
                             </p>
                         </div>
                     </div>
@@ -394,12 +389,12 @@ const LaptopCategory = ({ data }) => {
     );
 };
 
-export default LaptopCategory;
-LaptopCategory.getLayout = function getLayout(page) {
+export default SoundBoxCategory;
+SoundBoxCategory.getLayout = function getLayout(page) {
     return <MainLayout>{page}</MainLayout>;
 };
 export const getStaticProps = async () => {
-    const productCategoryResponse = await fetch(`https://tech-mart-server.vercel.app/api/products?category=laptop`);
+    const productCategoryResponse = await fetch(`https://tech-mart-server.vercel.app/api/products?category=sound-box`);
     const priceRange = await fetch(`https://tech-mart-server.vercel.app/api/products/price-range`);
     const productResponse = await productCategoryResponse.json();
     const priceRangeResponse = await priceRange.json();

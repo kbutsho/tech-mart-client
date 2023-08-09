@@ -24,6 +24,9 @@ export const PRODUCT_BRAND = {
     BASEUS: 'baseus',
     JBL: 'jbl',
     ASUS: 'asus',
+    ACER: 'acer',
+    MSI: 'msi',
+    GIGABYTE: 'gigabyte',
     HP: 'hp',
     DELL: 'dell',
     ANKER: 'anker',
@@ -31,7 +34,16 @@ export const PRODUCT_BRAND = {
     CANON: 'canon',
     NIKON: 'nikon',
     GO_PRO: 'go pro',
-    LEICA: 'leica'
+    LEICA: 'leica',
+    HISENSE: 'hisense',
+    LG: 'LG',
+    PANASONIC: 'panasonic',
+    TOSHIBA: 'toshiba',
+    PHILIPS: 'philips',
+    HAIER: 'haier',
+    BRAVIA: 'bravia',
+    VIEWSONIC: 'viewsonic',
+    BENQ: 'benq'
 
 }
 

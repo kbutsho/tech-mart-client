@@ -54,8 +54,8 @@ function Navbar() {
                             <Link className="nav-link" href="/category/laptop">Laptop</Link>
                             <Link className="nav-link" href="/category/watch">Watch</Link>
                             <Link className="nav-link" href="/category/camera">Camera</Link>
-                            <Link className="nav-link" href="/">Television</Link>
-                            <Link className="nav-link" href="/">Monitor</Link>
+                            <Link className="nav-link" href="/category/television">Television</Link>
+                            <Link className="nav-link" href="/category/monitor">Monitor</Link>
                             <Link className="nav-link" href="/category/earphone">Earphone</Link>
                             <Link className="nav-link" href="/category/charger">Charger</Link>
                             <Link className="nav-link" href="/">gadgets</Link>

@@ -1,6 +1,6 @@
 import Breadcrumb from '@/components/Breadcrumb/Index';
 import MainLayout from '@/layouts/MainLayout';
-import banner from '@/assets/category/laptop-banner.jpeg'
+import banner from '@/assets/category/tv-banner.jpeg'
 import Image from 'next/image';
 import ProductCard from '@/components/Category/ProductCard';
 import Slider from '@mui/material/Slider';
@@ -11,7 +11,7 @@ import { PRICE_SORT_ORDER, PRODUCT_BRAND, PRODUCT_STATUS } from '@/constant/prod
 import Pagination from '@/components/Pagination/Pagination';
 import { AiFillStar } from 'react-icons/ai';
 
-const LaptopCategory = ({ data }) => {
+const TVCategory = ({ data }) => {
     const [product, setProduct] = useState(data.productResponse);
 
     // filter by price range
@@ -60,15 +60,15 @@ const LaptopCategory = ({ data }) => {
 
     // filter by brand
     const productBrand = [
-        PRODUCT_BRAND.APPLE,
-        PRODUCT_BRAND.ASUS,
-        PRODUCT_BRAND.LENOVO,
-        PRODUCT_BRAND.DELL,
-        PRODUCT_BRAND.HP,
-        PRODUCT_BRAND.ACER,
-        PRODUCT_BRAND.MSI,
-        PRODUCT_BRAND.GIGABYTE,
-        PRODUCT_BRAND.XIAOMI,
+        PRODUCT_BRAND.SAMSUNG,
+        PRODUCT_BRAND.SONY,
+        PRODUCT_BRAND.HISENSE,
+        PRODUCT_BRAND.PANASONIC,
+        PRODUCT_BRAND.TOSHIBA,
+        PRODUCT_BRAND.PHILIPS,
+        PRODUCT_BRAND.HAIER,
+        PRODUCT_BRAND.BRAVIA,
+        PRODUCT_BRAND.LG,
         PRODUCT_BRAND.SHOW_ALL
     ];
     const [filterByBrand, setFilterByBrand] = useState('');
@@ -323,7 +323,7 @@ const LaptopCategory = ({ data }) => {
                                     type="text"
                                     value={searchTerm}
                                     onChange={handelSearch}
-                                    placeholder='search for laptop'
+                                    placeholder='search for television'
                                     className={`form-control ${styles.search_box}`} />
                             </div>
                             {/* product list area */}
@@ -335,7 +335,7 @@ const LaptopCategory = ({ data }) => {
                                 ) : (
                                     <div className='d-flex justify-content-center align-items-center'
                                         style={{ minHeight: "45vh" }}>
-                                        <h5>no laptop found!</h5>
+                                        <h5>no television found!</h5>
                                     </div>
                                 )}
                             </div>
@@ -357,34 +357,34 @@ const LaptopCategory = ({ data }) => {
                             <h4 className='fw-bold my-3'>Why choose us?</h4>
                             <hr />
                             <p>
-                                Immerse yourself in the realm of computing excellence with our extraordinary collection of cutting-edge laptops. Whether you're a creative professional, a student striving for academic success, or a technology enthusiast seeking powerful performance, our Laptop Category Page is your gateway to a world of possibilities.
+                                Immerse yourself in a world of captivating entertainment with our exceptional collection of cutting-edge televisions. Whether you're a cinephile, a sports enthusiast, or someone who values high-quality visuals, our Television Category Page is your gateway to a superior viewing experience.
                             </p>
                             <p>
-                                <span className='fw-bold'>Explore and Select: </span>
-                                Dive into an expansive range of laptops from renowned brands, meticulously tailored to accommodate diverse preferences and budgets. Our thoughtfully curated selection ensures that you'll discover the perfect computing companion that aligns seamlessly with your individual needs. From sleek ultrabooks that redefine portability to high-performance workstations that empower your creative endeavors, our Laptop Category Page is your ultimate destination for exploration and choice.
+                                <span className='fw-bold'>Explore and Choose: </span>
+                                Discover an extensive range of televisions designed to elevate your entertainment. Our curated selection ensures that you'll find the perfect TV that complements your lifestyle and preferences. From sleek OLED displays for cinematic experiences to smart LED TVs for seamless connectivity, our Television Category Page is your ultimate destination for exploration and choice.
                             </p>
                             <p>
-                                <span className='fw-bold'>Innovative Performance: </span>
-                                Elevate your computing experience with laptops equipped with cutting-edge technology. Explore devices featuring powerful processors, stunning displays, and exceptional graphics capabilities. Our Laptop Category Page showcases computing marvels that deliver the future of performance and productivity, allowing you to tackle tasks, create content, and explore your passions with unparalleled efficiency.
+                                <span className='fw-bold'>Immersive Visuals: </span>
+                                Elevate your viewing with televisions equipped with state-of-the-art display technology. Explore devices featuring 4K and 8K resolutions, HDR capabilities, and vibrant color reproduction. Our Television Category Page showcases visual marvels that deliver the future of home entertainment, allowing you to enjoy movies, shows, and games in stunning detail.
                             </p>
                             <p>
-                                <span className='fw-bold'>Sleek Designs and Durability: </span>
-                                Aesthetics meet functionality with the visually striking designs of the laptops in our collection. Whether you appreciate sleek minimalism or bold expressions of style, our Laptop Category Page offers a spectrum of options to match your personal taste. Crafted with attention to detail, premium materials, and durability in mind, our laptops blend form and function seamlessly.
+                                <span className='fw-bold'>Sleek Designs: </span>
+                                Aesthetics meet functionality with the visually appealing and ergonomic designs of the televisions in our collection. Whether you prefer minimalist frames or sleek bezel-less screens, our Television Category Page offers a variety of options to match your interior decor. Crafted with attention to detail, our TVs seamlessly blend into your living space.
                             </p>
                             <p>
-                                <span className='fw-bold'>Comprehensive Specifications: </span>
-                                Make informed decisions with comprehensive product specifications accompanying each laptop. From processing power and RAM to storage capacity and connectivity options, our detailed information empowers you to select a laptop that aligns with your requirements. Our Laptop Category Page ensures that you're not only captivated by the aesthetics but also equipped with essential details for confident decision-making.
+                                <span className='fw-bold'>Comprehensive Features: </span>
+                                Make informed decisions with comprehensive specifications provided for each television. From screen size and refresh rates to smart TV capabilities and connectivity options, our detailed information empowers you to select a TV that aligns seamlessly with your entertainment needs. Our Television Category Page ensures you're not only captivated by the visuals but also equipped with essential details for confident viewing.
                             </p>
                             <p>
-                                <span className='fw-bold'>Real User Reviews: </span>
-                                Benefit from authentic user insights through genuine customer reviews and ratings. Learn from firsthand experiences shared by individuals who have embraced these laptops into their daily routines. This valuable feedback empowers you to make an informed choice that resonates with your computing aspirations and professional needs.
+                                <span className='fw-bold'>Real User Experiences: </span>
+                                Benefit from authentic user insights through genuine customer reviews and ratings. Learn from firsthand experiences shared by individuals who have embraced these televisions into their living spaces. This valuable feedback empowers you to make an informed choice that resonates with your entertainment preferences.
                             </p>
                             <p>
                                 <span className='fw-bold'>Effortless Shopping Experience: </span>
-                                Navigate our Laptop Category Page seamlessly. With intuitive filters, you can refine your search based on brand, performance, features, and more. Once you've discovered your perfect laptop, our streamlined checkout process ensures a hassle-free shopping journey, allowing you to swiftly acquire your new computing companion.
+                                Navigate our Television Category Page seamlessly. With intuitive filters, you can narrow your search based on screen size, display technology, and more. Once you've found your perfect TV, our streamlined checkout process ensures a hassle-free shopping journey, allowing you to quickly bring the cinematic experience home.
                             </p>
                             <p>
-                                Embark on a technological journey of discovery by exploring our Laptop Category Page. From seamless multitasking to immersive entertainment, we're dedicated to providing you with a comprehensive range of laptops that redefine computing excellence. Your ideal laptop is just a click away. Start browsing now!
+                                Embark on an entertainment journey of discovery by exploring our Television Category Page. From immersive visuals to connected smart features, we're dedicated to providing you with a comprehensive range of TVs that redefine home viewing. Your ideal television is just a click away. Start browsing now!
                             </p>
                         </div>
                     </div>
@@ -394,12 +394,12 @@ const LaptopCategory = ({ data }) => {
     );
 };
 
-export default LaptopCategory;
-LaptopCategory.getLayout = function getLayout(page) {
+export default TVCategory;
+TVCategory.getLayout = function getLayout(page) {
     return <MainLayout>{page}</MainLayout>;
 };
 export const getStaticProps = async () => {
-    const productCategoryResponse = await fetch(`https://tech-mart-server.vercel.app/api/products?category=laptop`);
+    const productCategoryResponse = await fetch(`https://tech-mart-server.vercel.app/api/products?category=television`);
     const priceRange = await fetch(`https://tech-mart-server.vercel.app/api/products/price-range`);
     const productResponse = await productCategoryResponse.json();
     const priceRangeResponse = await priceRange.json();

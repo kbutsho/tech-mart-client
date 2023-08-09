@@ -1,6 +1,6 @@
 import Breadcrumb from '@/components/Breadcrumb/Index';
 import MainLayout from '@/layouts/MainLayout';
-import banner from '@/assets/category/laptop-banner.jpeg'
+import banner from '@/assets/category/powerBank-banner.png'
 import Image from 'next/image';
 import ProductCard from '@/components/Category/ProductCard';
 import Slider from '@mui/material/Slider';
@@ -11,7 +11,7 @@ import { PRICE_SORT_ORDER, PRODUCT_BRAND, PRODUCT_STATUS } from '@/constant/prod
 import Pagination from '@/components/Pagination/Pagination';
 import { AiFillStar } from 'react-icons/ai';
 
-const LaptopCategory = ({ data }) => {
+const PowerBankCategory = ({ data }) => {
     const [product, setProduct] = useState(data.productResponse);
 
     // filter by price range
@@ -60,15 +60,10 @@ const LaptopCategory = ({ data }) => {
 
     // filter by brand
     const productBrand = [
+        PRODUCT_BRAND.SAMSUNG,
         PRODUCT_BRAND.APPLE,
-        PRODUCT_BRAND.ASUS,
-        PRODUCT_BRAND.LENOVO,
-        PRODUCT_BRAND.DELL,
-        PRODUCT_BRAND.HP,
-        PRODUCT_BRAND.ACER,
-        PRODUCT_BRAND.MSI,
-        PRODUCT_BRAND.GIGABYTE,
         PRODUCT_BRAND.XIAOMI,
+        PRODUCT_BRAND.ANKER,
         PRODUCT_BRAND.SHOW_ALL
     ];
     const [filterByBrand, setFilterByBrand] = useState('');
@@ -323,7 +318,7 @@ const LaptopCategory = ({ data }) => {
                                     type="text"
                                     value={searchTerm}
                                     onChange={handelSearch}
-                                    placeholder='search for laptop'
+                                    placeholder='search for power bank'
                                     className={`form-control ${styles.search_box}`} />
                             </div>
                             {/* product list area */}
@@ -335,7 +330,7 @@ const LaptopCategory = ({ data }) => {
                                 ) : (
                                     <div className='d-flex justify-content-center align-items-center'
                                         style={{ minHeight: "45vh" }}>
-                                        <h5>no laptop found!</h5>
+                                        <h5>no power bank found!</h5>
                                     </div>
                                 )}
                             </div>
@@ -357,34 +352,34 @@ const LaptopCategory = ({ data }) => {
                             <h4 className='fw-bold my-3'>Why choose us?</h4>
                             <hr />
                             <p>
-                                Immerse yourself in the realm of computing excellence with our extraordinary collection of cutting-edge laptops. Whether you're a creative professional, a student striving for academic success, or a technology enthusiast seeking powerful performance, our Laptop Category Page is your gateway to a world of possibilities.
+                                Stay connected and powered up on the go with our exceptional collection of cutting-edge power banks. Whether you're a frequent traveler, an outdoor adventurer, or someone who values staying charged in any situation, our Power Bank Category Page is your gateway to uninterrupted power supply.
                             </p>
                             <p>
                                 <span className='fw-bold'>Explore and Select: </span>
-                                Dive into an expansive range of laptops from renowned brands, meticulously tailored to accommodate diverse preferences and budgets. Our thoughtfully curated selection ensures that you'll discover the perfect computing companion that aligns seamlessly with your individual needs. From sleek ultrabooks that redefine portability to high-performance workstations that empower your creative endeavors, our Laptop Category Page is your ultimate destination for exploration and choice.
+                                Discover a diverse range of power banks designed to meet a variety of charging needs. Our curated selection ensures that you'll find the perfect portable charger that aligns with your lifestyle. From compact models that slip into your pocket to high-capacity power banks for extended journeys, our Power Bank Category Page is your ultimate destination for exploration and choice.
                             </p>
                             <p>
-                                <span className='fw-bold'>Innovative Performance: </span>
-                                Elevate your computing experience with laptops equipped with cutting-edge technology. Explore devices featuring powerful processors, stunning displays, and exceptional graphics capabilities. Our Laptop Category Page showcases computing marvels that deliver the future of performance and productivity, allowing you to tackle tasks, create content, and explore your passions with unparalleled efficiency.
+                                <span className='fw-bold'>Reliable Charging: </span>
+                                Elevate your charging experience with power banks equipped with advanced technology. Explore devices featuring fast charging, multiple output ports, and smart power management. Our Power Bank Category Page showcases charging solutions that ensure your devices stay powered up and ready whenever you need them.
                             </p>
                             <p>
-                                <span className='fw-bold'>Sleek Designs and Durability: </span>
-                                Aesthetics meet functionality with the visually striking designs of the laptops in our collection. Whether you appreciate sleek minimalism or bold expressions of style, our Laptop Category Page offers a spectrum of options to match your personal taste. Crafted with attention to detail, premium materials, and durability in mind, our laptops blend form and function seamlessly.
+                                <span className='fw-bold'>Portable and Practical: </span>
+                                Aesthetics meet functionality with the sleek and ergonomic designs of the power banks in our collection. Whether you prefer slim profiles or rugged designs for outdoor use, our Power Bank Category Page offers a variety of options to match your needs. Crafted for convenience, our power banks are your reliable backup power source.
                             </p>
                             <p>
-                                <span className='fw-bold'>Comprehensive Specifications: </span>
-                                Make informed decisions with comprehensive product specifications accompanying each laptop. From processing power and RAM to storage capacity and connectivity options, our detailed information empowers you to select a laptop that aligns with your requirements. Our Laptop Category Page ensures that you're not only captivated by the aesthetics but also equipped with essential details for confident decision-making.
+                                <span className='fw-bold'>Comprehensive Capacity: </span>
+                                Make informed decisions with comprehensive specifications provided for each power bank. From battery capacity and number of ports to compatibility and charging speed, our detailed information empowers you to select a power bank that aligns seamlessly with your devices. Our Power Bank Category Page ensures you're not only captivated by the design but also equipped with essential details for confident charging.
                             </p>
                             <p>
-                                <span className='fw-bold'>Real User Reviews: </span>
-                                Benefit from authentic user insights through genuine customer reviews and ratings. Learn from firsthand experiences shared by individuals who have embraced these laptops into their daily routines. This valuable feedback empowers you to make an informed choice that resonates with your computing aspirations and professional needs.
+                                <span className='fw-bold'>Real User Experiences: </span>
+                                Benefit from authentic user insights through genuine customer reviews and ratings. Learn from firsthand experiences shared by individuals who have embraced these power banks into their mobile lifestyles. This valuable feedback empowers you to make an informed choice that resonates with your charging needs.
                             </p>
                             <p>
                                 <span className='fw-bold'>Effortless Shopping Experience: </span>
-                                Navigate our Laptop Category Page seamlessly. With intuitive filters, you can refine your search based on brand, performance, features, and more. Once you've discovered your perfect laptop, our streamlined checkout process ensures a hassle-free shopping journey, allowing you to swiftly acquire your new computing companion.
+                                Navigate our Power Bank Category Page seamlessly. With intuitive filters, you can narrow your search based on capacity, size, and more. Once you've found your perfect power bank, our streamlined checkout process ensures a hassle-free shopping journey, allowing you to quickly acquire your portable power solution.
                             </p>
                             <p>
-                                Embark on a technological journey of discovery by exploring our Laptop Category Page. From seamless multitasking to immersive entertainment, we're dedicated to providing you with a comprehensive range of laptops that redefine computing excellence. Your ideal laptop is just a click away. Start browsing now!
+                                Embark on a journey of reliable power by exploring our Power Bank Category Page. From staying charged during travel to emergency power backup, we're dedicated to providing you with a comprehensive range of power banks that redefine mobile convenience. Your ideal power bank is just a click away. Start browsing now!
                             </p>
                         </div>
                     </div>
@@ -394,12 +389,12 @@ const LaptopCategory = ({ data }) => {
     );
 };
 
-export default LaptopCategory;
-LaptopCategory.getLayout = function getLayout(page) {
+export default PowerBankCategory;
+PowerBankCategory.getLayout = function getLayout(page) {
     return <MainLayout>{page}</MainLayout>;
 };
 export const getStaticProps = async () => {
-    const productCategoryResponse = await fetch(`https://tech-mart-server.vercel.app/api/products?category=laptop`);
+    const productCategoryResponse = await fetch(`https://tech-mart-server.vercel.app/api/products?category=power-bank`);
     const priceRange = await fetch(`https://tech-mart-server.vercel.app/api/products/price-range`);
     const productResponse = await productCategoryResponse.json();
     const priceRangeResponse = await priceRange.json();
