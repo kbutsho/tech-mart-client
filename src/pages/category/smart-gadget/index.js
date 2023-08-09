@@ -367,42 +367,6 @@ const SmartGadgetCategory = ({ data }) => {
                                 }
                             </div>
                         </div>
-
-                        {/* description */}
-                        <div className="details-description">
-                            <h4 className='fw-bold my-3'>Why choose us?</h4>
-                            <hr />
-                            <p>
-                                Step into the future of technology with our exceptional collection of cutting-edge smart gadgets. Whether you're a tech enthusiast, a productivity seeker, or someone who values convenience, our Smart Gadget Category Page is your gateway to a world of innovative solutions.
-                            </p>
-                            <p>
-                                <span className='fw-bold'>Explore and Discover: </span>
-                                Immerse yourself in a diverse range of smart gadgets designed to enhance various aspects of your life. Our curated selection ensures that you'll find the perfect gadgets that align with your lifestyle and preferences. From smart home devices that streamline your living space to wearable tech that tracks your health, our Smart Gadget Category Page is your ultimate destination for exploration and discovery.
-                            </p>
-                            <p>
-                                <span className='fw-bold'>Cutting-Edge Technology: </span>
-                                Elevate your daily routines with smart gadgets equipped with advanced technology. Explore devices featuring AI, IoT connectivity, and intuitive interfaces. Our Smart Gadget Category Page showcases innovations that allow you to experience the future of convenience and efficiency today.
-                            </p>
-                            <p>
-                                <span className='fw-bold'>Sleek and Functional Designs: </span>
-                                Aesthetics meet functionality with the modern and ergonomic designs of the smart gadgets in our collection. Whether you prefer minimalist aesthetics or futuristic designs, our Smart Gadget Category Page offers a variety of options to match your style. Crafted with attention to detail, our gadgets seamlessly integrate into your life.
-                            </p>
-                            <p>
-                                <span className='fw-bold'>Comprehensive Features: </span>
-                                Make informed decisions with comprehensive specifications provided for each smart gadget. From features and compatibility to battery life and connectivity options, our detailed information empowers you to select gadgets that seamlessly align with your needs. Our Smart Gadget Category Page ensures you're not only captivated by the technology but also equipped with essential details for confident integration.
-                            </p>
-                            <p>
-                                <span className='fw-bold'>Real User Experiences: </span>
-                                Benefit from authentic user insights through genuine customer reviews and ratings. Learn from firsthand experiences shared by individuals who have embraced these smart gadgets into their routines. This valuable feedback empowers you to make an informed choice that resonates with your technological aspirations.
-                            </p>
-                            <p>
-                                <span className='fw-bold'>Effortless Integration: </span>
-                                Navigate our Smart Gadget Category Page seamlessly. With intuitive filters, you can refine your search based on category, compatibility, and more. Once you've found your perfect gadget, our streamlined checkout process ensures a hassle-free shopping journey, allowing you to quickly embrace the future of technology.
-                            </p>
-                            <p>
-                                Embark on a journey of innovation and convenience by exploring our Smart Gadget Category Page. From smarter homes to wearable enhancements, we're dedicated to providing you with a comprehensive range of gadgets that redefine your daily experiences. Your ideal smart gadget is just a click away. Start browsing now!
-                            </p>
-                        </div>
                     </div>
                 </div>
             </div>

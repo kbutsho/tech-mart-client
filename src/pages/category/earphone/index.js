@@ -350,42 +350,6 @@ const EarphoneCategory = ({ data }) => {
                                 }
                             </div>
                         </div>
-
-                        {/* description */}
-                        <div className="details-description">
-                            <h4 className='fw-bold my-3'>Why choose us?</h4>
-                            <hr />
-                            <p>
-                                Immerse yourself in a world of superior sound quality and immersive music experiences with our exceptional collection of cutting-edge earphones. Whether you're a music aficionado, a fitness enthusiast seeking motivation, or someone who values premium audio for calls and entertainment, our Earphone Category Page is your gateway to an auditory adventure.
-                            </p>
-                            <p>
-                                <span className='fw-bold'>Explore and Select: </span>
-                                Discover an extensive range of earphones from top brands, thoughtfully tailored to cater to diverse preferences and budgets. Our meticulously curated selection guarantees that you'll find the perfect audio companion that harmonizes with your individual requirements. From wireless earbuds that redefine mobility to over-ear headphones that envelop you in rich soundscapes, our Earphone Category Page is your ultimate destination for exploration and choice.
-                            </p>
-                            <p>
-                                <span className='fw-bold'>Innovative Audio: </span>
-                                Elevate your auditory experience with earphones that feature cutting-edge audio technology. Explore devices equipped with noise cancellation, immersive spatial audio, and enhanced bass response. Our Earphone Category Page showcases audio marvels that deliver the future of sound quality and performance, allowing you to immerse yourself in music, podcasts, and calls like never before.
-                            </p>
-                            <p>
-                                <span className='fw-bold'>Sleek and Comfortable Designs: </span>
-                                Aesthetics meet functionality with the visually appealing and ergonomic designs of the earphones in our collection. Whether you prefer discreet and minimalist styles or bold and expressive aesthetics, our Earphone Category Page offers a spectrum of options to match your personal flair. Crafted with meticulous attention to detail, premium materials, and comfort-enhancing features, our earphones are designed for both sonic excellence and all-day wearability.
-                            </p>
-                            <p>
-                                <span className='fw-bold'>Comprehensive Specifications: </span>
-                                Make informed decisions with comprehensive product specifications accompanying each pair of earphones. From battery life and audio frequency range to connectivity options and compatibility, our detailed information empowers you to select earphones that align seamlessly with your preferences. Our Earphone Category Page ensures that you're not only captivated by the sound but also equipped with essential details to make a confident choice.
-                            </p>
-                            <p>
-                                <span className='fw-bold'>Real User Experiences: </span>
-                                Benefit from authentic user insights through genuine customer reviews and ratings. Gain firsthand knowledge from individuals who have embraced these earphones into their daily lives. This invaluable feedback empowers you to make an informed choice that resonates with your auditory aspirations and lifestyle needs.
-                            </p>
-                            <p>
-                                <span className='fw-bold'>Effortless Shopping Journey: </span>
-                                Navigate our Earphone Category Page seamlessly. With intuitive filters, you can refine your search based on brand, price range, features, and more. Once you've discovered your perfect pair of earphones, our streamlined checkout process ensures a seamless shopping experience, allowing you to swiftly acquire your new auditory companions.
-                            </p>
-                            <p>
-                                Embark on an auditory journey of discovery by exploring our Earphone Category Page. From immersive soundscapes to crystal-clear call quality, we're dedicated to offering you a comprehensive range of earphones that redefine your audio experience. Your ideal earphones are just a click away. Start browsing now!
-                            </p>
-                        </div>
                     </div>
                 </div>
             </div>

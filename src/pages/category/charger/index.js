@@ -348,42 +348,6 @@ const ChargerCategory = ({ data }) => {
                                 }
                             </div>
                         </div>
-
-                        {/* description */}
-                        <div className="details-description">
-                            <h4 className='fw-bold my-3'>Why choose us?</h4>
-                            <hr />
-                            <p>
-                                Power up your devices with confidence using our exceptional collection of cutting-edge chargers. Whether you're a tech-savvy traveler, a busy professional, or someone who values uninterrupted connectivity, our Charger Category Page is your gateway to a world of reliable and efficient charging solutions.
-                            </p>
-                            <p>
-                                <span className='fw-bold'>Explore and Select: </span>
-                                Discover an extensive range of chargers thoughtfully designed to cater to diverse preferences and device types. Our curated selection ensures that you'll find the perfect charging companion that seamlessly fits into your daily routine. From compact travel chargers to multi-device hubs, our Charger Category Page is your ultimate destination for exploration and choice.
-                            </p>
-                            <p>
-                                <span className='fw-bold'>Innovative Charging Technology: </span>
-                                Elevate your charging experience with chargers equipped with cutting-edge technology. Explore devices featuring fast charging, wireless charging, and advanced safety features. Our Charger Category Page showcases charging marvels that deliver the future of efficient power delivery, ensuring your devices are ready to perform whenever you are.
-                            </p>
-                            <p>
-                                <span className='fw-bold'>Sleek and Functional Designs: </span>
-                                Aesthetics meet functionality with the visually appealing and ergonomic designs of the chargers in our collection. Whether you prefer minimalist aesthetics or space-saving solutions, our Charger Category Page offers a variety of options to match your lifestyle. Crafted with attention to detail and durability in mind, our chargers seamlessly integrate into your environment.
-                            </p>
-                            <p>
-                                <span className='fw-bold'>Comprehensive Compatibility: </span>
-                                Make informed choices with comprehensive compatibility details provided for each charger. From device compatibility and charging speeds to connector types and input/output specifications, our detailed information empowers you to select chargers that align perfectly with your devices. Our Charger Category Page ensures you're not only captivated by the design but also equipped with essential details for confident charging.
-                            </p>
-                            <p>
-                                <span className='fw-bold'>Real User Feedback: </span>
-                                Benefit from genuine user insights through authentic customer reviews and ratings. Learn from firsthand experiences shared by individuals who have embraced these chargers into their daily routines. This valuable feedback empowers you to make an informed choice that resonates with your charging needs and expectations.
-                            </p>
-                            <p>
-                                <span className='fw-bold'>Effortless Shopping Experience: </span>
-                                Navigate our Charger Category Page seamlessly. With intuitive filters, you can narrow down your search based on features, device compatibility, and more. Once you've found your ideal charger, our streamlined checkout process ensures a hassle-free shopping journey, allowing you to quickly acquire your new charging solution.
-                            </p>
-                            <p>
-                                Embark on a journey of charging convenience by exploring our Charger Category Page. From speedy power-ups to reliable charging, we're dedicated to offering you a comprehensive range of chargers that redefine your device's energy source. Your ideal charger is just a click away. Start browsing now!
-                            </p>
-                        </div>
                     </div>
                 </div>
             </div>

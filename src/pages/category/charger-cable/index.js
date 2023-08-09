@@ -348,42 +348,6 @@ const ChargerCableCategory = ({ data }) => {
                                 }
                             </div>
                         </div>
-
-                        {/* description */}
-                        <div className="details-description">
-                            <h4 className='fw-bold my-3'>Why choose us?</h4>
-                            <hr />
-                            <p>
-                                Keep your devices charged and connected with our exceptional collection of cutting-edge charger cables. Whether you're a tech-savvy traveler, a diligent student, or someone who values reliable connectivity, our Charger Cable Category Page is your gateway to hassle-free charging solutions.
-                            </p>
-                            <p>
-                                <span className='fw-bold'>Explore and Choose: </span>
-                                Discover a diverse range of charger cables designed to cater to various devices and charging needs. Our curated selection ensures that you'll find the perfect cable that seamlessly fits into your daily routine. From durable lightning cables for your Apple devices to versatile USB-C cables for modern gadgets, our Charger Cable Category Page is your ultimate destination for exploration and choice.
-                            </p>
-                            <p>
-                                <span className='fw-bold'>Reliable Charging and Data Transfer: </span>
-                                Elevate your connectivity with charger cables equipped with high-quality materials and efficient data transmission. Explore cables featuring fast charging support and stable data transfer rates. Our Charger Cable Category Page showcases cables that ensure your devices stay powered up and connected for seamless communication.
-                            </p>
-                            <p>
-                                <span className='fw-bold'>Durable and Practical Designs: </span>
-                                Aesthetics meet functionality with the sturdy and ergonomic designs of the charger cables in our collection. Whether you need tangle-free cables for travel or extra-long options for convenience, our Charger Cable Category Page offers a variety of cables to match your needs. Crafted for durability, our cables stand up to daily wear and tear.
-                            </p>
-                            <p>
-                                <span className='fw-bold'>Comprehensive Compatibility: </span>
-                                Make informed decisions with comprehensive specifications provided for each charger cable. From connector types and cable lengths to charging speeds and device compatibility, our detailed information empowers you to select a cable that seamlessly aligns with your devices. Our Charger Cable Category Page ensures you're not only captivated by the design but also equipped with essential details for confident charging.
-                            </p>
-                            <p>
-                                <span className='fw-bold'>Real User Experiences: </span>
-                                Benefit from authentic user insights through genuine customer reviews and ratings. Learn from firsthand experiences shared by individuals who have embraced these charger cables into their tech routines. This valuable feedback empowers you to make an informed choice that resonates with your charging and data transfer needs.
-                            </p>
-                            <p>
-                                <span className='fw-bold'>Effortless Shopping Experience: </span>
-                                Navigate our Charger Cable Category Page seamlessly. With intuitive filters, you can narrow your search based on connector type, cable length, and more. Once you've found your perfect cable, our streamlined checkout process ensures a hassle-free shopping journey, allowing you to quickly acquire your charging solution.
-                            </p>
-                            <p>
-                                Embark on a journey of reliable connectivity by exploring our Charger Cable Category Page. From fast charging to efficient data syncing, we're dedicated to providing you with a comprehensive range of charger cables that redefine device communication. Your ideal cable is just a click away. Start browsing now!
-                            </p>
-                        </div>
                     </div>
                 </div>
             </div>

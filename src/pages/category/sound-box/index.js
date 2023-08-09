@@ -346,42 +346,6 @@ const SoundBoxCategory = ({ data }) => {
                                 }
                             </div>
                         </div>
-
-                        {/* description */}
-                        <div className="details-description">
-                            <h4 className='fw-bold my-3'>Why choose us?</h4>
-                            <hr />
-                            <p>
-                                Elevate your auditory experience with our exceptional collection of cutting-edge sound boxes. Whether you're a music enthusiast, a party host, or someone who appreciates high-quality audio, our Sound Box Category Page is your gateway to immersive soundscapes.
-                            </p>
-                            <p>
-                                <span className='fw-bold'>Explore and Choose: </span>
-                                Discover a diverse range of sound boxes thoughtfully designed to cater to various preferences and occasions. Our curated selection ensures that you'll find the perfect speaker that harmonizes with your musical taste. From compact Bluetooth speakers for on-the-go listening to powerful party speakers that fill the room with sound, our Sound Box Category Page is your ultimate destination for exploration and choice.
-                            </p>
-                            <p>
-                                <span className='fw-bold'>Superior Sound Quality: </span>
-                                Elevate your music with sound boxes equipped with advanced audio technology. Explore devices featuring clear highs, deep lows, and rich audio detail. Our Sound Box Category Page showcases sound solutions that deliver the future of audio excellence, allowing you to enjoy your favorite tunes with exceptional clarity.
-                            </p>
-                            <p>
-                                <span className='fw-bold'>Sleek Designs: </span>
-                                Aesthetics meet functionality with the visually appealing and ergonomic designs of the sound boxes in our collection. Whether you prefer minimalist aesthetics or bold designs that make a statement, our Sound Box Category Page offers a variety of options to match your style. Crafted with attention to detail, our sound boxes blend seamlessly into any environment.
-                            </p>
-                            <p>
-                                <span className='fw-bold'>Versatile Connectivity: </span>
-                                Make informed decisions with comprehensive specifications provided for each sound box. From connectivity options like Bluetooth and Wi-Fi to battery life and compatibility, our detailed information empowers you to select a speaker that perfectly suits your needs. Our Sound Box Category Page ensures you're not only captivated by the sound but also equipped with essential details for confident listening.
-                            </p>
-                            <p>
-                                <span className='fw-bold'>Real User Experiences: </span>
-                                Benefit from authentic user insights through genuine customer reviews and ratings. Learn from firsthand experiences shared by individuals who have embraced these sound boxes into their music routines. This valuable feedback empowers you to make an informed choice that resonates with your audio preferences.
-                            </p>
-                            <p>
-                                <span className='fw-bold'>Effortless Shopping Experience: </span>
-                                Navigate our Sound Box Category Page seamlessly. With intuitive filters, you can refine your search based on features, size, and more. Once you've found your perfect sound box, our streamlined checkout process ensures a hassle-free shopping journey, allowing you to quickly bring your music to life.
-                            </p>
-                            <p>
-                                Embark on an auditory journey of discovery by exploring our Sound Box Category Page. From intimate listening sessions to lively gatherings, we're dedicated to providing you with a comprehensive range of sound boxes that redefine your audio enjoyment. Your ideal sound box is just a click away. Start browsing now!
-                            </p>
-                        </div>
                     </div>
                 </div>
             </div>

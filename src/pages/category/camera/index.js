@@ -347,42 +347,6 @@ const CameraCategory = ({ data }) => {
                                 }
                             </div>
                         </div>
-
-                        {/* description */}
-                        <div className="details-description">
-                            <h4 className='fw-bold my-3'>Why choose us?</h4>
-                            <hr />
-                            <p>
-                                Capture the world around you in stunning detail with our exceptional collection of cutting-edge cameras. Whether you're a photography enthusiast, a content creator, or someone who values preserving memories in high quality, our Camera Category Page is your gateway to a world of visual storytelling.
-                            </p>
-                            <p>
-                                <span className='fw-bold'>Explore and Select: </span>
-                                Discover a diverse range of cameras meticulously designed to cater to a variety of skill levels and creative aspirations. Our carefully curated selection ensures that you'll find the perfect visual companion that aligns with your unique perspective. From compact point-and-shoot cameras to advanced mirrorless systems, our Camera Category Page is your ultimate destination for exploration and choice.
-                            </p>
-                            <p>
-                                <span className='fw-bold'>Innovative Imaging Technology: </span>
-                                Elevate your photography with cameras equipped with cutting-edge imaging technology. Explore devices featuring high-resolution sensors, advanced autofocus systems, and impressive low-light capabilities. Our Camera Category Page showcases visual marvels that deliver the future of image quality and creativity, allowing you to capture moments in breathtaking detail.
-                            </p>
-                            <p>
-                                <span className='fw-bold'>Versatile Designs: </span>
-                                Functionality meets style with the aesthetically pleasing and ergonomic designs of the cameras in our collection. Whether you prefer sleek minimalism or robust professional aesthetics, our Camera Category Page offers a variety of options to match your photographic vision. Crafted with attention to detail, usability, and durability, our cameras empower you to capture with ease and precision.
-                            </p>
-                            <p>
-                                <span className='fw-bold'>Comprehensive Features: </span>
-                                Make informed decisions with comprehensive specifications provided for each camera. From sensor size and megapixels to video recording capabilities and connectivity options, our detailed information empowers you to select a camera that aligns seamlessly with your photographic goals. Our Camera Category Page ensures you're not only captivated by the design but also equipped with essential details for confident shooting.
-                            </p>
-                            <p>
-                                <span className='fw-bold'>Real User Experiences: </span>
-                                Benefit from authentic user insights through genuine customer reviews and ratings. Gain firsthand knowledge from individuals who have embraced these cameras into their creative journeys. This invaluable feedback empowers you to make an informed choice that resonates with your artistic aspirations and photography style.
-                            </p>
-                            <p>
-                                <span className='fw-bold'>Effortless Shopping Experience: </span>
-                                Navigate our Camera Category Page seamlessly. With intuitive filters, you can refine your search based on camera type, features, and more. Once you've discovered your perfect camera, our streamlined checkout process ensures a hassle-free shopping journey, allowing you to swiftly acquire your new visual storyteller.
-                            </p>
-                            <p>
-                                Embark on a photographic journey of discovery by exploring our Camera Category Page. From capturing candid moments to creating masterpieces, we're dedicated to providing you with a comprehensive range of cameras that redefine visual expression. Your ideal camera is just a click away. Start browsing now!
-                            </p>
-                        </div>
                     </div>
                 </div>
             </div>

@@ -346,42 +346,6 @@ const PowerBankCategory = ({ data }) => {
                                 }
                             </div>
                         </div>
-
-                        {/* description */}
-                        <div className="details-description">
-                            <h4 className='fw-bold my-3'>Why choose us?</h4>
-                            <hr />
-                            <p>
-                                Stay connected and powered up on the go with our exceptional collection of cutting-edge power banks. Whether you're a frequent traveler, an outdoor adventurer, or someone who values staying charged in any situation, our Power Bank Category Page is your gateway to uninterrupted power supply.
-                            </p>
-                            <p>
-                                <span className='fw-bold'>Explore and Select: </span>
-                                Discover a diverse range of power banks designed to meet a variety of charging needs. Our curated selection ensures that you'll find the perfect portable charger that aligns with your lifestyle. From compact models that slip into your pocket to high-capacity power banks for extended journeys, our Power Bank Category Page is your ultimate destination for exploration and choice.
-                            </p>
-                            <p>
-                                <span className='fw-bold'>Reliable Charging: </span>
-                                Elevate your charging experience with power banks equipped with advanced technology. Explore devices featuring fast charging, multiple output ports, and smart power management. Our Power Bank Category Page showcases charging solutions that ensure your devices stay powered up and ready whenever you need them.
-                            </p>
-                            <p>
-                                <span className='fw-bold'>Portable and Practical: </span>
-                                Aesthetics meet functionality with the sleek and ergonomic designs of the power banks in our collection. Whether you prefer slim profiles or rugged designs for outdoor use, our Power Bank Category Page offers a variety of options to match your needs. Crafted for convenience, our power banks are your reliable backup power source.
-                            </p>
-                            <p>
-                                <span className='fw-bold'>Comprehensive Capacity: </span>
-                                Make informed decisions with comprehensive specifications provided for each power bank. From battery capacity and number of ports to compatibility and charging speed, our detailed information empowers you to select a power bank that aligns seamlessly with your devices. Our Power Bank Category Page ensures you're not only captivated by the design but also equipped with essential details for confident charging.
-                            </p>
-                            <p>
-                                <span className='fw-bold'>Real User Experiences: </span>
-                                Benefit from authentic user insights through genuine customer reviews and ratings. Learn from firsthand experiences shared by individuals who have embraced these power banks into their mobile lifestyles. This valuable feedback empowers you to make an informed choice that resonates with your charging needs.
-                            </p>
-                            <p>
-                                <span className='fw-bold'>Effortless Shopping Experience: </span>
-                                Navigate our Power Bank Category Page seamlessly. With intuitive filters, you can narrow your search based on capacity, size, and more. Once you've found your perfect power bank, our streamlined checkout process ensures a hassle-free shopping journey, allowing you to quickly acquire your portable power solution.
-                            </p>
-                            <p>
-                                Embark on a journey of reliable power by exploring our Power Bank Category Page. From staying charged during travel to emergency power backup, we're dedicated to providing you with a comprehensive range of power banks that redefine mobile convenience. Your ideal power bank is just a click away. Start browsing now!
-                            </p>
-                        </div>
                     </div>
                 </div>
             </div>

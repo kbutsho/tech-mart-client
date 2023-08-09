@@ -12,9 +12,9 @@ const Footer = () => {
                 <div className="row">
                     <div className="col-md-3 pb-3">
                         <Image src={logo} width={180} height={60} alt="img" />
-                        <p className='text-white mt-4' style={{ fontSize: "12px" }}>
-                            Motion View is the largest Eco Product importer
-                            and Distributor in Bangladesh and now holds
+                        <p className='footer-details'>
+                            Tech mart is the largest Product importer
+                            and Distributor in Bangladesh and now
                             the leading position in the ecosystem industry.
                         </p>
                         <div>
@@ -30,6 +30,7 @@ const Footer = () => {
                             <Link className='link' href="/">Contact us</Link>
                             <Link className='link' href="/">Service center</Link>
                             <Link className='link' href="/">Support center</Link>
+                            <Link className='link' href="/">Terms & conditions</Link>
                         </div>
                     </div>
                     <div className="col-md-2">
@@ -39,6 +40,7 @@ const Footer = () => {
                             <Link className='link' href="/">Watch</Link>
                             <Link className='link' href="/">Laptop</Link>
                             <Link className='link' href="/">Camera</Link>
+                            <Link className='link' href="/">Gadgets</Link>
                         </div>
                     </div>
                     <div className="col-md-2">
@@ -48,6 +50,7 @@ const Footer = () => {
                             <Link className='link' href="/">Apple</Link>
                             <Link className='link' href="/">Xiaomi</Link>
                             <Link className='link' href="/">Realme</Link>
+                            <Link className='link' href="/">OnePLus</Link>
                         </div>
                     </div>
                     <div className="col-md-3">

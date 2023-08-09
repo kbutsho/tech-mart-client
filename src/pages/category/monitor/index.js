@@ -350,42 +350,6 @@ const MonitorCategory = ({ data }) => {
                                 }
                             </div>
                         </div>
-
-                        {/* description */}
-                        <div className="details-description">
-                            <h4 className='fw-bold my-3'>Why choose us?</h4>
-                            <hr />
-                            <p>
-                                Immerse yourself in a world of visual clarity and productivity with our exceptional collection of cutting-edge monitors. Whether you're a creative professional, a dedicated gamer, or someone who values efficient multitasking, our Monitor Category Page is your gateway to enhanced visual experiences.
-                            </p>
-                            <p>
-                                <span className='fw-bold'>Explore and Choose: </span>
-                                Discover a diverse range of monitors tailored to cater to a variety of needs and preferences. Our carefully curated selection ensures that you'll find the perfect display that seamlessly integrates into your workflow. From high-resolution monitors that bring your visuals to life to ultra-fast gaming monitors that deliver smooth performance, our Monitor Category Page is your ultimate destination for exploration and choice.
-                            </p>
-                            <p>
-                                <span className='fw-bold'>Exceptional Visuals: </span>
-                                Elevate your viewing experience with monitors equipped with state-of-the-art display technology. Explore devices featuring vibrant color accuracy, high refresh rates, and crisp resolutions. Our Monitor Category Page showcases visual marvels that deliver the future of visual clarity, allowing you to work, create, or play with unmatched precision.
-                            </p>
-                            <p>
-                                <span className='fw-bold'>Sleek and Functional Designs: </span>
-                                Aesthetics meet functionality with the visually appealing and ergonomic designs of the monitors in our collection. Whether you prefer ultra-slim bezels or adjustable stands for ergonomic comfort, our Monitor Category Page offers a variety of options to match your workspace setup. Crafted with attention to detail, our monitors enhance both form and function.
-                            </p>
-                            <p>
-                                <span className='fw-bold'>Comprehensive Features: </span>
-                                Make informed decisions with comprehensive specifications provided for each monitor. From screen size and aspect ratio to color gamut and connectivity options, our detailed information empowers you to select a monitor that seamlessly aligns with your workflow. Our Monitor Category Page ensures you're not only captivated by the visuals but also equipped with essential details for confident computing.
-                            </p>
-                            <p>
-                                <span className='fw-bold'>Real User Experiences: </span>
-                                Benefit from authentic user insights through genuine customer reviews and ratings. Gain firsthand knowledge from individuals who have embraced these monitors into their workstations or gaming setups. This valuable feedback empowers you to make an informed choice that resonates with your professional or gaming aspirations.
-                            </p>
-                            <p>
-                                <span className='fw-bold'>Effortless Shopping Experience: </span>
-                                Navigate our Monitor Category Page seamlessly. With intuitive filters, you can refine your search based on screen size, resolution, and more. Once you've found your perfect monitor, our streamlined checkout process ensures a hassle-free shopping journey, allowing you to quickly enhance your visual setup.
-                            </p>
-                            <p>
-                                Embark on a journey of visual enhancement by exploring our Monitor Category Page. From precise color representation to seamless gameplay, we're dedicated to providing you with a comprehensive range of monitors that redefine visual excellence. Your ideal monitor is just a click away. Start browsing now!
-                            </p>
-                        </div>
                     </div>
                 </div>
             </div>

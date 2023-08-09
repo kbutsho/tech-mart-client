@@ -350,42 +350,6 @@ const PhoneCategory = ({ data }) => {
                                 }
                             </div>
                         </div>
-
-                        {/* description */}
-                        <div className="details-description mt-4">
-                            <h4 className='fw-bold my-3'>Why choose us?</h4>
-                            <hr />
-                            <p>
-                                You'll discover here a captivating collection of cutting-edge smartphones that seamlessly blend style, functionality, and innovation. Whether you're a tech enthusiast, a professional seeking productivity tools, or someone who simply appreciates the latest in communication technology, our Phone Category Page is your gateway to a world of possibilities.
-                            </p>
-                            <p>
-                                <span className='fw-bold'>Browse and Choose: </span>
-                                Dive into a diverse array of smartphones from leading brands that cater to every preference and budget. Our carefully curated selection ensures that you'll find the perfect device that aligns with your unique needs. From sleek flagship models boasting unparalleled performance to budget-friendly options that don't compromise on quality, our Phone Category Page is your one-stop destination for exploring and selecting your new companion.
-                            </p>
-                            <p>
-                                <span className='fw-bold'>Innovative Features: </span>
-                                Stay ahead of the curve with smartphones that offer the latest technological advancements. Discover devices equipped with groundbreaking features such as AI-enhanced cameras that capture stunning photos in any lighting, immersive displays that bring your content to life, and robust processors that handle multitasking with ease. Our Phone Category Page showcases phones at the forefront of innovation, allowing you to experience the future today.
-                            </p>
-                            <p>
-                                <span className='fw-bold'>Sleek Designs: </span>
-                                Beauty meets functionality with the aesthetically pleasing designs of the smartphones in our collection. Whether you prefer a minimalist and elegant look or a bold and vibrant aesthetic, our Phone Category Page has something to match your style. Impeccable craftsmanship, premium materials, and ergonomic designs ensure that these devices are not only technologically advanced but also a pleasure to hold and behold.
-                            </p>
-                            <p>
-                                <span className='fw-bold'>Comprehensive Specifications: </span>
-                                Make informed decisions with detailed specifications accompanying each phone. From screen size and resolution to battery life and storage capacity, our comprehensive product information equips you with the knowledge needed to choose the phone that perfectly aligns with your requirements. Our Phone Category Page ensures that you're not only captivated by the aesthetics but also empowered by the details.
-                            </p>
-                            <p>
-                                <span className='fw-bold'>Customer Reviews: </span>
-                                Gain insights from fellow shoppers through genuine customer reviews and ratings. Hear firsthand experiences from individuals who have already embraced these devices into their lives. This valuable feedback empowers you to make a confident choice that aligns with your expectations.
-                            </p>
-                            <p>
-                                <span className='fw-bold'>Seamless Shopping Experience: </span>
-                                Navigating our Phone Category Page is a breeze. With user-friendly filters, you can narrow down your search based on brand, price range, features, and more. Once you've found your ideal phone, our streamlined checkout process ensures a hassle-free shopping experience, so you can get your hands on your new gadget quickly.
-                            </p>
-                            <p>
-                                Embark on a journey of technological discovery by exploring our Phone Category Page. From flagship powerhouses to innovative budget options, we're committed to offering you a comprehensive range of smartphones that redefine communication, productivity, and entertainment. Your dream phone is just a click away. Start browsing now!
-                            </p>
-                        </div>
                     </div>
                 </div>
             </div>

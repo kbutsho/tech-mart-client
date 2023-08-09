@@ -350,42 +350,6 @@ const WatchCategory = ({ data }) => {
                                 }
                             </div>
                         </div>
-
-                        {/* description */}
-                        <div className="details-description">
-                            <h4 className='fw-bold my-3'>Why choose us?</h4>
-                            <hr />
-                            <p>
-                                Explore our captivating collection of cutting-edge smartwatches that seamlessly integrate style, functionality, and innovation into your daily life. Whether you're a tech enthusiast, a fitness fanatic, or someone who values staying connected on the go, our Smartwatch Category Page is your gateway to a world of possibilities.
-                            </p>
-                            <p>
-                                <span className='fw-bold'>Browse and Choose: </span>
-                                Immerse yourself in a diverse array of smartwatches from top brands, catering to a range of preferences and budgets. Our thoughtfully curated selection ensures that you'll discover the perfect wearable companion that aligns with your individual needs. From sophisticated models with advanced health tracking features to sleek designs that seamlessly match your style, our Smartwatch Category Page is your ultimate destination for exploration and selection.
-                            </p>
-                            <p>
-                                <span className='fw-bold'>Innovative Functions: </span>
-                                Stay at the forefront of wearable technology with smartwatches that offer the latest innovations. Explore devices equipped with features like real-time health monitoring, customizable watch faces, and seamless integration with your smartphone. Our Smartwatch Category Page showcases wearable marvels that allow you to experience the future of connectivity and convenience today.
-                            </p>
-                            <p>
-                                <span className='fw-bold'>Elegant Designs: </span>
-                                Functionality meets fashion with the aesthetically pleasing designs of the smartwatches in our collection. Whether you prefer a sleek and understated look or a bold and expressive statement piece, our Smartwatch Category Page offers a variety of options to complement your personal style. Each watch is crafted with attention to detail, premium materials, and ergonomic considerations, ensuring a delightful blend of form and function.
-                            </p>
-                            <p>
-                                <span className='fw-bold'>Comprehensive Features: </span>
-                                Make informed choices with detailed specifications provided for each smartwatch. From battery life and screen size to fitness tracking capabilities and connectivity options, our comprehensive product information empowers you to select the ideal smartwatch that seamlessly aligns with your needs. Our Smartwatch Category Page ensures that you're not only captivated by the aesthetics but also equipped with the knowledge you need to make a confident decision.
-                            </p>
-                            <p>
-                                <span className='fw-bold'>User Reviews: </span>
-                                Gain insights from fellow users through authentic customer reviews and ratings. Learn from firsthand experiences shared by individuals who have embraced these smartwatches into their routines. This valuable feedback empowers you to make an informed choice that resonates with your expectations and aspirations.
-                            </p>
-                            <p>
-                                <span className='fw-bold'>Effortless Shopping Experience: </span>
-                                Navigate our Smartwatch Category Page seamlessly. With intuitive filters, you can narrow down your search based on brand, price range, features, and more. Once you've found your perfect smartwatch, our streamlined checkout process guarantees a hassle-free shopping journey, allowing you to swiftly acquire your new wearable companion.
-                            </p>
-                            <p>
-                                Embark on a journey of technological discovery by exploring our Smartwatch Category Page. From advanced fitness tracking to convenient notifications on your wrist, we're dedicated to providing you with a comprehensive range of smartwatches that redefine connectivity, style, and convenience. Your ideal smartwatch is just a click away. Start browsing now!
-                            </p>
-                        </div>
                     </div>
                 </div>
             </div>

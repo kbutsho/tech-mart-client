@@ -351,42 +351,6 @@ const TVCategory = ({ data }) => {
                                 }
                             </div>
                         </div>
-
-                        {/* description */}
-                        <div className="details-description">
-                            <h4 className='fw-bold my-3'>Why choose us?</h4>
-                            <hr />
-                            <p>
-                                Immerse yourself in a world of captivating entertainment with our exceptional collection of cutting-edge televisions. Whether you're a cinephile, a sports enthusiast, or someone who values high-quality visuals, our Television Category Page is your gateway to a superior viewing experience.
-                            </p>
-                            <p>
-                                <span className='fw-bold'>Explore and Choose: </span>
-                                Discover an extensive range of televisions designed to elevate your entertainment. Our curated selection ensures that you'll find the perfect TV that complements your lifestyle and preferences. From sleek OLED displays for cinematic experiences to smart LED TVs for seamless connectivity, our Television Category Page is your ultimate destination for exploration and choice.
-                            </p>
-                            <p>
-                                <span className='fw-bold'>Immersive Visuals: </span>
-                                Elevate your viewing with televisions equipped with state-of-the-art display technology. Explore devices featuring 4K and 8K resolutions, HDR capabilities, and vibrant color reproduction. Our Television Category Page showcases visual marvels that deliver the future of home entertainment, allowing you to enjoy movies, shows, and games in stunning detail.
-                            </p>
-                            <p>
-                                <span className='fw-bold'>Sleek Designs: </span>
-                                Aesthetics meet functionality with the visually appealing and ergonomic designs of the televisions in our collection. Whether you prefer minimalist frames or sleek bezel-less screens, our Television Category Page offers a variety of options to match your interior decor. Crafted with attention to detail, our TVs seamlessly blend into your living space.
-                            </p>
-                            <p>
-                                <span className='fw-bold'>Comprehensive Features: </span>
-                                Make informed decisions with comprehensive specifications provided for each television. From screen size and refresh rates to smart TV capabilities and connectivity options, our detailed information empowers you to select a TV that aligns seamlessly with your entertainment needs. Our Television Category Page ensures you're not only captivated by the visuals but also equipped with essential details for confident viewing.
-                            </p>
-                            <p>
-                                <span className='fw-bold'>Real User Experiences: </span>
-                                Benefit from authentic user insights through genuine customer reviews and ratings. Learn from firsthand experiences shared by individuals who have embraced these televisions into their living spaces. This valuable feedback empowers you to make an informed choice that resonates with your entertainment preferences.
-                            </p>
-                            <p>
-                                <span className='fw-bold'>Effortless Shopping Experience: </span>
-                                Navigate our Television Category Page seamlessly. With intuitive filters, you can narrow your search based on screen size, display technology, and more. Once you've found your perfect TV, our streamlined checkout process ensures a hassle-free shopping journey, allowing you to quickly bring the cinematic experience home.
-                            </p>
-                            <p>
-                                Embark on an entertainment journey of discovery by exploring our Television Category Page. From immersive visuals to connected smart features, we're dedicated to providing you with a comprehensive range of TVs that redefine home viewing. Your ideal television is just a click away. Start browsing now!
-                            </p>
-                        </div>
                     </div>
                 </div>
             </div>
