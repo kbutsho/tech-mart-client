@@ -218,8 +218,9 @@
     padding: 6px 10px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    margin: 0 5px;
+    margin: 0 4px;
     border-radius: 4px;
+    font-size: 15px;
 }
 
 .pagination_btn:hover {
