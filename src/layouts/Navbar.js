@@ -32,7 +32,7 @@ function Navbar() {
                         data-bs-target="#navbarNavAltMarkup"
                         aria-controls="navbarNavAltMarkup"
                         aria-label="Toggle navigation">
-                        <span className="d-flex">
+                        <span className="d-flex pt-2">
                             <Link className="nav-link d-flex" href="/">
                                 <AiOutlineHeart size="30" />
                                 <span className={styles.cart_navbar_count}>{favouriteProducts.length}</span>
