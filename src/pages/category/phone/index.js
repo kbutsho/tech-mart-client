@@ -307,7 +307,7 @@ const PhoneCategory = ({ data }) => {
                                             {ratingRange[0]} <AiFillStar className='ms-1' color='#F29120' />
                                         </small>
                                         <small className='d-flex justify-content-between align-items-center'>
-                                            {ratingRange[1]} <AiFillStar className='ms-1' color='#F29120'/>
+                                            {ratingRange[1]} <AiFillStar className='ms-1' color='#F29120' />
                                         </small>
                                     </div>
                                 </div>

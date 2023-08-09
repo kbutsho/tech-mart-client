@@ -4,6 +4,10 @@ const Pagination = ({ data, currentPage, productPerPage, handelPaginate }) => {
     const totalPages = Math.ceil(data.length / productPerPage);
     const maxVisiblePages = 5;
 
+    if (totalPages <= 1) {
+        return null;
+    }
+
     const renderPaginationButtons = () => {
         const buttons = [];
         const startPage = Math.max(1, currentPage - Math.floor(maxVisiblePages / 2));
