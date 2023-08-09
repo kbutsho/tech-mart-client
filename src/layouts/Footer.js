@@ -60,13 +60,13 @@ const Footer = () => {
                             </p>
                         </div>
                         <div className='d-flex'>
-                            <AiOutlineMail color='white' size="24px" />
+                            <AiOutlineMail color='white' size="22px" />
                             <p className='ms-2 text-white' style={{ fontSize: "14px" }}>kbutsho@gmail.com</p>
                         </div>
                     </div>
                 </div>
                 <div className='text-center text-white pt-4'>
-                    <p style={{ fontSize: "13px" }}>Copyright © {new Date().getFullYear()} || all rights reserved by kbutsho</p>
+                    <p style={{ fontSize: "13px" }}>copyright © {new Date().getFullYear()} || all rights reserved by kbutsho</p>
                 </div>
             </div>
         </div>
