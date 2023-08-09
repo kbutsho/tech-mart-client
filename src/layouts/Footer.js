@@ -66,7 +66,7 @@ const Footer = () => {
                     </div>
                 </div>
                 <div className='text-center text-white pt-4'>
-                    <p style={{ fontSize: "14px" }}>Copyright © {new Date().getFullYear()} || all rights reserved by kbutsho</p>
+                    <p style={{ fontSize: "13px" }}>Copyright © {new Date().getFullYear()} || all rights reserved by kbutsho</p>
                 </div>
             </div>
         </div>
