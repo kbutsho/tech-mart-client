@@ -133,7 +133,7 @@ const LaptopCategory = ({ data }) => {
             <Breadcrumb />
             <div className='py-4'>
                 <Image src={banner} layout='responsive' height={360} width={1920} alt="img" />
-                <div className="phone-area py-4">
+                <div className="main-area py-4">
                     <div className="row">
                         <div className="col-md-4 col-xxl-3">
 
