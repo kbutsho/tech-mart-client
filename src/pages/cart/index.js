@@ -92,7 +92,7 @@ const CartPage = () => {
                             <div className="col-md-3">
                                 <div className='text-end mb-4'>
                                     <span>subtotal</span>
-                                    <span className='fw-bold'> ${cart.cartTotalAmount}</span>
+                                    <span className='fw-bold'> ৳ {cart.cartTotalAmount}</span>
                                 </div>
                                 <div className='text-end'>
                                     <span ><small className='text-end' style={{ fontSize: "13px" }}>(taxes and shipping calculated at checkout)</small></span>

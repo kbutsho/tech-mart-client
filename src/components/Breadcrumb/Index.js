@@ -2,30 +2,36 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { FcHome } from 'react-icons/fc';
 
-const Breadcrumb = () => {
+const Breadcrumb = ({ name }) => {
     const router = useRouter();
     const { asPath } = router;
     const segments = asPath.split('/').filter(Boolean);
+
+    const updatedSegments = segments.map((segment, index) => {
+        if (/^[0-9a-fA-F]{24}$/.test(segment) && name) {
+            return name;
+        }
+        return segment;
+    });
+
     return (
         <div className="breadcrumbs">
             <div>
                 <Link href="/">
                     <FcHome size="26" className='mb-2' />
                 </Link>
-                {segments.map((segment, index) => {
-                    const isLastSegment = index === segments.length - 1;
+                {updatedSegments.map((segment, index) => {
+                    const isLastSegment = index === updatedSegments.length - 1;
                     return (
                         <span key={segment}>
-                            {!isLastSegment ? (
-                                <span>
-                                    {' / '}
-                                    <Link className='text-decoration-none'
-                                        href={`/${segments.slice(0, index + 1).join('/')}`}>
-                                        {segment}
-                                    </Link>
-                                </span>
+                            {' / '}
+                            {isLastSegment ? (
+                                segment
                             ) : (
-                                ` / ${segment}`
+                                <Link className='text-decoration-none'
+                                    href={`/${segments.slice(0, index + 1).join('/')}`}>
+                                    {segment}
+                                </Link>
                             )}
                         </span>
                     );

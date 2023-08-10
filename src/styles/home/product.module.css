@@ -33,6 +33,12 @@
     z-index: 1;
 }
 
+.url_link {
+    text-decoration: none;
+    color: #000000;
+    transition: 0.3s;
+}
+
 .product_card .product_name {
     cursor: pointer;
     font-weight: bold;
