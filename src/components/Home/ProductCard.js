@@ -59,13 +59,8 @@ const ProductCard = (props) => {
                                 <h6 className={`${styles.discount_price}`}>৳ {discountPrice}</h6>
                             </div> : <div className='d-flex'><h6 className='fw-bold '>৳ {price}</h6></div>
                     }
-                    <div style={{
-                        display: "flex",
-                        flexDirection: "row"
-                    }}>
-                        <div className="w-50" style={{
-                            whiteSpace: "nowrap",
-                            overflow: "hidden",
+                    <div className='d-flex flex-row'>
+                        <div className="w-50 text-nowrap overflow-hidden" style={{
                             textOverflow: "ellipsis"
                         }}>
                             {
@@ -79,16 +74,6 @@ const ProductCard = (props) => {
                                     </small>
                             }
                         </div>
-                        {/* <div>
-                            <AiOutlineHeart onClick={() => handelAddToFavourite(props.product)}
-                                className={`${styles.icon} ms-1`} />
-                            {
-                                status === PRODUCT_STATUS.IN_STOCK ?
-                                    <AiOutlineShoppingCart onClick={() => handelAddToCart(props.product)}
-                                        className={`${styles.icon}`} /> :
-                                    null
-                            }
-                        </div> */}
                         <div className='w-50'>
                             {
                                 status === PRODUCT_STATUS.IN_STOCK ? <div className={styles.in_stock}>{status.split('-').join(' ')}</div> :
@@ -96,12 +81,18 @@ const ProductCard = (props) => {
                             }
                         </div>
                     </div>
-                    {/* <div className='mt-2'>
-                        {
-                            status === PRODUCT_STATUS.IN_STOCK ? <div className={styles.in_stock}>{status.split('-').join(' ')}</div> :
-                                <div className={styles.not_in_stock}>{status.split('-').join(' ')}</div>
-                        }
-                    </div> */}
+                    <div className='d-flex flex-row mt-2 pt-1'>
+                        <div className="w-50">
+                            <div className={styles.buy_now}>
+                                buy now
+                            </div>
+                        </div>
+                        <div className="w-50 text-end">
+                            <div className={styles.add_to_cart}>
+                                add to cart
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </Link >
         </div >

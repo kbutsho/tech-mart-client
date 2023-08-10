@@ -71,7 +71,7 @@
 .product_card .star_icon {
     font-size: 10px;
     margin-right: 3px;
-    margin-bottom: 2px;
+    margin-bottom: 1px;
 }
 
 .product_card .rating {
@@ -84,24 +84,54 @@
     font-size: 12px;
     font-weight: bold;
     color: black;
-    background-color: #f3f3f3;
+    /* background-color: #f3f3f3; */
     padding: 4px;
     border-radius: 3px;
-    text-align: center;
+    text-align: end;
 }
 
 .product_card .not_in_stock {
     font-size: 12px;
     font-weight: bold;
     color: #F29120;
-    background-color: #f3f3f3;
+    /* background-color: #f3f3f3; */
     padding: 4px;
     border-radius: 3px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    text-align: center;
+    text-align: end;
 }
+
+.product_card .add_to_cart {
+    font-size: 12px;
+    border: 0px;
+    padding: 4px 6px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+    font-weight: bold;
+    background-color: #c5b8aa;
+    color: white;
+    border-radius: 3px;
+}
+
+.product_card .buy_now {
+    font-size: 12px;
+    border: 0px;
+    padding: 4px 6px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 3px;
+    background-color: #f3f3f3;
+    margin-right: 3px;
+}
+
+
 
 .filter_header {
     padding: 8px 24px;
@@ -256,7 +286,7 @@
 
     .product_card .star_icon {
         font-size: 10px;
-        margin-bottom: 2px;
+        margin-bottom: 1px;
         margin-right: 3px;
         white-space: nowrap;
         overflow: hidden;
