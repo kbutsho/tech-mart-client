@@ -160,6 +160,32 @@ const ProductPage = ({ data }) => {
             <Breadcrumb />
             <div className='py-4'>
                 <div className="row">
+                    <div className="col-md-8 col-xxl-9">
+                        {/* product list area */}
+                        <div className="row">
+                            {currentProduct?.length > 0 ? (
+                                currentProduct?.map((product) => (
+                                    <ProductCard key={product._id} product={product} />
+                                ))
+                            ) : (
+                                <div className='d-flex justify-content-center align-items-center'
+                                    style={{ minHeight: "45vh" }}>
+                                    <h5>no camera found!</h5>
+                                </div>
+                            )}
+                        </div>
+                        {/* pagination */}
+                        <div className={styles.pagination}>
+                            {
+                                currentProduct.length > 0 ?
+                                    <Pagination data={filterAndSearchData}
+                                        productPerPage={productPerPage}
+                                        currentPage={currentPage}
+                                        handelPaginate={handelPaginate} />
+                                    : null
+                            }
+                        </div>
+                    </div>
                     <div className="col-md-4 col-xxl-3">
                         {/* show per page */}
                         <div className={`${styles.filter_header}`} style={{ marginTop: "12px" }}>
@@ -338,32 +364,6 @@ const ProductPage = ({ data }) => {
                         </div>
 
                         {/* product area */}
-                    </div>
-                    <div className="col-md-8 col-xxl-9">
-                        {/* product list area */}
-                        <div className="row">
-                            {currentProduct?.length > 0 ? (
-                                currentProduct?.map((product) => (
-                                    <ProductCard key={product._id} product={product} />
-                                ))
-                            ) : (
-                                <div className='d-flex justify-content-center align-items-center'
-                                    style={{ minHeight: "45vh" }}>
-                                    <h5>no camera found!</h5>
-                                </div>
-                            )}
-                        </div>
-                        {/* pagination */}
-                        <div className={styles.pagination}>
-                            {
-                                currentProduct.length > 0 ?
-                                    <Pagination data={filterAndSearchData}
-                                        productPerPage={productPerPage}
-                                        currentPage={currentPage}
-                                        handelPaginate={handelPaginate} />
-                                    : null
-                            }
-                        </div>
                     </div>
                 </div>
             </div>
