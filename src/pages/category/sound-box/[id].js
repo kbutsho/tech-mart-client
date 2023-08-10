@@ -5,8 +5,12 @@ import MainLayout from '@/layouts/MainLayout';
 const Details = ({ product }) => {
     return (
         <div className='container'>
-            <Breadcrumb name={product.data.name} />
-            <ProductDetailsCard product={product} />
+            <div className='details'>
+                <Breadcrumb name={product.data.name} />
+                <div className='py-4'>
+                    <ProductDetailsCard product={product} />
+                </div>
+            </div>
         </div>
     );
 };
