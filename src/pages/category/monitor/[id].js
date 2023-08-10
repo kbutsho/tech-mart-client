@@ -19,7 +19,26 @@ export default Details;
 Details.getLayout = function getLayout(page) {
     return <MainLayout>{page}</MainLayout>;
 };
-export const getServerSideProps = async (context) => {
+// export const getServerSideProps = async (context) => {
+//     const { params } = context;
+//     const res = await fetch(`https://tech-mart-server.vercel.app/api/products/${params.id}`);
+//     const product = await res.json();
+//     return {
+//         props: {
+//             product: product
+//         },
+//     };
+// };
+
+export const getStaticPaths = async () => {
+    const res = await fetch("https://tech-mart-server.vercel.app/api/products");
+    const data = await res.json();
+    const paths = data.data.map((product) => ({
+        params: { id: product.id }
+    }));
+    return { paths, fallback: false }
+}
+export const getStaticProps = async (context) => {
     const { params } = context;
     const res = await fetch(`https://tech-mart-server.vercel.app/api/products/${params.id}`);
     const product = await res.json();
@@ -27,5 +46,6 @@ export const getServerSideProps = async (context) => {
         props: {
             product: product
         },
+        revalidate: 30
     };
 };
