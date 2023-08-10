@@ -81,24 +81,25 @@
 }
 
 .product_card .in_stock {
-    font-size: 13px;
+    font-size: 12px;
     font-weight: bold;
     color: black;
     background-color: #f3f3f3;
     padding: 4px;
     border-radius: 3px;
-    width: 100%;
     text-align: center;
 }
 
 .product_card .not_in_stock {
-    font-size: 13px;
+    font-size: 12px;
     font-weight: bold;
     color: #F29120;
     background-color: #f3f3f3;
     padding: 4px;
     border-radius: 3px;
-    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     text-align: center;
 }
 
@@ -255,7 +256,11 @@
 
     .product_card .star_icon {
         font-size: 10px;
-        margin-bottom: 0;
+        margin-bottom: 2px;
+        margin-right: 3px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 
     .product_card .rating {

@@ -59,8 +59,15 @@ const ProductCard = (props) => {
                                 <h6 className={`${styles.discount_price}`}>৳ {discountPrice}</h6>
                             </div> : <div className='d-flex'><h6 className='fw-bold '>৳ {price}</h6></div>
                     }
-                    <div className=' d-flex justify-content-between'>
-                        <div className="rating">
+                    <div style={{
+                        display: "flex",
+                        flexDirection: "row"
+                    }}>
+                        <div className="w-50" style={{
+                            whiteSpace: "nowrap",
+                            overflow: "hidden",
+                            textOverflow: "ellipsis"
+                        }}>
                             {
                                 rating === 0 ? <small>
                                     <span className={styles.rating}>0</span>
@@ -72,7 +79,7 @@ const ProductCard = (props) => {
                                     </small>
                             }
                         </div>
-                        <div>
+                        {/* <div>
                             <AiOutlineHeart onClick={() => handelAddToFavourite(props.product)}
                                 className={`${styles.icon} ms-1`} />
                             {
@@ -81,17 +88,23 @@ const ProductCard = (props) => {
                                         className={`${styles.icon}`} /> :
                                     null
                             }
+                        </div> */}
+                        <div className='w-50'>
+                            {
+                                status === PRODUCT_STATUS.IN_STOCK ? <div className={styles.in_stock}>{status.split('-').join(' ')}</div> :
+                                    <div className={styles.not_in_stock}>{status.split('-').join(' ')}</div>
+                            }
                         </div>
                     </div>
-                    <div className='mt-2'>
+                    {/* <div className='mt-2'>
                         {
                             status === PRODUCT_STATUS.IN_STOCK ? <div className={styles.in_stock}>{status.split('-').join(' ')}</div> :
                                 <div className={styles.not_in_stock}>{status.split('-').join(' ')}</div>
                         }
-                    </div>
+                    </div> */}
                 </div>
-            </Link>
-        </div>
+            </Link >
+        </div >
     );
 };
 
