@@ -146,12 +146,12 @@ const LaptopCategory = ({ data }) => {
                                     onChange={(e) =>
                                         setProductPerPage(parseInt(e.target.value))
                                     }>
-                                    <option value="8" selected={productPerPage === 8}>08</option>
-                                    <option value="12" selected={productPerPage === 12}>12</option>
-                                    <option value="24" selected={productPerPage === 24}>24</option>
-                                    <option value="36" selected={productPerPage === 36}>36</option>
-                                    <option value="48" selected={productPerPage === 48}>48</option>
-                                    <option value="96" selected={productPerPage === 96}>96</option>
+                                    <option value="8" defaultValue={productPerPage === 8}>08</option>
+                                    <option value="12" defaultValue={productPerPage === 12}>12</option>
+                                    <option value="24" defaultValue={productPerPage === 24}>24</option>
+                                    <option value="36" defaultValue={productPerPage === 36}>36</option>
+                                    <option value="48" defaultValue={productPerPage === 48}>48</option>
+                                    <option value="96" defaultValue={productPerPage === 96}>96</option>
                                 </select>
                             </div>
 

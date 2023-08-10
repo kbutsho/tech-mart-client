@@ -3,14 +3,14 @@ import styles from '@/styles/navbar/index.module.css'
 import Image from "next/image";
 import logo from '@/assets/navbar/logo.png'
 import { BsSearch } from 'react-icons/bs'
-import cartImg from '@/assets/navbar/cart.png'
-import favoriteImg from '@/assets/navbar/favourite.png'
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { getCartTotal } from "@/redux/features/cartSlice";
 import { BiUserCircle } from 'react-icons/bi'
 import { AiOutlineHeart, AiOutlineMenuFold, AiOutlineShoppingCart } from "react-icons/ai";
 import { useRouter } from "next/router";
+import { globalSearch } from "@/redux/features/searchSlice";
+import { useState } from "react";
 
 function Navbar() {
     let cart = useSelector((state) => state.cart);
@@ -23,6 +23,23 @@ function Navbar() {
     const handelSearchCLick = () => {
         router.push('/products')
     }
+    const [searchTerm, setSearchTerm] = useState('');
+    const handelSearch = (event) => {
+        setSearchTerm(event.target.value);  
+    };
+    useEffect(() => {
+        dispatch(globalSearch(searchTerm));
+    }, [searchTerm])
+
+    // <div className={styles.search_area}>
+    //                             <input
+    //                                 type="text"
+    //                                 value={searchTerm}
+    //                                 onChange={handelSearch}
+    //                                 placeholder='search for phone'
+    //                                 className={`form-control ${styles.search_box}`} />
+    //                         </div>
+
 
     let favouriteProducts = useSelector((state) => state.favourite.products);
     return (
@@ -99,7 +116,12 @@ function Navbar() {
                     <div className="row">
                         <div className="col-12">
                             <form className={`d-flex align-items-center`}>
-                                <input onClick={handelSearchCLick} type="text" placeholder='search for products' className={`form-control w-100 ${styles.search_input}`} />
+                                <input onClick={handelSearchCLick}
+                                    type="text"
+                                    onChange={handelSearch}
+                                    value={searchTerm}
+                                    placeholder='search for products'
+                                    className={`form-control w-100 ${styles.search_input}`} />
                                 <BsSearch size="24px" style={{ marginLeft: "-50px" }} type='submit' />
                             </form>
                         </div>

@@ -3,6 +3,7 @@ import cartReducer from "./features/cartSlice";
 import favouriteReducer from "./features/favouriteSlice";
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
+import searchReducer from './features/searchSlice'
 
 const persistConfig = {
     key: 'root',
@@ -10,7 +11,8 @@ const persistConfig = {
 };
 const rootReducer = combineReducers({
     cart: cartReducer,
-    favourite: favouriteReducer
+    favourite: favouriteReducer,
+    search: searchReducer
 });
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 export const store = configureStore({

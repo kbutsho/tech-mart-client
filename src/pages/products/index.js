@@ -10,6 +10,8 @@ import { IoIosArrowUp, IoIosArrowDown } from 'react-icons/io'
 import { PRICE_SORT_ORDER, PRODUCT_BRAND, PRODUCT_STATUS } from '@/constant/product.constant';
 import Pagination from '@/components/Pagination/Pagination';
 import { AiFillStar } from 'react-icons/ai';
+import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
 
 const ProductPage = ({ data }) => {
     const [product, setProduct] = useState(data.productResponse);
@@ -115,10 +117,11 @@ const ProductPage = ({ data }) => {
     }
 
     // search input field
+    const searchData = useSelector((state) => state.search.prompt)
     const [searchTerm, setSearchTerm] = useState('');
-    const handelSearch = (event) => {
-        setSearchTerm(event.target.value);
-    };
+    useEffect(() => {
+        setSearchTerm(searchData)
+    }, [searchData])
 
     // combine filter search and sort
     const filterAndSearchData = product?.data?.filter((item) => {
@@ -131,9 +134,6 @@ const ProductPage = ({ data }) => {
         const searchMatch = searchTerm === '' ||
             item.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
             item.category.toLowerCase().includes(searchTerm.toLowerCase()) ||
-            item.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-            item.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
-            item.features.toLowerCase().includes(searchTerm.toLowerCase()) ||
             item.brand.toLowerCase().includes(searchTerm.toLowerCase());
         return priceRangeMatch && statusMatch && brandMatch && ratingRangeMatch && searchMatch;
     })    // sort
@@ -175,7 +175,7 @@ const ProductPage = ({ data }) => {
                             )}
                         </div>
                         {/* pagination */}
-                        <div className={styles.pagination}>
+                        <div className={`d-flex justify-content-start ${ styles.pagination }`}>
                             {
                                 currentProduct.length > 0 ?
                                     <Pagination data={filterAndSearchData}
@@ -196,11 +196,11 @@ const ProductPage = ({ data }) => {
                                 onChange={(e) =>
                                     setProductPerPage(parseInt(e.target.value))
                                 }>
-                                <option value="12" selected={productPerPage === 12}>12</option>
-                                <option value="24" selected={productPerPage === 24}>24</option>
-                                <option value="36" selected={productPerPage === 36}>36</option>
-                                <option value="48" selected={productPerPage === 48}>48</option>
-                                <option value="96" selected={productPerPage === 96}>96</option>
+                                <option value="12" defaultValue={productPerPage === 12}>12</option>
+                                <option value="24" defaultValue={productPerPage === 24}>24</option>
+                                <option value="36" defaultValue={productPerPage === 36}>36</option>
+                                <option value="48" defaultValue={productPerPage === 48}>48</option>
+                                <option value="96" defaultValue={productPerPage === 96}>96</option>
                             </select>
                         </div>
 

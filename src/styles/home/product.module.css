@@ -125,7 +125,7 @@
     width: 4.2rem;
 }
 
-.filter_header .custom_select option[selected] {
+.filter_header .custom_select option[defaultValue] {
     background-color: #007bff;
     color: #fff;
 }
