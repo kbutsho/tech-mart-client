@@ -16,4 +16,8 @@
     .feature {
         font-size: 12px;
     }
+
+    .stock_status {
+        padding: 5px 16px;
+    }
 }
