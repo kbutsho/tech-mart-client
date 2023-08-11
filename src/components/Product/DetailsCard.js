@@ -51,13 +51,13 @@ const ProductDetailsCard = ({ product }) => {
                     }
                     <li className={styles.feature}>rating {
                         product.data.rating === 0 ?
-                            <BsStar /> : (<>
-                                {renderRatingStars()} {product.data.rating}
+                            (<>0 <BsStar /></>) : (<>
+                                {product.data.rating} {renderRatingStars()}
                             </>)
                     }</li>
-                    <li className={styles.feature}>status <span className={styles.stock_status}>{product.data.status.split('-').join(' ')}</span></li>
                 </ul>
-                <h6 className='fw-bold'><AiOutlineFileProtect /> {product.data.warranty}</h6>
+                <span className={`mb-5 ${styles.stock_status}`}>{product.data.status.split('-').join(' ')}</span>
+                <h6 className='fw-bold mt-3'><AiOutlineFileProtect /> {product.data.warranty}</h6>
                 <div className='mt-3'>
                     <button className='btn btn-primary fw-bold me-2'
                         onClick={() => handelAddToCart(product.data)}>add to cart</button>
