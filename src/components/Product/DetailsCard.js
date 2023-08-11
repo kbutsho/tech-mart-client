@@ -34,8 +34,8 @@ const ProductDetailsCard = ({ product }) => {
             <div className="col-md-8 col-12">
                 <h5 className='fw-bold'>{product.data.name}</h5>
                 <h6>৳ {product.data.discountPrice}</h6>
+                <h6 className='mt-3'>Quick info</h6>
                 <ul>
-                    <li className={styles.feature}>{product.data.title}</li>
                     <li className={styles.feature}>available only {product.data.quantity}</li>
                     {
                         product.data.size === 'unspecific' ? null :
