@@ -82,10 +82,30 @@ const ProductCard = (props) => {
                             }
                         </div>
                     </div>
-                    <div className='mt-2'>
+                    <div className='d-flex flex-row mt-2 pt-1'>
                         {
-                            status === PRODUCT_STATUS.IN_STOCK ? <div className={styles.in_stock}>{status.split('-').join(' ')}</div> :
-                                <div className={styles.not_in_stock}>{status.split('-').join(' ')}</div>
+                            status === PRODUCT_STATUS.IN_STOCK ? (
+                                <>
+                                    <div className="w-50">
+                                        <div className={styles.in_stock}>
+                                            {status.split('-').join(' ')}
+                                        </div>
+                                    </div>
+                                    <div className="w-50">
+                                        <div className={styles.buy_now}>
+                                            <Link className={styles.url_link} href={`/category/${category}/${_id}`}>
+                                                buy now
+                                            </Link>
+                                        </div>
+                                    </div>
+                                </>
+                            ) : (
+                                <div className="w-100">
+                                    <div className={styles.not_in_stock}>
+                                        {status.split('-').join(' ')}
+                                    </div>
+                                </div>
+                            )
                         }
                     </div>
                 </div>

@@ -85,7 +85,7 @@
     font-weight: bold;
     padding: 4px;
     border-radius: 3px;
-    text-align: end;
+    text-align: start;
 }
 
 .product_card .not_in_stock {
@@ -100,7 +100,7 @@
     text-align: end;
 }
 
-.product_card .add_to_cart {
+/* .product_card .add_to_cart {
     font-size: 12px;
     border: 0px;
     padding: 4px 6px;
@@ -113,7 +113,7 @@
     border-radius: 3px;
     margin-right: 3px;
     cursor: pointer;
-}
+} */
 
 .product_card .buy_now {
     font-size: 12px;
@@ -126,8 +126,6 @@
     font-weight: bold;
     border-radius: 3px;
     background-color: #f3f3f3;
-    margin-left: 3px;
-  
 }
 
 
