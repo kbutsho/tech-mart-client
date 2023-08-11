@@ -51,7 +51,7 @@ const ProductDetailsCard = ({ product }) => {
                     }
                     <li className={styles.feature}>rating {
                         product.data.rating === 0 ?
-                            (<>0 <BsStar /></>) : (<>
+                            (<>0 <BsStar className="mb-1 ms-1" /></>) : (<>
                                 {product.data.rating} {renderRatingStars()}
                             </>)
                     }</li>
