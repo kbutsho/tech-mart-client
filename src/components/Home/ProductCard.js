@@ -33,68 +33,68 @@ const ProductCard = (props) => {
     // }
     return (
         <div className='col-md-4 col-lg-3 col-xl-3 col-xxl-2 col-sm-6 col-6'>
-            <Link className={styles.url_link}
-                href={`/category/${category}/${_id}`}>
-                <div className={`${styles.product_card}`}>
-                    <div className={styles.product_header}>
-                        {
-                            offer > 0 ? <span className={styles.offer_percentage}>{offer}% OFF</span> : null
-                        }
-                        <div className={styles.product_image}>
-                            <Image
-                                src={coverPhoto}
-                                width={170}
-                                height={170}
-                                layout='responsive'
-                                alt="img"
-                            />
-                        </div>
-                    </div>
-
-                    <h6 className={`${styles.product_name} mt-2`}>{name}</h6>
+            <div className={`${styles.product_card}`}>
+                <div className={styles.product_header}>
                     {
-                        discountPrice < price ?
-                            <div className='d-flex justify-content-between'>
-                                <h6 className={`${styles.previous_price}`}>৳ {price}</h6>
-                                <h6 className={`${styles.discount_price}`}>৳ {discountPrice}</h6>
-                            </div> : <div className='d-flex'><h6 className='fw-bold '>৳ {price}</h6></div>
+                        offer > 0 ? <span className={styles.offer_percentage}>{offer}% OFF</span> : null
                     }
-                    <div className='d-flex flex-row'>
-                        <div className="w-50 text-nowrap overflow-hidden" style={{
-                            textOverflow: "ellipsis"
-                        }}>
-                            {
-                                rating === 0 ? <small>
-                                    <span className={styles.rating}>0</span>
-                                    <BsStar className={`${styles.star_icon}`} />
+                    <div className={styles.product_image}>
+                        <Image
+                            src={coverPhoto}
+                            width={170}
+                            height={170}
+                            layout='responsive'
+                            alt="img"
+                        />
+                    </div>
+                </div>
+
+                <h6 className={`${styles.product_name} mt-2`}>{name}</h6>
+                {
+                    discountPrice < price ?
+                        <div className='d-flex justify-content-between'>
+                            <h6 className={`${styles.previous_price}`}>৳ {price}</h6>
+                            <h6 className={`${styles.discount_price}`}>৳ {discountPrice}</h6>
+                        </div> : <div className='d-flex'><h6 className='fw-bold '>৳ {price}</h6></div>
+                }
+                <div className='d-flex flex-row'>
+                    <div className="w-50 text-nowrap overflow-hidden" style={{
+                        textOverflow: "ellipsis"
+                    }}>
+                        {
+                            rating === 0 ? <small>
+                                <span className={styles.rating}>0</span>
+                                <BsStar className={`${styles.star_icon}`} />
+                            </small>
+                                : <small>
+                                    <span className={styles.rating}>{rating}</span>
+                                    {renderRatingStars()}
                                 </small>
-                                    : <small>
-                                        <span className={styles.rating}>{rating}</span>
-                                        {renderRatingStars()}
-                                    </small>
-                            }
-                        </div>
-                        <div className='w-50'>
-                            {
-                                status === PRODUCT_STATUS.IN_STOCK ? <div className={styles.in_stock}>{status.split('-').join(' ')}</div> :
-                                    <div className={styles.not_in_stock}>{status.split('-').join(' ')}</div>
-                            }
+                        }
+                    </div>
+                    <div className='w-50'>
+                        {
+                            status === PRODUCT_STATUS.IN_STOCK ? <div className={styles.in_stock}>{status.split('-').join(' ')}</div> :
+                                <div className={styles.not_in_stock}>{status.split('-').join(' ')}</div>
+                        }
+                    </div>
+                </div>
+                <div className='d-flex flex-row mt-2 pt-1'>
+                    <div className="w-50">
+                        <div className={styles.add_to_cart} onClick={() => handelAddToCart(props.product)}>
+                            add to cart
                         </div>
                     </div>
-                    <div className='d-flex flex-row mt-2 pt-1'>
-                        <div className="w-50">
-                            <div className={styles.add_to_cart}>
-                                add to cart
-                            </div>
-                        </div>
-                        <div className="w-50 text-end">
-                            <div className={styles.buy_now}>
+                    <div className="w-50 text-end">
+                        <div className={styles.buy_now}>
+                            <Link className={styles.url_link}
+                                href={`/category/${category}/${_id}`}>
                                 buy now
-                            </div>
+                            </Link>
                         </div>
                     </div>
                 </div>
-            </Link >
+            </div>
         </div >
     );
 };
