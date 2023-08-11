@@ -28,9 +28,9 @@ const ProductCard = (props) => {
     const handelAddToCart = (product) => {
         dispatch(addToCart(product));
     }
-    const handelAddToFavourite = (product) => {
-        dispatch(addToFavourite(product));
-    }
+    // const handelAddToFavourite = (product) => {
+    //     dispatch(addToFavourite(product));
+    // }
     return (
         <div className='col-md-4 col-lg-3 col-xl-3 col-xxl-2 col-sm-6 col-6'>
             <Link className={styles.url_link}
@@ -41,7 +41,7 @@ const ProductCard = (props) => {
                             offer > 0 ? <span className={styles.offer_percentage}>{offer}% OFF</span> : null
                         }
                         <div className={styles.product_image}>
-                            <Image className='bg-info'
+                            <Image
                                 src={coverPhoto}
                                 width={170}
                                 height={170}
@@ -83,13 +83,13 @@ const ProductCard = (props) => {
                     </div>
                     <div className='d-flex flex-row mt-2 pt-1'>
                         <div className="w-50">
-                            <div className={styles.buy_now}>
-                                buy now
+                            <div className={styles.add_to_cart}>
+                                add to cart
                             </div>
                         </div>
                         <div className="w-50 text-end">
-                            <div className={styles.add_to_cart}>
-                                add to cart
+                            <div className={styles.buy_now}>
+                                buy now
                             </div>
                         </div>
                     </div>

@@ -83,8 +83,6 @@
 .product_card .in_stock {
     font-size: 12px;
     font-weight: bold;
-    color: black;
-    /* background-color: #f3f3f3; */
     padding: 4px;
     border-radius: 3px;
     text-align: end;
@@ -94,7 +92,6 @@
     font-size: 12px;
     font-weight: bold;
     color: #F29120;
-    /* background-color: #f3f3f3; */
     padding: 4px;
     border-radius: 3px;
     white-space: nowrap;
@@ -115,6 +112,7 @@
     background-color: #c5b8aa;
     color: white;
     border-radius: 3px;
+    margin-right: 3px;
 }
 
 .product_card .buy_now {
@@ -128,7 +126,8 @@
     font-weight: bold;
     border-radius: 3px;
     background-color: #f3f3f3;
-    margin-right: 3px;
+    margin-left: 3px;
+  
 }
 
 
