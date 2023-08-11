@@ -1,5 +1,16 @@
 .feature {
     font-size: 16px;
+    padding: 5px 0;
+}
+
+.stock_status {
+    padding: 6px 16px;
+    border-radius: 3px;
+    background-color: #F29120;
+    font-size: 12px;
+    font-weight: bold;
+    color: white;
+    margin-left: 10px;
 }
 
 @media screen and (max-width: 468px) {
