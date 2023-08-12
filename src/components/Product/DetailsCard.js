@@ -24,6 +24,16 @@ const ProductDetailsCard = ({ product }) => {
         }
         return stars;
     };
+
+    const getStarIcons = (rating) => {
+        const starIcons = [];
+        for (let i = 1; i <= rating; i++) {
+            const starClassName = i <= rating ? styles.filledStar : styles.emptyStar;
+            starIcons.push(<span key={i} className={starClassName} style={{ color: "#F29120" }}>★</span>);
+        }
+
+        return starIcons;
+    };
     return (
         <div className="row">
             <div className="col-md-4 col-12">
@@ -66,6 +76,39 @@ const ProductDetailsCard = ({ product }) => {
             </div>
             <div className='mt-3'>
                 <FeaturesTable features={productFeatures} description={product.data.description} />
+            </div>
+
+            <div className='mt-3'>
+                <h6 className='fw-bold'>Reviews</h6>
+                <hr />
+            </div>
+            <div className="container">
+                <div className="row" >
+                    {
+                        product.data.reviews.map((review, index) =>
+                            <div key={index} className='col-md-6' >
+                                <div className='pt-3 px-3' style={{ background: "#f3f3f3", borderRadius: "5px", margin: "12px 0" }}>
+                                    <div className='d-flex'>
+                                        <h6 className='me-2 fw-bold'>kbutsho</h6>
+                                        <h6> {getStarIcons(review.rating)}</h6>
+                                    </div>
+                                    <div>
+                                        <h6 className={` ${styles.comment}`}>{review.comment}</h6>
+                                    </div>
+                                    <div className='row mt-3'>
+                                        {
+                                            review.photos.map((photo, index) =>
+                                                <div className='col-md-4' key={index} style={{ height: "120px", width: "120px" }}>
+                                                    <Image src={photo} layout='responsive' height={100} width={100} alt="img" />
+                                                </div>
+                                            )
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        )
+                    }
+                </div>
             </div>
         </div>
     );
