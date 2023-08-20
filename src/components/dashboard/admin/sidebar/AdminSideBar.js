@@ -39,7 +39,7 @@ const AdminSidebar = ({ children }) => {
                 </ul>
             </nav>
 
-            <div className="p-4 p-md-5">
+            <div className="py-4 py-md-5 px-2">
                 <nav className="navbar navbar-expand-lg navbar-light bg-light">
                     <div className="container">
                         <button onClick={toggleSidebar} type="button" id={styles.sidebarCollapse} className="btn btn-primary">
