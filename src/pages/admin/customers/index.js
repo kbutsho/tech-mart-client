@@ -1,5 +1,5 @@
 import Breadcrumb from '@/components/Breadcrumb/Index';
-import AdminSidebar from '@/layouts/admin/sidebar';
+import AdminSidebar from '@/layouts/admin/Sidebar';
 import Head from 'next/head';
 
 const AdminCustomers = () => {
