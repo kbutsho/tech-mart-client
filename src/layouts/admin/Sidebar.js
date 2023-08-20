@@ -88,12 +88,12 @@ const AdminSidebar = ({ children }) => {
             <div className="py-4 py-md-5 px-2">
                 <nav className="navbar navbar-expand-lg navbar-light bg-light">
                     <div className="container">
-                        <button onClick={toggleSidebar} type="button" id={styles.sidebarCollapse} className="btn btn-sm btn-secondary">
+                        <button onClick={toggleSidebar} type="button" id={styles.sidebarCollapse} className="btn py-1 px-2 btn-secondary">
                             {
                                 active ?
-                                    <span> <MdKeyboardDoubleArrowRight size="24" /></span>
+                                    <MdKeyboardDoubleArrowRight size="24" />
                                     :
-                                    <span><MdKeyboardDoubleArrowLeft size="24" /></span>
+                                    <MdKeyboardDoubleArrowLeft size="24" />
                             }
                         </button>
                         <ul className="nav navbar-nav ms-auto">
