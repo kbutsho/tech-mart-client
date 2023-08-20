@@ -1,12 +1,13 @@
 import Link from 'next/link';
 import React, { useState } from 'react';
-import { AiFillHome, AiOutlineMenu } from 'react-icons/ai';
+import { AiFillHome } from 'react-icons/ai';
 import { BiSolidCategory, BiSolidUser } from 'react-icons/bi';
 import styles from '@/styles/sidebar/sidebar.module.css';
 import { BsBoxSeamFill } from 'react-icons/bs';
 import { MdOutlineBrandingWatermark } from 'react-icons/md';
 import { FaHospitalUser, FaPowerOff, FaUserTie, FaUsers } from 'react-icons/fa';
 import { FiSettings } from 'react-icons/fi';
+import { VscCollapseAll } from 'react-icons/vsc';
 
 const AdminSidebar = ({ children }) => {
     const [active, setActive] = useState(true);
@@ -90,7 +91,7 @@ const AdminSidebar = ({ children }) => {
                 <nav className="navbar navbar-expand-lg navbar-light bg-light">
                     <div className="container">
                         <button onClick={toggleSidebar} type="button" id={styles.sidebarCollapse} className="btn btn-primary">
-                            <AiOutlineMenu size="24" className='pb-1' />
+                            <VscCollapseAll size="24" className='pb-1' />
                         </button>
                         <ul className="nav navbar-nav ms-auto">
                             <li>
