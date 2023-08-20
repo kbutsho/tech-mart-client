@@ -4,12 +4,12 @@ import Head from "next/head";
 
 const Dashboard = () => {
     return (
-        <div className="bg-warning">
+        <div>
             <Head>
                 <title>Dashboard</title>
             </Head>
             <Breadcrumb />
-            <div className="p-md-5 p-2">
+            <div className="px-md-5 px-2 mt-3">
                 <div className="row">
                     <div className="col-md-3 mb-2">
                         <div className="bg-info p-3">

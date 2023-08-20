@@ -31,14 +31,7 @@ function Navbar() {
         dispatch(globalSearch(searchTerm));
     }, [searchTerm])
 
-    // <div className={styles.search_area}>
-    //                             <input
-    //                                 type="text"
-    //                                 value={searchTerm}
-    //                                 onChange={handelSearch}
-    //                                 placeholder='search for phone'
-    //                                 className={`form-control ${styles.search_box}`} />
-    //                         </div>
+
 
 
     let favouriteProducts = useSelector((state) => state.favourite.products);
