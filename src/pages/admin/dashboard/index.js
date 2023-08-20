@@ -9,7 +9,7 @@ const Dashboard = () => {
                 <title>Dashboard</title>
             </Head>
             <Breadcrumb />
-            <div className="p-md-5 p-3">
+            <div className="p-md-5 p-2">
                 <div className="row">
                     <div className="col-md-3 my-2">
                         <div className="bg-info p-3">
