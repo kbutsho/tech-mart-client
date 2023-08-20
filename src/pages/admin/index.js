@@ -7,6 +7,8 @@ const Admin = () => {
         <div>
             <Head>
                 <title>Sidebar 07</title>
+                <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet" />
+                <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
                 <link rel="stylesheet" href="/css/style.css" />
             </Head>
 
@@ -51,6 +53,11 @@ const Admin = () => {
                         </nav>
 
                         <h2 class="mb-4">Dashboard</h2>
+                        <div className="row">
+                            <div className="col-md-4 bg-success">Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus voluptates quos numquam sunt. Porro eos vel consequatur minus animi quia culpa rem natus accusantium commodi vero totam illum ratione incidunt, reiciendis iusto. Architecto perferendis itaque iusto modi quo totam ex asperiores quia explicabo quibusdam repudiandae animi quas sequi cum nesciunt est recusandae quasi ducimus necessitatibus eaque, sed, vero veritatis facilis. Rem neque temporibus, voluptatum consectetur similique quas nulla aut, quasi consequuntur officiis nemo expedita eaque molestias veritatis? Blanditiis iusto sequi at officia molestias explicabo illum sed deserunt, officiis voluptatibus ratione totam. Suscipit voluptates nulla illum unde consectetur est aspernatur perspiciatis?</div>
+                            <div className="col-md-4 bg-primary">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis quasi accusantium necessitatibus explicabo ad fuga beatae neque sunt in natus ipsa, animi aliquam vel sed nihil ducimus atque, tempore possimus laudantium reiciendis fugiat! Delectus debitis cumque consequuntur est optio, magnam, sint necessitatibus quos repellat ad, facilis saepe libero quidem veritatis molestiae ullam? Inventore eius doloremque officia consectetur dicta, consequuntur ad quam cum repellendus, facere a nesciunt aut provident laboriosam sapiente at iste quia nihil dignissimos. Unde culpa harum delectus aperiam veniam impedit, assumenda quod placeat quidem itaque deserunt exercitationem officia nihil molestiae hic repellat dolore iure fugiat id non sunt.</div>
+                            <div className="col-md-4 bg-info">Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis possimus, explicabo commodi delectus fugiat iure rem earum numquam vitae adipisci, veritatis ab neque impedit eligendi! Enim quo unde iure nulla, eos voluptatum. Asperiores voluptas iste quasi beatae aperiam, ex illo dolore quod provident aspernatur placeat eos tenetur itaque in ullam eaque officia facere id assumenda quia. Necessitatibus ut nesciunt temporibus voluptatibus iste cumque explicabo est saepe maiores aspernatur, distinctio ab commodi earum nostrum eaque reprehenderit error reiciendis consequuntur aut quidem laudantium nobis consequatur! Nisi consequuntur ab repellendus, nam eligendi possimus nemo doloremque magnam delectus et itaque quia consequatur minima accusamus.</div>
+                        </div>
                     </div>
                 </div>
 
