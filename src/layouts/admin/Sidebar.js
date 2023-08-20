@@ -7,7 +7,7 @@ import { BsBoxSeamFill } from 'react-icons/bs';
 import { MdDoubleArrow, MdKeyboardDoubleArrowLeft, MdKeyboardDoubleArrowRight, MdOutlineBrandingWatermark } from 'react-icons/md';
 import { FaHospitalUser, FaPowerOff, FaUserTie, FaUsers } from 'react-icons/fa';
 import { FiSettings } from 'react-icons/fi';
-import logo from '@/assets/navbar/logo-white.png'
+import leftArrow from '@/assets/navbar/left-arrow.png'
 import Image from 'next/image';
 
 const AdminSidebar = ({ children }) => {
@@ -27,10 +27,13 @@ const AdminSidebar = ({ children }) => {
                     {
                         active ?
                             <li className='mb-2'>
-                                <span onClick={toggleSidebar} className={`${styles.icon}`} style={{ cursor: "pointer" }}>
-                                    <MdDoubleArrow size="24" color='white' />
+                                <span onClick={toggleSidebar}
+                                    className={`${styles.icon}`}
+                                    style={{ cursor: "pointer" }}>
+                                    <MdDoubleArrow size="24" />
                                 </span>
-                            </li> : null
+                            </li> :
+                            null
                     }
                     <li>
                         <Link href="/admin/dashboard" className='fw-bold'>
@@ -95,30 +98,29 @@ const AdminSidebar = ({ children }) => {
                 </ul>
             </nav>
 
-            <div className="px-2">
-                <nav className="navbar navbar-expand-lg navbar-light bg-light">
-                    <div className="container">
+            <div>
+                <nav className="navbar navbar-expand-lg" style={{ background: "#0A2647" }}>
+                    <div className='container'>
                         {
                             active ? null :
-                                <button onClick={toggleSidebar}
-                                    id={styles.sidebarCollapse}
-                                    className="btn py-1 px-2 btn-secondary">
-                                    <MdKeyboardDoubleArrowLeft size="24" />
-                                </button>
+                                <span onClick={toggleSidebar} id={styles.sidebarCollapse}>
+                                    <Image
+                                        style={{ cursor: "pointer" }}
+                                        src={leftArrow} height={24} width={24} alt="img" />
+                                </span>
                         }
-
                         <ul className="nav navbar-nav ms-auto">
                             <li>
                                 <Link className="nav-link d-flex align-items-center" href="/">
-                                    <BiSolidUserCircle size="30" />
-                                    <span className='ms-2 fw-bold'>kbutsho</span>
+                                    <BiSolidUserCircle size="30" color="white" />
+                                    <span className='ms-2 fw-bold text-white'>kbutsho</span>
                                 </Link>
                             </li>
                         </ul>
                     </div>
                 </nav>
 
-                <div onContextMenu={handleContextMenu}>
+                <div className="px-2" onContextMenu={handleContextMenu}>
                     {children}
                 </div>
             </div>

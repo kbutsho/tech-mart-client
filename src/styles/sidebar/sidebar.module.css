@@ -2,7 +2,7 @@
     min-width: 270px;
     max-width: 270px;
     min-height: 100vh;
-    background: rgb(36, 23, 81);
+    background: #0A2647;
     color: #fff;
     transition: all 0.3s;
 }
@@ -49,6 +49,13 @@
 }
 
 #sidebar ul li a {
+    padding: 10px 30px;
+    display: block;
+    color: white;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#sidebar ul li .collapses {
     padding: 10px 30px;
     display: block;
     color: white;

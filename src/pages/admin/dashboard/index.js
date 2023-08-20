@@ -9,7 +9,7 @@ const Dashboard = () => {
                 <title>Dashboard</title>
             </Head>
             <Breadcrumb />
-            <div className="px-md-5 px-2 py-3">
+            <div className="px-md-3 px-2 py-2">
                 <div className="row">
                     <div className="col-md-3 mb-2">
                         <div className="bg-info p-3">
