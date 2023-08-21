@@ -4,6 +4,8 @@ import React from 'react';
 import login from '@/assets/login/login-main.png'
 import google from '@/assets/login/google.png'
 import { useState } from 'react';
+import Link from 'next/link';
+import { BiHide, BiShow } from 'react-icons/bi';
 
 
 
@@ -14,7 +16,6 @@ const Login = () => {
         setEmail(user.email);
         setPassword(user.password);
     };
-
     const demoUser = {
         admin: {
             email: process.env.NEXT_PUBLIC_ADMIN_EMAIL,
@@ -32,7 +33,10 @@ const Login = () => {
             email: process.env.NEXT_PUBLIC_CUSTOMER_EMAIL,
             password: process.env.NEXT_PUBLIC_CUSTOMER_PASSWORD
         },
-
+    }
+    const [showPassword, setShowPassword] = useState(false)
+    const showPasswordBtn = () => {
+        setShowPassword(!showPassword);
     }
     return (
         <div className={styles.login_area}>
@@ -52,17 +56,29 @@ const Login = () => {
                                         className='form-control'
                                         value={email}
                                         onChange={(e) => setEmail(e.target.value)} />
-                                    {/* <small className='fw-bold text-danger'>email is required!</small> */}
+                                    <small className='fw-bold text-danger'>email is required!</small>
                                 </div>
 
                                 <div className="form-group mb-4">
                                     <label className='mb-1'>Password</label>
-                                    <input type="text"
-                                        placeholder='Type password'
-                                        className='form-control mb-1'
-                                        value={password}
-                                        onChange={(e) => setPassword(e.target.value)} />
-                                    {/* <small className='fw-bold text-danger'>password is required!</small> */}
+                                    <div className='d-flex align-items-center'>
+                                        <input
+                                            type={showPassword ? "text" : "password"}
+                                            placeholder='Type password'
+                                            className='form-control mb-1'
+                                            value={password}
+                                            onChange={(e) => setPassword(e.target.value)} />
+                                        {
+                                            showPassword ?
+                                                <BiHide onClick={() => showPasswordBtn()}
+                                                    style={{ marginLeft: "-40px", marginBottom: "2px", cursor: "pointer" }}
+                                                    size="25" /> :
+                                                <BiShow onClick={() => showPasswordBtn()}
+                                                    style={{ marginLeft: "-40px", marginBottom: "2px", cursor: "pointer" }}
+                                                    size="25" />
+                                        }
+                                    </div>
+                                    <small className='fw-bold text-danger'>password is required!</small>
                                     <div>
                                         <small><a href='/'>forget password?</a></small>
                                     </div>
@@ -103,7 +119,7 @@ const Login = () => {
                                     </div> : null
                             }
                             <div className='d-flex justify-content-end mt-3'>
-                                <small >don't have an account? <a href="/signup">signup here</a></small>
+                                <small >don't have an account? <Link className='fw-bold' href="/signup">signup here</Link></small>
                             </div>
                         </div>
                     </div>
