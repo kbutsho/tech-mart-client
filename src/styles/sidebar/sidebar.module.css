@@ -14,6 +14,7 @@
 
 #sidebar .components li .icon {
     transition: all .3s;
+    font-size: 24px;
 }
 
 #sidebar.active {
@@ -23,8 +24,14 @@
 }
 
 #sidebar.active ul.components li .link_text {
-    display: none;
-    transition: all 0.3s;
+    /* display: none; */
+    transition: all .3s;
+    font-size: 10px;
+}
+
+#sidebar ul.components li .link_text {
+    transition: all .3s;
+    display: inline;
 }
 
 #sidebar.active ul.components li a {
@@ -53,6 +60,7 @@
     display: block;
     color: white;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: 3s;
 }
 
 #sidebar ul li .collapses {
@@ -92,5 +100,11 @@
 @media (max-width: 992px) {
     #sidebarCollapse span {
         display: none;
+    }
+}
+
+@media (max-width: 468px) {
+    #sidebar .components li .icon {
+        font-size: 16px;
     }
 }
