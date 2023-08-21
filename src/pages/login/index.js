@@ -62,7 +62,6 @@ const Login = () => {
             }
             const response = await axios.post(`https://tech-mart-server.vercel.app/api/auth/login`, data
             );
-            console.log(response)
             if (response.data.data) {
                 const token = response.data.data.accessToken;
                 const role = response.data.data.role
@@ -85,7 +84,6 @@ const Login = () => {
                 setLoading(false);
                 toast.error('something went wrong!')
             }
-
         } catch (error) {
             setLoading(false);
             const errorMessages = error.response.data.errorMessages;
@@ -98,7 +96,6 @@ const Login = () => {
                 errors: formattedErrors
             }));
             toast.error(error.response.data.message)
-
         }
     }
     return (

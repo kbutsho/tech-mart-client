@@ -115,12 +115,10 @@ const ManagerLayout = ({ children }) => {
                         </Link>
                     </li>
                     <li>
-                        <div onClick={handleLogout} className={`${styles.login_btn} fw-bold`}>
-                            <span className={styles.icon}><FaPowerOff color="red"
-                                style={{ marginLeft: active ? "6px" : "0" }} />
-                            </span>
+                        <a onClick={handleLogout} className={`fw-bold`} style={{ cursor: "pointer" }}>
+                            <span className={styles.icon}><FaPowerOff color="red" /></span>
                             <span className={styles.link_text}>Logout</span>
-                        </div>
+                        </a>
                     </li>
                 </ul>
             </nav>
