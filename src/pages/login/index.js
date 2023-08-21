@@ -62,8 +62,8 @@ const Login = () => {
             }
             const response = await axios.post(`https://tech-mart-server.vercel.app/api/auth/login`, data
             );
+            console.log(response)
             if (response.data.data) {
-                setLoading(false);
                 const token = response.data.data.accessToken;
                 const role = response.data.data.role
                 Cookies.set('token', token, { expires: 7 });

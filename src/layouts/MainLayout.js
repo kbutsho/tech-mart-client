@@ -2,18 +2,19 @@ import Footer from './Footer';
 import Navbar from './Navbar';
 
 const MainLayout = ({ children }) => {
-    const handleContextMenu = (event) => {
-        if (process.env.NODE_ENV === 'production') {
-            event.preventDefault();
-        }
-    };
+    // const handleContextMenu = (event) => {
+    //     if (process.env.NODE_ENV === 'production') {
+    //         event.preventDefault();
+    //     }
+    // };
     return (
         <div>
             <Navbar />
             <div>
-                <div 
+                <div
                     className='main_area'
-                    onContextMenu={handleContextMenu}>
+                // onContextMenu={handleContextMenu}
+                >
                     {children}
                 </div>
                 <div className='footer_area'>
