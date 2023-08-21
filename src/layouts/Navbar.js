@@ -65,15 +65,15 @@ function Navbar() {
 
                     <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
                         <div className={`navbar-nav ms-auto  ${styles.nav_items}`}>
-                            <Link className={`nav-link`} href="/category/phone">Phone</Link>
-                            <Link className="nav-link" href="/category/laptop">Laptop</Link>
-                            <Link className="nav-link" href="/category/watch">Watch</Link>
-                            <Link className="nav-link" href="/category/camera">Camera</Link>
-                            <Link className="nav-link" href="/category/television">Television</Link>
-                            <Link className="nav-link" href="/category/monitor">Monitor</Link>
-                            <Link className="nav-link" href="/category/earphone">Earphone</Link>
-                            <Link className="nav-link" href="/category/charger">Charger</Link>
-                            <Link className="nav-link" href="/category/smart-gadget">gadgets</Link>
+                            <a className={`nav-link`} href="/category/phone">Phone</a>
+                            <a className="nav-link" href="/category/laptop">Laptop</a>
+                            <a className="nav-link" href="/category/watch">Watch</a>
+                            <a className="nav-link" href="/category/camera">Camera</a>
+                            <a className="nav-link" href="/category/television">Television</a>
+                            <a className="nav-link" href="/category/monitor">Monitor</a>
+                            <a className="nav-link" href="/category/earphone">Earphone</a>
+                            <a className="nav-link" href="/category/charger">Charger</a>
+                            <a className="nav-link" href="/category/smart-gadget">gadgets</a>
                             <Link className="nav-link" href="/brand">Brands</Link>
                             <Link className="nav-link" href="/category">Categories</Link>
 
