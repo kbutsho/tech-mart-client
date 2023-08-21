@@ -34,7 +34,7 @@ const ProductCard = (props) => {
     return (
         <div className='col-md-6 col-lg-4 col-xl-3 col-xxl-3 col-sm-6 col-6'>
             <Link className={styles.url_link}
-                href={`/categories/${category}/${_id}`}>
+                href={`/category/${category}/${_id}`}>
                 <div className={`${styles.product_card}`}>
                     <div className={styles.product_header}>
                         {
