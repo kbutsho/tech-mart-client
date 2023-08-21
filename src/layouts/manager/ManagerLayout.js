@@ -1,11 +1,12 @@
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { AiFillHome } from 'react-icons/ai';
-import { BiSolidUser, BiSolidUserCircle } from 'react-icons/bi';
+import { BiSolidCategory, BiSolidUser, BiSolidUserCircle } from 'react-icons/bi';
 import styles from '@/styles/sidebar/sidebar.module.css';
 import { BsBoxSeamFill } from 'react-icons/bs';
 import { MdOutlineBrandingWatermark } from 'react-icons/md';
-import { FaPowerOff } from 'react-icons/fa';
+import { FaHospitalUser, FaPowerOff, FaUsers } from 'react-icons/fa';
+import { FiSettings } from 'react-icons/fi';
 import leftArrow from '@/assets/navbar/left-arrow.png'
 import rightArrow from '@/assets/navbar/right-arrow.png'
 import Image from 'next/image';
@@ -16,7 +17,7 @@ import { USER_ROLE } from '@/constant/user.role.constant';
 import { toast } from 'react-toastify';
 
 
-const SellerLayout = ({ children }) => {
+const ManagerLayout = ({ children }) => {
     const router = useRouter();
     const token = Cookies.get('token');
     const role = Cookies.get('role');
@@ -24,10 +25,10 @@ const SellerLayout = ({ children }) => {
     const [active, setActive] = useState(true);
     const toastShownRef = useRef(false);
     useEffect(() => {
-        if (!token || role !== USER_ROLE.SELLER) {
+        if (!token || role !== USER_ROLE.MANAGER) {
             router.push('/login');
             if (!toastShownRef.current) {
-                toast.info('Login as seller!');
+                toast.info('Login as manager!');
                 toastShownRef.current = true;
             }
         } else {
@@ -66,27 +67,51 @@ const SellerLayout = ({ children }) => {
                             </li>
                     }
                     <li>
-                        <Link href="/seller/dashboard" className='fw-bold'>
+                        <Link href="/manager/dashboard" className='fw-bold'>
                             <span className={styles.icon}><AiFillHome /></span>
                             <span className={styles.link_text}>Dashboard</span>
                         </Link>
                     </li>
                     <li>
-                        <Link href="/seller/profile" className='fw-bold'>
+                        <Link href="/manager/profile" className='fw-bold'>
                             <span className={styles.icon}><BiSolidUser /></span>
                             <span className={styles.link_text}>Profile</span>
                         </Link>
                     </li>
                     <li>
-                        <Link href="/seller/products" className='fw-bold'>
+                        <Link href="/manager/products" className='fw-bold'>
                             <span className={styles.icon}><BsBoxSeamFill /></span>
                             <span className={styles.link_text}>Products</span>
                         </Link>
                     </li>
                     <li>
-                        <Link href="/seller/orders" className='fw-bold'>
+                        <Link href="/manager/brands" className='fw-bold'>
                             <span className={styles.icon}><MdOutlineBrandingWatermark /></span>
-                            <span className={styles.link_text}>Orders</span>
+                            <span className={styles.link_text}>Brands</span>
+                        </Link>
+                    </li>
+                    <li>
+                        <Link href="/manager/categories" className='fw-bold'>
+                            <span className={styles.icon}><BiSolidCategory /></span>
+                            <span className={styles.link_text}>Categories</span>
+                        </Link>
+                    </li>
+                    <li>
+                        <Link href="/manager/sellers" className='fw-bold'>
+                            <span className={styles.icon}><FaHospitalUser /></span>
+                            <span className={styles.link_text}>Sellers</span>
+                        </Link>
+                    </li>
+                    <li>
+                        <Link href="/manager/customers" className='fw-bold'>
+                            <span className={styles.icon}><FaUsers /></span>
+                            <span className={styles.link_text}>Customers</span>
+                        </Link>
+                    </li>
+                    <li>
+                        <Link href="/manager/settings" className='fw-bold'>
+                            <span className={styles.icon}><FiSettings /></span>
+                            <span className={styles.link_text}>Settings</span>
                         </Link>
                     </li>
                     <li>
@@ -130,4 +155,4 @@ const SellerLayout = ({ children }) => {
     );
 };
 
-export default SellerLayout;
+export default ManagerLayout;

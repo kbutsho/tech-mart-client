@@ -37,7 +37,7 @@
 }
 
 #sidebar.active ul.components li .login_btn {
-    padding: 10px 0;
+    padding: 10px 16px;
 }
 
 
@@ -90,7 +90,7 @@
 }
 
 #sidebar ul li .login_btn span {
-    margin-right: 6px;
+    margin-right: 15px;
 }
 
 @media (max-width: 992px) {

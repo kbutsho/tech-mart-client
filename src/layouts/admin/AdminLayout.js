@@ -38,8 +38,6 @@ const AdminLayout = ({ children }) => {
     if (isLoading) {
         return <div style={{ height: "100vh" }}></div>;
     }
-
-
     const toggleSidebar = () => {
         setActive(!active);
     };
@@ -54,7 +52,6 @@ const AdminLayout = ({ children }) => {
         router.push('/');
         toast.success('logout successfully!')
     };
-
     return (
         <div className="d-flex align-items-stretch">
             <nav id={styles.sidebar} className={active ? `${styles.active}` : ""}>
@@ -125,7 +122,9 @@ const AdminLayout = ({ children }) => {
                     </li>
                     <li>
                         <div onClick={handleLogout} className={`${styles.login_btn} fw-bold`}>
-                            <span className={styles.icon}><FaPowerOff color="red" /></span>
+                            <span className={styles.icon}><FaPowerOff color="red"
+                                style={{ marginLeft: active ? "6px" : "0" }} />
+                            </span>
                             <span className={styles.link_text}>Logout</span>
                         </div>
                     </li>
