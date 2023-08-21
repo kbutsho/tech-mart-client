@@ -5,11 +5,15 @@ import google from '@/assets/login/google.png'
 import { useState } from 'react';
 import Link from 'next/link';
 import { BiHide, BiShow } from 'react-icons/bi';
-import { BarLoader, FadeLoader } from 'react-spinners';
+import { FadeLoader } from 'react-spinners';
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import Cookies from 'js-cookie';
+import { USER_ROLE } from '@/constant/user.role.constant';
+import { useRouter } from 'next/router';
 
 const Login = () => {
+    const router = useRouter();
     const [loading, setLoading] = useState(false);
     const [credential, setCredential] = useState({
         email: '',
@@ -54,28 +58,26 @@ const Login = () => {
             setLoading(!loading);
             const data = {
                 email: credential.email,
-                password: credential.password
+                password: credential.password,
+                errors: []
             }
             const response = await axios.post(`https://tech-mart-server.vercel.app/api/auth/login`, data
             );
-            console.log(response)
-            // if (response.data.error) {
-            //     setLoading(false);
-            //     setLogin({ ...login, errors: response.data.error });
-            //     swal("warning", response.data.message, "error")
-            // } else {
-            //     setLoading(false);
-            //     setLogin({
-            //         errors: ''
-            //     })
-            //     swal("success", response.data.message, "success");
-            //     localStorage.setItem('token', response.data.data.token)
-            //     localStorage.setItem('email', response.data.data.user.email)
-            //     localStorage.setItem('id', response.data.data.user.id)
-            //     localStorage.setItem('role', response.data.data.user.role)
-            //     navigate('/dashboard');
-            //     window.location.reload(false);
-            // }
+            if (response.data.data) {
+                setLoading(false);
+                const token = response.data.data.accessToken;
+                const role = response.data.data.role
+                Cookies.set('token', token, { expires: 7 });
+                Cookies.set('role', role, { expires: 7 });
+                if (role === USER_ROLE.ADMIN) {
+                    router.push('/admin/dashboard')
+                }
+                toast.success(response.data.message)
+            } else {
+                setLoading(false);
+                toast.error('something went wrong!')
+            }
+
         } catch (error) {
             setLoading(false);
             const errorMessages = error.response.data.errorMessages;
@@ -97,9 +99,9 @@ const Login = () => {
                 style={loading ? { background: "#FAF3F0" } : { background: "#FAFAFA" }}>
                 <div className='d-flex justify-content-between'>
                     <h4 className='fw-bold text-dark' style={{ marginBottom: "30px" }}>LOGIN HERE</h4>
-                   {
-                    loading?  <span><FadeLoader color='green' /></span> : null
-                   }
+                    {
+                        loading ? <span><FadeLoader color='green' /></span> : null
+                    }
                 </div>
                 <form onSubmit={loginSubmit}>
                     <div className="form-group mb-3">
@@ -114,7 +116,7 @@ const Login = () => {
                             onChange={handelInputChange} />
                         <small className='fw-bold' style={{ color: "red", fontSize: "12px" }}>
                             {
-                                credential.errors.email ? credential.errors.email : null
+                                credential.errors?.email ? credential.errors?.email : null
                             }
                         </small>
                     </div>
@@ -142,7 +144,7 @@ const Login = () => {
                         </div>
                         <small className='fw-bold' style={{ color: "red", fontSize: "12px" }}>
                             {
-                                credential.errors.password ? credential.errors.password : null
+                                credential.errors?.password ? credential.errors?.password : null
                             }
                         </small>
                         <div className='d-flex justify-content-end mt-2'>
