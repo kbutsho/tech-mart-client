@@ -4,12 +4,11 @@
     min-height: 100vh;
     background: #0A2647;
     color: #fff;
-    transition: all 0.3s;
+    transition: all 0.5s;
 }
 
 #sidebar .components li a {
     text-decoration: none;
-    transition: all 0.3s;
 }
 
 #sidebar .components li .icon {
@@ -24,13 +23,12 @@
 }
 
 #sidebar.active ul.components li .link_text {
-    /* display: none; */
-    transition: all .3s;
+    transition: all .5s;
     font-size: 10px;
 }
 
 #sidebar ul.components li .link_text {
-    transition: all .3s;
+    transition: all .5s;
     display: inline;
 }
 
@@ -60,7 +58,6 @@
     display: block;
     color: white;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    transition: .3s;
 }
 
 #sidebar ul li .collapses {

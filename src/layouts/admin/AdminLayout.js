@@ -89,10 +89,10 @@ const AdminLayout = ({ children }) => {
                             <span className={styles.link_text}>Settings</span>
                         </Link>
                     </li>
-                    <li className='logout'>
+                    <li>
                         <Link href="/admin/settings" className='fw-bold'>
                             <span className={styles.icon}><FaPowerOff color="red" /></span>
-                            <span style={{ color: "red" }} className={styles.link_text}>Logout</span>
+                            <span className={styles.link_text}>Logout</span>
                         </Link>
                     </li>
                 </ul>
