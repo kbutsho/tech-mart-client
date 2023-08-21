@@ -98,7 +98,7 @@ const ProductDetailsCard = ({ product }) => {
                                     <div className='row mt-3'>
                                         {
                                             review.photos.map((photo, index) =>
-                                                <div className='col-md-4' key={index} style={{ height: "120px", width: "120px" }}>
+                                                <div className='col-md-4' key={index} style={{ height: "105px", width: "105px" }}>
                                                     <Image src={photo} layout='responsive' height={100} width={100} alt="img" />
                                                 </div>
                                             )
