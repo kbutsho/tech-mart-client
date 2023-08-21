@@ -177,7 +177,7 @@ const Login = () => {
         <div className={styles.login_area}>
             <div className={`${styles.main_area}`}
                 style={loading ? { background: "#F5F7FC" } : { background: "rgba(0, 0, 0, 0.1)" }}>
-                <h4 className='fw-bold text-dark mb-3 text-center'>LOGIN HERE</h4>
+                <h4 className='fw-bold text-dark' style={{ marginBottom: "30px" }}>LOGIN HERE</h4>
                 <form>
                     <div className="form-group mb-3">
                         <label className='mb-1 fw-bold'>Email</label>

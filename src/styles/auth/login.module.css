@@ -117,8 +117,8 @@
 }
 
 .demo_user td {
-    /* background-color: transparent; */
-    padding: 6px;
+    padding: 4px;
+    text-align: center;
 }
 
 .loading {
@@ -136,4 +136,10 @@
     .demo_user {
         font-size: 13px;
     }
+
+    .main_area {
+        width: 300px;
+        padding: 24px 20px;
+    }
+
 }
