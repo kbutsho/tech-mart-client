@@ -57,6 +57,7 @@
     padding: 6px 8px;
     border-radius: 4px;
     transition: all 0.3s;
+    font-size: 14px;
 }
 
 .demo_user .demo_user_item:hover {
@@ -71,7 +72,7 @@
     }
 }
 
-@media screen and (min-width: 468px) {
+@media screen and (max-width: 468px) {
     .demo_user .demo_user_item {
         font-size: 13px;
     }
