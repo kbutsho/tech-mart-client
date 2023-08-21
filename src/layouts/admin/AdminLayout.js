@@ -8,6 +8,7 @@ import { MdDoubleArrow, MdKeyboardDoubleArrowLeft, MdKeyboardDoubleArrowRight, M
 import { FaHospitalUser, FaPowerOff, FaUserTie, FaUsers } from 'react-icons/fa';
 import { FiSettings } from 'react-icons/fi';
 import leftArrow from '@/assets/navbar/left-arrow.png'
+import rightArrow from '@/assets/navbar/right-arrow.png'
 import Image from 'next/image';
 
 const AdminLayout = ({ children }) => {
@@ -23,15 +24,14 @@ const AdminLayout = ({ children }) => {
     return (
         <div className="d-flex align-items-stretch">
             <nav id={styles.sidebar} className={active ? `${styles.active}` : ""}>
-                <ul className={`${styles.components} list-unstyled mb-5 mt-4`}>
+                <ul className={`${styles.components} list-unstyled mb-5`} style={{ marginTop: "20px" }}>
                     {
                         active ?
-                            <li className='mb-2'>
-                                <span onClick={toggleSidebar}
-                                    style={{ cursor: "pointer", transition: "all 0.3s" }}>
-                                    <MdDoubleArrow  size="24"/>
-                                </span>
-                            </li> :
+                            <span onClick={toggleSidebar} id={styles.sidebarCollapse}>
+                                <Image
+                                    style={{ cursor: "pointer" }}
+                                    src={rightArrow} height={24} width={24} alt="img" />
+                            </span> :
                             <li style={{ height: "40px" }}>
                             </li>
                     }
