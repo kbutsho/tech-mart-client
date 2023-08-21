@@ -119,6 +119,12 @@
 .demo_user td {
     padding: 4px;
     text-align: center;
+    transition: all 0.3s;
+}
+
+.demo_user td:hover {
+    background-color: #0D6EFD;
+    color: white;
 }
 
 .loading {
