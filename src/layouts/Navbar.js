@@ -11,6 +11,8 @@ import { AiOutlineHeart, AiOutlineMenuFold, AiOutlineShoppingCart } from "react-
 import { useRouter } from "next/router";
 import { globalSearch } from "@/redux/features/searchSlice";
 import { useState } from "react";
+import Cookies from "js-cookie";
+import { toast } from "react-toastify";
 
 function Navbar() {
     let cart = useSelector((state) => state.cart);
@@ -31,10 +33,13 @@ function Navbar() {
         dispatch(globalSearch(searchTerm));
     }, [searchTerm])
 
-
-
-
     let favouriteProducts = useSelector((state) => state.favourite.products);
+    const handleLogout = () => {
+        Cookies.remove('token');
+        Cookies.remove('role');
+        router.push('/');
+        toast.success('logout successfully!')
+    };
     return (
         <div className={`${styles.header} fixed-top`}>
             <nav className={`navbar navbar-expand-lg bg-light ${styles.navbar_area}`}>
@@ -93,9 +98,28 @@ function Navbar() {
                                     <BiUserCircle size="20" className="mb-1" /> Account
                                 </button>
                                 <ul className="dropdown-menu">
-                                    <li><Link className={`dropdown-item ${styles.dropdown_item}`} href="/login">Login</Link></li>
-                                    <li><Link className={`dropdown-item ${styles.dropdown_item}`} href="/">Profile</Link></li>
-                                    <li><Link className={`dropdown-item ${styles.dropdown_item}`} href="/">Dashboard</Link></li>
+                                    {
+                                        Cookies.get('token') ?
+                                            <li>
+                                                <div className={`dropdown-item ${styles.dropdown_item}`}
+                                                    onClick={handleLogout}
+                                                    style={{ color: "red", cursor: "pointer" }}>
+                                                    Logout
+                                                </div>
+                                            </li>
+                                            :
+                                            <li><Link className={`dropdown-item ${styles.dropdown_item}`} href="/login">Login</Link></li>
+
+                                    }
+                                    {
+                                        Cookies.get('role') ? (
+                                            <li>
+                                                <Link className={`dropdown-item ${styles.dropdown_item}`} href={`/${Cookies.get('role')}/dashboard`}>
+                                                    Dashboard
+                                                </Link>
+                                            </li>
+                                        ) : null
+                                    }
                                     <li><Link className={`dropdown-item ${styles.dropdown_item}`} href="/">Retailer Request</Link></li>
                                     <li><Link className={`dropdown-item ${styles.dropdown_item}`} href="/">Manager Request</Link></li>
                                 </ul>
