@@ -25,7 +25,7 @@ function Navbar() {
     }
     const [searchTerm, setSearchTerm] = useState('');
     const handelSearch = (event) => {
-        setSearchTerm(event.target.value);  
+        setSearchTerm(event.target.value);
     };
     useEffect(() => {
         dispatch(globalSearch(searchTerm));
@@ -93,7 +93,7 @@ function Navbar() {
                                     <BiUserCircle size="20" className="mb-1" /> Account
                                 </button>
                                 <ul className="dropdown-menu">
-                                    <li><Link className={`dropdown-item ${styles.dropdown_item}`} href="/">Login</Link></li>
+                                    <li><Link className={`dropdown-item ${styles.dropdown_item}`} href="/login">Login</Link></li>
                                     <li><Link className={`dropdown-item ${styles.dropdown_item}`} href="/">Profile</Link></li>
                                     <li><Link className={`dropdown-item ${styles.dropdown_item}`} href="/">Dashboard</Link></li>
                                     <li><Link className={`dropdown-item ${styles.dropdown_item}`} href="/">Retailer Request</Link></li>

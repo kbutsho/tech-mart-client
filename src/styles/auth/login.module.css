@@ -2,7 +2,7 @@
     background-color: #FFF9F0;
     min-height: 100vh;
     width: 100%;
-    padding: 90px 0;
+    padding: 84px 0;
 }
 
 .main_area {
@@ -45,9 +45,34 @@
     }
 }
 
+.demo_user {
+    font-size: 14px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.demo_user .demo_user_item {
+    cursor: pointer;
+    border: 1px solid rgb(234, 232, 232);
+    padding: 6px 8px;
+    border-radius: 4px;
+    transition: all 0.3s;
+}
+
+.demo_user .demo_user_item:hover {
+    background-color: #0D6EFD;
+    color: white;
+}
+
 @media screen and (min-width: 992px) {
     .container {
         width: 70%;
         margin: 0 auto;
+    }
+}
+
+@media screen and (min-width: 468px) {
+    .demo_user .demo_user_item {
+        font-size: 13px;
     }
 }
