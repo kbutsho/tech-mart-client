@@ -71,6 +71,15 @@ const Login = () => {
                 if (role === USER_ROLE.ADMIN) {
                     router.push('/admin/dashboard')
                 }
+                if (role === USER_ROLE.SELLER) {
+                    router.push('/seller/dashboard')
+                }
+                if (role === USER_ROLE.CUSTOMER) {
+                    router.push('/customer/dashboard')
+                }
+                if (role === USER_ROLE.MANAGER) {
+                    router.push('/manager/dashboard')
+                }
                 toast.success(response.data.message)
             } else {
                 setLoading(false);
