@@ -5,7 +5,7 @@ import google from '@/assets/login/google.png'
 import { useState } from 'react';
 import Link from 'next/link';
 import { BiHide, BiShow } from 'react-icons/bi';
-import { BarLoader } from 'react-spinners';
+import { BarLoader, FadeLoader } from 'react-spinners';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 
@@ -94,8 +94,13 @@ const Login = () => {
     return (
         <div className={styles.login_area}>
             <div className={`${styles.main_area} ${loading ? styles.animated_box : styles.not_animated_box}`}
-                style={loading ? { background: "#FFF3DA" } : { background: "#FAFAFA" }}>
-                <h4 className='fw-bold text-dark' style={{ marginBottom: "30px" }}>LOGIN HERE</h4>
+                style={loading ? { background: "#FAF3F0" } : { background: "#FAFAFA" }}>
+                <div className='d-flex justify-content-between'>
+                    <h4 className='fw-bold text-dark' style={{ marginBottom: "30px" }}>LOGIN HERE</h4>
+                   {
+                    loading?  <span><FadeLoader color='green' /></span> : null
+                   }
+                </div>
                 <form onSubmit={loginSubmit}>
                     <div className="form-group mb-3">
                         <label className='mb-1 fw-bold'>Email</label>
