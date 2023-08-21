@@ -54,7 +54,6 @@ const Login = () => {
     const loginSubmit = async (event) => {
         event.preventDefault();
         try {
-
             setLoading(!loading);
             const data = {
                 email: credential.email,

@@ -1,8 +1,13 @@
+
+import { useAdminProtection } from "@/authentication/useAdminProtection";
 import Breadcrumb from "@/components/Breadcrumb/Index";
 import AdminSidebar from "@/layouts/admin/AdminLayout";
 import Head from "next/head";
 
+
 const Dashboard = () => {
+    useAdminProtection();
+
     return (
         <div>
             <Head>
