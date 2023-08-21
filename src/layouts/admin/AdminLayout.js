@@ -1,18 +1,45 @@
 import Link from 'next/link';
-import React, { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { AiFillHome } from 'react-icons/ai';
 import { BiSolidCategory, BiSolidUser, BiSolidUserCircle } from 'react-icons/bi';
 import styles from '@/styles/sidebar/sidebar.module.css';
 import { BsBoxSeamFill } from 'react-icons/bs';
-import { MdDoubleArrow, MdKeyboardDoubleArrowLeft, MdKeyboardDoubleArrowRight, MdOutlineBrandingWatermark } from 'react-icons/md';
+import { MdOutlineBrandingWatermark } from 'react-icons/md';
 import { FaHospitalUser, FaPowerOff, FaUserTie, FaUsers } from 'react-icons/fa';
 import { FiSettings } from 'react-icons/fi';
 import leftArrow from '@/assets/navbar/left-arrow.png'
 import rightArrow from '@/assets/navbar/right-arrow.png'
 import Image from 'next/image';
+import { useRouter } from 'next/router';
+import Cookies from 'js-cookie';
+import { useRef } from 'react';
+import { USER_ROLE } from '@/constant/user.role.constant';
+import { toast } from 'react-toastify';
+
 
 const AdminLayout = ({ children }) => {
+    const router = useRouter();
+    const token = Cookies.get('token');
+    const role = Cookies.get('role');
+    const [isLoading, setIsLoading] = useState(true);
     const [active, setActive] = useState(true);
+    const toastShownRef = useRef(false);
+    useEffect(() => {
+        if (!token || role !== USER_ROLE.ADMIN) {
+            router.push('/login');
+            if (!toastShownRef.current) {
+                toast.info('Login as admin!');
+                toastShownRef.current = true;
+            }
+        } else {
+            setIsLoading(false);
+        }
+    }, [token, role, router]);
+    if (isLoading) {
+        return <div style={{ height: "100vh" }}></div>;
+    }
+
+
     const toggleSidebar = () => {
         setActive(!active);
     };
@@ -21,6 +48,13 @@ const AdminLayout = ({ children }) => {
             event.preventDefault();
         }
     };
+    const handleLogout = () => {
+        Cookies.remove('token');
+        Cookies.remove('role');
+        router.push('/');
+        toast.success('logout successfully!')
+    };
+
     return (
         <div className="d-flex align-items-stretch">
             <nav id={styles.sidebar} className={active ? `${styles.active}` : ""}>
@@ -90,10 +124,10 @@ const AdminLayout = ({ children }) => {
                         </Link>
                     </li>
                     <li>
-                        <Link href="/admin/settings" className='fw-bold'>
+                        <div onClick={handleLogout} className={`${styles.login_btn} fw-bold`}>
                             <span className={styles.icon}><FaPowerOff color="red" /></span>
                             <span className={styles.link_text}>Logout</span>
-                        </Link>
+                        </div>
                     </li>
                 </ul>
             </nav>
