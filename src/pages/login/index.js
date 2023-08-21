@@ -56,7 +56,7 @@ const Login = () => {
                                         className='form-control'
                                         value={email}
                                         onChange={(e) => setEmail(e.target.value)} />
-                                    <small className='fw-bold text-danger'>email is required!</small>
+                                    {/* <small className='fw-bold' style={{ color: "red" }}>email is required!</small> */}
                                 </div>
 
                                 <div className="form-group mb-4">
@@ -78,7 +78,7 @@ const Login = () => {
                                                     size="25" />
                                         }
                                     </div>
-                                    <small className='fw-bold text-danger'>password is required!</small>
+                                    {/* <small className='fw-bold' style={{ color: "red" }}>password is required!</small> */}
                                     <div>
                                         <small><a href='/'>forget password?</a></small>
                                     </div>
