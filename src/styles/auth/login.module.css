@@ -14,18 +14,19 @@
     width: 335px;
     padding: 24px 20px;
     border-radius: 6px;
-    transition: 0.3s;
+    transition: all 0.3s;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 
 }
 
 .animated_box {
     border: 3px solid rgb(125, 206, 125);
-    transition: .3s;
+    transition: all .3s;
 }
-.not_animated_box{
+
+.not_animated_box {
     border: 3px solid transparent;
-    transition: .3s;
+    transition: all .3s;
 }
 
 
