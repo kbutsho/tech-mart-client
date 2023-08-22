@@ -11,6 +11,7 @@ import { toast } from 'react-toastify';
 import Cookies from 'js-cookie';
 import { USER_ROLE } from '@/constant/user.role.constant';
 import { useRouter } from 'next/router';
+import { config } from '@/config';
 
 const Login = () => {
     const router = useRouter();
@@ -60,7 +61,7 @@ const Login = () => {
                 password: credential.password,
                 errors: []
             }
-            const response = await axios.post(`https://tech-mart-server.vercel.app/api/auth/login`, data
+            const response = await axios.post(`${config.api}/auth/login`, data
             );
             if (response.data.data) {
                 const token = response.data.data.accessToken;

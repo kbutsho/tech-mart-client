@@ -1,6 +1,7 @@
 import Breadcrumb from '@/components/Breadcrumb/Index';
 import CategoryCard from '@/components/Home/CategoryCard';
 import MainLayout from '@/layouts/MainLayout';
+import { config } from '@/config';
 
 const CategoryPage = ({ data }) => {
     return (
@@ -23,7 +24,7 @@ CategoryPage.getLayout = function getLayout(page) {
 };
 
 export const getStaticProps = async () => {
-    const categoryResponse = await fetch("https://tech-mart-server.vercel.app/api/categories");
+    const categoryResponse = await fetch(`${config.api}/categories`);
     const categories = await categoryResponse.json();
     return {
         props: {

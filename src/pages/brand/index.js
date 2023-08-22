@@ -1,6 +1,7 @@
 import BrandCard from '@/components/Brand/BrandCard';
 import Breadcrumb from '@/components/Breadcrumb/Index';
 import MainLayout from '@/layouts/MainLayout';
+import { config } from '@/config';
 
 const BrandPage = ({ data }) => {
     return (
@@ -23,7 +24,7 @@ BrandPage.getLayout = function getLayout(page) {
 };
 
 export const getStaticProps = async () => {
-    const brandResponse = await fetch("https://tech-mart-server.vercel.app/api/brands");
+    const brandResponse = await fetch(`${config.api}/brands`);
     const brands = await brandResponse.json();
     return {
         props: {

@@ -1,7 +1,5 @@
 import Breadcrumb from '@/components/Breadcrumb/Index';
 import MainLayout from '@/layouts/MainLayout';
-import banner from '@/assets/category/camera-banner.jpeg'
-import Image from 'next/image';
 import ProductCard from '@/components/Category/ProductCard';
 import Slider from '@mui/material/Slider';
 import { useState } from 'react';
@@ -12,6 +10,7 @@ import Pagination from '@/components/Pagination/Pagination';
 import { AiFillStar } from 'react-icons/ai';
 import { useSelector } from 'react-redux';
 import { useEffect } from 'react';
+import { config } from '@/config';
 
 const ProductPage = ({ data }) => {
     const [product, setProduct] = useState(data.productResponse);
@@ -175,7 +174,7 @@ const ProductPage = ({ data }) => {
                             )}
                         </div>
                         {/* pagination */}
-                        <div className={`d-flex justify-content-start ${ styles.pagination }`}>
+                        <div className={`d-flex justify-content-start ${styles.pagination}`}>
                             {
                                 currentProduct.length > 0 ?
                                     <Pagination data={filterAndSearchData}
@@ -376,8 +375,8 @@ ProductPage.getLayout = function getLayout(page) {
     return <MainLayout>{page}</MainLayout>;
 };
 export const getStaticProps = async () => {
-    const productCategoryResponse = await fetch(`https://tech-mart-server.vercel.app/api/products?limit=96`);
-    const priceRange = await fetch(`https://tech-mart-server.vercel.app/api/products/price-range`);
+    const productCategoryResponse = await fetch(`${config.api}/products?limit=96`);
+    const priceRange = await fetch(`${config.api}/products/price-range`);
     const productResponse = await productCategoryResponse.json();
     const priceRangeResponse = await priceRange.json();
     return {

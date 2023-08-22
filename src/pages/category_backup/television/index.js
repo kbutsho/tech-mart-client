@@ -10,6 +10,7 @@ import { IoIosArrowUp, IoIosArrowDown } from 'react-icons/io'
 import { PRICE_SORT_ORDER, PRODUCT_BRAND, PRODUCT_STATUS } from '@/constant/product.constant';
 import Pagination from '@/components/Pagination/Pagination';
 import { AiFillStar } from 'react-icons/ai';
+import { config } from '@/config';
 
 const TVCategory = ({ data }) => {
     const [product, setProduct] = useState(data.productResponse);
@@ -363,8 +364,8 @@ TVCategory.getLayout = function getLayout(page) {
     return <MainLayout>{page}</MainLayout>;
 };
 export const getStaticProps = async () => {
-    const productCategoryResponse = await fetch(`https://tech-mart-server.vercel.app/api/products?category=television`);
-    const priceRange = await fetch(`https://tech-mart-server.vercel.app/api/products/price-range`);
+    const productCategoryResponse = await fetch(`${config.api}/products?category=television`);
+    const priceRange = await fetch(`${config.api}/products/price-range`);
     const productResponse = await productCategoryResponse.json();
     const priceRangeResponse = await priceRange.json();
     return {

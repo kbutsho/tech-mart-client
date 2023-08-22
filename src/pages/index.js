@@ -17,6 +17,7 @@ import chargerCategoryBanner from '@/assets/home/charger.jpeg'
 import monitorCategoryBanner from '@/assets/home/monitor.jpeg'
 import Link from 'next/link';
 import ProductCard from '@/components/Home/ProductCard';
+import { config } from '@/config';
 
 const Home = ({ data }) => {
 
@@ -252,18 +253,18 @@ Home.getLayout = function getLayout(page) {
 
 export const getStaticProps = async () => {
 
-  const categoryResponse = await fetch("https://tech-mart-server.vercel.app/api/categories");
-  const brandResponse = await fetch("https://tech-mart-server.vercel.app/api/brands");
-  const newArrivalResponse = await fetch("https://tech-mart-server.vercel.app/api/products?sortBy=createdAt&sortOrder=desc&limit=12");
-  const topSellingResponse = await fetch("https://tech-mart-server.vercel.app/api/products?sortBy=sellCount&limit=12");
-  const phoneCategoryResponse = await fetch("https://tech-mart-server.vercel.app/api/products?category=phone&limit=12");
-  const watchCategoryResponse = await fetch("https://tech-mart-server.vercel.app/api/products?category=watch&limit=12");
-  const earphoneCategoryResponse = await fetch("https://tech-mart-server.vercel.app/api/products?category=earphone&limit=12");
-  const laptopCategoryResponse = await fetch("https://tech-mart-server.vercel.app/api/products?category=laptop&limit=12");
-  const cameraCategoryResponse = await fetch("https://tech-mart-server.vercel.app/api/products?category=camera&limit=12");
-  const tvCategoryResponse = await fetch("https://tech-mart-server.vercel.app/api/products?category=television&limit=12");
-  const chargerCategoryResponse = await fetch("https://tech-mart-server.vercel.app/api/products?category=charger&limit=12");
-  const monitorCategoryResponse = await fetch("https://tech-mart-server.vercel.app/api/products?category=monitor&limit=12");
+  const categoryResponse = await fetch(`${config.api}/categories`);
+  const brandResponse = await fetch(`${config.api}/brands`);
+  const newArrivalResponse = await fetch(`${config.api}/products?sortBy=createdAt&sortOrder=desc&limit=12`);
+  const topSellingResponse = await fetch(`${config.api}/products?sortBy=sellCount&limit=12`);
+  const phoneCategoryResponse = await fetch(`${config.api}/products?category=phone&limit=12`);
+  const watchCategoryResponse = await fetch(`${config.api}/products?category=watch&limit=12`);
+  const earphoneCategoryResponse = await fetch(`${config.api}/products?category=earphone&limit=12`);
+  const laptopCategoryResponse = await fetch(`${config.api}/products?category=laptop&limit=12`);
+  const cameraCategoryResponse = await fetch(`${config.api}/products?category=camera&limit=12`);
+  const tvCategoryResponse = await fetch(`${config.api}/products?category=television&limit=12`);
+  const chargerCategoryResponse = await fetch(`${config.api}/products?category=charger&limit=12`);
+  const monitorCategoryResponse = await fetch(`${config.api}/products?category=monitor&limit=12`);
 
   const categories = await categoryResponse.json();
   const brands = await brandResponse.json();

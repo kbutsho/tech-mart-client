@@ -11,6 +11,7 @@ import { IoIosArrowUp, IoIosArrowDown } from 'react-icons/io'
 import { PRICE_SORT_ORDER, PRODUCT_BRAND, PRODUCT_STATUS } from '@/constant/product.constant';
 import Pagination from '@/components/Pagination/Pagination';
 import { AiFillStar } from 'react-icons/ai';
+import { config } from '@/config';
 
 const DynamicCategoryName = ({ data }) => {
     const router = useRouter();
@@ -384,8 +385,8 @@ DynamicCategoryName.getLayout = function getLayout(page) {
     return <MainLayout>{page}</MainLayout>;
 };
 export const getStaticProps = async ({ params }) => {
-    const productCategoryResponse = await fetch(`https://tech-mart-server.vercel.app/api/products?category=${params.categoryName}`);
-    const priceRange = await fetch(`https://tech-mart-server.vercel.app/api/products/price-range`);
+    const productCategoryResponse = await fetch(`${config.api}/products?category=${params.categoryName}`);
+    const priceRange = await fetch(`${config.api}/products/price-range`);
     const productResponse = await productCategoryResponse.json();
     const priceRangeResponse = await priceRange.json();
     return {
@@ -398,7 +399,7 @@ export const getStaticProps = async ({ params }) => {
     };
 };
 export const getStaticPaths = async () => {
-    const categoriesResponse = await fetch('https://tech-mart-server.vercel.app/api/categories');
+    const categoriesResponse = await fetch(`${config.api}/categories`);
     const categories = await categoriesResponse.json();
     const paths = categories.data.map(category => ({
         params: { categoryName: category.name }
