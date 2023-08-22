@@ -70,6 +70,11 @@
     align-items: center;
 }
 
+.verifiedMessage {
+    margin-top: 2px;
+    font-size: 14px;
+}
+
 @media screen and (max-width: 468px) {
     .demo_user {
         font-size: 13px;
@@ -79,5 +84,6 @@
         width: 320px;
         padding: 24px 20px;
     }
+
 
 }

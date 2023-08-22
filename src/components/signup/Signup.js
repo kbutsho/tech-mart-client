@@ -15,7 +15,7 @@ const Signup = ({ role }) => {
     const [loading, setLoading] = useState(false)
     const [showPassword, setShowPassword] = useState(false)
     const [showConfirmPassword, setShowConfirmPassword] = useState(false)
-    const [verifiedMessage, setVerifiedMessage] = useState("a verification message has sent to your email!")
+    const [verifiedMessage, setVerifiedMessage] = useState(null)
     const [showRole, setShowRole] = useState("SIGNUP HERE");
     const [formData, setFormData] = useState({
         firstName: '',
@@ -46,6 +46,7 @@ const Signup = ({ role }) => {
             );
             if (response.data.data) {
                 setLoading(false);
+                toast.info("check your email!")
                 setVerifiedMessage(response.data.message)
             }
             else {
@@ -98,7 +99,7 @@ const Signup = ({ role }) => {
                     verifiedMessage ?
                         <div>
                             <div className='d-flex justify-content-between alert alert-success alert-sm py-2'>
-                                <small style={{ marginTop: "3px" }}> {verifiedMessage}</small>
+                                <small className={styles.verifiedMessage}> {verifiedMessage}</small>
                                 <TiDelete size="24" color="red" onClick={handelVerifiedMessage} style={{ cursor: "pointer" }} />
                             </div>
 

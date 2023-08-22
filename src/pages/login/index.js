@@ -14,12 +14,14 @@ import { useRouter } from 'next/router';
 import { config } from '@/config';
 import { useRef } from 'react';
 import { useEffect } from 'react';
+import { TiDelete } from 'react-icons/ti';
 
 const Login = () => {
     const router = useRouter();
     const [showPassword, setShowPassword] = useState(false)
     const [isLoading, setIsLoading] = useState(true);
     const [loading, setLoading] = useState(false);
+    const [emailVerifiedMsg, setEmailVerifiedMsg] = useState(null)
     const [credential, setCredential] = useState({
         email: '',
         password: '',
@@ -99,6 +101,8 @@ const Login = () => {
             const response = await axios.post(`${config.api}/auth/login`, data
             );
             if (response.data.data) {
+                setEmailVerifiedMsg(null)
+                setLoading(false);
                 const token = response.data.data.accessToken;
                 const role = response.data.data.role
                 Cookies.set('token', token, { expires: 7 });
@@ -121,6 +125,10 @@ const Login = () => {
                 toast.error('something went wrong!')
             }
         } catch (error) {
+            setEmailVerifiedMsg(null)
+            if (error.response.status === 409) {
+                setEmailVerifiedMsg('check your email!')
+            }
             setLoading(false);
             const errorMessages = error.response.data.errorMessages;
             const formattedErrors = {};
@@ -134,11 +142,24 @@ const Login = () => {
             toast.error(error.response.data.message)
         }
     }
+    const handelVerifiedMessage = () => {
+        setEmailVerifiedMsg(null);
+    }
     return (
         <div className={styles.login_area}>
             <div className={`${styles.main_area} ${loading ? styles.animated_box : styles.not_animated_box}`}
                 style={loading ? { background: "#FAF3F0" } : { background: "#FAFAFA" }}>
                 <h4 className='fw-bold text-dark' style={{ marginBottom: "30px" }}>LOGIN HERE</h4>
+                {
+                    emailVerifiedMsg ?
+                        <div>
+                            <div className='d-flex justify-content-between alert alert-success alert-sm py-2'>
+                                <small className={styles.verifiedMessage}> {emailVerifiedMsg}</small>
+                                <TiDelete size="24" color="red" onClick={handelVerifiedMessage} style={{ cursor: "pointer" }} />
+                            </div>
+
+                        </div> : null
+                }
                 <form onSubmit={loginSubmit}>
                     <div className="form-group mb-3">
                         <label className='mb-1 fw-bold'>Email</label>
