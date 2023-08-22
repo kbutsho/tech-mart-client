@@ -21,12 +21,14 @@
     font-size: 1.2rem;
     font-weight: bold;
 }
-.footer-details{
+
+.footer-details {
     font-size: 14px;
     color: white;
     margin-top: 20px;
     text-align: justify;
 }
+
 .footer .link {
     text-decoration: none;
     color: white;
@@ -49,11 +51,18 @@
     padding: 0;
 }
 
-.mt-6{
+.mt-6 {
     margin-top: 75px;
 }
-.mt-7{
+
+.mt-7 {
     margin-top: 100px;
+}
+
+.small-text {
+    font-size: 16px;
+    text-align: justify;
+    text-justify: inter-word;
 }
 
 @media screen and (max-width: 468px) {
@@ -72,6 +81,10 @@
 
     .details-description hr {
         margin: 20px
+    }
+
+    .small-text {
+        font-size: 12px;
     }
 
 }

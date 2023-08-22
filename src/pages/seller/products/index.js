@@ -10,7 +10,7 @@ const SellerProducts = () => {
             </Head>
             <Breadcrumb />
             <div className="px-md-3 px-2 py-2">
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quisquam itaque aspernatur rem labore, odio alias explicabo. Eius magni doloremque sit fugiat repellat, illo quod ducimus? Repellat placeat atque incidunt iusto corrupti enim officia maxime architecto ut, minima, possimus, quia quasi distinctio magni. Fugiat rem nesciunt, dolore architecto expedita obcaecati dolorum amet odio perspiciatis eligendi at esse quasi corporis qui molestias eos iste cumque nisi facere quibusdam doloribus dicta vitae modi. Ratione, ad. Quo quisquam eaque eos praesentium officia explicabo sunt aut accusamus aspernatur cupiditate dignissimos voluptatem deserunt culpa expedita itaque ex repellendus, voluptate commodi nihil suscipit voluptatum, accusantium quod veniam.
+                <p className="small-text">Tech Mart is an online tech store offering a wide range of cutting-edge electronics, gadgets, and accessories. It provides a user-friendly platform for customers to explore and purchase the latest tech products across various categories, ensuring a convenient and up-to-date shopping experience.</p>
             </div>
         </div>
     );
