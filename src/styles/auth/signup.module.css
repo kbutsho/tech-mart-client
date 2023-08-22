@@ -3,7 +3,6 @@
     position: relative;
     width: 100%;
     min-height: 100vh;
-    padding: 30px 0;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -45,15 +44,30 @@
     justify-content: center;
     align-items: center;
 }
-.verifiedMessage{
+
+.verifiedMessage {
     margin-top: 2px;
+    font-size: 14px;
+}
+
+.already_signup {
     font-size: 14px;
 }
 
 @media screen and (max-width: 992px) {}
 
 @media screen and (max-width: 486px) {
-    .verifiedMessage{
+    .verifiedMessage {
+        font-size: 12px;
+    }
+    .signup_area .main_area input {
+        min-width: 300px;
+    }
+    .main_area {
+        padding: 16px;
+        
+    }
+    .already_signup {
         font-size: 12px;
     }
 }

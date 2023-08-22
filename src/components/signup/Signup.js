@@ -220,7 +220,7 @@ const Signup = ({ role }) => {
                     </div>
                     <input type="submit" className='my-3 btn btn-primary w-100 fw-bold' value="submit" />
                     <div className='d-flex justify-content-end'>
-                        <small>
+                        <small className={styles.already_signup}>
                             already have an account?
                             <Link style={{ textDecoration: "none", fontWeight: "bold" }} href="/login"> login here</Link>
                         </small>
