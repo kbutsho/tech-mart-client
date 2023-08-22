@@ -1,6 +1,7 @@
 import Breadcrumb from '@/components/Breadcrumb/Index';
 import ProductDetailsCard from '@/components/Product/DetailsCard';
 import MainLayout from '@/layouts/MainLayout';
+import { config } from '@/config';
 
 const Details = ({ product }) => {
     return (
