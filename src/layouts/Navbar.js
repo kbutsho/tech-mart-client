@@ -120,8 +120,8 @@ function Navbar() {
                                             </li>
                                         ) : null
                                     }
-                                    <li><Link className={`dropdown-item ${styles.dropdown_item}`} href="/">Retailer Request</Link></li>
-                                    <li><Link className={`dropdown-item ${styles.dropdown_item}`} href="/">Manager Request</Link></li>
+                                    <li><Link className={`dropdown-item ${styles.dropdown_item}`} href="/signup/retailer">Retailer Request</Link></li>
+                                    <li><Link className={`dropdown-item ${styles.dropdown_item}`} href="/signup/manager">Manager Request</Link></li>
                                 </ul>
                             </div>
                         </div>
