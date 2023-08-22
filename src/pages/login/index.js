@@ -46,8 +46,9 @@ const Login = () => {
             if (role === USER_ROLE.CUSTOMER) {
                 router.push('/customer/dashboard')
             }
+
             if (!toastShownRef.current) {
-                toast.info('already login!');
+                // toast.info('already login!');
                 toastShownRef.current = true;
             }
         } else {
