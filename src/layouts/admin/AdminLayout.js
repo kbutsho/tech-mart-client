@@ -15,7 +15,7 @@ import Cookies from 'js-cookie';
 import { useRef } from 'react';
 import { USER_ROLE } from '@/constant/user.role.constant';
 import { toast } from 'react-toastify';
-
+import { config } from '@/config'
 
 const AdminLayout = ({ children }) => {
     const router = useRouter();
@@ -159,7 +159,7 @@ const AdminLayout = ({ children }) => {
             </div>
             <div className="footer text-center py-3 fw-bold" style={{ background: "#0A2647", color: "white" }}>
                 <small style={{ fontSize: "13px" }}>copyright© {new Date().getFullYear()} || all rights reserved by
-                    <a style={{ textDecoration: "none", color: "white" }} target='_blank' href="https://kbutsho.vercel.app/"> kbutsho</a></small>
+                    <a style={{ textDecoration: "none", color: "white" }} target='_blank' href={`${config.portfolio_url}`}> kbutsho</a></small>
             </div>
         </div>
     );

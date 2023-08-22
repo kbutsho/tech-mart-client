@@ -5,6 +5,8 @@ import { BsFacebook, BsInstagram, BsYoutube } from 'react-icons/bs';
 import Link from 'next/link';
 import { BiMap } from 'react-icons/bi';
 import { AiOutlineMail } from 'react-icons/ai';
+import { config } from '@/config'
+
 const Footer = () => {
     return (
         <div className='footer' style={{ background: "#18253A" }}>
@@ -69,7 +71,8 @@ const Footer = () => {
                     </div>
                 </div>
                 <div className='text-center text-white pt-4'>
-                    <p style={{ fontSize: "13px" }}>copyright © {new Date().getFullYear()} || all rights reserved by kbutsho</p>
+                    <small style={{ fontSize: "13px" }}>copyright© {new Date().getFullYear()} || all rights reserved by
+                        <a style={{ textDecoration: "none", color: "white" }} target='_blank' href={`${config.portfolio_url}`}> kbutsho</a></small>
                 </div>
             </div>
         </div>
