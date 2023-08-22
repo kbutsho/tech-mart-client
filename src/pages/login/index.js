@@ -12,15 +12,51 @@ import Cookies from 'js-cookie';
 import { USER_ROLE } from '@/constant/user.role.constant';
 import { useRouter } from 'next/router';
 import { config } from '@/config';
+import { useRef } from 'react';
+import { useEffect } from 'react';
 
 const Login = () => {
     const router = useRouter();
+    const [showPassword, setShowPassword] = useState(false)
+    const [isLoading, setIsLoading] = useState(true);
     const [loading, setLoading] = useState(false);
     const [credential, setCredential] = useState({
         email: '',
         password: '',
         errors: []
     })
+
+    // if login redirect dashboard -> start
+    const token = Cookies.get('token');
+    const role = Cookies.get('role');
+    const toastShownRef = useRef(false);
+    useEffect(() => {
+        if (token && role) {
+            if (role === USER_ROLE.ADMIN) {
+                router.push('/admin/dashboard')
+            }
+            if (role === USER_ROLE.MANAGER) {
+                router.push('/manager/dashboard')
+            }
+            if (role === USER_ROLE.SELLER) {
+                router.push('/seller/dashboard')
+            }
+            if (role === USER_ROLE.CUSTOMER) {
+                router.push('/customer/dashboard')
+            }
+            if (!toastShownRef.current) {
+                toast.info('already login!');
+                toastShownRef.current = true;
+            }
+        } else {
+            setIsLoading(false);
+        }
+    }, [token, role, router]);
+    if (isLoading) {
+        return <div style={{ height: "100vh" }}></div>;
+    }
+    // if login redirect dashboard -> end
+
     const demoUser = {
         admin: {
             email: process.env.NEXT_PUBLIC_ADMIN_EMAIL,
@@ -45,7 +81,6 @@ const Login = () => {
             password: user.password
         });
     };
-    const [showPassword, setShowPassword] = useState(false)
     const showPasswordBtn = () => {
         setShowPassword(!showPassword);
     }
@@ -103,12 +138,7 @@ const Login = () => {
         <div className={styles.login_area}>
             <div className={`${styles.main_area} ${loading ? styles.animated_box : styles.not_animated_box}`}
                 style={loading ? { background: "#FAF3F0" } : { background: "#FAFAFA" }}>
-                <div className='d-flex justify-content-between'>
-                    <h4 className='fw-bold text-dark' style={{ marginBottom: "30px" }}>LOGIN HERE</h4>
-                    {
-                        loading ? <span><FadeLoader color='green' /></span> : null
-                    }
-                </div>
+                <h4 className='fw-bold text-dark' style={{ marginBottom: "30px" }}>LOGIN HERE</h4>
                 <form onSubmit={loginSubmit}>
                     <div className="form-group mb-3">
                         <label className='mb-1 fw-bold'>Email</label>
@@ -192,6 +222,14 @@ const Login = () => {
             {
                 loading ? <div className={`${styles.loading}`}
                     style={{ minHeight: "100vh" }}>
+                    {
+
+                        credential.errors?.password && credential.errors?.email ?
+                            <FadeLoader color='green' className='mt-7 ms-3' /> :
+                            credential.errors?.password || credential.errors?.email ?
+                                <FadeLoader color='green' className='mt-6 ms-3' /> :
+                                <FadeLoader color='green' className='mt-5 ms-3' />
+                    }
                 </div> : null
             }
         </div>
