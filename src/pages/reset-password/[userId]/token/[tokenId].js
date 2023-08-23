@@ -12,7 +12,7 @@ const EmailVerification = () => {
     const router = useRouter();
     const [showPassword, setShowPassword] = useState(false)
     const [showConfirmPassword, setShowConfirmPassword] = useState(false)
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(false);
     const [formData, setFormData] = useState({
         password: '',
         confirmPassword: '',
