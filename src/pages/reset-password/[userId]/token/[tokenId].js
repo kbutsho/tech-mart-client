@@ -5,6 +5,7 @@ import styles from '@/styles/auth/login.module.css'
 import { BiHide, BiShow } from 'react-icons/bi';
 import { config } from '@/config';
 import { toast } from 'react-toastify';
+import { FadeLoader } from 'react-spinners';
 
 
 const EmailVerification = () => {
