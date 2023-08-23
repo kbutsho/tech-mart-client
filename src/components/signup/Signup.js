@@ -46,8 +46,6 @@ const Signup = ({ role }) => {
             );
             if (response.data.data) {
                 setLoading(false);
-                toast.info("check your email spam folder!")
-                setVerifiedMessage(response.data.message)
                 setFormData({
                     firstName: '',
                     lastName: '',
@@ -57,6 +55,9 @@ const Signup = ({ role }) => {
                     confirmPassword: '',
                     errors: []
                 });
+                toast.info("check your email spam folder!")
+                setVerifiedMessage(response.data.message)
+
             }
             else {
                 setLoading(false);
@@ -123,6 +124,7 @@ const Signup = ({ role }) => {
                                     type="text"
                                     name="firstName"
                                     className='form-control'
+                                    value={formData.firstName}
                                     onChange={handelInputChange}
                                     placeholder='enter first name' />
                                 <small className='fw-bold' style={{ color: "red", fontSize: "12px" }}>
@@ -137,6 +139,7 @@ const Signup = ({ role }) => {
                                     type="text"
                                     name="lastName"
                                     className='form-control'
+                                    value={formData.lastName}
                                     onChange={handelInputChange}
                                     placeholder='enter last name' />
                                 <small className='fw-bold' style={{ color: "red", fontSize: "12px" }}>
@@ -151,6 +154,7 @@ const Signup = ({ role }) => {
                                     type="text"
                                     name="email"
                                     className='form-control'
+                                    value={formData.email}
                                     onChange={handelInputChange}
                                     placeholder='enter email' />
                                 <small className='fw-bold' style={{ color: "red", fontSize: "12px" }}>
@@ -167,6 +171,7 @@ const Signup = ({ role }) => {
                                     type="text"
                                     name="phone"
                                     className='form-control'
+                                    value={formData.phone}
                                     onChange={handelInputChange}
                                     placeholder='enter phone' />
                                 <small className='fw-bold' style={{ color: "red", fontSize: "12px" }}>
@@ -181,6 +186,7 @@ const Signup = ({ role }) => {
                                     <input
                                         name="password"
                                         onChange={handelInputChange}
+                                        value={formData.password}
                                         type={showPassword ? "text" : "password"}
                                         className='form-control'
                                         placeholder='enter password' />
@@ -205,6 +211,7 @@ const Signup = ({ role }) => {
                                 <div className="d-flex align-items-center">
                                     <input
                                         name="confirmPassword"
+                                        value={formData.confirmPassword}
                                         onChange={handelInputChange}
                                         type={showConfirmPassword ? "text" : "password"}
                                         className='form-control'
