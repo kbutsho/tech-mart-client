@@ -46,8 +46,17 @@ const Signup = ({ role }) => {
             );
             if (response.data.data) {
                 setLoading(false);
-                toast.info("check your email!")
+                toast.info("check your email spam folder!")
                 setVerifiedMessage(response.data.message)
+                setFormData({
+                    firstName: '',
+                    lastName: '',
+                    phone: '',
+                    email: '',
+                    password: '',
+                    confirmPassword: '',
+                    errors: []
+                });
             }
             else {
                 setLoading(false);

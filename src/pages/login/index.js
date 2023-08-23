@@ -18,8 +18,8 @@ import { TiDelete } from 'react-icons/ti';
 
 const Login = () => {
     const router = useRouter();
-    const [showPassword, setShowPassword] = useState(false)
     const [isLoading, setIsLoading] = useState(true);
+    const [showPassword, setShowPassword] = useState(false)
     const [loading, setLoading] = useState(false);
     const [emailVerifiedMsg, setEmailVerifiedMsg] = useState(null)
     const [credential, setCredential] = useState({
@@ -46,7 +46,6 @@ const Login = () => {
             if (role === USER_ROLE.CUSTOMER) {
                 router.push('/customer/dashboard')
             }
-
             if (!toastShownRef.current) {
                 // toast.info('already login!');
                 toastShownRef.current = true;
@@ -128,7 +127,7 @@ const Login = () => {
         } catch (error) {
             setEmailVerifiedMsg(null)
             if (error.response.status === 409) {
-                setEmailVerifiedMsg('check your email!')
+                setEmailVerifiedMsg('check your email spam folder!')
             }
             setLoading(false);
             const errorMessages = error.response.data.errorMessages;
