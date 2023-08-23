@@ -20,7 +20,6 @@ const EmailVerification = () => {
                     }
                 }
             } catch (error) {
-                console.log(error.response.status)
                 if (error.response.status === 409) {
                     setStatus(409)// already verified 
                 }

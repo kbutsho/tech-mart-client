@@ -205,7 +205,7 @@ const Login = () => {
                             }
                         </small>
                         <div className='d-flex justify-content-end mt-2'>
-                            <small><Link href='/'>forget password?</Link></small>
+                            <small><Link href='/reset-password'>forget password?</Link></small>
                         </div>
                     </div>
                     <input type="submit" className='btn btn-primary w-100 mb-2 fw-bold btn-sm' value="Login" />
