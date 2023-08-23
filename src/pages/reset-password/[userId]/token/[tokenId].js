@@ -102,7 +102,7 @@ const EmailVerification = () => {
                         <div className='d-flex align-items-center'>
                             <input
                                 name="confirmPassword"
-                                type={showPassword ? "text" : "password"}
+                                type={showConfirmPassword ? "text" : "password"}
                                 placeholder='confirm password'
                                 className='form-control pb-1 w-100'
                                 value={formData.confirmPassword}
