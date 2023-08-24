@@ -54,7 +54,11 @@ const ManagerLayout = ({ children }) => {
         router.push('/');
         toast.success('logout successfully!')
     };
-    const profileInfo = JSON.parse(Cookies.get('profileInfo'));
+    const profileInfoString = Cookies.get('profileInfo')
+    let profileInfo = null
+    if (profileInfoString) {
+        profileInfo = JSON.parse(profileInfoString);
+    }
     return (
         <div>
             <div className="d-flex align-items-stretch">
@@ -140,15 +144,17 @@ const ManagerLayout = ({ children }) => {
                             }
                             <ul className="nav navbar-nav ms-auto">
                                 <li>
-                                    <Link className="nav-link d-flex align-items-center" href="/manager/dashboard">
-                                        <span className='me-2 fw-bold text-white'>
-                                            {profileInfo ? `${profileInfo.firstName} ${profileInfo.lastName}` : null}
-                                        </span>
-                                        {profileInfo.image ?
-                                            <Image src={profileInfo.image} height={30} width={30} alt="img" style={{ borderRadius: "100%" }} /> :
-                                            <BiSolidUserCircle size="30" color="white" />
+                                    <Link className="nav-link d-flex align-items-center" href="/customer/dashboard">
+                                        {
+                                            profileInfo ?
+                                                <span>
+                                                    <span className='me-2 fw-bold text-white'>
+                                                        {`${profileInfo.firstName} ${profileInfo.lastName}`}
+                                                    </span>
+                                                    <Image src={profileInfo.image} height={30} width={30} alt="img" style={{ borderRadius: "100%" }} />
+                                                </span> :
+                                                <BiSolidUserCircle size="30" color="white" />
                                         }
-
                                     </Link>
                                 </li>
                             </ul>

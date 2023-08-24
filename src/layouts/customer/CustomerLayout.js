@@ -54,7 +54,11 @@ const CustomerLayout = ({ children }) => {
         router.push('/');
         toast.success('logout successfully!')
     };
-    const profileInfo = JSON.parse(Cookies.get('profileInfo'));
+    const profileInfoString = Cookies.get('profileInfo')
+    let profileInfo = null
+    if (profileInfoString) {
+        profileInfo = JSON.parse(profileInfoString);
+    }
     return (
         <div>
             <div className="d-flex align-items-stretch">
@@ -83,19 +87,19 @@ const CustomerLayout = ({ children }) => {
                             </Link>
                         </li>
                         <li>
-                            <Link href="/customers/products" className='fw-bold'>
+                            <Link href="/customer/products" className='fw-bold'>
                                 <span className={styles.icon}><BsBoxSeamFill /></span>
                                 <span className={styles.link_text}>Products</span>
                             </Link>
                         </li>
                         <li>
-                            <Link href="/seller/orders" className='fw-bold'>
+                            <Link href="/customer/orders" className='fw-bold'>
                                 <span className={styles.icon}><MdOutlineBrandingWatermark /></span>
                                 <span className={styles.link_text}>Orders</span>
                             </Link>
                         </li>
                         <li>
-                            <Link href="/seller/settings" className='fw-bold'>
+                            <Link href="/customer/settings" className='fw-bold'>
                                 <span className={styles.icon}><FiSettings /></span>
                                 <span className={styles.link_text}>Settings</span>
                             </Link>
@@ -123,14 +127,16 @@ const CustomerLayout = ({ children }) => {
                             <ul className="nav navbar-nav ms-auto">
                                 <li>
                                     <Link className="nav-link d-flex align-items-center" href="/customer/dashboard">
-                                        <span className='me-2 fw-bold text-white'>
-                                            {profileInfo ? `${profileInfo.firstName} ${profileInfo.lastName}` : null}
-                                        </span>
-                                        {profileInfo.image ?
-                                            <Image src={profileInfo.image} height={30} width={30} alt="img" style={{ borderRadius: "100%" }} /> :
-                                            <BiSolidUserCircle size="30" color="white" />
+                                        {
+                                            profileInfo ?
+                                                <span>
+                                                    <span className='me-2 fw-bold text-white'>
+                                                        {`${profileInfo.firstName} ${profileInfo.lastName}`}
+                                                    </span>
+                                                    <Image src={profileInfo.image} height={30} width={30} alt="img" style={{ borderRadius: "100%" }} />
+                                                </span> :
+                                                <BiSolidUserCircle size="30" color="white" />
                                         }
-
                                     </Link>
                                 </li>
                             </ul>
@@ -141,12 +147,12 @@ const CustomerLayout = ({ children }) => {
                         {children}
                     </div>
                 </div>
-            </div>
+            </div >
             <div className="footer text-center py-3 fw-bold" style={{ background: "#0A2647", color: "white" }}>
                 <small style={{ fontSize: "13px" }}>copyright© {new Date().getFullYear()} || all rights reserved by
                     <a style={{ textDecoration: "none", color: "white" }} target='_blank' href={`${config.portfolio_url}`}> kbutsho</a></small>
             </div>
-        </div>
+        </div >
     );
 };
 
