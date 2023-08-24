@@ -14,12 +14,14 @@ const EmailVerification = () => {
             try {
                 const url = (`${config.api}/auth/${router.query.userId}/token/${router.query.tokenId}`);
                 const response = await axios.get(url);
+                console.log(response)
                 if (response.data) {
                     if (response.status === 200) {
                         setStatus(200) // verify successfully
                     }
                 }
             } catch (error) {
+                console.log(error.response)
                 if (error.response.status === 409) {
                     setStatus(409)// already verified 
                 }
@@ -39,7 +41,7 @@ const EmailVerification = () => {
 
                         <div className='text-center'>
                             <Image src={okImage} alt="img" height={140} width={140} />
-                            <h5 className='mt-3 fw-bold'>email verified successfully!</h5>
+                            <h5 className='mt-3 fw-bold'>email verification successfully!</h5>
                             <Link className='btn btn-primary px-5 mt-2 fw-bold btn-sm' href="/login">Login</Link>
                         </div>
                     </div> : status === 409 ?

@@ -107,6 +107,12 @@ const Login = () => {
                 const role = response.data.data.role
                 Cookies.set('token', token, { expires: 7 });
                 Cookies.set('role', role, { expires: 7 });
+                const profile = await axios.get(`${config.api}/user/profile`, {
+                    headers: {
+                        Authorization: `${token}`
+                    }
+                });
+                Cookies.set('profileInfo', JSON.stringify(profile.data.data), { expires: 7 });
                 if (role === USER_ROLE.ADMIN) {
                     router.push('/admin/dashboard')
                 }

@@ -1,6 +1,11 @@
 import Breadcrumb from '@/components/Breadcrumb/Index';
 import CustomerLayout from '@/layouts/customer/CustomerLayout';
+import axios from 'axios';
 import Head from 'next/head';
+import { useEffect, useState } from 'react';
+import { config } from "@/config";
+import Cookies from 'js-cookie';
+import { toast } from 'react-toastify';
 
 const CustomerDashboard = () => {
     return (

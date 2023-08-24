@@ -50,9 +50,11 @@ const CustomerLayout = ({ children }) => {
     const handleLogout = () => {
         Cookies.remove('token');
         Cookies.remove('role');
+        Cookies.remove('profileInfo')
         router.push('/');
         toast.success('logout successfully!')
     };
+    const profileInfo = JSON.parse(Cookies.get('profileInfo'));
     return (
         <div>
             <div className="d-flex align-items-stretch">
@@ -120,9 +122,15 @@ const CustomerLayout = ({ children }) => {
                             }
                             <ul className="nav navbar-nav ms-auto">
                                 <li>
-                                    <Link className="nav-link d-flex align-items-center" href="/">
-                                        <BiSolidUserCircle size="30" color="white" />
-                                        <span className='ms-2 fw-bold text-white'>kbutsho</span>
+                                    <Link className="nav-link d-flex align-items-center" href="/customer/dashboard">
+                                        <span className='me-2 fw-bold text-white'>
+                                            {profileInfo ? `${profileInfo.firstName} ${profileInfo.lastName}` : null}
+                                        </span>
+                                        {profileInfo.image ?
+                                            <Image src={profileInfo.image} height={30} width={30} alt="img" style={{ borderRadius: "100%" }} /> :
+                                            <BiSolidUserCircle size="30" color="white" />
+                                        }
+
                                     </Link>
                                 </li>
                             </ul>
