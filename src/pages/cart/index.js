@@ -5,6 +5,8 @@ import styles from '@/styles/cart/index.module.css';
 import Link from 'next/link';
 import { clearCart, decreaseCartItem, increaseCartItem, removeFromCart } from '@/redux/features/cartSlice';
 import Image from 'next/image';
+import notFoundImage from "@/assets/product/not-found.png"
+import { isValidURL } from '@/helper';
 
 const CartPage = () => {
     const cart = useSelector((state) => state.cart)
@@ -60,7 +62,12 @@ const CartPage = () => {
                                 cart.products.map((cartItem) => (
                                     <div className={styles.cart_item} key={cartItem._id}>
                                         <div className={styles.cart_product}>
-                                            <Image src={cartItem.coverPhoto} alt={cartItem.name} height={120} width={120} />
+                                            {
+                                                isValidURL(cartItem.coverPhoto) ?
+                                                    (<Image src={cartItem.coverPhoto} alt={cartItem.name} height={120} width={120} />)
+                                                    :
+                                                    <Image src={notFoundImage} alt={cartItem.name} height={120} width={120} />
+                                            }
                                             <div className='ms-2'>
                                                 <h5 className='fw-bold'>{cartItem.name}</h5>
                                                 <p>{cartItem.category}</p>

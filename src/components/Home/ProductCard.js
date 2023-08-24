@@ -8,6 +8,8 @@ import { useDispatch } from 'react-redux';
 import { addToCart } from '@/redux/features/cartSlice';
 import { addToFavourite } from '@/redux/features/favouriteSlice';
 import Link from 'next/link';
+import { isValidURL } from '@/helper';
+import notFoundImage from "@/assets/product/not-found.png";
 
 const ProductCard = (props) => {
     const { status, price, discountPrice, name, coverPhoto, rating, _id, category } = props.product;
@@ -33,83 +35,97 @@ const ProductCard = (props) => {
     }
     return (
         <div className='col-md-4 col-lg-3 col-xl-3 col-xxl-2 col-sm-6 col-6'>
-            <Link className={styles.url_link}
-                href={`/category/${category}/${_id}`}>
-                <div className={`${styles.product_card}`}>
-                    <div className={styles.product_header}>
-                        {
-                            offer > 0 ? <span className={styles.offer_percentage}>{offer}% OFF</span> : null
-                        }
-                        <div className={styles.product_image}>
-                            <Image className='bg-info'
-                                src={coverPhoto}
-                                width={170}
-                                height={170}
-                                layout='responsive'
-                                alt="img"
-                            />
-                        </div>
-                    </div>
-                    <h6 className={`${styles.product_name} mt-2`}>{name}</h6>
+            {/* <Link > */}
+            <div className={`${styles.product_card}`}>
+                <div className={styles.product_header}>
                     {
-                        discountPrice < price ?
-                            <div className='d-flex justify-content-between'>
-                                <h6 className={`${styles.previous_price}`}>৳ {price}</h6>
-                                <h6 className={`${styles.discount_price}`}>৳ {discountPrice}</h6>
-                            </div> : <div className='d-flex'><h6 className='fw-bold '>৳ {price}</h6></div>
+                        offer > 0 ? <span className={styles.offer_percentage}>{offer}% OFF</span> : null
                     }
-                    <div className=' d-flex justify-content-between'>
-                        <div className="rating">
-                            {
-                                rating === 0 ? <small>
-                                    <span className={styles.rating}>0</span>
-                                    <BsStar className={`${styles.star_icon}`} />
-                                </small>
-                                    : <small>
-                                        <span className={styles.rating}>{rating}</span>
-                                        {renderRatingStars()}
-                                    </small>
-                            }
-                        </div>
-                        <div>
-                            <AiOutlineHeart onClick={() => handelAddToFavourite(props.product)}
-                                className={`${styles.icon} ms-1`} />
-                            {
-                                status === PRODUCT_STATUS.IN_STOCK ?
-                                    <AiOutlineShoppingCart onClick={() => handelAddToCart(props.product)}
-                                        className={`${styles.icon}`} /> :
-                                    null
-                            }
-                        </div>
-                    </div>
-                    <div className='d-flex flex-row mt-2 pt-1'>
-                        {
-                            status === PRODUCT_STATUS.IN_STOCK ? (
-                                <>
-                                    <div className="w-50">
-                                        <div className={styles.in_stock}>
-                                            {status.split('-').join(' ')}
-                                        </div>
-                                    </div>
-                                    <div className="w-50">
-                                        <div className={styles.buy_now}>
-                                            <Link className={styles.url_link} href={`/category/${category}/${_id}`}>
-                                                buy now
-                                            </Link>
-                                        </div>
-                                    </div>
-                                </>
+                    <div className={styles.product_image}>
+                        <Link className={styles.url_link}
+                            href={`/category/${category}/${_id}`}>
+                            {isValidURL(coverPhoto) ? (
+                                <Image className='bg-info'
+                                    src={coverPhoto}
+                                    width={170}
+                                    height={170}
+                                    layout='responsive'
+                                    alt="img"
+                                />
                             ) : (
-                                <div className="w-100">
-                                    <div className={styles.not_in_stock}>
-                                        {status.split('-').join(' ')}
-                                    </div>
-                                </div>
-                            )
+                                <Image className='bg-info'
+                                    src={notFoundImage}
+                                    width={170}
+                                    height={170}
+                                    layout='responsive'
+                                    alt="img"
+                                />
+                            )}
+                        </Link>
+                    </div>
+                </div>
+                <Link className={styles.url_link}
+                    href={`/category/${category}/${_id}`}>
+                    <h6 className={`${styles.product_name} mt-2`}>{name}</h6>
+                </Link>
+                {
+                    discountPrice < price ?
+                        <div className='d-flex justify-content-between'>
+                            <h6 className={`${styles.previous_price}`}>৳ {price}</h6>
+                            <h6 className={`${styles.discount_price}`}>৳ {discountPrice}</h6>
+                        </div> : <div className='d-flex'><h6 className='fw-bold '>৳ {price}</h6></div>
+                }
+                <div className=' d-flex justify-content-between'>
+                    <div className="rating">
+                        {
+                            rating === 0 ? <small>
+                                <span className={styles.rating}>0</span>
+                                <BsStar className={`${styles.star_icon}`} />
+                            </small>
+                                : <small>
+                                    <span className={styles.rating}>{rating}</span>
+                                    {renderRatingStars()}
+                                </small>
+                        }
+                    </div>
+                    <div>
+                        <AiOutlineHeart onClick={() => handelAddToFavourite(props.product)}
+                            className={`${styles.icon} ms-1`} />
+                        {
+                            status === PRODUCT_STATUS.IN_STOCK ?
+                                <AiOutlineShoppingCart onClick={() => handelAddToCart(props.product)}
+                                    className={`${styles.icon}`} /> :
+                                null
                         }
                     </div>
                 </div>
-            </Link>
+                <div className='d-flex flex-row mt-2 pt-1'>
+                    {
+                        status === PRODUCT_STATUS.IN_STOCK ? (
+                            <>
+                                <div className="w-50">
+                                    <div className={styles.in_stock}>
+                                        {status.split('-').join(' ')}
+                                    </div>
+                                </div>
+                                <div className="w-50">
+                                    <div className={styles.buy_now}>
+                                        <Link className={styles.url_link} href={`/category/${category}/${_id}`}>
+                                            buy now
+                                        </Link>
+                                    </div>
+                                </div>
+                            </>
+                        ) : (
+                            <div className="w-100">
+                                <div className={styles.not_in_stock}>
+                                    {status.split('-').join(' ')}
+                                </div>
+                            </div>
+                        )
+                    }
+                </div>
+            </div>
         </div >
     );
 };

@@ -5,6 +5,9 @@ import { useDispatch } from 'react-redux';
 import { addToCart } from '@/redux/features/cartSlice';
 import FeaturesTable from './FeatureTable';
 import { BsStar, BsStarFill, BsStarHalf } from 'react-icons/bs';
+import { isValidURL } from '@/helper';
+import notFoundImage from "@/assets/product/not-found.png";
+
 
 const ProductDetailsCard = ({ product }) => {
     const dispatch = useDispatch();
@@ -38,7 +41,12 @@ const ProductDetailsCard = ({ product }) => {
         <div className="row">
             <div className="col-md-4 col-12">
                 <div className='px-5'>
-                    <Image src={product.data.coverPhoto} height={40} width={40} layout='responsive' alt="img" />
+                    {
+                        isValidURL(product.data.coverPhoto) ?
+                            <Image src={product.data.coverPhoto} height={40} width={40} layout='responsive' alt="img" />
+                            :
+                            <Image src={notFoundImage} height={40} width={40} layout='responsive' alt="img" />
+                    }
                 </div>
             </div>
             <div className="col-md-8 col-12">
@@ -99,7 +107,10 @@ const ProductDetailsCard = ({ product }) => {
                                         {
                                             review.photos.map((photo, index) =>
                                                 <div className='col-md-4' key={index} style={{ height: "105px", width: "105px" }}>
-                                                    <Image src={photo} layout='responsive' height={100} width={100} alt="img" />
+                                                    {
+                                                        isValidURL(photo) ? <Image src={photo} layout='responsive' height={100} width={100} alt="img" />
+                                                            : <Image src={notFoundImage} layout='responsive' height={100} width={100} alt="img" />
+                                                    }
                                                 </div>
                                             )
                                         }

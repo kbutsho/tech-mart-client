@@ -20,7 +20,6 @@ import ProductCard from '@/components/Home/ProductCard';
 import { config } from '@/config';
 
 const Home = ({ data }) => {
-
   const slideRef = useRef()
   const responsiveSettings = [
     {

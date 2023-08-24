@@ -13,7 +13,6 @@ import banner10 from '@/assets/home/banner/banner10.jpeg'
 import banner11 from '@/assets/home/banner/banner11.jpeg'
 import banner12 from '@/assets/home/banner/banner12.jpeg'
 import Image from 'next/legacy/image'
-import styles from '@/styles/home/index.module.css'
 
 const Banner = () => {
     return (

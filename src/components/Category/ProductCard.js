@@ -8,6 +8,8 @@ import { useDispatch } from 'react-redux';
 import { addToCart } from '@/redux/features/cartSlice';
 import { addToFavourite } from '@/redux/features/favouriteSlice';
 import Link from 'next/link';
+import { isValidURL } from '@/helper';
+import notFoundImage from "@/assets/product/not-found.png"
 
 const ProductCard = (props) => {
     const { status, price, discountPrice, name, coverPhoto, rating, _id, category } = props.product;
@@ -41,13 +43,22 @@ const ProductCard = (props) => {
                             offer > 0 ? <span className={styles.offer_percentage}>{offer}% OFF</span> : null
                         }
                         <div className={styles.product_image}>
-                            <Image className='bg-info'
-                                src={coverPhoto}
-                                width={170}
-                                height={170}
-                                layout='responsive'
-                                alt="img"
-                            />
+                            {
+                                isValidURL(coverPhoto) ?
+                                    <Image className='bg-info'
+                                        src={coverPhoto}
+                                        width={170}
+                                        height={170}
+                                        layout='responsive'
+                                        alt="img"
+                                    /> : <Image className='bg-info'
+                                        src={notFoundImage}
+                                        width={170}
+                                        height={170}
+                                        layout='responsive'
+                                        alt="img"
+                                    />
+                            }
                         </div>
                     </div>
                     <h6 className={`${styles.product_name} mt-2`}>{name}</h6>
