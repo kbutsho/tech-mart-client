@@ -62,7 +62,7 @@ const SellerLayout = ({ children }) => {
     return (
         <div >
             <div className="flex-container" >
-                <nav id={styles.sidebar} className={active ? `${styles.active}` : ""}>
+                <nav id={styles.sidebar} className={`w-25 ${active ? `${styles.active}` : ""}`}>
                     <ul className={`${styles.components} list-unstyled mb-5`} style={{ marginTop: "20px" }}>
                         {
                             active ?
@@ -107,7 +107,7 @@ const SellerLayout = ({ children }) => {
                     </ul>
                 </nav>
 
-                <div>
+                <div className='w-75'>
                     <nav className="navbar navbar-expand-lg" style={{ background: "#0A2647" }}>
                         <div className='container'>
                             {

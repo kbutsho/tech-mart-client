@@ -44,7 +44,7 @@ const SellerProductList = () => {
                         loading ? <div>loading...</div>
                             :
                             <div className='p-3 border mt-3 table-area'>
-                                <Table striped hover responsive >
+                                <Table striped hover responsive>
                                     <thead>
                                         <tr>
                                             <th>#</th>
