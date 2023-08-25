@@ -60,8 +60,8 @@ const SellerLayout = ({ children }) => {
         profileInfo = JSON.parse(profileInfoString);
     }
     return (
-        <div>
-            <div className="d-flex align-items-stretch">
+        <div >
+            <div className="flex-container" >
                 <nav id={styles.sidebar} className={active ? `${styles.active}` : ""}>
                     <ul className={`${styles.components} list-unstyled mb-5`} style={{ marginTop: "20px" }}>
                         {
