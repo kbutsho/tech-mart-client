@@ -15,6 +15,8 @@ import { config } from '@/config';
 import { useRef } from 'react';
 import { useEffect } from 'react';
 import { TiDelete } from 'react-icons/ti';
+import { firebaseAuth, googleProvider, signInWithGoogle } from '@/firebase/firebaseConfig';
+import { signInWithPopup } from 'firebase/auth';
 
 const Login = () => {
     const router = useRouter();
@@ -22,6 +24,7 @@ const Login = () => {
     const [showPassword, setShowPassword] = useState(false)
     const [loading, setLoading] = useState(false);
     const [emailVerifiedMsg, setEmailVerifiedMsg] = useState(null)
+    const [googleCredential, setGoogleCredential] = useState()
     const [credential, setCredential] = useState({
         email: '',
         password: '',
@@ -32,31 +35,7 @@ const Login = () => {
     const token = Cookies.get('token');
     const role = Cookies.get('role');
     const toastShownRef = useRef(false);
-    useEffect(() => {
-        if (token && role) {
-            if (role === USER_ROLE.ADMIN) {
-                router.push('/admin/dashboard')
-            }
-            if (role === USER_ROLE.MANAGER) {
-                router.push('/manager/dashboard')
-            }
-            if (role === USER_ROLE.SELLER) {
-                router.push('/seller/dashboard')
-            }
-            if (role === USER_ROLE.CUSTOMER) {
-                router.push('/customer/dashboard')
-            }
-            if (!toastShownRef.current) {
-                // toast.info('already login!');
-                toastShownRef.current = true;
-            }
-        } else {
-            setIsLoading(false);
-        }
-    }, [token, role, router]);
-    if (isLoading) {
-        return <div style={{ height: "100vh" }}></div>;
-    }
+
     // if login redirect dashboard -> end
 
     const demoUser = {
@@ -151,6 +130,102 @@ const Login = () => {
     const handelVerifiedMessage = () => {
         setEmailVerifiedMsg(null);
     }
+    const signInWithGoogle = () => {
+        signInWithPopup(firebaseAuth, googleProvider)
+            .then((result) => {
+                const credential = {
+                    email: result._tokenResponse.email,
+                    firstName: result._tokenResponse.firstName,
+                    lastName: result._tokenResponse.lastName,
+                }
+                setGoogleCredential(credential)
+
+            })
+            .catch((error) => {
+                console.log(error)
+                toast.error("internal server error!")
+            });
+    };
+    useEffect(() => {
+        if (googleCredential) {
+            const loginWithGoogle = async () => {
+                try {
+                    setLoading(!loading);
+                    const response = await axios.post(`${config.api}/auth/login/google`, googleCredential);
+                    if (response.data.data) {
+                        setEmailVerifiedMsg(null)
+                        setLoading(false);
+                        const token = response.data.data.accessToken;
+                        const role = response.data.data.role
+                        Cookies.set('token', token, { expires: 7 });
+                        Cookies.set('role', role, { expires: 7 });
+                        const profile = await axios.get(`${config.api}/user/profile`, {
+                            headers: {
+                                Authorization: `${token}`
+                            }
+                        });
+                        Cookies.set('profileInfo', JSON.stringify(profile.data.data), { expires: 7 });
+                        if (role === USER_ROLE.ADMIN) {
+                            router.push('/admin/dashboard')
+                        }
+                        if (role === USER_ROLE.SELLER) {
+                            router.push('/seller/dashboard')
+                        }
+                        if (role === USER_ROLE.CUSTOMER) {
+                            router.push('/customer/dashboard')
+                        }
+                        if (role === USER_ROLE.MANAGER) {
+                            router.push('/manager/dashboard')
+                        }
+                        toast.success(response.data.message)
+                    } else {
+                        setLoading(false);
+                        toast.error('something went wrong!')
+                    }
+                } catch (error) {
+                    setEmailVerifiedMsg(null)
+                    setLoading(false);
+                    const errorMessages = error.response.data.errorMessages;
+                    const formattedErrors = {};
+                    errorMessages.forEach(err => {
+                        formattedErrors[err.path] = err.message;
+                    });
+                    setCredential(prevCredential => ({
+                        ...prevCredential,
+                        errors: formattedErrors
+                    }));
+                    toast.error(error.response.data.message)
+                }
+            };
+            loginWithGoogle();
+        }
+    }, [googleCredential]);
+
+    useEffect(() => {
+        if (token && role) {
+            if (role === USER_ROLE.ADMIN) {
+                router.push('/admin/dashboard')
+            }
+            if (role === USER_ROLE.MANAGER) {
+                router.push('/manager/dashboard')
+            }
+            if (role === USER_ROLE.SELLER) {
+                router.push('/seller/dashboard')
+            }
+            if (role === USER_ROLE.CUSTOMER) {
+                router.push('/customer/dashboard')
+            }
+            if (!toastShownRef.current) {
+                // toast.info('already login!');
+                toastShownRef.current = true;
+            }
+        } else {
+            setIsLoading(false);
+        }
+    }, [token, role, router]);
+    if (isLoading) {
+        return <div style={{ height: "100vh" }}></div>;
+    }
     return (
         <div className={styles.login_area}>
             <div className={`${styles.main_area} ${loading ? styles.animated_box : styles.not_animated_box}`}
@@ -219,7 +294,7 @@ const Login = () => {
                 <div className='d-flex justify-content-center align-items-center mb-2'>
                     <hr /> <small className='mx-2'>or</small> <hr />
                 </div>
-                <button className='btn btn-outline-success btn-sm w-100 mb-2 d-flex justify-content-around align-items-center'>
+                <button onClick={signInWithGoogle} className='btn btn-outline-success btn-sm w-100 mb-2 d-flex justify-content-around align-items-center'>
                     <span>continue with google</span>
                     <Image src={google} width={16} height={16} alt="img" />
                 </button>

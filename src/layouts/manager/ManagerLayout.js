@@ -16,6 +16,7 @@ import { useRef } from 'react';
 import { USER_ROLE } from '@/constant/user.role.constant';
 import { toast } from 'react-toastify';
 import { config } from '@/config'
+import { isValidURL } from '@/helper';
 
 
 const ManagerLayout = ({ children }) => {
@@ -151,7 +152,12 @@ const ManagerLayout = ({ children }) => {
                                                     <span className='me-2 fw-bold text-white'>
                                                         {`${profileInfo.firstName} ${profileInfo.lastName}`}
                                                     </span>
-                                                    <Image src={profileInfo.image} height={30} width={30} alt="img" style={{ borderRadius: "100%" }} />
+                                                    {
+                                                        isValidURL(profileInfo.image) ?
+                                                            <Image src={profileInfo.image} height={30} width={30} alt="img" style={{ borderRadius: "100%" }} />
+                                                            :
+                                                            <BiSolidUserCircle size="30" color="white" />
+                                                    }
                                                 </span> :
                                                 <BiSolidUserCircle size="30" color="white" />
                                         }
