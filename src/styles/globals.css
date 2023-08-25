@@ -79,6 +79,23 @@
     font-size: 14px;
 }
 
+.table-area .name-column {
+    width: 16%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.table-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 10px;
+    border-radius: 4px;
+    background-color: #ECECEC;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 2px 1px;
+}
+
 @media screen and (max-width: 468px) {
     .main_area {
         margin-top: 130px;
@@ -100,8 +117,13 @@
     .small-text {
         font-size: 12px;
     }
+
     .table-area {
         font-size: 10px;
+    }
+
+    .table-area .name-column {
+        width: 24%;
     }
 
 }

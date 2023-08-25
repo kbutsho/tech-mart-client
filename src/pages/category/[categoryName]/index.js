@@ -20,6 +20,8 @@ const DynamicCategoryName = ({ data }) => {
 
     // filter by price range
     const [priceRange, setPriceRange] = useState(data.priceRangeResponse.data);
+    console.log(priceRange)
+
     const handlePriceRangeChange = (event, newValue) => {
         setPriceRange(newValue);
     }
