@@ -64,7 +64,7 @@ const SellerProductList = () => {
                                     </thead>
                                     <tbody>
                                         {
-                                            data?.slice(0, 50).map((data, index) => {
+                                            data?.slice(0, 6).map((data, index) => {
                                                 return (
                                                     <tr key={index}>
                                                         <td className='fw-bold'>{(index + 1).toString().padStart(2, '0')}</td>
