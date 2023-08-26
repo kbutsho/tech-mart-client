@@ -406,8 +406,8 @@ const SellerProductList = () => {
                                     style={{ height: "50vh" }}><h6>no product found!</h6></div>
 
                                 : <div className='p-3 border mt-3 table-area'>
-                                    <Table striped hover responsive>
-                                        <thead>
+                                    <Table striped hover responsive >
+                                        <thead className='table-dark'>
                                             <tr>
                                                 <th>#</th>
                                                 <th>CODE</th>
@@ -451,7 +451,7 @@ const SellerProductList = () => {
                                         </tbody>
                                     </Table>
                                     {/* pagination */}
-                                    <div className={styles.pagination}>
+                                    <div className={`${styles.pagination}`} style={{ marginTop: "0px" }}>
                                         {
                                             currentProduct?.length > 0 ?
                                                 <Pagination data={filterAndSearchData}
