@@ -407,7 +407,7 @@ const SellerProductList = () => {
 
                                 : <div className='p-3 border mt-3 table-area'>
                                     <Table striped hover responsive >
-                                        <thead className='table-dark'>
+                                        <thead>
                                             <tr>
                                                 <th>#</th>
                                                 <th>CODE</th>
