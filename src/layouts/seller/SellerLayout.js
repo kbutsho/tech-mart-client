@@ -142,7 +142,9 @@ const SellerLayout = ({ children }) => {
                         </div>
                     </nav>
 
-                    <div className="px-2" onContextMenu={handleContextMenu}>
+                    <div className="px-2" onContextMenu={handleContextMenu}
+                        style={{ backgroundColor: "#FAFAFA" }}
+                    >
                         {children}
                     </div>
                 </div>

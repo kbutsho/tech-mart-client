@@ -92,8 +92,8 @@
     align-items: center;
     padding: 8px 10px;
     border-radius: 4px;
-    background-color: #ECECEC;
-    box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 2px 1px;
+    /* background-color: #ECECEC; */
+    /* box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 2px 1px; */
 }
 
 @media screen and (max-width: 468px) {

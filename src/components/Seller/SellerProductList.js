@@ -6,11 +6,14 @@ import axios from 'axios';
 import { toast } from 'react-toastify';
 import { Table } from 'react-bootstrap';
 import { FadeLoader } from 'react-spinners';
-import { AiFillDelete, AiFillEdit, AiFillEye } from 'react-icons/ai';
+import { AiFillDelete, AiFillEdit, AiFillEye, AiFillStar } from 'react-icons/ai';
 import Cookies from 'js-cookie';
 import styles from '@/styles/home/product.module.css'
 import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io';
 import { Slider } from '@mui/material';
+import { PRICE_SORT_ORDER, PRODUCT_BRAND, PRODUCT_STATUS } from '@/constant/product.constant';
+import Link from 'next/link';
+import Pagination from '../Pagination/Pagination';
 
 const SellerProductList = () => {
     const [data, setData] = useState();
@@ -41,6 +44,7 @@ const SellerProductList = () => {
         fetchData()
     }, [setData, token])
 
+
     // filter by price range
     const [priceRange, setPriceRange] = useState([]);
     useEffect(() => {
@@ -57,7 +61,6 @@ const SellerProductList = () => {
         }
         getPriceRange()
     }, [])
-
     const handlePriceRangeChange = (event, newValue) => {
         setPriceRange(newValue);
     }
@@ -66,22 +69,140 @@ const SellerProductList = () => {
         setPriceToggle(!priceToggle)
     }
 
+    // price sort order
+    const sortOrderList = [
+        PRICE_SORT_ORDER.MIN_TO_MAX,
+        PRICE_SORT_ORDER.MAX_TO_MIN,
+        PRICE_SORT_ORDER.DEFAULT
+    ];
+    const [sortOrder, setSortOrder] = useState('')
+    const handelSortOrder = (event) => {
+        setSortOrder(event.target.value);
+    }
+    const [sortOrderToggle, setSortOrderToggle] = useState(true)
+    const handelSortOrderToggle = () => {
+        setSortOrderToggle(!sortOrderToggle)
+    }
+
+    // filter by status
+    const productStatus = [
+        PRODUCT_STATUS.IN_STOCK,
+        PRODUCT_STATUS.STOCK_OUT,
+        PRODUCT_STATUS.UPCOMING,
+        PRODUCT_STATUS.DISCONTINUE,
+        PRODUCT_STATUS.LIMITED_STOCK,
+        PRODUCT_STATUS.SHOW_ALL
+
+    ]
+    const [filterByStatus, setFilterByStatus] = useState('');
+    const handelFilterByStatus = (event) => {
+        setFilterByStatus(event.target.value);
+    }
+    const [statusToggle, setStatusToggle] = useState(true)
+    const handelStatusToggle = () => {
+        setStatusToggle(!statusToggle)
+    }
+
+    // filter by brand
+    const productBrand = [
+        PRODUCT_BRAND.SAMSUNG,
+        PRODUCT_BRAND.APPLE,
+        PRODUCT_BRAND.XIAOMI,
+        PRODUCT_BRAND.ONEPLUS,
+        PRODUCT_BRAND.OPPO,
+        PRODUCT_BRAND.VIVO,
+        PRODUCT_BRAND.REALME,
+        PRODUCT_BRAND.PIXEL,
+        PRODUCT_BRAND.AMAZFIT,
+        PRODUCT_BRAND.HAYLOU,
+        PRODUCT_BRAND.IMILAB,
+        PRODUCT_BRAND.LENOVO,
+        PRODUCT_BRAND.BASEUS,
+        PRODUCT_BRAND.JBL,
+        PRODUCT_BRAND.ASUS,
+        PRODUCT_BRAND.ACER,
+        PRODUCT_BRAND.MSI,
+        PRODUCT_BRAND.GIGABYTE,
+        PRODUCT_BRAND.HP,
+        PRODUCT_BRAND.DELL,
+        PRODUCT_BRAND.ANKER,
+        PRODUCT_BRAND.SONY,
+        PRODUCT_BRAND.CANON,
+        PRODUCT_BRAND.GO_PRO,
+        PRODUCT_BRAND.NIKON,
+        PRODUCT_BRAND.LEICA,
+        PRODUCT_BRAND.SHOW_ALL
+    ];
+    const [filterByBrand, setFilterByBrand] = useState('');
+    const handelFilterByBrand = (event) => {
+        setFilterByBrand(event.target.value);
+    }
+    const [brandToggle, setBrandToggle] = useState(true)
+    const handelBrandToggle = () => {
+        setBrandToggle(!brandToggle)
+    }
+
+    // filter by rating
+    const [ratingRange, setRatingRange] = useState([0, 5]);
+    const handleRatingRangeChange = (event, newValue) => {
+        setRatingRange(newValue);
+    }
+    const [ratingToggle, setRatingToggle] = useState(true)
+    const handelRatingToggle = () => {
+        setRatingToggle(!ratingToggle)
+    }
+
+    // search input field
+    const [searchTerm, setSearchTerm] = useState('');
+    const handelSearch = (event) => {
+        setSearchTerm(event.target.value);
+    };
+
+    // combine filter search and sort
+    const filterAndSearchData = data?.filter((item) => {
+        // filter
+        const statusMatch = filterByStatus ? item.status.includes(filterByStatus) : true;
+        const brandMatch = filterByBrand ? item.brand.includes(filterByBrand) : true;
+        const priceRangeMatch = item.price >= priceRange[0] && item.price <= priceRange[1];
+        const ratingRangeMatch = item.rating >= ratingRange[0] && item.rating <= ratingRange[1];
+        // search 
+        const searchMatch = searchTerm === '' ||
+            item.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+            item.category.toLowerCase().includes(searchTerm.toLowerCase()) ||
+            item.brand.toLowerCase().includes(searchTerm.toLowerCase());
+        return priceRangeMatch && statusMatch && brandMatch && ratingRangeMatch && searchMatch;
+    })    // sort
+        .sort((itemA, itemB) => {
+            if (sortOrder === PRICE_SORT_ORDER.MIN_TO_MAX) {
+                return itemA.discountPrice - itemB.discountPrice;
+            } else if (sortOrder === PRICE_SORT_ORDER.MAX_TO_MIN) {
+                return itemB.discountPrice - itemA.discountPrice;
+            }
+            return 0;
+        });
+
+
 
     //pagination
-    //const [currentPage, setCurrentPage] = useState(1);
+    const [currentPage, setCurrentPage] = useState(1);
     const [productPerPage, setProductPerPage] = useState(8);
-    // const indexOfLastProduct = currentPage * productPerPage;
-    // const indexOfFirstProduct = indexOfLastProduct - productPerPage;
-    // const currentProduct = filterAndSearchData.slice(indexOfFirstProduct, indexOfLastProduct)
-    // const handelPaginate = (pageNumber) => {
-    //     setCurrentPage(pageNumber)
-    // }
+    const indexOfLastProduct = currentPage * productPerPage;
+    const indexOfFirstProduct = indexOfLastProduct - productPerPage;
+    const currentProduct = filterAndSearchData?.slice(indexOfFirstProduct, indexOfLastProduct)
+    const handelPaginate = (pageNumber) => {
+        setCurrentPage(pageNumber)
+    }
     return (
         <div className="row py-4" >
             <div className="col-md-3">
+
+                <Link href="/" className={`${styles.filter_header} bg-secondary py-2`}
+                    style={{ marginBottom: "10px", textDecoration: "none", color: "black" }}>
+                    <span className='bg-secondary text-white text-uppercase'> Add Product</span>
+                </Link>
                 {/* show per page */}
                 <div className={styles.filter_header}>
-                    <span >Show</span>
+                    <span className='text-uppercase'>Show</span>
                     <select
                         value={productPerPage}
                         className={`${styles.custom_select} form-select`}
@@ -99,7 +220,7 @@ const SellerProductList = () => {
 
                 {/* filter by price range */}
                 <div className={styles.filter_area}>
-                    <button onClick={handelPriceToggle}>Price Range
+                    <button className='text-uppercase' onClick={handelPriceToggle}>Price Range
                         <div>
                             <span className={` ${priceToggle ? styles.show : styles.hide}`}>
                                 <IoIosArrowUp size="20px" />
@@ -130,19 +251,157 @@ const SellerProductList = () => {
                         }
                     </div>
                 </div>
+
+                {/* price sort order */}
+                <div className={styles.filter_area}>
+                    <button className='text-uppercase' onClick={handelSortOrderToggle}>Sort Order
+                        <div>
+                            <span className={`${sortOrderToggle ? styles.show : styles.hide}`}>
+                                <IoIosArrowUp size="20px" />
+                            </span>
+                            <span className={`${sortOrderToggle ? styles.hide : styles.show}`}>
+                                <IoIosArrowDown size="20px" />
+                            </span>
+                        </div>
+                    </button>
+                    <div className={`${sortOrderToggle ? styles.show : styles.hide}`}>
+                        <hr />
+                        {
+                            sortOrderList.map((sort, index) => (
+                                <div key={index}>
+                                    <label htmlFor={`sort_${index}`} className={styles.radio_area}>
+                                        <input
+                                            className={`${styles.radio_input}`}
+                                            type="radio"
+                                            name="sort_order"
+                                            id={`sort_${index}`}
+                                            value={sort === PRICE_SORT_ORDER.DEFAULT ? '' : sort}
+                                            onChange={handelSortOrder}
+                                        />
+                                        {sort}
+                                    </label>
+                                </div>
+                            ))
+                        }
+                    </div>
+                </div>
+
+                {/* filter by status */}
+                <div className={styles.filter_area}>
+                    <button className='text-uppercase' onClick={handelStatusToggle}>Status
+                        <div>
+                            <span className={` ${statusToggle ? styles.show : styles.hide}`}>
+                                <IoIosArrowUp size="20px" />
+                            </span>
+                            <span className={` ${statusToggle ? styles.hide : styles.show}`}>
+                                <IoIosArrowDown size="20px" />
+                            </span>
+                        </div>
+                    </button>
+                    <div className={`${statusToggle ? styles.show : styles.hide}`}>
+                        <hr />
+                        {
+                            productStatus.map((status, index) => (
+                                <div key={index}>
+                                    <label htmlFor={`status_${index}`} className={styles.radio_area}>
+                                        <input
+                                            className={`${styles.radio_input}`}
+                                            type="radio"
+                                            name="status"
+                                            id={`status_${index}`}
+                                            value={status === PRODUCT_STATUS.SHOW_ALL ? '' : status}
+                                            onChange={handelFilterByStatus}
+                                        />
+                                        {status.split('-').join(' ')}
+                                    </label>
+                                </div>
+                            ))
+                        }
+                    </div>
+                </div>
+
+                {/* filter by brand */}
+                <div className={styles.filter_area}>
+                    <button className='text-uppercase' onClick={handelBrandToggle}>Brand
+                        <div>
+                            <span className={` ${brandToggle ? styles.show : styles.hide}`}>
+                                <IoIosArrowUp size="20px" />
+                            </span>
+                            <span className={` ${brandToggle ? styles.hide : styles.show}`}>
+                                <IoIosArrowDown size="20px" />
+                            </span>
+                        </div>
+                    </button>
+                    <div className={`${brandToggle ? styles.show : styles.hide}`}>
+                        <hr />
+                        {
+                            productBrand.map((brand, index) => (
+                                <div key={index}>
+                                    <label htmlFor={`brand_${index}`} className={styles.radio_area}>
+                                        <input
+                                            className={`${styles.radio_input}`}
+                                            type="radio"
+                                            name="brand"
+                                            id={`brand_${index}`}
+                                            value={brand === PRODUCT_BRAND.SHOW_ALL ? '' : brand}
+                                            onChange={handelFilterByBrand}
+                                        />
+                                        {brand.split('-').join(' ')}
+                                    </label>
+                                </div>
+                            ))
+                        }
+                    </div>
+                </div>
+
+                {/* filter by rating */}
+                <div className={styles.filter_area}>
+                    <button className='text-uppercase' onClick={handelRatingToggle}>Rating
+                        <div>
+                            <span className={` ${ratingToggle ? styles.show : styles.hide}`}>
+                                <IoIosArrowUp size="20px" />
+                            </span>
+                            <span className={` ${ratingToggle ? styles.hide : styles.show}`}>
+                                <IoIosArrowDown size="20px" />
+                            </span>
+                        </div>
+                    </button>
+
+                    <div className={`${ratingToggle ? styles.show : styles.hide}`}>
+                        <hr />
+                        <Slider value={ratingRange}
+                            onChange={handleRatingRangeChange}
+                            valueLabelDisplay="auto"
+                            min={0} max={5} />
+                        <div className='d-flex justify-content-between pb-2'>
+                            <small
+                                className='d-flex justify-content-between align-items-center'>
+                                {ratingRange[0]} <AiFillStar className='ms-1' color='#F29120' />
+                            </small>
+                            <small className='d-flex justify-content-between align-items-center'>
+                                {ratingRange[1]} <AiFillStar className='ms-1' color='#F29120' />
+                            </small>
+                        </div>
+                    </div>
+                </div>
+
             </div>
             <div className="col-md-9">
-                <div className="table-heading">
-                    <h6 className='fw-bold text-uppercase mt-2'>Product List</h6>
-                    <button className='btn btn-primary fw-bold btn-sm'>Add Product</button>
+                <div className={`${styles.search_area}`}>
+                    <input
+                        type="text"
+                        value={searchTerm}
+                        onChange={handelSearch}
+                        placeholder={`search for product`}
+                        className={`form-control ${styles.search_box}`} />
                 </div>
                 <div className="list-area">
                     {
                         loading ?
-                            <div className='d-flex justify-content-center align-items-center border mt-3'
+                            <div className='d-flex justify-content-center align-items-center border'
                                 style={{ height: "50vh" }}><FadeLoader /></div>
                             :
-                            data?.length === 0 ?
+                            currentProduct?.length === 0 ?
                                 <div className='d-flex justify-content-center align-items-center border mt-3'
                                     style={{ height: "50vh" }}><h6>no product found!</h6></div>
 
@@ -165,7 +424,7 @@ const SellerProductList = () => {
                                         </thead>
                                         <tbody>
                                             {
-                                                data?.slice(0, 8).map((data, index) => {
+                                                currentProduct?.map((data, index) => {
                                                     return (
                                                         <tr key={index}>
                                                             <td className='fw-bold'>{(index + 1).toString().padStart(2, '0')}</td>
@@ -191,6 +450,17 @@ const SellerProductList = () => {
                                             }
                                         </tbody>
                                     </Table>
+                                    {/* pagination */}
+                                    <div className={styles.pagination}>
+                                        {
+                                            currentProduct?.length > 0 ?
+                                                <Pagination data={filterAndSearchData}
+                                                    productPerPage={productPerPage}
+                                                    currentPage={currentPage}
+                                                    handelPaginate={handelPaginate} />
+                                                : null
+                                        }
+                                    </div>
                                 </div>
                     }
                 </div>
