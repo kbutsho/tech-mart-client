@@ -193,10 +193,9 @@ const SellerProductList = () => {
         setCurrentPage(pageNumber)
     }
     return (
-        <div className="row py-4" >
+        <div className="row py-4" style={{ minHeight: "80vh" }}>
             <div className="col-md-3">
-
-                <Link href="/" className={`${styles.filter_header} bg-secondary py-2`}
+                <Link href="/seller/products/add" className={`${styles.filter_header} bg-secondary py-2`}
                     style={{ marginBottom: "10px", textDecoration: "none", color: "black" }}>
                     <span className='bg-secondary text-white text-uppercase'> Add Product</span>
                 </Link>

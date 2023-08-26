@@ -1,0 +1,22 @@
+.main_area {
+    width: 100%;
+}
+
+.form_area {
+    margin-top: 20px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 2px 5px;
+    padding: 20px;
+    border-radius: 6px;
+}
+
+.loading {
+    min-height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+}

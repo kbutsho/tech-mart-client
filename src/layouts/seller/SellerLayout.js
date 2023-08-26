@@ -106,7 +106,6 @@ const SellerLayout = ({ children }) => {
                         </li>
                     </ul>
                 </nav>
-
                 <div className='w-75'>
                     <nav className="navbar navbar-expand-lg" style={{ background: "#0A2647" }}>
                         <div className='container'>

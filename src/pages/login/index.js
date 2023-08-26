@@ -15,7 +15,7 @@ import { config } from '@/config';
 import { useRef } from 'react';
 import { useEffect } from 'react';
 import { TiDelete } from 'react-icons/ti';
-import { firebaseAuth, googleProvider, signInWithGoogle } from '@/firebase/firebaseConfig';
+import { firebaseAuth, googleProvider } from '@/firebase/firebaseConfig';
 import { signInWithPopup } from 'firebase/auth';
 
 const Login = () => {
