@@ -23,12 +23,12 @@ const SellerProductList = () => {
         const fetchData = async () => {
             try {
                 setLoading(true)
-                // const response = await axios.get(`${config.api}/products/seller-products`, {
-                //     headers: {
-                //         Authorization: `${token}`
-                //     }
-                // })
-                const response = await axios.get(`${config.api}/products`)
+                const response = await axios.get(`${config.api}/products/seller-products`, {
+                    headers: {
+                        Authorization: `${token}`
+                    }
+                })
+                // const response = await axios.get(`${config.api}/products`)
                 if (response.data.data) {
                     setData(response.data.data)
                     setLoading(false)
@@ -167,6 +167,7 @@ const SellerProductList = () => {
         const ratingRangeMatch = item.rating >= ratingRange[0] && item.rating <= ratingRange[1];
         // search 
         const searchMatch = searchTerm === '' ||
+            item.code.toLowerCase().includes(searchTerm.toLowerCase()) ||
             item.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
             item.category.toLowerCase().includes(searchTerm.toLowerCase()) ||
             item.brand.toLowerCase().includes(searchTerm.toLowerCase());

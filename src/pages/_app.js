@@ -27,7 +27,7 @@ export default function App({ Component, pageProps: { session, ...pageProps } })
       <PersistGate loading={null} persistor={persistor}>
         {/* <SessionProvider session={session}> */}
         <main className={poppins.className}>
-          <ToastContainer position="bottom-right" />
+          <ToastContainer position="bottom-right" autoClose={2000} />
           {getLayout(<Component {...pageProps} />)}
         </main>
         {/* </SessionProvider> */}
