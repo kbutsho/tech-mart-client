@@ -281,8 +281,8 @@ export const getStaticProps = async () => {
     props: {
       data: {
         categories, brands, cameraCategory, monitorCategory, tvCategory, chargerCategory, newArrival, topSelling, phoneCategory, watchCategory, earphoneCategory, laptopCategory
-      },
-      revalidate: 30
-    }
+      }
+    },
+    revalidate: 30
   };
 };

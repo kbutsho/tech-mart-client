@@ -383,8 +383,8 @@ export const getStaticProps = async () => {
         props: {
             data: {
                 productResponse, priceRangeResponse
-            },
-            revalidate: 30
-        }
+            }
+        },
+        revalidate: 30
     };
 };

@@ -396,8 +396,8 @@ export const getStaticProps = async ({ params }) => {
             data: {
                 productResponse, priceRangeResponse
             },
-            revalidate: 30
-        }
+        },
+        revalidate: 30
     };
 };
 export const getStaticPaths = async () => {

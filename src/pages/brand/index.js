@@ -30,8 +30,8 @@ export const getStaticProps = async () => {
         props: {
             data: {
                 brands
-            },
-            revalidate: 30
-        }
+            }
+        },
+        revalidate: 30
     };
 };
