@@ -33,7 +33,7 @@ const AddSellerProduct = ({ categories, brands }) => {
         size: "",
         coverPhoto: "",
         featuredPhoto: [],
-        features: {}
+        // features: {}
     })
 
     const handleBrandChange = (event) => {
@@ -60,28 +60,49 @@ const AddSellerProduct = ({ categories, brands }) => {
         setData({ ...data, [event.target.name]: event.target.value });
     };
 
-    const handelAddFeature = () => {
-        setFeatureCount(featureCount + 1);
-    }
+    const [features, setFeatures] = useState([]);
 
-    const handleFeatureChange = (key, value) => {
-        setData({
-            ...data,
-            features: {
-                ...data.features,
-                [key]: value,
-            },
-        });
+    const handleAddFeature = () => {
+        setFeatures([...features, { key: '', value: '' }]);
     };
 
+    const handleRemoveFeature = (index) => {
+        const updatedFeatures = features.filter((_, i) => i !== index);
+        setFeatures(updatedFeatures);
+    };
 
-    const values = Object.values(data.features);
-    const pairedObject = {};
-    for (let i = 0; i < values.length; i += 2) {
-        const key = values[i];
-        const value = values[i + 1];
-        pairedObject[key] = value;
-    }
+    const handleAddSubFeature = (index) => {
+        const updatedFeatures = [...features];
+        const subFeature = { key: '', value: [] };
+        updatedFeatures[index].value.push(subFeature);
+        setFeatures(updatedFeatures);
+    };
+
+    const handleFeatureChange = (index, key, value) => {
+        const updatedFeatures = [...features];
+        updatedFeatures[index] = { ...updatedFeatures[index], [key]: value };
+        setFeatures(updatedFeatures);
+    };
+
+    const obj = [
+        { key: "name", value: "kbutsho" },
+        { key: "age", value: "24" },
+        {
+            key: "address", value: [
+                { key: "city", value: "dhaka" },
+                { key: "country", value: "bangladesh" }
+            ]
+        }
+    ];
+
+
+    // const values = Object.values(features);
+    // const pairedObject = {};
+    // for (let i = 0; i < values.length; i += 2) {
+    //     const key = values[i];
+    //     const value = values[i + 1];
+    //     pairedObject[key] = value;
+    // }
 
 
     return (
@@ -297,22 +318,18 @@ const AddSellerProduct = ({ categories, brands }) => {
                         <div className="col-md-4">
                             <div className='d-flex justify-content-between'>
                                 <label className='fw-bold mb-2'>product features</label>
-                                <button type='button'
-                                    className='mb-2 btn btn-sm btn-primary'
-                                    onClick={handelAddFeature}>Add Features
-                                </button>
+                                <button className='mb-2 btn btn-sm btn-primary' type='button' onClick={handleAddFeature}>Add Features</button>
                             </div>
                             {
-                                Array.from({ length: featureCount }, (_, index) => (
+                                features.map((feature, index) => (
                                     <div key={index}>
-                                        <div className='d-flex justify-content-between'
-                                            style={{ marginBottom: "6px", fontSize: "14px" }}>
+                                        <div className='d-flex justify-content-between' style={{ marginBottom: "6px", fontSize: "14px" }}>
                                             <div className='fw-bold'>
                                                 feature {index + 1}
                                             </div>
                                             <div>
-                                                <button className='btn btn-primary btn-sm me-1' type='button'><AiOutlinePlus /></button>
-                                                <button className='btn btn-danger btn-sm' type='button'><AiOutlineMinus /></button>
+                                                <button className='btn btn-danger btn-sm' type='button'><AiOutlinePlus /></button>
+                                                <button className='btn btn-danger btn-sm' type='button' onClick={() => handleRemoveFeature(index)}><AiOutlineMinus /></button>
                                             </div>
                                         </div>
                                         <div className='d-flex justify-content-between mb-2'>
@@ -320,21 +337,21 @@ const AddSellerProduct = ({ categories, brands }) => {
                                                 type="text"
                                                 placeholder="name"
                                                 className='form-control w-25 me-2'
-                                                value={data.features[`key${index}`] || ''}
-                                                onChange={(e) => handleFeatureChange(`key${index}`, e.target.value)}
+                                                value={feature.key}
+                                                onChange={(e) => handleFeatureChange(index, 'key', e.target.value)}
                                             />
                                             <input
                                                 type="text"
                                                 placeholder="value"
                                                 className='form-control w-75'
-                                                value={data.features[`value${index}`] || ''}
-                                                onChange={(e) => handleFeatureChange(`value${index}`, e.target.value)}
+                                                value={feature.value}
+                                                onChange={(e) => handleFeatureChange(index, 'value', e.target.value)}
                                             />
                                         </div>
                                     </div>
                                 ))
                             }
-                            <pre>{JSON.stringify(pairedObject, null, 2)}</pre>
+                            <pre>{JSON.stringify(features, null, 2)}</pre>
                         </div>
                     </div>
 
