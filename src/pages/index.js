@@ -3,7 +3,7 @@ import CategoryCard from '@/components/Home/CategoryCard';
 import MainLayout from '@/layouts/MainLayout';
 import styles from '@/styles/home/index.module.css'
 import Image from 'next/legacy/image'
-import React, { useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import BrandCard from '@/components/Home/BrandCard';
 import { Slide } from 'react-slideshow-image';
 import 'react-slideshow-image/dist/styles.css';;
@@ -19,7 +19,13 @@ import Link from 'next/link';
 import ProductCard from '@/components/Home/ProductCard';
 import { config } from '@/config';
 
-const Home = ({ data }) => {
+const Home = ({ product }) => {
+
+  const [data, setData] = useState()
+  useEffect(() => {
+    setData(product)
+  }, [data])
+  console.log(data)
   const slideRef = useRef()
   const responsiveSettings = [
     {
@@ -279,7 +285,7 @@ export const getStaticProps = async () => {
   const monitorCategory = await monitorCategoryResponse.json();
   return {
     props: {
-      data: {
+      product: {
         categories, brands, cameraCategory, monitorCategory, tvCategory, chargerCategory, newArrival, topSelling, phoneCategory, watchCategory, earphoneCategory, laptopCategory
       }
     },

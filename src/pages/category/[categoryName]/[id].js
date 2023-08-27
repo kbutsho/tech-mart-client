@@ -28,7 +28,7 @@ export const getStaticPaths = async () => {
     const paths = data.data.map((product) => ({
         params: { categoryName: product.category, id: product.id }
     }));
-    return { paths, fallback: false };
+    return { paths, fallback: true };
 };
 
 export const getStaticProps = async (context) => {

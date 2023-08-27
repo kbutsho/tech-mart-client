@@ -13,10 +13,16 @@ import { useEffect } from 'react';
 import { config } from '@/config';
 
 const ProductPage = ({ data }) => {
-    const [product, setProduct] = useState(data.productResponse);
 
-    // filter by price range
+    const [product, setProduct] = useState(data.productResponse);
     const [priceRange, setPriceRange] = useState(data.priceRangeResponse.data);
+
+    useEffect(() => {
+        setProduct(data.productResponse);
+        setPriceRange(data.priceRangeResponse.data)
+    }, [priceRange, product])
+    console.log(product)
+    // filter by price range
     const handlePriceRangeChange = (event, newValue) => {
         setPriceRange(newValue);
     }
@@ -150,7 +156,7 @@ const ProductPage = ({ data }) => {
     const [productPerPage, setProductPerPage] = useState(12);
     const indexOfLastProduct = currentPage * productPerPage;
     const indexOfFirstProduct = indexOfLastProduct - productPerPage;
-    const currentProduct = filterAndSearchData.slice(indexOfFirstProduct, indexOfLastProduct)
+    const currentProduct = filterAndSearchData?.slice(indexOfFirstProduct, indexOfLastProduct)
     const handelPaginate = (pageNumber) => {
         setCurrentPage(pageNumber)
     }
@@ -176,7 +182,7 @@ const ProductPage = ({ data }) => {
                         {/* pagination */}
                         <div className={`d-flex justify-content-start ${styles.pagination}`}>
                             {
-                                currentProduct.length > 0 ?
+                                currentProduct?.length > 0 ?
                                     <Pagination data={filterAndSearchData}
                                         productPerPage={productPerPage}
                                         currentPage={currentPage}
@@ -223,8 +229,8 @@ const ProductPage = ({ data }) => {
                                     min={data.priceRangeResponse.data[0]}
                                     max={data.priceRangeResponse.data[1]} />
                                 <div className='d-flex justify-content-between pb-2'>
-                                    <small>{priceRange[0]}</small>
-                                    <small>{priceRange[1]}</small>
+                                    <small>{priceRange ? priceRange[0] : 0}</small>
+                                    <small>{priceRange ? priceRange[1] : 0}</small>
                                 </div>
                             </div>
                         </div>
