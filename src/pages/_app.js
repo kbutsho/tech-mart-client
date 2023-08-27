@@ -22,7 +22,7 @@ export default function App({ Component, pageProps: { session, ...pageProps } })
   }, [])
   const getLayout = Component.getLayout || ((page) => page);
   return (
-
+    // position="top-center" autoClose={2500}
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
         {/* <SessionProvider session={session}> */}

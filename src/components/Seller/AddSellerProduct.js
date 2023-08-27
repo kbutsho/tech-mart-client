@@ -3,20 +3,20 @@ import { useState } from 'react';
 import styles from '@/styles/product/addProduct.module.css'
 import { FadeLoader } from 'react-spinners';
 import { PRODUCT_STATUS } from '@/constant/product.constant';
+import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai';
 
 
 const AddSellerProduct = ({ categories, brands }) => {
     const [loading, setLoading] = useState(false);
     const [brandId, setBrandId] = useState('');
+    const [featureCount, setFeatureCount] = useState(0);
     const [categoryId, setCategoryId] = useState('');
-
     const priceUnit = ["taka", "usd", "euro", "rupee"];
     const productStatus = [
         PRODUCT_STATUS.IN_STOCK,
         PRODUCT_STATUS.LIMITED_STOCK,
         PRODUCT_STATUS.UPCOMING
     ]
-
     const [data, setData] = useState({
         name: "",
         code: "",
@@ -25,11 +25,16 @@ const AddSellerProduct = ({ categories, brands }) => {
         category: "",
         categoryId: "",
         priceUnit: "",
-        features: []
+        price: 0,
+        quantity: 0,
+        status: "",
+        color: "",
+        variant: "",
+        size: "",
+        coverPhoto: "",
+        featuredPhoto: [],
+        features: {}
     })
-
-    const [newFeatureKey, setNewFeatureKey] = useState('');
-    const [newFeatureValue, setNewFeatureValue] = useState('');
 
     const handleBrandChange = (event) => {
         const selectedBrandName = event.target.value;
@@ -44,7 +49,7 @@ const AddSellerProduct = ({ categories, brands }) => {
     const handleCategoryChange = (event) => {
         const selectedCategoryName = event.target.value;
         const selectedCategory = categories.find(category => category.name === selectedCategoryName);
-        setBrandId(selectedCategory ? selectedCategory.id : '');
+        setCategoryId(selectedCategory ? selectedCategory.id : '');
         setData({
             ...data,
             category: selectedCategoryName,
@@ -55,17 +60,30 @@ const AddSellerProduct = ({ categories, brands }) => {
         setData({ ...data, [event.target.name]: event.target.value });
     };
 
-    const addNewFeature = () => {
-        if (newFeatureKey && newFeatureValue) {
-            const newFeature = { key: newFeatureKey, value: newFeatureValue };
-            setData({
-                ...data,
-                features: [...data.features, newFeature]
-            });
-            setNewFeatureKey('');
-            setNewFeatureValue('');
-        }
+    const handelAddFeature = () => {
+        setFeatureCount(featureCount + 1);
+    }
+
+    const handleFeatureChange = (key, value) => {
+        setData({
+            ...data,
+            features: {
+                ...data.features,
+                [key]: value,
+            },
+        });
     };
+
+
+    const values = Object.values(data.features);
+    const pairedObject = {};
+    for (let i = 0; i < values.length; i += 2) {
+        const key = values[i];
+        const value = values[i + 1];
+        pairedObject[key] = value;
+    }
+
+
     return (
         <div className={`${styles.main_area} my-4`}>
             <div className={styles.form_area}>
@@ -164,7 +182,7 @@ const AddSellerProduct = ({ categories, brands }) => {
                                     <option value="">select price unit</option>
                                     {priceUnit.map((unit, index) => (
                                         <option key={index} value={unit}>
-                                            <span>{unit.toUpperCase()}</span>
+                                            {unit.toUpperCase()}
                                         </option>
                                     ))}
                                 </select>
@@ -203,7 +221,7 @@ const AddSellerProduct = ({ categories, brands }) => {
                                     <option value="">select product status</option>
                                     {productStatus.map((status, index) => (
                                         <option key={index} value={status}>
-                                            <span>{status}</span>
+                                            {status}
                                         </option>
                                     ))}
                                 </select>
@@ -255,7 +273,6 @@ const AddSellerProduct = ({ categories, brands }) => {
 
                     <div className="row">
                         <div className="col-md-4">
-
                             <div className="form-group mb-3">
                                 <label className='fw-bold mb-2'>product cover photo</label>
                                 <input type="file"
@@ -264,7 +281,9 @@ const AddSellerProduct = ({ categories, brands }) => {
                                     value={data.coverPhoto}
                                     onChange={handelInputChange} />
                             </div>
+                        </div>
 
+                        <div className="col-md-4">
                             <div className="form-group mb-3">
                                 <label className='fw-bold mb-2'>product featured photo</label>
                                 <input type="file"
@@ -276,35 +295,54 @@ const AddSellerProduct = ({ categories, brands }) => {
                         </div>
 
                         <div className="col-md-4">
-
+                            <div className='d-flex justify-content-between'>
+                                <label className='fw-bold mb-2'>product features</label>
+                                <button type='button'
+                                    className='mb-2 btn btn-sm btn-primary'
+                                    onClick={handelAddFeature}>Add Features
+                                </button>
+                            </div>
+                            {
+                                Array.from({ length: featureCount }, (_, index) => (
+                                    <div key={index}>
+                                        <div className='d-flex justify-content-between'
+                                            style={{ marginBottom: "6px", fontSize: "14px" }}>
+                                            <div className='fw-bold'>
+                                                feature {index + 1}
+                                            </div>
+                                            <div>
+                                                <button className='btn btn-primary btn-sm me-1' type='button'><AiOutlinePlus /></button>
+                                                <button className='btn btn-danger btn-sm' type='button'><AiOutlineMinus /></button>
+                                            </div>
+                                        </div>
+                                        <div className='d-flex justify-content-between mb-2'>
+                                            <input
+                                                type="text"
+                                                placeholder="name"
+                                                className='form-control w-25 me-2'
+                                                value={data.features[`key${index}`] || ''}
+                                                onChange={(e) => handleFeatureChange(`key${index}`, e.target.value)}
+                                            />
+                                            <input
+                                                type="text"
+                                                placeholder="value"
+                                                className='form-control w-75'
+                                                value={data.features[`value${index}`] || ''}
+                                                onChange={(e) => handleFeatureChange(`value${index}`, e.target.value)}
+                                            />
+                                        </div>
+                                    </div>
+                                ))
+                            }
+                            <pre>{JSON.stringify(pairedObject, null, 2)}</pre>
                         </div>
                     </div>
+
+                    <button className='btn btn-primary w-100 fw-bold mt-3' type='submit'>submit</button>
                 </form>
 
 
-                <div className="form-group">
-                    <label className='fw-bold mb-2'>Features</label>
-                    <button className="btn btn-primary" onClick={addNewFeature}>Add Feature</button>
-                    {data.features.map((feature, index) => (
-                        <div key={index} className="mb-2">
-                            <strong>{feature.key}:</strong> {feature.value}
-                        </div>
-                    ))}
-                    <div>
-                        <input
-                            type="text"
-                            placeholder="Feature Key"
-                            value={newFeatureKey}
-                            onChange={(e) => setNewFeatureKey(e.target.value)}
-                        />
-                        <input
-                            type="text"
-                            placeholder="Feature Value"
-                            value={newFeatureValue}
-                            onChange={(e) => setNewFeatureValue(e.target.value)}
-                        />
-                    </div>
-                </div>
+
 
 
 
