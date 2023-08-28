@@ -22,9 +22,9 @@ function Navbar() {
     }, [cart, dispatch])
 
     const router = useRouter();
-    // const handelSearchCLick = () => {
-    //     router.push('/products')
-    // }
+    const handelSearchCLick = () => {
+        router.push('/products')
+    }
     const [searchTerm, setSearchTerm] = useState('');
     const handelSearch = (event) => {
         setSearchTerm(event.target.value);
@@ -133,13 +133,13 @@ function Navbar() {
                     <div className="row">
                         <div className="col-12">
                             <form className={`d-flex align-items-center`}>
-                                <a href="/products" className="w-100" style={{ textDecoration: "none" }}>
-                                    <input
-                                        type="text"
-                                        onChange={handelSearch}
-                                        value={searchTerm}
-                                        placeholder='search for products'
-                                        className={`form-control w-100 ${styles.search_input}`} /></a>
+                                <input
+                                    type="text"
+                                    onClick={handelSearchCLick}
+                                    onChange={handelSearch}
+                                    value={searchTerm}
+                                    placeholder='search for products'
+                                    className={`form-control w-100 ${styles.search_input}`} />
                                 <BsSearch size="24px" style={{ marginLeft: "-50px" }} type='submit' />
                             </form>
                         </div>

@@ -10,6 +10,7 @@ import { config } from "@/config";
 import { toast } from 'react-toastify';
 import { useRouter } from 'next/router';
 import Cookies from 'js-cookie';
+import Image from 'next/image';
 
 const AddSellerProduct = ({ categories, brands }) => {
     const router = useRouter()
@@ -37,7 +38,7 @@ const AddSellerProduct = ({ categories, brands }) => {
         variant: "",
         size: "",
         coverPhoto: "",
-        featuredPhoto: [],
+        featuredPhotos: [],
         errors: []
     })
     const [features, setFeatures] = useState([]);
@@ -100,45 +101,62 @@ const AddSellerProduct = ({ categories, brands }) => {
         setFeatures(updatedFeatures);
     };
 
-    const [obj, setObj] = useState({});
-    useEffect(() => {
-        const handelFormSubmit = () => {
-            let transformedFeatures = {};
-            features.forEach(feature => {
-                if (Array.isArray(feature.value)) {
-                    const subFeatureObj = {};
-                    feature.value.forEach(subFeature => {
-                        subFeatureObj[subFeature.key] = subFeature.value;
-                    });
-                    transformedFeatures[feature.key] = subFeatureObj;
-                } else {
-                    transformedFeatures[feature.key] = feature.value;
+    const handelFeaturedPhotos = async (e) => {
+        try {
+            setLoading(true);
+            let imageArray = [];
+            const imageFiles = e.target.files;
+            if (imageFiles.length > 5) {
+                setLoading(false);
+                toast.error('upload less than 6 photo!')
+            } else {
+                for (let i = 0; i < imageFiles.length; i++) {
+                    let imageData = new FormData();
+                    imageData.set("key", process.env.NEXT_PUBLIC_IMAGE_BB);
+                    imageData.append("image", imageFiles[i]);
+                    const response = await axios.post("https://api.imgbb.com/1/upload", imageData)
+                    setLoading(false)
+                    imageArray.push(response.data.data.display_url);
+                    setData({ ...data, featuredPhotos: imageArray });
                 }
-            });
-
-            const newObj = {
-                code: data.code,
-                name: data.name,
-                title: data.title,
-                description: data.description,
-                brand: data.brand,
-                brandId: data.brandId,
-                category: data.category,
-                categoryId: data.categoryId,
-                priceUnit: data.priceUnit,
-                price: data.price,
-                quantity: data.quantity,
-                status: data.status,
-                warranty: data.warranty,
-                color: data.color,
-                variant: data.variant,
-                size: data.size,
-                features: transformedFeatures
-            };
-            setObj(newObj);
+                toast.success('featured photos uploaded successfully!')
+                e.target.files = null
+            }
+        } catch (error) {
+            setLoading(false)
+            toast.error("internal server error for image upload!")
         }
-        handelFormSubmit()
-    }, [data, features])
+    }
+
+    const handelCoverPhoto = async (e) => {
+        try {
+            setLoading(true);
+            const imageFile = e.target.files[0];
+            let imageData = new FormData();
+            imageData.set("key", process.env.NEXT_PUBLIC_IMAGE_BB);
+            imageData.append("image", imageFile);
+            const response = await axios.post("https://api.imgbb.com/1/upload", imageData)
+            setLoading(false)
+            setData({ ...data, coverPhoto: response.data.data.display_url });
+            toast.success('cover photo uploaded successfully!')
+        } catch (error) {
+            setLoading(false)
+            console.log(error)
+            toast.error("internal server error for upload cover photo!")
+        }
+    }
+
+    const handleFeaturedPhotoDelete = (deleteUrl) => {
+        const updatedFeaturedPhotos = data.featuredPhotos.filter(photo => photo !== deleteUrl);
+        setData({ ...data, featuredPhotos: updatedFeaturedPhotos });
+        toast.info('photo removed!')
+    };
+
+    const handleCoverPhotoDelete = () => {
+        setData({ ...data, coverPhoto: "" });
+        toast.info('cover photo removed!')
+    };
+
 
     const handelFormSubmit = async (e) => {
         e.preventDefault();
@@ -174,8 +192,8 @@ const AddSellerProduct = ({ categories, brands }) => {
                 variant: data.variant,
                 size: data.size,
                 features: transformedFeatures,
-                coverPhoto: "photo",
-                featuredPhotos: ["photo1", "photo2"],
+                coverPhoto: data.coverPhoto,
+                featuredPhotos: data.featuredPhotos,
             };
             const token = Cookies.get('token');
             const response = await axios.post(`${config.api}/products`, newObj, {
@@ -206,7 +224,6 @@ const AddSellerProduct = ({ categories, brands }) => {
             }
         }
     }
-
     return (
         <div
             className={`${styles.main_area} my-4`}
@@ -523,34 +540,68 @@ const AddSellerProduct = ({ categories, brands }) => {
                                     <span>cover photo</span>
                                     <div className='required_field'>*</div>
                                 </label>
-                                <input type="file"
+                                <input
+                                    type="file"
                                     disabled={loading}
                                     className={`${data.errors.coverPhoto ? 'is-invalid' : ''} form-control`}
-                                    name="coverPhoto"
-                                    value={data.coverPhoto}
-                                    onChange={handelInputChange} />
+                                    onChange={handelCoverPhoto} />
                                 <small className={styles.error_message}>
                                     {
                                         data.errors?.coverPhoto ? data.errors?.coverPhoto : null
                                     }
                                 </small>
+                                {
+                                    data?.coverPhoto ?
+                                        <div className='row py-3'>
+                                            <div className='col-md-3'>
+                                                <span
+                                                    style={{ cursor: "pointer" }}
+                                                    onClick={() => handleCoverPhotoDelete()}>
+                                                    <RxCross2 color='red' className='my-2' />
+                                                </span>
+                                                <Image src={data?.coverPhoto}
+                                                    alt="photo"
+                                                    height={100}
+                                                    width={100}
+                                                    layout='responsive'
+                                                />
+                                            </div>
+                                        </div> : null
+                                }
                             </div>
                             <div className="form-group mb-3">
                                 <label className='fw-bold mb-2 d-flex'>
                                     <span>featured photos</span>
                                     <div className='required_field'>*</div>
                                 </label>
-                                <input type="file"
+                                <input
+                                    type="file"
+                                    multiple
                                     disabled={loading}
                                     className={`${data.errors.featuredPhotos ? 'is-invalid' : ''} form-control`}
-                                    name="featuredPhotos"
-                                    value={data.coverPhoto}
-                                    onChange={handelInputChange} />
+                                    onChange={handelFeaturedPhotos} />
                                 <small className={styles.error_message}>
                                     {
                                         data.errors?.featuredPhotos ? data.errors?.featuredPhotos : null
                                     }
                                 </small>
+                                <div className='row py-3'>
+                                    {data?.featuredPhotos?.map((photo, index) => (
+                                        <div className='col-md-3' key={index}>
+                                            <span
+                                                style={{ cursor: "pointer" }}
+                                                onClick={() => handleFeaturedPhotoDelete(photo)}>
+                                                <RxCross2 color='red' className='my-2' />
+                                            </span>
+                                            <Image src={photo}
+                                                alt={`photo ${index}`}
+                                                height={100}
+                                                width={100}
+                                                layout='responsive'
+                                            />
+                                        </div>
+                                    ))}
+                                </div>
                             </div>
                         </div>
                         <div className="col-sm-12 col-md-8">

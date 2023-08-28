@@ -8,7 +8,8 @@ const nextConfig = {
       "www.mobiledokan.com",
       "gadgetandgear.com",
       "static.gadgetandgear.com",
-      "images.unsplash.com"
+      "images.unsplash.com",
+      "i.ibb.co"
     ]
   }
 }
