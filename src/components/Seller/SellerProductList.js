@@ -211,25 +211,24 @@ const SellerProductList = () => {
         const productId = Cookies.get('delete_item')
         const token = Cookies.get('token')
         try {
-            setLoading(true)
+            // setLoading(true)
             const response = await axios.delete(`${config.api}/products/${productId}`, {
                 headers: {
                     Authorization: `${token}`
                 }
             })
             if (response.data.data) {
-                setLoading(false)
+                // setLoading(false)
                 toast.success("product delete successfully!")
                 window.location.href = '/seller/products'
             }
             else {
-                setLoading(false)
+                // setLoading(false)
                 toast.error("internal server error")
             }
         } catch (error) {
-            setLoading(false)
-            console.log(error)
-            // toast.error(error.response.data.message)
+            // setLoading(false)
+            toast.error(error.response.data.message)
         }
         Cookies.remove('delete_item')
     }
