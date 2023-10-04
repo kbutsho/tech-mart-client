@@ -219,8 +219,8 @@ const SellerProductList = () => {
             })
             if (response.data.data) {
                 // setLoading(false)
-                toast.success("product delete successfully!")
                 window.location.href = '/seller/products'
+                toast.success("product delete successfully!")
             }
             else {
                 // setLoading(false)
