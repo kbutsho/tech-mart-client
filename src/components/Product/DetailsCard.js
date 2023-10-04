@@ -7,12 +7,29 @@ import FeaturesTable from './FeatureTable';
 import { BsStar, BsStarFill, BsStarHalf } from 'react-icons/bs';
 import { isValidURL } from '@/helper';
 import notFoundImage from "@/assets/product/not-found.png";
-
+import Cookies from 'js-cookie';
+import { useRouter } from 'next/router';
+import { USER_ROLE } from '@/constant/user.role.constant';
+import { toast } from 'react-toastify';
 
 const ProductDetailsCard = ({ product }) => {
     const dispatch = useDispatch();
+    const router = useRouter()
     const handelAddToCart = (product) => {
         dispatch(addToCart(product));
+    }
+    const handelBuyNow = (product) => {
+        const token = Cookies.get('token')
+        const role = Cookies.get('role')
+        if (token) {
+            if (role === USER_ROLE.CUSTOMER) {
+                router.push('/cart');
+            } else {
+                toast.error("login as customer to continue shopping!")
+            }
+        } else {
+            toast.error("login to continue shopping!")
+        }
     }
     const productFeatures = product.data.features;
     const renderRatingStars = () => {
@@ -37,6 +54,7 @@ const ProductDetailsCard = ({ product }) => {
 
         return starIcons;
     };
+
     return (
         <div className="row">
             <div className="col-md-4 col-12">
@@ -47,8 +65,10 @@ const ProductDetailsCard = ({ product }) => {
                             :
                             <Image src={notFoundImage} height={40} width={40} layout='responsive' alt="img" />
                     }
+
                 </div>
             </div>
+
             <div className="col-md-8 col-12">
                 <h5 className='fw-bold'>{product.data.name}</h5>
                 <h6>৳ {product.data.discountPrice}</h6>
@@ -79,9 +99,10 @@ const ProductDetailsCard = ({ product }) => {
                 <div className='mt-3'>
                     <button className='btn btn-primary fw-bold me-2'
                         onClick={() => handelAddToCart(product.data)}>add to cart</button>
-                    <button className='btn btn-success fw-bold ms-2'>buy now</button>
+                    <button onClick={() => handelBuyNow(product.data)} className='btn btn-success fw-bold ms-2'>buy now</button>
                 </div>
             </div>
+
             <div className='mt-3'>
                 <FeaturesTable features={productFeatures} description={product.data.description} />
             </div>

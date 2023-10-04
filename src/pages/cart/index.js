@@ -3,10 +3,18 @@ import MainLayout from '@/layouts/MainLayout';
 import { useDispatch, useSelector } from 'react-redux';
 import styles from '@/styles/cart/index.module.css';
 import Link from 'next/link';
-import { clearCart, decreaseCartItem, increaseCartItem, removeFromCart } from '@/redux/features/cartSlice';
+import {
+    clearCart,
+    decreaseCartItem,
+    increaseCartItem,
+    removeFromCart
+} from '@/redux/features/cartSlice';
 import Image from 'next/image';
 import notFoundImage from "@/assets/product/not-found.png"
 import { isValidURL } from '@/helper';
+import { toast } from 'react-toastify';
+import Cookies from 'js-cookie';
+import { USER_ROLE } from '@/constant/user.role.constant';
 
 const CartPage = () => {
     const cart = useSelector((state) => state.cart)
@@ -24,6 +32,19 @@ const CartPage = () => {
     const handleClearCart = () => {
         dispatch(clearCart());
     };
+    const handelCheckOut = () => {
+        const token = Cookies.get('token')
+        const role = Cookies.get('role')
+        if (token) {
+            if (role === USER_ROLE.CUSTOMER) {
+                toast.info("checkout page coming soon!")
+            } else {
+                toast.error("login as customer to checkout!")
+            }
+        } else {
+            toast.error("login to continue shopping!")
+        }
+    }
     return (
         <div className='container pb-5'>
             <Breadcrumb />
@@ -104,7 +125,7 @@ const CartPage = () => {
                                 <div className='text-end'>
                                     <span ><small className='text-end' style={{ fontSize: "13px" }}>(taxes and shipping calculated at checkout)</small></span>
                                 </div>
-                                <button className=' btn btn-primary w-100 mt-2' onClick={() => checkOut()}>check out</button>
+                                <button className=' btn btn-primary w-100 mt-2' onClick={() => handelCheckOut()}>check out</button>
                                 <div className='d-flex justify-content-end'>
                                     <Link className={styles.continue_shopping} href="/">
                                         <svg

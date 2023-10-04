@@ -14,11 +14,14 @@ import { Slider } from '@mui/material';
 import { PRICE_SORT_ORDER, PRODUCT_BRAND, PRODUCT_STATUS } from '@/constant/product.constant';
 import Link from 'next/link';
 import Pagination from '../Pagination/Pagination';
+import { Modal, ModalBody, ModalFooter } from 'reactstrap';
+import { useRouter } from 'next/router';
 
 const SellerProductList = () => {
     const [data, setData] = useState();
     const [loading, setLoading] = useState(false)
     const token = Cookies.get('token')
+    const router = useRouter()
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -192,6 +195,43 @@ const SellerProductList = () => {
     const currentProduct = filterAndSearchData?.slice(indexOfFirstProduct, indexOfLastProduct)
     const handelPaginate = (pageNumber) => {
         setCurrentPage(pageNumber)
+    }
+
+    // delete
+    const [modal, setModal] = useState(false)
+    const toggleModal = (id) => {
+        setModal(!modal)
+        Cookies.set('delete_item', id);
+    }
+    const closeModal = () => {
+        setModal(!modal)
+        Cookies.remove('delete_item')
+    }
+    const handleDelete = async () => {
+        const productId = Cookies.get('delete_item')
+        const token = Cookies.get('token')
+        try {
+            setLoading(true)
+            const response = await axios.delete(`${config.api}/products/${productId}`, {
+                headers: {
+                    Authorization: `${token}`
+                }
+            })
+            if (response.data.data) {
+                setLoading(false)
+                toast.success("product delete successfully!")
+                window.location.href = '/seller/products'
+            }
+            else {
+                setLoading(false)
+                toast.error("internal server error")
+            }
+        } catch (error) {
+            setLoading(false)
+            console.log(error)
+            // toast.error(error.response.data.message)
+        }
+        Cookies.remove('delete_item')
     }
     return (
         <div className="row py-4" style={{ minHeight: "80vh" }}>
@@ -440,7 +480,7 @@ const SellerProductList = () => {
                                                             <td className='d-flex justify-content-center'>
                                                                 <button className='btn btn-primary btn-sm mx-1'><AiFillEye /></button>
                                                                 <button className='btn btn-success btn-sm mx-1'><AiFillEdit /></button>
-                                                                <button className='btn btn-danger btn-sm mx-1'><AiFillDelete /></button>
+                                                                <button onClick={() => toggleModal(data._id)} className='btn btn-danger btn-sm mx-1'><AiFillDelete /></button>
                                                             </td>
                                                         </tr>
                                                     )
@@ -465,7 +505,20 @@ const SellerProductList = () => {
                     }
                 </div>
             </div>
-        </div >
+            {modal ? (
+                <div>
+                    <Modal isOpen={modal} className="modal-md" onClick={toggleModal} >
+                        <ModalBody>
+                            <h5 className='py-5 text-center'>are you sure want to delete this product?</h5>
+                        </ModalBody>
+                        <ModalFooter>
+                            <button onClick={handleDelete} className="btn btn-danger btn-sm fw-bold">delete</button>
+                            <button onClick={closeModal} className='btn btn-sm btn-primary fw-bold'>not Now</button>
+                        </ModalFooter>
+                    </Modal>
+                </div>
+            ) : null}
+        </div>
     );
 };
 
