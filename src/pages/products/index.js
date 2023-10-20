@@ -175,7 +175,7 @@ const ProductPage = ({ data }) => {
                             ) : (
                                 <div className='d-flex justify-content-center align-items-center'
                                     style={{ minHeight: "45vh" }}>
-                                    <h5>no camera found!</h5>
+                                    <h5>no product found!</h5>
                                 </div>
                             )}
                         </div>
