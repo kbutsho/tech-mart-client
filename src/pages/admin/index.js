@@ -10,7 +10,7 @@ const Admin = () => {
     return (
         <div>
             <Head>
-                <title>Dashboard</title>
+                <title>dashboard</title>
             </Head>
         </div>
     )

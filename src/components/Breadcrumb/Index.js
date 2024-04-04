@@ -6,14 +6,12 @@ const Breadcrumb = ({ name }) => {
     const router = useRouter();
     const { asPath } = router;
     const segments = asPath.split('/').filter(Boolean);
-
     const updatedSegments = segments.map((segment, index) => {
         if (/^[0-9a-fA-F]{24}$/.test(segment) && name) {
             return name;
         }
         return segment;
     });
-
     return (
         <div className="breadcrumbs">
             <div>
@@ -40,5 +38,4 @@ const Breadcrumb = ({ name }) => {
         </div>
     );
 };
-
 export default Breadcrumb;

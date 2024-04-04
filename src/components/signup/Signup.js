@@ -57,7 +57,6 @@ const Signup = ({ role }) => {
                 });
                 toast.info("check your email spam folder!")
                 setVerifiedMessage(response.data.message)
-
             }
             else {
                 setLoading(false);

@@ -7,7 +7,6 @@ const Pagination = ({ data, currentPage, productPerPage, handelPaginate }) => {
     if (totalPages <= 1) {
         return null;
     }
-
     const renderPaginationButtons = () => {
         const buttons = [];
         const startPage = Math.max(1, currentPage - Math.floor(maxVisiblePages / 2));
@@ -20,7 +19,6 @@ const Pagination = ({ data, currentPage, productPerPage, handelPaginate }) => {
                 </button>
             );
         }
-
         if (startPage > 1) {
             buttons.push(
                 <button key={1} className={`${styles.pagination_btn}`} onClick={() => handelPaginate(1)}>
@@ -31,7 +29,6 @@ const Pagination = ({ data, currentPage, productPerPage, handelPaginate }) => {
                 buttons.push(<span key="ellipsis-start">...</span>);
             }
         }
-
         for (let page = startPage; page <= endPage; page++) {
             buttons.push(
                 <button
@@ -43,7 +40,6 @@ const Pagination = ({ data, currentPage, productPerPage, handelPaginate }) => {
                 </button>
             );
         }
-
         if (endPage < totalPages) {
             if (endPage < totalPages - 1) {
                 buttons.push(<span key="ellipsis-end">...</span>);
@@ -54,7 +50,6 @@ const Pagination = ({ data, currentPage, productPerPage, handelPaginate }) => {
                 </button>
             );
         }
-
         if (currentPage < totalPages) {
             buttons.push(
                 <button key="next" className={`${styles.pagination_btn}`} onClick={() => handelPaginate(currentPage + 1)}>
@@ -62,10 +57,8 @@ const Pagination = ({ data, currentPage, productPerPage, handelPaginate }) => {
                 </button>
             );
         }
-
         return buttons;
     };
-
     return <div className={styles.pagination}>{renderPaginationButtons()}</div>;
 };
 

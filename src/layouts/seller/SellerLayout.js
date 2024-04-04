@@ -6,8 +6,8 @@ import styles from '@/styles/sidebar/sidebar.module.css';
 import { BsBoxSeamFill } from 'react-icons/bs';
 import { MdOutlineBrandingWatermark } from 'react-icons/md';
 import { FaPowerOff } from 'react-icons/fa';
-import leftArrow from '@/assets/navbar/left-arrow.png'
-import rightArrow from '@/assets/navbar/right-arrow.png'
+// import leftArrow from '@/assets/navbar/left-arrow.png'
+// import rightArrow from '@/assets/navbar/right-arrow.png'
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import Cookies from 'js-cookie';
@@ -16,6 +16,7 @@ import { USER_ROLE } from '@/constant/user.role.constant';
 import { toast } from 'react-toastify';
 import { config } from '@/config'
 import { isValidURL } from '@/helper';
+import { CgMenu } from "react-icons/cg";
 
 
 const SellerLayout = ({ children }) => {
@@ -24,7 +25,20 @@ const SellerLayout = ({ children }) => {
     const role = Cookies.get('role');
     const [isLoading, setIsLoading] = useState(true);
     const [active, setActive] = useState(true);
+    const [showTitle, setShowTitle] = useState(false);
     const toastShownRef = useRef(false);
+
+    const toggleSidebar = () => {
+        setActive(!active);
+        if (active) {
+            setTimeout(() => {
+                setShowTitle(!showTitle);
+            }, 400);
+        } else {
+            setShowTitle(!showTitle)
+        }
+    };
+
     useEffect(() => {
         if (!token || role !== USER_ROLE.SELLER) {
             router.push('/login');
@@ -39,9 +53,8 @@ const SellerLayout = ({ children }) => {
     if (isLoading) {
         return <div style={{ height: "100vh" }}></div>;
     }
-    const toggleSidebar = () => {
-        setActive(!active);
-    };
+
+
     const handleContextMenu = (event) => {
         if (process.env.NODE_ENV === 'production') {
             event.preventDefault();
@@ -60,50 +73,63 @@ const SellerLayout = ({ children }) => {
         profileInfo = JSON.parse(profileInfoString);
     }
     return (
-        <div >
-            <div className="flex-container" >
+        <div>
+            <div className="flex-container">
                 <nav id={styles.sidebar} className={`w-25 ${active ? `${styles.active}` : ""}`}>
-                    <ul className={`${styles.components} list-unstyled mb-5`} style={{ marginTop: "20px" }}>
+                    <ul className={`${styles.components} list-unstyled mb-5`}>
                         {
                             active ?
-                                <span onClick={toggleSidebar} id={styles.sidebarCollapse}>
-                                    <Image
-                                        style={{ cursor: "pointer" }}
-                                        src={rightArrow} height={24} width={24} alt="img" />
-                                </span> :
-                                <li style={{ height: "40px" }}>
-                                </li>
+                                <li>
+                                    <CgMenu
+                                        size="24"
+                                        style={{ cursor: "pointer", }}
+                                        className={`${styles.icon} fw-bold`}
+                                        onClick={toggleSidebar} />
+                                </li> : null
                         }
                         <li>
-                            <Link href="/seller/dashboard" className='fw-bold'>
+                            <Link href="/seller/dashboard" className='fw-bold' style={{ transition: 'all 0.3s' }}>
                                 <span className={styles.icon}><AiFillHome /></span>
-                                <span className={styles.link_text}>Dashboard</span>
+                                {!active && showTitle && (
+                                    <span className={styles.link_text}>Dashboard</span>
+                                )}
                             </Link>
                         </li>
                         <li>
-                            <Link href="/seller/profile" className='fw-bold'>
+                            <Link href="/seller/profile" className='fw-bold' style={{ transition: 'all 0.3s' }}>
                                 <span className={styles.icon}><BiSolidUser /></span>
-                                <span className={styles.link_text}>Profile</span>
+                                {!active && showTitle && (
+                                    <span className={styles.link_text}>Profile</span>
+                                )}
                             </Link>
                         </li>
                         <li>
-                            <Link href="/seller/products" className='fw-bold'>
+                            <Link href="/seller/products" className='fw-bold' style={{ transition: 'all 0.3s' }}>
                                 <span className={styles.icon}><BsBoxSeamFill /></span>
-                                <span className={styles.link_text}>Products</span>
+                                {!active && showTitle && (
+                                    <span className={styles.link_text}>Products</span>
+                                )}
                             </Link>
                         </li>
+
                         <li>
-                            <Link href="/seller/orders" className='fw-bold'>
+                            <Link href="/seller/orders" className='fw-bold' style={{ transition: 'all 0.3s' }}>
                                 <span className={styles.icon}><MdOutlineBrandingWatermark /></span>
-                                <span className={styles.link_text}>Orders</span>
+                                {!active && showTitle && (
+                                    <span className={styles.link_text}>Orders</span>
+                                )}
                             </Link>
                         </li>
-                        <li>
-                            <a onClick={handleLogout} className={`fw-bold`} style={{ cursor: "pointer" }}>
+
+                        <li className={styles.logoutLink}>
+                            <a onClick={handleLogout} className={`fw-bold`} style={{ cursor: "pointer", transition: 'all 0.3s' }}>
                                 <span className={styles.icon}><FaPowerOff color="red" /></span>
-                                <span className={styles.link_text}>Logout</span>
+                                {!active && showTitle && (
+                                    <span className={`${styles.link_text}`}>Logout</span>
+                                )}
                             </a>
                         </li>
+
                     </ul>
                 </nav>
                 <div className='w-75'>
@@ -111,10 +137,12 @@ const SellerLayout = ({ children }) => {
                         <div className='container'>
                             {
                                 active ? null :
-                                    <span onClick={toggleSidebar} id={styles.sidebarCollapse}>
-                                        <Image
-                                            style={{ cursor: "pointer" }}
-                                            src={leftArrow} height={24} width={24} alt="img" />
+                                    <span onClick={toggleSidebar}>
+                                        <CgMenu
+                                            size="24"
+                                            style={{ cursor: "pointer", color: "white" }}
+                                            className={`${styles.icon} fw-bold`}
+                                            onClick={toggleSidebar} />
                                     </span>
                             }
                             <ul className="nav navbar-nav ms-auto">

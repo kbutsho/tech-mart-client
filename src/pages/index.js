@@ -25,7 +25,6 @@ const Home = ({ product }) => {
   useEffect(() => {
     setData(product)
   }, [data])
-  console.log(data)
   const slideRef = useRef()
   const responsiveSettings = [
     {
