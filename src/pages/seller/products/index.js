@@ -10,7 +10,11 @@ const SellerProducts = () => {
                 <title>Products</title>
             </Head>
             <Breadcrumb />
-            <div className="px-md-3 px-2 py-2">
+            <div className="px-md-3 px-2 py-2" style={{
+                height: "83vh",
+                overflowY: "auto",
+                scrollbarWidth: "none"
+            }}>
                 <SellerProductList />
             </div>
         </div>
