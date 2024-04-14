@@ -71,7 +71,7 @@ const Home = ({ product }) => {
       <div className={`${styles.banner_area} mb-5 pt-3`}>
         <Banner />
       </div>
-
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt consequatur, unde a nostrum eveniet est, nulla quasi ad asperiores porro ullam perspiciatis consequuntur praesentium. Ut iusto iste voluptatibus aliquid doloremque velit optio libero! Cumque reiciendis distinctio omnis consectetur ea itaque odit saepe consequatur pariatur maxime aut doloribus soluta nulla, odio excepturi commodi! Vitae, beatae rem quam porro inventore molestias velit ex quaerat. Tenetur excepturi non nihil exercitationem eveniet fuga quidem eum eos cum. Delectus at sapiente minus, officia rerum, quis alias magni accusantium sunt laborum similique sit dolores laboriosam nemo iusto, doloribus cumque. Quo tenetur ipsa dicta, exercitationem iusto sed!
       {/* category area */}
       <div className={`${styles.category_area} my-5`}>
         <h5 className='fw-bold text-uppercase'>Featured categories</h5>
