@@ -17,6 +17,7 @@ import { USER_ROLE } from '@/constant/user.role.constant';
 import { toast } from 'react-toastify';
 import { config } from '@/config'
 import { isValidURL } from '@/helper';
+import { CgMenu } from 'react-icons/cg';
 
 const AdminLayout = ({ children }) => {
     const router = useRouter();
@@ -24,7 +25,20 @@ const AdminLayout = ({ children }) => {
     const role = Cookies.get('role');
     const [isLoading, setIsLoading] = useState(true);
     const [active, setActive] = useState(true);
+    const [showTitle, setShowTitle] = useState(false);
     const toastShownRef = useRef(false);
+
+    const toggleSidebar = () => {
+        setActive(!active);
+        if (active) {
+            setTimeout(() => {
+                setShowTitle(!showTitle);
+            }, 400);
+        } else {
+            setShowTitle(!showTitle)
+        }
+    };
+
     useEffect(() => {
         if (!token || role !== USER_ROLE.ADMIN) {
             router.push('/login');
@@ -39,9 +53,6 @@ const AdminLayout = ({ children }) => {
     if (isLoading) {
         return <div style={{ height: "100vh" }}></div>;
     }
-    const toggleSidebar = () => {
-        setActive(!active);
-    };
     const handleContextMenu = (event) => {
         if (process.env.NODE_ENV === 'production') {
             event.preventDefault();
@@ -61,91 +72,113 @@ const AdminLayout = ({ children }) => {
     }
     return (
         <div>
-            <div className="d-flex align-items-stretch">
+            <div className="flex-container">
                 <nav id={styles.sidebar} className={active ? `${styles.active}` : ""}>
                     <ul className={`${styles.components} list-unstyled mb-5`} style={{ marginTop: "20px" }}>
                         {
                             active ?
-                                <span onClick={toggleSidebar} id={styles.sidebarCollapse}>
-                                    <Image
-                                        style={{ cursor: "pointer" }}
-                                        src={rightArrow} height={24} width={24} alt="img" />
-                                </span> :
-                                <li style={{ height: "40px" }}>
-                                </li>
+                                <li>
+                                    <CgMenu
+                                        size="24"
+                                        style={{ cursor: "pointer", }}
+                                        className={`${styles.icon} fw-bold`}
+                                        onClick={toggleSidebar} />
+                                </li> : null
                         }
                         <li>
-                            <Link href="/admin/dashboard" className='fw-bold'>
+                            <Link href="/admin/dashboard" className='fw-bold' style={{ transition: 'all 0.3s' }}>
                                 <span className={styles.icon}><AiFillHome /></span>
-                                <span className={styles.link_text}>Dashboard</span>
+                                {!active && showTitle && (
+                                    <span className={styles.link_text}>Dashboard</span>
+                                )}
                             </Link>
                         </li>
                         <li>
-                            <Link href="/admin/profile" className='fw-bold'>
+                            <Link href="/admin/profile" className='fw-bold' style={{ transition: 'all 0.3s' }}>
                                 <span className={styles.icon}><BiSolidUser /></span>
-                                <span className={styles.link_text}>Profile</span>
+                                {!active && showTitle && (
+                                    <span className={styles.link_text}>Profile</span>
+                                )}
                             </Link>
                         </li>
                         <li>
-                            <Link href="/admin/products" className='fw-bold'>
+                            <Link href="/admin/products" className='fw-bold' style={{ transition: 'all 0.3s' }}>
                                 <span className={styles.icon}><BsBoxSeamFill /></span>
-                                <span className={styles.link_text}>Products</span>
+                                {!active && showTitle && (
+                                    <span className={styles.link_text}>Products</span>
+                                )}
                             </Link>
                         </li>
                         <li>
-                            <Link href="/admin/brands" className='fw-bold'>
+                            <Link href="/admin/brands" className='fw-bold' style={{ transition: 'all 0.3s' }}>
                                 <span className={styles.icon}><MdOutlineBrandingWatermark /></span>
-                                <span className={styles.link_text}>Brands</span>
+                                {!active && showTitle && (
+                                    <span className={styles.link_text}>Brands</span>
+                                )}
                             </Link>
                         </li>
                         <li>
-                            <Link href="/admin/categories" className='fw-bold'>
+                            <Link href="/admin/categories" className='fw-bold' style={{ transition: 'all 0.3s' }}>
                                 <span className={styles.icon}><BiSolidCategory /></span>
-                                <span className={styles.link_text}>Categories</span>
+                                {!active && showTitle && (
+                                    <span className={styles.link_text}>Categories</span>
+                                )}
                             </Link>
                         </li>
                         <li>
-                            <Link href="/admin/managers" className='fw-bold'>
+                            <Link href="/admin/managers" className='fw-bold' style={{ transition: 'all 0.3s' }}>
                                 <span className={styles.icon}><FaUserTie /></span>
-                                <span className={styles.link_text}>Managers</span>
+                                {!active && showTitle && (
+                                    <span className={styles.link_text}>Managers</span>
+                                )}
                             </Link>
                         </li>
                         <li>
-                            <Link href="/admin/sellers" className='fw-bold'>
+                            <Link href="/admin/sellers" className='fw-bold' style={{ transition: 'all 0.3s' }}>
                                 <span className={styles.icon}><FaHospitalUser /></span>
-                                <span className={styles.link_text}>Sellers</span>
+                                {!active && showTitle && (
+                                    <span className={styles.link_text}>Sellers</span>
+                                )}
                             </Link>
                         </li>
                         <li>
-                            <Link href="/admin/customers" className='fw-bold'>
+                            <Link href="/admin/customers" className='fw-bold' style={{ transition: 'all 0.3s' }}>
                                 <span className={styles.icon}><FaUsers /></span>
-                                <span className={styles.link_text}>Customers</span>
+                                {!active && showTitle && (
+                                    <span className={styles.link_text}>Customers</span>
+                                )}
                             </Link>
                         </li>
                         <li>
-                            <Link href="/admin/settings" className='fw-bold'>
+                            <Link href="/admin/settings" className='fw-bold' style={{ transition: 'all 0.3s' }}>
                                 <span className={styles.icon}><FiSettings /></span>
-                                <span className={styles.link_text}>Settings</span>
+                                {!active && showTitle && (
+                                    <span className={styles.link_text}>Settings</span>
+                                )}
                             </Link>
                         </li>
-                        <li>
-                            <a onClick={handleLogout} className={` fw-bold`} style={{ cursor: "pointer" }}>
+
+                        <li className={styles.logoutLink}>
+                            <a onClick={handleLogout} className={`fw-bold`} style={{ cursor: "pointer", transition: 'all 0.3s' }}>
                                 <span className={styles.icon}><FaPowerOff color="red" /></span>
-                                <span className={styles.link_text}>Logout</span>
+                                {!active && showTitle && (
+                                    <span className={`${styles.link_text}`}>Logout</span>
+                                )}
                             </a>
                         </li>
                     </ul>
                 </nav>
-
-                <div>
+                <div className='w-75'>
                     <nav className="navbar navbar-expand-lg" style={{ background: "#0A2647" }}>
                         <div className='container'>
                             {
                                 active ? null :
-                                    <span onClick={toggleSidebar} id={styles.sidebarCollapse}>
-                                        <Image
-                                            style={{ cursor: "pointer" }}
-                                            src={leftArrow} height={24} width={24} alt="img" />
+                                    <span onClick={toggleSidebar}>
+                                        <CgMenu
+                                            size="24"
+                                            style={{ cursor: "pointer", color: "white" }}
+                                            className={`${styles.icon} fw-bold`}
+                                            onClick={toggleSidebar} />
                                     </span>
                             }
                             <ul className="nav navbar-nav ms-auto">

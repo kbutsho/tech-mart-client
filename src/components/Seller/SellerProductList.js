@@ -21,7 +21,6 @@ const SellerProductList = () => {
     const [data, setData] = useState();
     const [loading, setLoading] = useState(false)
     const token = Cookies.get('token')
-    const router = useRouter()
     useEffect(() => {
         const fetchData = async () => {
             try {

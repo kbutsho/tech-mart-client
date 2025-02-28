@@ -1,5 +1,5 @@
 import Breadcrumb from "@/components/Breadcrumb/Index";
-import AdminSidebar from "@/layouts/admin/AdminLayout";
+import AdminLayout from "@/layouts/admin/AdminLayout";
 import Head from "next/head";
 
 const Dashboard = () => {
@@ -12,7 +12,7 @@ const Dashboard = () => {
             <Breadcrumb />
             <div className="px-md-3 px-2 py-2">
                 <h5 className="fw-bold text-danger">coming soon!</h5>
-                <p className="small-text">Tech Mart is an online tech store offering a wide range of cutting-edge electronics, gadgets, and accessories. It provides a user-friendly platform for customers to explore and purchase the latest tech products across various categories, ensuring a convenient and up-to-date shopping experience.</p>
+                <input type="text" placeholder="name" className="form-control" />
             </div>
         </div>
     );
@@ -20,5 +20,5 @@ const Dashboard = () => {
 
 export default Dashboard;
 Dashboard.getLayout = function getLayout(page) {
-    return <AdminSidebar>{page}</AdminSidebar>;
+    return <AdminLayout>{page}</AdminLayout>;
 };

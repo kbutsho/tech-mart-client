@@ -53,8 +53,6 @@ const SellerLayout = ({ children }) => {
     if (isLoading) {
         return <div style={{ height: "100vh" }}></div>;
     }
-
-
     const handleContextMenu = (event) => {
         if (process.env.NODE_ENV === 'production') {
             event.preventDefault();
@@ -170,8 +168,7 @@ const SellerLayout = ({ children }) => {
                     </nav>
 
                     <div className="px-2" onContextMenu={handleContextMenu}
-                        style={{ backgroundColor: "#FAFAFA" }}
-                    >
+                        style={{ backgroundColor: "#FAFAFA" }}>
                         {children}
                     </div>
                 </div>
