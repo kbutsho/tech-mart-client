@@ -291,14 +291,14 @@ const Login = () => {
                     </div>
                     <input type="submit" className='btn btn-primary w-100 mb-2 fw-bold btn-sm' value="Login" />
                 </form>
-                <div className='d-flex justify-content-center align-items-center mb-2'>
+                {/* <div className='d-flex justify-content-center align-items-center mb-2'>
                     <hr /> <small className='mx-2'>or</small> <hr />
-                </div>
-                <button onClick={signInWithGoogle} className='btn btn-outline-success btn-sm w-100 mb-2 d-flex justify-content-around align-items-center'>
+                </div> */}
+                {/* <button onClick={signInWithGoogle} className='btn btn-outline-success btn-sm w-100 mb-2 d-flex justify-content-around align-items-center'>
                     <span>continue with google</span>
                     <Image src={google} width={16} height={16} alt="img" />
-                </button>
-                {
+                </button> */}
+                {/* {
                     process.env.NEXT_PUBLIC_IS_LOGIN === "true" ?
                         <div>
                             <div className='d-flex justify-content-center align-items-center mb-2'>
@@ -315,7 +315,7 @@ const Login = () => {
                                 </tbody>
                             </table>
                         </div> : null
-                }
+                } */}
                 <div className='d-flex justify-content-between mt-2'>
                     <small ><Link className='fw-bold' href="/">Home</Link></small>
                     <small >new user? <Link className='fw-bold' href="/signup">signup here</Link></small>
